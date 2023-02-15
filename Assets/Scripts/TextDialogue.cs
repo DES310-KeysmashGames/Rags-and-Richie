@@ -4,16 +4,16 @@ using UnityEngine;
 
 [System.Serializable]
 
-public enum DialogueEmotion
+public enum IntroCategory
 {
-    happy, sad, calm, mysterious, angry, neutral, excited, timid, scared
+    Food, Drink, Machinery, Luxury, Warmth, Weapon
 }
 
 [CreateAssetMenu(menuName = "Dialogue System/Dialogue", fileName = "New Dialogue")]
 public class TextDialogue : ScriptableObject
 {
     [TextArea][SerializeField] public string lineOfDialogue;
-    [SerializeField] public DialogueEmotion emotion;
+    [SerializeField] public IntroCategory category;
 
 }
 

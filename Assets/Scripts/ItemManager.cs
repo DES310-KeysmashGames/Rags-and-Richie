@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField] BaseItem[] itemList;
     [SerializeField] public List<BaseItem> fullstock = new List<BaseItem>();
     [SerializeField] public List<BaseItem> inventory = new List<BaseItem>();
     BaseItem[] CurrentItems;

@@ -19,6 +19,7 @@ public class BaseCharacter : ScriptableObject
     [SerializeField] public int weaponDesire;
     [SerializeField] public int machineryDesire;
     [SerializeField] public int luxuryDesire;
+    [SerializeField] public int warmthDesire;
     [SerializeField] public TextDialogue introText { get; set; }
 }
 

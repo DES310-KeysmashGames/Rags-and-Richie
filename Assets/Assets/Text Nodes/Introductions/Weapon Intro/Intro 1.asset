@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineOfDialogue: 'My town just had an infestation of rats! They''ve eaten all of
     our crops and we can''t get anyone to clear them out! '
-  emotion: 8
+  category: 5

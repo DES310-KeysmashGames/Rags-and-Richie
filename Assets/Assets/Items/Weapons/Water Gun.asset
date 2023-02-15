@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
-  m_Name: Half Bottle of Wine
+  m_Name: Water Gun
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 4db5fb40c1bd3f54c8f7a24d7e801882, type: 3}
-  itemName: Half Bottle of Wine
-  type: 3
-  Description: A bottle of wine that's been broken, containing only half of it's
-    volume.
+  frontSprite: {fileID: 21300000, guid: 24dc353556d16e9489bbd518453b9065, type: 3}
+  itemName: Water Gun
+  type: 1
+  Description: A water gun, it shoots out a liquid. Requires refilling upon use.
   inspected: 0
   price: 10
-  foodValue: 2
-  weaponValue: 3
-  drinkValue: 4
+  foodValue: 0
+  weaponValue: 4
+  drinkValue: 2
   machineryValue: 0
-  luxuryValue: 5
+  luxuryValue: 1
   warmthValue: 0

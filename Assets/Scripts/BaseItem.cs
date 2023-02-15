@@ -27,6 +27,7 @@ public class BaseItem : ScriptableObject
     [SerializeField] public int drinkValue;
     [SerializeField] public int machineryValue;
     [SerializeField] public int luxuryValue;
+    [SerializeField] public int warmthValue;
 }
 
 public class Items : MonoBehaviour

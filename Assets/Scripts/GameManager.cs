@@ -8,13 +8,13 @@ using System;
 public class GameManager : MonoBehaviour
 {
 
-    public CharacterManager character;
+    private CharacterManager character;
     [SerializeField] public TextMeshProUGUI speechText;
     [SerializeField] public SpriteRenderer customer;
     [SerializeField] public SpriteRenderer[] items;
     private float timer;
     private bool trade;
-    public ItemManager itemManager;
+    private ItemManager itemManager;
 
     // Start is called before the first frame update
     void Start()
