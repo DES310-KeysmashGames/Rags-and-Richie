@@ -9,16 +9,6 @@ public class ItemManager : MonoBehaviour
 {
     [SerializeField] public List<BaseItem> fullstock = new List<BaseItem>();
     [SerializeField] public List<BaseItem> inventory = new List<BaseItem>();
-    BaseItem[] CurrentItems;
-    public static ItemManager Instance;
-
-
-
-    //private void Awake()
-    //{
-    //   Instance = this;
-    //   CurrentItems = new BaseItem[4];
-    //}
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
     public void GenerateItemList()
@@ -42,10 +32,9 @@ public class ItemManager : MonoBehaviour
         return inventory[itemNo].frontSprite;
     }
 
-    public int GetPrice(int itemNo)
+    public string GetName(int itemNo)
     {
-        //return CurrentItems[itemNo].price;
-        return inventory[itemNo].price;
+        return inventory[itemNo].name;
     }
 
     public int GetWeaponValue(int itemNo)

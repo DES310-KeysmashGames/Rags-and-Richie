@@ -20,8 +20,6 @@ public class BaseItem : ScriptableObject
     [SerializeField] public string itemName;
     [SerializeField] public ItemType type;
     [TextArea][SerializeField] public string Description;
-    [SerializeField] public bool inspected;
-    [SerializeField] public int price;
     [SerializeField] public int foodValue;
     [SerializeField] public int weaponValue;
     [SerializeField] public int drinkValue;
