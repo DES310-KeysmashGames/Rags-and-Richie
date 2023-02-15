@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
+  m_Name: Machinery 1
+  m_EditorClassIdentifier: 
+  lineOfDialogue: "HELLO YES I AM A REAL PERSON. NOT A ROBOT THAT\u2019D BE SILLY.
+    DON\u2019T BE SILLY.\r\nI WOULD LIKE A HUMAN BEVERAGE LIKE A HUMAN WOULD ENJOY.
+    I\u2019VE HEARD THERES A COCKTAIL CALLED A CORKSCREW. THE PROSPECT OF SCREWS
+    IN A COCKTAIL INTRIGUES ME A NORMAL HUMAN AMOUNT.\r\nIF ONLY DRINKING ALCOHOL
+    WAS STILL BEING BREWED HA-HA-HA IF ONLY. \r\n"
+  category: 2

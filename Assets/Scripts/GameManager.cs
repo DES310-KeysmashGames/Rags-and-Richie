@@ -4,18 +4,22 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEditor.UIElements;
 
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] private CharacterManager character;
+    private CharacterManager character;
     [SerializeField] private TextMeshProUGUI speechText;
     [SerializeField] private SpriteRenderer customer;
     [SerializeField] private SpriteRenderer[] items;
     [SerializeField] private TextMeshProUGUI[] itemText;
+    [SerializeField] private Button[] itemButtons;
     [SerializeField] private float timer;
     [SerializeField] private bool trade;
-    [SerializeField] private ItemManager itemManager;
+    [SerializeField] private int price;
+    //private int itemNo;
+    private ItemManager itemManager;
 
     private void Awake()
     {
@@ -33,6 +37,8 @@ public class GameManager : MonoBehaviour
             items[i].enabled = false;
             items[i].sprite = itemManager.GetSprite(i);
             itemText[i].text = itemManager.GetName(i);
+            itemText[i].enabled = false;
+            itemButtons[i].gameObject.SetActive(false);
         }
         trade = false;
         timer = 5.0f;
@@ -53,7 +59,6 @@ public class GameManager : MonoBehaviour
         if (timer <= 0.0f && trade == true)
         {
             ItemsForSale();
-            Debug.Log("This line is called");
         }
     }
 
@@ -61,7 +66,7 @@ public class GameManager : MonoBehaviour
     void NewCustomer()
     {
         character.GenerateCustomer();
-        speechText.text = "" + character.GetIntro();
+        speechText.text = "" + character.GetIntro(1);
         customer.sprite = character.GetSprite();
         timer = 5.0f;
     }
@@ -73,11 +78,14 @@ public class GameManager : MonoBehaviour
         {
             items[i].enabled = true;
             items[i].sprite = itemManager.GetSprite(i);
+            itemText[i].enabled = true;
+            itemButtons[i].gameObject.SetActive(true);
+            //itemNo = i;
         }
     }
 
     //disables showing the items.
-    void DisableItems()
+    public void DisableAllItems()
     {
         for (int i = 0; i < items.Length; ++i)
         {
