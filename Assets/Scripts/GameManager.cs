@@ -8,13 +8,20 @@ using System;
 public class GameManager : MonoBehaviour
 {
 
-    private CharacterManager character;
-    [SerializeField] public TextMeshProUGUI speechText;
-    [SerializeField] public SpriteRenderer customer;
-    [SerializeField] public SpriteRenderer[] items;
-    private float timer;
-    private bool trade;
-    private ItemManager itemManager;
+    [SerializeField] private CharacterManager character;
+    [SerializeField] private TextMeshProUGUI speechText;
+    [SerializeField] private SpriteRenderer customer;
+    [SerializeField] private SpriteRenderer[] items;
+    [SerializeField] private TextMeshProUGUI[] itemText;
+    [SerializeField] private float timer;
+    [SerializeField] private bool trade;
+    [SerializeField] private ItemManager itemManager;
+
+    private void Awake()
+    {
+        character = GetComponent<CharacterManager>();
+        itemManager = GetComponent<ItemManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +32,10 @@ public class GameManager : MonoBehaviour
         {
             items[i].enabled = false;
             items[i].sprite = itemManager.GetSprite(i);
+            itemText[i].text = itemManager.GetName(i);
         }
+        trade = false;
+        timer = 5.0f;
     }
 
     // Update is called once per frame
@@ -50,9 +60,9 @@ public class GameManager : MonoBehaviour
     //generate a new customer.
     void NewCustomer()
     {
-        character.generateCustomer();
-        speechText.text = "" + character.getIntro();
-        customer.sprite = character.getSprite();
+        character.GenerateCustomer();
+        speechText.text = "" + character.GetIntro();
+        customer.sprite = character.GetSprite();
         timer = 5.0f;
     }
 

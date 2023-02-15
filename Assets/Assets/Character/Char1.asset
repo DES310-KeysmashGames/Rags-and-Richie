@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
   m_Name: Char1
   m_EditorClassIdentifier: 
-  charSprite: {fileID: 21300000, guid: f329b7232cd7e094f8b7a42d52a7f44a, type: 3}
+  charSprite: {fileID: 21300000, guid: dfcc022a61a71c14ba43d47dcc891d4e, type: 3}
   personality: 0
   foodDesire: 0
   drinkDesire: 0
   weaponDesire: 0
   machineryDesire: 0
   luxuryDesire: 0
+  warmthDesire: 0
