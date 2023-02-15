@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEditor.UIElements;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timer;
     [SerializeField] private bool trade;
     [SerializeField] private int price;
+    private int introCount;
     //private int itemNo;
     private ItemManager itemManager;
 
@@ -42,12 +44,42 @@ public class GameManager : MonoBehaviour
         }
         trade = false;
         timer = 5.0f;
+        introCount = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
+        //doing customer intro
+        if (timer <= 0.0f && introCount == 2)
+        {
+            if (character.GetIntro(introCount) == null)
+            {
+                ItemsForSale();
+                introCount = 1;
+            }
+            else
+            {
+                speechText.text = character.GetIntro(introCount);
+                timer = 5.0f;
+                introCount = 3;
+            }
+        }
+        if (timer <= 0.0f && introCount == 3)
+        {
+            if (character.GetIntro(introCount) == null)
+            {
+                ItemsForSale();
+                introCount = 1;
+            }
+            else
+            {
+                speechText.text = character.GetIntro(introCount);
+                timer = 5.0f;
+                introCount = 1;
+            }
+        }
         //timer for the intro dialogue
         if (timer <= 0.0f && trade == false)
         {
@@ -66,9 +98,10 @@ public class GameManager : MonoBehaviour
     void NewCustomer()
     {
         character.GenerateCustomer();
-        speechText.text = "" + character.GetIntro(1);
         customer.sprite = character.GetSprite();
+        speechText.text = "" + character.GetIntro(1);
         timer = 5.0f;
+        introCount = 2;
     }
 
     //displays the items available for sale.
@@ -80,7 +113,6 @@ public class GameManager : MonoBehaviour
             items[i].sprite = itemManager.GetSprite(i);
             itemText[i].enabled = true;
             itemButtons[i].gameObject.SetActive(true);
-            //itemNo = i;
         }
     }
 

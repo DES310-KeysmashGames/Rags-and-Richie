@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Price too high
   m_EditorClassIdentifier: 
   lineOfDialogue: That's a rip off! I'm absolutely not paying that!
-  emotion: 4
+  category: 6

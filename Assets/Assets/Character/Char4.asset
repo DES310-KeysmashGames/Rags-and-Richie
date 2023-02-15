@@ -21,3 +21,5 @@ MonoBehaviour:
   machineryDesire: 1
   luxuryDesire: 3
   introText: {fileID: 11400000, guid: 43b397e2165d4754398f0ddad1417bd8, type: 2}
+  introText2: {fileID: 11400000, guid: 90c42dda14d750847a5487832f48a1da, type: 2}
+  introText3: {fileID: 0}

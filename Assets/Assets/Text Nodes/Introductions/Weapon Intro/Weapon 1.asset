@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: Weapon 1
   m_EditorClassIdentifier: 
   lineOfDialogue: "Don\u2019t suppose you deal in connections do you? I\u2019m looking
-    for a crew for my devious schemes...\r\nI plan to raid the home base of a nearby
-    gang, y\u2019see they\u2019ve got all these fancy-schmancy things that the rest
-    of us wastelands scrubs could never get our hands on. I hear they\u2019ve even
-    got a working hot tub!\r"
+    for a crew for my devious schemes...\r"
   category: 5

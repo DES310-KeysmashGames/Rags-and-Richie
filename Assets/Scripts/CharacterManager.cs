@@ -16,6 +16,7 @@ public class CharacterManager : MonoBehaviour
     public void GenerateCustomer()
     {
         int index = Random.Range(0, character.Length);
+        //checks to see if the customer has already visited today.
         for (int i = 0; i < prevCustomer.Count; i++)
         {
             if (character[index] == prevCustomer[i])
@@ -26,8 +27,8 @@ public class CharacterManager : MonoBehaviour
         if (!custExists)
         {
             currentChar = character[index];
-            for(int j = 0; j < character[index].introText; j++)
-            {            
+            for(int j = 0; j < character[index].introText.Length; j++)
+            {
                 currentChar.introText[j] = character[index].introText[j];
             }
             custExists = false;
