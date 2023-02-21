@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         }
         trade = false;
         timer = 5.0f;
-        introCount = 1;
+        introCount = 0;
     }
 
     // Update is called once per frame
@@ -52,32 +52,32 @@ public class GameManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
         //doing customer intro
+        if (timer <= 0.0f && introCount == 1)
+        {
+            if (character.GetIntro(introCount) == null)
+            {
+                ItemsForSale();
+                introCount = 0;
+            }
+            else
+            {
+                speechText.text = character.GetIntro(introCount);
+                timer = 5.0f;
+                introCount = 2;
+            }
+        }
         if (timer <= 0.0f && introCount == 2)
         {
             if (character.GetIntro(introCount) == null)
             {
                 ItemsForSale();
-                introCount = 1;
+                introCount = 0;
             }
             else
             {
                 speechText.text = character.GetIntro(introCount);
                 timer = 5.0f;
-                introCount = 3;
-            }
-        }
-        if (timer <= 0.0f && introCount == 3)
-        {
-            if (character.GetIntro(introCount) == null)
-            {
-                ItemsForSale();
-                introCount = 1;
-            }
-            else
-            {
-                speechText.text = character.GetIntro(introCount);
-                timer = 5.0f;
-                introCount = 1;
+                introCount = 0;
             }
         }
         //timer for the intro dialogue
@@ -99,9 +99,9 @@ public class GameManager : MonoBehaviour
     {
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
-        speechText.text = "" + character.GetIntro(1);
+        speechText.text = "" + character.GetIntro(0);
         timer = 5.0f;
-        introCount = 2;
+        introCount = 1;
     }
 
     //displays the items available for sale.
