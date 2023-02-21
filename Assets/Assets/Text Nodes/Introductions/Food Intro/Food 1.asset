@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Food 1
   m_EditorClassIdentifier: 
   lineOfDialogue: "Reckon you could help me out? A bunch of mutant rats broke into
-    my farm and stole all my crops.\r"
+    my farm and stole all my crops.\r\nThey\u2019ve set up a god damn military base
+    in my barn! I Just wanna see my two-headed livestock again...\r"
   category: 0

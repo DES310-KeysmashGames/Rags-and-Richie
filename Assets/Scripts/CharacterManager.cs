@@ -49,7 +49,12 @@ public class CharacterManager : MonoBehaviour
     {
         return tradeSpeech.lineOfDialogue;
     }
-    
+
+    public int GetIntroLength()
+    {
+        return currentChar.introText.Length;
+    }
+
     public string GenerateTradeText()
     {
         int index = Random.Range(0, inTradeText.Length);
@@ -84,5 +89,10 @@ public class CharacterManager : MonoBehaviour
     public int GetWeapon()
     {
         return currentChar.weaponDesire;
+    }
+
+    public float GetPatience()
+    {
+        return currentChar.patiece;
     }
 }

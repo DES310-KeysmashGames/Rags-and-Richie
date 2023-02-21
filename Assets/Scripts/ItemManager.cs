@@ -17,7 +17,6 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < 5; ++i)
         {
             int index = UnityEngine.Random.Range(0, fullstock.Count);
-            inventory.Add(fullstock[index]);
             for (int j = 0; j < inventory.Count; ++j)
             {
                 if (fullstock[index].name == inventory[j].name)
