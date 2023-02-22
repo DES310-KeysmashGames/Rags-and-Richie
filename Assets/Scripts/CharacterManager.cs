@@ -6,8 +6,9 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] BaseCharacter[] character;
+    [SerializeField] private List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
     public BaseCharacter currentChar;
-    [SerializeField] TextDialogue[] intro;
+    private bool custExists;
     [SerializeField] TextDialogue tradeSpeech;
     [SerializeField] TextDialogue[] inTradeText;
 
@@ -15,13 +16,28 @@ public class CharacterManager : MonoBehaviour
     public void GenerateCustomer()
     {
         int index = Random.Range(0, character.Length);
-        currentChar = character[index];
-        currentChar.introText = intro[index];
+        //checks to see if the customer has already visited today.
+        for (int i = 0; i < prevCustomer.Count; i++)
+        {
+            if (character[index] == prevCustomer[i])
+            {
+                custExists = true;
+            }
+        }
+        if (!custExists)
+        {
+            currentChar = character[index];
+            for(int j = 0; j < character[index].introText.Length; j++)
+            {
+                currentChar.introText[j] = character[index].introText[j];
+            }
+            custExists = false;
+        }
     }
 
-    public string GetIntro()
+    public string GetIntro(int introNo)
     {
-        return currentChar.introText.lineOfDialogue;
+        return currentChar.introText[introNo].lineOfDialogue;
     }
 
     public Sprite GetSprite()
@@ -33,10 +49,50 @@ public class CharacterManager : MonoBehaviour
     {
         return tradeSpeech.lineOfDialogue;
     }
-    
+
+    public int GetIntroLength()
+    {
+        return currentChar.introText.Length;
+    }
+
     public string GenerateTradeText()
     {
         int index = Random.Range(0, inTradeText.Length);
         return inTradeText[index].lineOfDialogue;
+    }
+
+    public int GetFood()
+    {
+        return currentChar.foodDesire;
+    }
+
+    public int GetDrink()
+    {
+        return currentChar.drinkDesire;
+    }
+
+    public int GetWarmth()
+    {
+        return currentChar.warmthDesire;
+    }
+
+    public int GetLuxury()
+    {
+        return currentChar.luxuryDesire;
+    }
+
+    public int GetMachinery()
+    {
+        return currentChar.machineryDesire;
+    }
+
+    public int GetWeapon()
+    {
+        return currentChar.weaponDesire;
+    }
+
+    public float GetPatience()
+    {
+        return currentChar.patiece;
     }
 }

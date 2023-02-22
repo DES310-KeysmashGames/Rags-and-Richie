@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
-  m_Name: Price is too Low
+  m_Name: Warmth 1
   m_EditorClassIdentifier: 
-  lineOfDialogue: That's a great price, I'll take that immediately!
-  category: 6
+  lineOfDialogue: "Ah, I appear to be at the wrong shop. I heard there was a mechanic
+    here. \r\nMy tank\u2019s oven broke. It\u2019s real cold inside there now...\r"
+  category: 4

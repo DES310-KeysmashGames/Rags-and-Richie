@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Accept
   m_EditorClassIdentifier: 
   lineOfDialogue: That's a good price, I'll take it!
-  emotion: 0
+  category: 6
