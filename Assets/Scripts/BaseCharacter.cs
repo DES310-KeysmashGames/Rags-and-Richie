@@ -21,7 +21,7 @@ public class BaseCharacter : ScriptableObject
     [SerializeField] public int machineryDesire;
     [SerializeField] public int luxuryDesire;
     [SerializeField] public TextDialogue[] introText;
-    [SerializeField] public float patiece;
+    [SerializeField] public int patiece;
 }
 
 public class Script : MonoBehaviour

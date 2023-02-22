@@ -91,7 +91,7 @@ public class CharacterManager : MonoBehaviour
         return currentChar.weaponDesire;
     }
 
-    public float GetPatience()
+    public int GetPatience()
     {
         return currentChar.patiece;
     }
