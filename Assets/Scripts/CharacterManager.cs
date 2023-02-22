@@ -11,6 +11,9 @@ public class CharacterManager : MonoBehaviour
     private bool custExists;
     [SerializeField] TextDialogue tradeSpeech;
     [SerializeField] TextDialogue[] inTradeText;
+    [SerializeField] TextDialogue[] acceptTrade;
+    [SerializeField] TextDialogue[] declineTrade;
+    [SerializeField] TextDialogue[] zeroPatience;
 
     //generates a random customer from the available list of possible customers, with an intro text.
     public void GenerateCustomer()
@@ -27,7 +30,7 @@ public class CharacterManager : MonoBehaviour
         if (!custExists)
         {
             currentChar = character[index];
-            for(int j = 0; j < character[index].introText.Length; j++)
+            for(int j = 0; j < character[index].introText.Count; j++)
             {
                 currentChar.introText[j] = character[index].introText[j];
             }
@@ -52,7 +55,7 @@ public class CharacterManager : MonoBehaviour
 
     public int GetIntroLength()
     {
-        return currentChar.introText.Length;
+        return currentChar.introText.Count;
     }
 
     public string GenerateTradeText()
@@ -94,5 +97,30 @@ public class CharacterManager : MonoBehaviour
     public int GetPatience()
     {
         return currentChar.patiece;
+    }
+
+    public int GetTolerance()
+    {
+        return currentChar.tolerance;
+    }
+
+    public int GetDesperation()
+    {
+        return currentChar.desperation;
+    }
+
+    public string NoPatience(int no)
+    {
+        return zeroPatience[no].lineOfDialogue;
+    }
+
+    public string AcceptDeal(int no)
+    {
+        return acceptTrade[no].lineOfDialogue;
+    }
+
+    public string DeclineDeal(int no)
+    {
+        return declineTrade[no].lineOfDialogue;
     }
 }

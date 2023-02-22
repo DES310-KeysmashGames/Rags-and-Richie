@@ -25,3 +25,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   patiece: 100
+  tolerance: 10
+  desperation: 8

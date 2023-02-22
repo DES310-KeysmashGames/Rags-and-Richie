@@ -20,8 +20,11 @@ public class BaseCharacter : ScriptableObject
     [SerializeField] public int weaponDesire;
     [SerializeField] public int machineryDesire;
     [SerializeField] public int luxuryDesire;
-    [SerializeField] public TextDialogue[] introText;
+    [SerializeField] public List<TextDialogue> introText = new List<TextDialogue>();
+    //[SerializeField] public TextDialogue[] introText;
     [SerializeField] public int patiece;
+    [SerializeField] public int tolerance;
+    [SerializeField] public int desperation;
 }
 
 public class Script : MonoBehaviour

@@ -25,3 +25,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35246c7bab207ad4a8126ac8c634931a, type: 2}
   - {fileID: 11400000, guid: 4f7e7b34b783dba4a851546aba06d009, type: 2}
   patiece: 100
+  tolerance: 5
+  desperation: 2
