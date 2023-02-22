@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int price;
     [SerializeField] private int setPrice;
     [SerializeField] private int patience;
+    [SerializeField] private int patienceDecrease;
     private int selectedItem;
     private bool itemsShown;
     private bool bargain;
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
         increaseButton.gameObject.SetActive(false);
         decreaseButton.gameObject.SetActive(false);
         patienceMeter.enabled = false;
+        patienceDecrease = 10;
     }
 
     // Update is called once per frame
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
         {
             InitialTrade();
         }
-        priceBox.text = Mathf.Round(priceSlider.normalizedValue * price).ToString();
+        priceBox.text = Mathf.Round(priceSlider.value).ToString();
         if (bargain)
         {
             
@@ -118,11 +120,20 @@ public class GameManager : MonoBehaviour
     public void IncreasePrice()
     {
         setPrice += 1;
+        patienceMeter.fillAmount = (float)patience / character.GetPatience();
     }
 
     public void DecreasePrice()
     {
         setPrice -= 1;
+        patienceMeter.fillAmount = (float)patience / character.GetPatience();
+    }
+
+    public void OfferPrice()
+    {
+        patience -= patienceDecrease;
+        patienceDecrease += 10;
+        patienceMeter.fillAmount = (float)patience / character.GetPatience();
     }
 
     void InitialTrade()
