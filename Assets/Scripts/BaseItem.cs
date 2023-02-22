@@ -21,11 +21,11 @@ public class BaseItem : ScriptableObject
     [SerializeField] public ItemType type;
     [TextArea][SerializeField] public string Description;
     [SerializeField] public int foodValue;
-    [SerializeField] public int weaponValue;
     [SerializeField] public int drinkValue;
+    [SerializeField] public int warmthValue;
+    [SerializeField] public int weaponValue;
     [SerializeField] public int machineryValue;
     [SerializeField] public int luxuryValue;
-    [SerializeField] public int warmthValue;
 }
 
 public class Items : MonoBehaviour
