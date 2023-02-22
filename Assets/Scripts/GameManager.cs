@@ -158,6 +158,10 @@ public class GameManager : MonoBehaviour
         bargainometer.enabled = false;
         priceBox.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
+        increaseButton.gameObject.SetActive(false);
+        increaseByFive.gameObject.SetActive(false);
+        decreaseButton.gameObject.SetActive(false);
+        decreaseByFive.gameObject.SetActive(false);
         timer = 5.0f;
     }
 
