@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int price;
     [SerializeField] private int basePrice;
     [SerializeField] private int setPrice;
-    [SerializeField] private int patience;
+    [SerializeField] private float patience;
     [SerializeField] private int patienceDecrease;
     [SerializeField] private int custDesperation;
     [SerializeField] private int turnCount;
@@ -288,7 +288,7 @@ public class GameManager : MonoBehaviour
 
     void CalculatePrice()
     {
-        tolerance = custDesperation * (patience / character.GetPatience());
+        tolerance = Mathf.RoundToInt(custDesperation * (patience / character.GetPatience()));
         basePrice = (character.GetDrink() * itemManager.GetDrinkValue(selectedItem)) + (character.GetFood() * itemManager.GetFoodValue(selectedItem)) + (character.GetLuxury() + itemManager.GetLuxuryValue(selectedItem))
             + (character.GetWeapon() * itemManager.GetWeaponValue(selectedItem)) + (character.GetWarmth() * itemManager.GetWarmthValue(selectedItem)) + (character.GetMachinery() * itemManager.GetMachineryValue(selectedItem));
         price = basePrice + tolerance;
@@ -303,7 +303,8 @@ public class GameManager : MonoBehaviour
 
     void ReCalculate()
     {
-        float value = (patience / character.GetPatience());
+        float value = (patience / (float)character.GetPatience());
+        Debug.Log("" + value);
         tolerance = Mathf.RoundToInt(custDesperation * value);
         price = basePrice + tolerance;
     }
@@ -404,6 +405,10 @@ public class GameManager : MonoBehaviour
         if (patience <= 0)
         {
             bargainSpeech.text = character.NoPatience(0);
+            speechText.enabled = true;
+            speechText.text = "You failed to sell the item!";
+            customer.enabled = false;
+            bargain = false;
         }
     }
 
