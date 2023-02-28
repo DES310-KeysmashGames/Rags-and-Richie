@@ -296,14 +296,14 @@ public class GameManager : MonoBehaviour
         priceSlider.gameObject.SetActive(true);
         priceSlider.minValue = (float)(price * 0.7);
         priceSlider.maxValue = (float)(price * 1.3);
-        priceSlider.value = (float)(price);
+        priceSlider.value = (price);
         priceBox.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(true);
     }
 
     void ReCalculate()
     {
-        float value = (patience / (float)character.GetPatience());
+        float value = (patience / character.GetPatience());
         Debug.Log("" + value);
         tolerance = Mathf.RoundToInt(custDesperation * value);
         price = basePrice + tolerance;
@@ -375,6 +375,7 @@ public class GameManager : MonoBehaviour
         itemButtons[1].gameObject.SetActive(false);
         itemButtons[2].gameObject.SetActive(false);
         itemButtons[3].gameObject.SetActive(false);
+        speechText.enabled = false;
         selectedItem = 3;
        // bargain = true;
         CalculatePrice();
@@ -392,12 +393,12 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseFive()
     {
-        setPrice += 5;
+        setPrice += 10;
     }
 
     public void DecreaseFive()
     {
-        setPrice -= 5;
+        setPrice -= 10;
     }
 
     void PatienceCheck()

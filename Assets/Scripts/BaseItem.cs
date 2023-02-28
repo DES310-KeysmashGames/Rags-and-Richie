@@ -27,17 +27,3 @@ public class BaseItem : ScriptableObject
     [SerializeField] public int machineryValue;
     [SerializeField] public int luxuryValue;
 }
-
-public class Items : MonoBehaviour
-{
-    public BaseItem[] allItems;
-    private void Start()
-    {
-        allItems = (BaseItem[])Resources.FindObjectsOfTypeAll(typeof(BaseItem));
-    }
-
-    public ScriptableObject[] getArray()
-    {
-        return allItems;
-    }
-}

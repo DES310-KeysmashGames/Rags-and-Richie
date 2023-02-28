@@ -26,18 +26,3 @@ public class BaseCharacter : ScriptableObject
     [SerializeField] public int tolerance;
     [SerializeField] public int desperation;
 }
-
-public class Script : MonoBehaviour
-{
-    BaseCharacter[] allChars;
-    private void Start()
-    {
-        allChars = (BaseCharacter[])Resources.FindObjectsOfTypeAll(typeof(BaseCharacter));
-        Debug.Log(allChars[0]);
-    }
-
-    public ScriptableObject[] getArray()
-    {
-        return allChars;
-    }
-}
