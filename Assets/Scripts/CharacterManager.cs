@@ -58,10 +58,9 @@ public class CharacterManager : MonoBehaviour
         return currentChar.introText.Count;
     }
 
-    public string GenerateTradeText()
+    public string GenerateTradeText(int no)
     {
-        int index = Random.Range(0, inTradeText.Length);
-        return inTradeText[index].lineOfDialogue;
+        return inTradeText[no].lineOfDialogue;
     }
 
     public int GetFood()
