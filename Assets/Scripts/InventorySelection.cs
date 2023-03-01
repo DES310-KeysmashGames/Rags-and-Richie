@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+//using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
@@ -16,7 +16,18 @@ public class InventorySelection : MonoBehaviour
     [SerializeField] private Image[] sprites;
 
     private void Start(){
+        ShuffleItems(scavengedItems);
         AssignSprites();
+    }
+
+    void ShuffleItems<T>(List<T> inputList){
+        for (int i=0;i<inputList.Count - 1 ;i++){
+            T temp = inputList[i];
+            int rand = UnityEngine.Random.Range(i,inputList.Count);
+            inputList[i] = inputList[rand];
+            inputList[rand] = temp;
+
+        }
     }
 
     public Sprite GetSprite(int i)
