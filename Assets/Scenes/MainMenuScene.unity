@@ -1028,6 +1028,7 @@ MonoBehaviour:
   playButton: {fileID: 1761060983}
   optionsButton: {fileID: 780852145}
   quitButton: {fileID: 341038235}
+  audioMixer: {fileID: 24100000, guid: b41fd2b6bfac94f4fac33cbfde9a5363, type: 2}
 --- !u!1 &1451299324
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] Button optionsButton;
     [SerializeField] Button quitButton;
+    public AudioMixer audioMixer;
 
     private void Awake(){
         //optionsCanvas = GetComponent<Canvas>();
@@ -32,6 +34,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void SetSFXVolume(float SFXvolume){
         Debug.Log("sfx volume = " + SFXvolume);
+        audioMixer.SetFloat("mixVolume", SFXvolume);
     }
 
     public void SetMusicVolume(float musicVolume){
