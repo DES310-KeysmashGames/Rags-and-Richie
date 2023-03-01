@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
-  m_Name: Mouldy Cheese Baguette
+  m_Name: Hot Sauce
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 2ce3ca0100ade81468fd452a043fb357, type: 3}
-  itemName: Mouldy Cheese Baguette
+  frontSprite: {fileID: 21300000, guid: e66025e3c96e2354fad580d36f9ac731, type: 3}
+  itemName: 
   type: 0
   Description: 
-  inspected: 0
-  price: 5
-  foodValue: 3
-  weaponValue: 0
-  drinkValue: 0
+  foodValue: 2
+  drinkValue: 4
+  warmthValue: 3
+  weaponValue: 2
   machineryValue: 0
   luxuryValue: 1

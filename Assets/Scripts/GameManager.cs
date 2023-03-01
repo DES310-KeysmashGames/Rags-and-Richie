@@ -274,18 +274,18 @@ public class GameManager : MonoBehaviour
                 patienceDecrease += 10;
                 bargainSpeech.text = character.GenerateTradeText(0);
             }
-            else if (discrepancy < 1.0f)
+            else if (discrepancy <= 1.0f)
             {
                 AcceptDeal();
             }
-            if (setPrice < price)
+            if (setPrice <= price)
             {
                 AcceptDeal();
             }
         }
         if (turnCount == 5)
         {
-            if (discrepancy < 1.0f)
+            if (discrepancy <= 1.0f)
             {
                 AcceptDeal();
             }
