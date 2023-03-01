@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     //ui for selecting inital price
     [Header("UI elements for selecting the initial price")]
     [SerializeField] private Image bargainometer;
-    [SerializeField] private Slider priceSlider;
     [SerializeField] private TextMeshProUGUI priceBox;
     [SerializeField] private Button confirmButton;
 
@@ -77,7 +76,6 @@ public class GameManager : MonoBehaviour
         bargain = false;
         timer = 5.0f;
         bargainometer.enabled = false;
-        priceSlider.gameObject.SetActive(false);
         priceBox.gameObject.SetActive(false);
         confirmButton.gameObject.SetActive(false);
         increaseButton.gameObject.SetActive(false);
@@ -100,7 +98,15 @@ public class GameManager : MonoBehaviour
         {
             InitialTrade(timer);
         }
-        priceBox.text = Mathf.Round(priceSlider.value).ToString();
+        priceBox.text = setPrice.ToString();
+        if(setPrice > 99)
+        {
+            setPrice = 99;
+        }
+        if (setPrice < 0)
+        {
+            setPrice = 0;
+        }
         if (bargain)
         {
             PatienceCheck();
@@ -117,119 +123,6 @@ public class GameManager : MonoBehaviour
                 bargainSpeech.enabled = false;
             }
         }
-    }
-
-    public void PriceConfirm()
-    {
-        setPrice = (int)(priceSlider.value);
-        confirmButton.gameObject.SetActive(false);
-        priceSlider.gameObject.SetActive(false);
-        priceBox.gameObject.SetActive(false);
-        bargainSpeech.enabled = true;
-        bargainometer.enabled = false;
-        bargain = true;
-        patienceMeter.enabled = true;
-        timer = 5.0f;
-        turnCount = 1;
-        if (setPrice < price)
-        {
-            bargainSpeech.text = character.GenerateTradeText(1);
-        }
-        else if( setPrice > price)
-        {
-            bargainSpeech.text = character.GenerateTradeText(2);
-        }
-        else if (setPrice > basePrice)
-        {
-            bargainSpeech.text = character.GenerateTradeText(0);
-        }
-    }
-
-    public void OfferPrice()
-    {
-        bargainSpeech.enabled = true;
-        turnCount++;
-        patienceDecrease += 5;
-        PriceCheck();
-        patience -= patienceDecrease;
-        Desperation();
-        ReCalculate();
-        patienceMeter.fillAmount = (float)patience / character.GetPatience();
-        bargainometer.enabled = false;
-        priceBox.gameObject.SetActive(false);
-        confirmButton2.gameObject.SetActive(false);
-        increaseButton.gameObject.SetActive(false);
-        increaseByFive.gameObject.SetActive(false);
-        decreaseButton.gameObject.SetActive(false);
-        decreaseByFive.gameObject.SetActive(false);
-        timer = 5.0f;
-    }
-
-    void PriceCheck()
-    {
-        float discrepancy = (setPrice / basePrice);
-        if (turnCount < 5)
-        {
-            if (discrepancy > 2.0f)
-            {
-                patienceDecrease += 20;
-                bargainSpeech.text = character.GenerateTradeText(2);
-            }
-            else if (discrepancy > 1.5f)
-            {
-                patienceDecrease += 15;
-                bargainSpeech.text = character.GenerateTradeText(2);
-            }
-            else if (discrepancy > 1.0f)
-            {
-                patienceDecrease += 10;
-                bargainSpeech.text = character.GenerateTradeText(0);
-            }
-            else if (discrepancy < 1.0f)
-            {
-                AcceptDeal();
-            }
-            if (setPrice < price)
-            {
-                AcceptDeal();
-            }
-        }
-        if (turnCount == 5)
-        {
-            if (discrepancy < 1.0f)
-            {
-                AcceptDeal();
-            }
-            else
-            {
-                DeclineDeal();
-            }
-        }
-    }
-
-    void Desperation()
-    {
-        switch (turnCount)
-        {
-            case 1:
-                custDesperation += 1;
-                break;
-            case 2:
-                custDesperation += 5;
-                break;
-            case 3:
-                custDesperation += 10;
-                break;
-            case 4:
-                custDesperation += 15;
-                break;
-            case 5:
-                custDesperation += 20;
-                break;
-            case 6:
-                DeclineDeal();
-                break;
-        };
     }
 
     void InitialTrade(float timer)
@@ -277,15 +170,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //disables showing the items.
-    public void DisableAllItems()
-    {
-        for (int i = 0; i < items.Length; ++i)
-        {
-            items[i].enabled = false;
-        }
-    }
-
     void CalculatePrice()
     {
         tolerance = Mathf.RoundToInt(custDesperation * (patience / character.GetPatience()));
@@ -293,20 +177,144 @@ public class GameManager : MonoBehaviour
             + (character.GetWeapon() * itemManager.GetWeaponValue(selectedItem)) + (character.GetWarmth() * itemManager.GetWarmthValue(selectedItem)) + (character.GetMachinery() * itemManager.GetMachineryValue(selectedItem));
         price = basePrice + tolerance;
         bargainometer.enabled = true;
-        priceSlider.gameObject.SetActive(true);
-        priceSlider.minValue = (float)(price * 0.7);
-        priceSlider.maxValue = (float)(price * 1.3);
-        priceSlider.value = (price);
+        priceBox.gameObject.SetActive(true);
+        priceBox.text = setPrice.ToString();
+        increaseButton.gameObject.SetActive(true);
+        decreaseButton.gameObject.SetActive(true);
+        increaseByFive.gameObject.SetActive(true);
+        decreaseByFive.gameObject.SetActive(true);
         priceBox.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(true);
     }
 
+    public void PriceConfirm()
+    {
+        setPrice = 0;
+        confirmButton.gameObject.SetActive(false);
+        priceBox.gameObject.SetActive(false);
+        bargainSpeech.enabled = true;
+        bargainometer.enabled = false;
+        bargain = true;
+        patienceMeter.enabled = true;
+        timer = 5.0f;
+        turnCount = 1;
+        if (setPrice < price)
+        {
+            bargainSpeech.text = character.GenerateTradeText(1);
+        }
+        else if( setPrice > price)
+        {
+            bargainSpeech.text = character.GenerateTradeText(2);
+        }
+        else if (setPrice > basePrice)
+        {
+            bargainSpeech.text = character.GenerateTradeText(0);
+        }
+    }
+
+    public void OfferPrice()
+    {
+        bargainSpeech.enabled = true;
+        turnCount++;
+        patienceDecrease += 5;
+        PriceCheck();
+        patience -= patienceDecrease;
+        Desperation();
+        ReCalculate();
+        patienceMeter.fillAmount = (float)patience / character.GetPatience();
+        bargainometer.enabled = false;
+        priceBox.gameObject.SetActive(false);
+        confirmButton2.gameObject.SetActive(false);
+        increaseButton.gameObject.SetActive(false);
+        increaseByFive.gameObject.SetActive(false);
+        decreaseButton.gameObject.SetActive(false);
+        decreaseByFive.gameObject.SetActive(false);
+        timer = 5.0f;
+    }
+    void PriceCheck()
+    {
+        float discrepancy = (setPrice / basePrice);
+        if (turnCount < 5)
+        {
+            if (discrepancy > 2.0f)
+            {
+                patienceDecrease += 20;
+                bargainSpeech.text = character.GenerateTradeText(2);
+            }
+            else if (discrepancy > 1.5f)
+            {
+                patienceDecrease += 15;
+                bargainSpeech.text = character.GenerateTradeText(2);
+            }
+            else if (discrepancy > 1.0f)
+            {
+                patienceDecrease += 10;
+                bargainSpeech.text = character.GenerateTradeText(0);
+            }
+            else if (discrepancy < 1.0f)
+            {
+                AcceptDeal();
+            }
+            if (setPrice < price)
+            {
+                AcceptDeal();
+            }
+        }
+        if (turnCount == 5)
+        {
+            if (discrepancy < 1.0f)
+            {
+                AcceptDeal();
+            }
+            else
+            {
+                DeclineDeal();
+            }
+        }
+    }
     void ReCalculate()
     {
         float value = (patience / character.GetPatience());
         Debug.Log("" + value);
         tolerance = Mathf.RoundToInt(custDesperation * value);
         price = basePrice + tolerance;
+    }
+
+    void PatienceCheck()
+    {
+        if (patience <= 0)
+        {
+            bargainSpeech.text = character.NoPatience(0);
+            speechText.enabled = true;
+            speechText.text = "You failed to sell the item!";
+            customer.enabled = false;
+            bargain = false;
+        }
+    }
+
+    void Desperation()
+    {
+        switch (turnCount)
+        {
+            case 1:
+                custDesperation += 1;
+                break;
+            case 2:
+                custDesperation += 5;
+                break;
+            case 3:
+                custDesperation += 10;
+                break;
+            case 4:
+                custDesperation += 15;
+                break;
+            case 5:
+                custDesperation += 20;
+                break;
+            case 6:
+                DeclineDeal();
+                break;
+        };
     }
 
     public void SelectItem1()
@@ -323,7 +331,6 @@ public class GameManager : MonoBehaviour
         itemButtons[3].gameObject.SetActive(false);
         speechText.enabled = false;
         selectedItem = 0;
-        //bargain = true;
         CalculatePrice();
     }
 
@@ -341,7 +348,6 @@ public class GameManager : MonoBehaviour
         itemButtons[3].gameObject.SetActive(false);
         selectedItem = 1;
         speechText.enabled = false;
-        //bargain = true;
         CalculatePrice();
     }
 
@@ -359,7 +365,6 @@ public class GameManager : MonoBehaviour
         itemButtons[3].gameObject.SetActive(false);
         selectedItem = 2;
         speechText.enabled = false;
-        //bargain = true;
         CalculatePrice();
     }
 
@@ -377,7 +382,6 @@ public class GameManager : MonoBehaviour
         itemButtons[3].gameObject.SetActive(false);
         speechText.enabled = false;
         selectedItem = 3;
-       // bargain = true;
         CalculatePrice();
     }
 
@@ -399,18 +403,6 @@ public class GameManager : MonoBehaviour
     public void DecreaseFive()
     {
         setPrice -= 10;
-    }
-
-    void PatienceCheck()
-    {
-        if (patience <= 0)
-        {
-            bargainSpeech.text = character.NoPatience(0);
-            speechText.enabled = true;
-            speechText.text = "You failed to sell the item!";
-            customer.enabled = false;
-            bargain = false;
-        }
     }
 
     void AcceptDeal()

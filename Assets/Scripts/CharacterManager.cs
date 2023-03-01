@@ -38,6 +38,12 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void SaleOver()
+    {
+        prevCustomer.Add(currentChar);
+        currentChar = null;
+    }
+    
     public string GetIntro(int introNo)
     {
         return currentChar.introText[introNo].lineOfDialogue;
