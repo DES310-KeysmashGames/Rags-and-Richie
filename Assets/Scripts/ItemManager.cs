@@ -36,6 +36,11 @@ public class ItemManager : MonoBehaviour
          } 
     }
 
+    public void SoldItem(int no)
+    {
+        inventory.RemoveAt(no);
+    }
+
     public Sprite GetSprite(int itemNo)
     {
         //return CurrentItems[itemNo].frontSprite;

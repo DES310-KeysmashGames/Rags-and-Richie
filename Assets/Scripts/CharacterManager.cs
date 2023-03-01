@@ -104,11 +104,6 @@ public class CharacterManager : MonoBehaviour
         return currentChar.patiece;
     }
 
-    public int GetTolerance()
-    {
-        return currentChar.tolerance;
-    }
-
     public int GetDesperation()
     {
         return currentChar.desperation;
