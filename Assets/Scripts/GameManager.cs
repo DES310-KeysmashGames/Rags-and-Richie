@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     [Header("UI elements for the intro and Item Select")] 
     [SerializeField] private TextMeshProUGUI speechText;
     [SerializeField] private SpriteRenderer customer;
-    [SerializeField] private SpriteRenderer[] items;
     [SerializeField] private TextMeshProUGUI[] itemText;
     [SerializeField] private Button[] itemButtons;
 
@@ -40,7 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bargainSpeech;
     [SerializeField] private int tolerance;
 
-    private float timer;
+    [SerializeField] private float timer;
     private bool trade;
     [SerializeField] private int price;
     [SerializeField] private int basePrice;
@@ -52,6 +51,8 @@ public class GameManager : MonoBehaviour
     private int selectedItem;
     private bool itemsShown;
     private bool bargain;
+    [SerializeField] private int introLength;
+    [SerializeField] private int introCount;
 
     private void Awake()
     {
@@ -64,10 +65,8 @@ public class GameManager : MonoBehaviour
     {
         NewCustomer();
         itemManager.GenerateItemList();
-        for (int i = 0; i < items.Length; ++i)
+        for (int i = 0; i < itemButtons.Length; ++i)
         {
-            items[i].enabled = false;
-            items[i].sprite = itemManager.GetSprite(i);
             itemText[i].text = itemManager.GetName(i);
             itemText[i].enabled = false;
             itemButtons[i].gameObject.SetActive(false);
@@ -125,10 +124,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void InitialTrade(float timer)
+    void InitialTrade(float time)
     {
-        timer -= Time.deltaTime;
-        TradeSpeech(timer);
+        time -= Time.deltaTime;
+        TradeSpeech(time);
         //transitions to selling the stores wares.
         if (timer <= 0.0f && trade == true)
         {
@@ -136,13 +135,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void TradeSpeech(float timer)
+    void TradeSpeech(float time)
     {
-        if (timer <= 0.0f && trade == false)
+        if (time <= 0.0f)
         {
-            speechText.text = "" + character.TradeSpeech();
-            timer = 2.0f;
-            trade = true;
+            if (introCount == 2 && introCount < introLength)
+            {
+                speechText.text = "" + character.GetIntro(introCount);
+                timer = 2.0f;
+                introCount = 3;
+            }
+            else if (introCount == 1 && introCount < introLength)
+            {
+                speechText.text = "" + character.GetIntro(introCount);
+                timer = 2.0f;
+                introCount = 2;
+            }
+            else if (introCount == 3 || introCount >= introLength)
+            {
+                speechText.text = "" + character.TradeSpeech();
+                timer = 2.0f;
+                trade = true;
+                introCount = 0;
+            }
+
         }
     }
     //generate a new customer.
@@ -150,19 +166,20 @@ public class GameManager : MonoBehaviour
     {
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
-        speechText.text = "" + character.GetIntro(0);
+        speechText.text = "" + character.GetIntro(introCount);
+        introCount = 1;
         patience = character.GetPatience();
         custDesperation = character.GetDesperation();
         timer = 5.0f;
+        introLength = character.GetIntroLength();
     }
 
     //displays the items available for sale.
     void ItemsForSale()
     {
-        for (int i = 0; i < items.Length; ++i)
+        for (int i = 0; i < itemButtons.Length; ++i)
         {
-            items[i].enabled = true;
-            items[i].sprite = itemManager.GetSprite(i);
+            itemButtons[i].image.sprite = itemManager.GetSprite(i);
             itemText[i].enabled = true;
             itemButtons[i].gameObject.SetActive(true);
             trade = false;
@@ -231,6 +248,7 @@ public class GameManager : MonoBehaviour
         decreaseByFive.gameObject.SetActive(false);
         timer = 5.0f;
     }
+
     void PriceCheck()
     {
         float discrepancy = (setPrice / basePrice);
@@ -272,6 +290,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     void ReCalculate()
     {
         float value = (patience / character.GetPatience());
@@ -319,13 +338,10 @@ public class GameManager : MonoBehaviour
 
     public void SelectItem1()
     {
-        items[1].enabled = false;
-        items[2].enabled = false;
-        items[3].enabled = false;
         itemText[1].enabled = false;
         itemText[2].enabled = false;
         itemText[3].enabled = false;
-        itemButtons[0].gameObject.SetActive(false);
+        itemButtons[0].interactable = false;
         itemButtons[1].gameObject.SetActive(false);
         itemButtons[2].gameObject.SetActive(false);
         itemButtons[3].gameObject.SetActive(false);
@@ -336,14 +352,11 @@ public class GameManager : MonoBehaviour
 
     public void SelectItem2()
     {
-        items[0].enabled = false;
-        items[2].enabled = false;
-        items[3].enabled = false;
         itemText[0].enabled = false;
         itemText[2].enabled = false;
         itemText[3].enabled = false;
         itemButtons[0].gameObject.SetActive(false);
-        itemButtons[1].gameObject.SetActive(false);
+        itemButtons[1].interactable = false;
         itemButtons[2].gameObject.SetActive(false);
         itemButtons[3].gameObject.SetActive(false);
         selectedItem = 1;
@@ -353,15 +366,12 @@ public class GameManager : MonoBehaviour
 
     public void SelectItem3()
     {
-        items[0].enabled = false;
-        items[1].enabled = false;
-        items[3].enabled = false;
         itemText[0].enabled = false;
         itemText[1].enabled = false;
         itemText[3].enabled = false;
         itemButtons[0].gameObject.SetActive(false);
         itemButtons[1].gameObject.SetActive(false);
-        itemButtons[2].gameObject.SetActive(false);
+        itemButtons[2].interactable = false;
         itemButtons[3].gameObject.SetActive(false);
         selectedItem = 2;
         speechText.enabled = false;
@@ -370,16 +380,13 @@ public class GameManager : MonoBehaviour
 
     public void SelectItem4()
     {
-        items[0].enabled = false;
-        items[1].enabled = false;
-        items[2].enabled = false;
         itemText[0].enabled = false;
         itemText[1].enabled = false;
         itemText[2].enabled = false;
         itemButtons[0].gameObject.SetActive(false);
         itemButtons[1].gameObject.SetActive(false);
         itemButtons[2].gameObject.SetActive(false);
-        itemButtons[3].gameObject.SetActive(false);
+        itemButtons[3].interactable = false;
         speechText.enabled = false;
         selectedItem = 3;
         CalculatePrice();
