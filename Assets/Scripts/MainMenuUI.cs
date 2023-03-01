@@ -30,4 +30,12 @@ public class MainMenuUI : MonoBehaviour
         });
     }
 
+    public void SetSFXVolume(float SFXvolume){
+        Debug.Log("sfx volume = " + SFXvolume);
+    }
+
+    public void SetMusicVolume(float musicVolume){
+        Debug.Log("music volume = " + musicVolume);
+    }
+
 }
