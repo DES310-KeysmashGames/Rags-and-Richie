@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     //ui for the intro and item select
     [Header("UI elements for the intro and Item Select")] 
     [SerializeField] private TextMeshProUGUI speechText;
-    [SerializeField] private SpriteRenderer customer;
+    [SerializeField] private Image customer;
     [SerializeField] private TextMeshProUGUI[] itemText;
     [SerializeField] private Button[] itemButtons;
 
@@ -39,11 +39,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bargainSpeech;
     [SerializeField] private int tolerance;
 
-    [SerializeField] private float timer;
+    private float timer;
     private bool trade;
     [SerializeField] private int price;
     [SerializeField] private int basePrice;
-    [SerializeField] private int setPrice;
+    [SerializeField] private float setPrice;
     [SerializeField] private float patience;
     [SerializeField] private int patienceDecrease;
     [SerializeField] private int custDesperation;
@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
     private int selectedItem;
     private bool itemsShown;
     private bool bargain;
-    [SerializeField] private int introLength;
-    [SerializeField] private int introCount;
+    private int introLength;
+    private int introCount;
 
     private void Awake()
     {
@@ -209,6 +209,11 @@ public class GameManager : MonoBehaviour
         setPrice = 0;
         confirmButton.gameObject.SetActive(false);
         priceBox.gameObject.SetActive(false);
+        confirmButton2.gameObject.SetActive(false);
+        increaseButton.gameObject.SetActive(false);
+        increaseByFive.gameObject.SetActive(false);
+        decreaseButton.gameObject.SetActive(false);
+        decreaseByFive.gameObject.SetActive(false);
         bargainSpeech.enabled = true;
         bargainometer.enabled = false;
         bargain = true;
@@ -417,6 +422,7 @@ public class GameManager : MonoBehaviour
         bargainSpeech.text = character.AcceptDeal(0);
         speechText.enabled = true;
         speechText.text = "You sold the item!";
+        itemManager.SoldItem(selectedItem);
         customer.enabled = false;
         bargain = false;
     }
