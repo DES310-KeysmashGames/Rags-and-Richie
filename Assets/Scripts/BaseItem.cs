@@ -20,26 +20,10 @@ public class BaseItem : ScriptableObject
     [SerializeField] public string itemName;
     [SerializeField] public ItemType type;
     [TextArea][SerializeField] public string Description;
-    [SerializeField] public bool inspected;
-    [SerializeField] public int price;
     [SerializeField] public int foodValue;
-    [SerializeField] public int weaponValue;
     [SerializeField] public int drinkValue;
+    [SerializeField] public int warmthValue;
+    [SerializeField] public int weaponValue;
     [SerializeField] public int machineryValue;
     [SerializeField] public int luxuryValue;
-    [SerializeField] public int warmthValue;
-}
-
-public class Items : MonoBehaviour
-{
-    public BaseItem[] allItems;
-    private void Start()
-    {
-        allItems = (BaseItem[])Resources.FindObjectsOfTypeAll(typeof(BaseItem));
-    }
-
-    public ScriptableObject[] getArray()
-    {
-        return allItems;
-    }
 }

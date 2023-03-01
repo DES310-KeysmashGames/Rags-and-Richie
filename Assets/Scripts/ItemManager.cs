@@ -9,30 +9,30 @@ public class ItemManager : MonoBehaviour
 {
     [SerializeField] public List<BaseItem> fullstock = new List<BaseItem>();
     [SerializeField] public List<BaseItem> inventory = new List<BaseItem>();
-    BaseItem[] CurrentItems;
-    public static ItemManager Instance;
-
-
-
-    //private void Awake()
-    //{
-    //   Instance = this;
-    //   CurrentItems = new BaseItem[4];
-    //}
+    private bool itemExists;
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
     public void GenerateItemList()
     {
         for (int i = 0; i < 5; ++i)
         {
-            //int index = UnityEngine.Random.Range(0, itemList.Length);
-            //Debug.Log("Index number is " + index);
-            //Debug.Log("Item is " + itemList[index].name);
-            //Debug.Log("Added to current items " + CurrentItems[i].name);
-            //CurrentItems[i] = itemList[index];
             int index = UnityEngine.Random.Range(0, fullstock.Count);
-            inventory.Add(fullstock[index]);
-            Debug.Log(inventory[i].name);
+            for (int j = 0; j < inventory.Count; ++j)
+            {
+                if (fullstock[index].name == inventory[j].name)
+                {
+                    itemExists = true;
+                }
+            }
+            if (itemExists)
+            {
+                i--;
+            }
+            else
+            {
+                inventory.Add(fullstock[index]);
+            }
+            itemExists = false;
          } 
     }
 
@@ -42,10 +42,9 @@ public class ItemManager : MonoBehaviour
         return inventory[itemNo].frontSprite;
     }
 
-    public int GetPrice(int itemNo)
+    public string GetName(int itemNo)
     {
-        //return CurrentItems[itemNo].price;
-        return inventory[itemNo].price;
+        return inventory[itemNo].name;
     }
 
     public int GetWeaponValue(int itemNo)
@@ -72,5 +71,10 @@ public class ItemManager : MonoBehaviour
     {
         // return CurrentItems[itemNo].machineryValue;
         return inventory[itemNo].machineryValue;
+    }
+
+    public int GetWarmthValue(int itemNo)
+    {
+        return inventory[itemNo].warmthValue;
     }
 }

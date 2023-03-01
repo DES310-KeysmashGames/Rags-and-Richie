@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: A bit too high
   m_EditorClassIdentifier: 
   lineOfDialogue: That's a bit more than I'm willing to pay...
-  emotion: 5
+  category: 6
