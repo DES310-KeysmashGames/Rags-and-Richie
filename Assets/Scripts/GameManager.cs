@@ -259,7 +259,11 @@ public class GameManager : MonoBehaviour
         float discrepancy = (setPrice / basePrice);
         if (turnCount < 5)
         {
-            if (discrepancy > 2.0f)
+            if (setPrice <= price)
+            {
+                AcceptDeal();
+            }
+            else if (discrepancy > 2.0f)
             {
                 patienceDecrease += 20;
                 bargainSpeech.text = character.GenerateTradeText(2);
@@ -274,11 +278,7 @@ public class GameManager : MonoBehaviour
                 patienceDecrease += 10;
                 bargainSpeech.text = character.GenerateTradeText(0);
             }
-            else if (discrepancy < 1.0f)
-            {
-                AcceptDeal();
-            }
-            if (setPrice < price)
+            else if (discrepancy <= 1.0f)
             {
                 AcceptDeal();
             }
