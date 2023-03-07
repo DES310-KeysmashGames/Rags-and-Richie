@@ -2123,7 +2123,11 @@ MonoBehaviour:
   - {fileID: 574793644}
   - {fileID: 183406539}
   chosenInventory: []
-  chosenItemsprites: []
+  chosenItemsprites:
+  - {fileID: 1441498112}
+  - {fileID: 798861413}
+  - {fileID: 1770284583}
+  - {fileID: 796356364}
   confirmButton: {fileID: 570890814}
 --- !u!1 &1441498110
 GameObject:
