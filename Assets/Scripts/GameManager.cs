@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     //managers for item and character
     private ItemManager itemManager;
     private CharacterManager character;
+    private PatienceMeter patienceArrow;
 
     //ui elements
     //ui for the intro and item select
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
     {
         character = GetComponent<CharacterManager>();
         itemManager = GetComponent<ItemManager>();
+        patienceArrow = GetComponent<PatienceMeter>();
     }
 
     // Start is called before the first frame update
@@ -86,6 +88,7 @@ public class GameManager : MonoBehaviour
         patienceText.enabled = false;
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
+        patienceArrow.setInactive();
         patienceDecrease = 0;
         turnCount = 0;
     }
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
         {
             InitialTrade(timer);
         }
-        priceBox.text = setPrice.ToString();
+        priceBox.text = setPrice.ToString("00");
         if(setPrice > 99)
         {
             setPrice = 99;
@@ -115,7 +118,7 @@ public class GameManager : MonoBehaviour
             {
                 bargainometer.enabled = true;
                 priceBox.gameObject.SetActive(true);
-                priceBox.text = setPrice.ToString();
+                priceBox.text = setPrice.ToString("00");
                 increaseButton.gameObject.SetActive(true);
                 decreaseButton.gameObject.SetActive(true);
                 increaseByTen.gameObject.SetActive(true);
@@ -199,7 +202,7 @@ public class GameManager : MonoBehaviour
         price = basePrice + tolerance;
         bargainometer.enabled = true;
         priceBox.gameObject.SetActive(true);
-        priceBox.text = setPrice.ToString();
+        priceBox.text = setPrice.ToString("00");
         increaseButton.gameObject.SetActive(true);
         decreaseButton.gameObject.SetActive(true);
         increaseByTen.gameObject.SetActive(true);
@@ -221,6 +224,7 @@ public class GameManager : MonoBehaviour
         bargainometer.enabled = false;
         bargain = true;
         patienceMeter.enabled = true;
+        patienceArrow.SetRotation(patience, character.GetPatience());
         timer = 5.0f;
         turnCount = 1;
         if (setPrice < price)
@@ -235,7 +239,7 @@ public class GameManager : MonoBehaviour
         {
             bargainSpeech.text = character.GenerateTradeText(0);
         }
-        setPrice = 0;
+        //setPrice = 0;
         customer.enabled = true;
     }
 
@@ -247,9 +251,13 @@ public class GameManager : MonoBehaviour
         patienceDecrease += 5;
         PriceCheck();
         patience -= patienceDecrease;
+        if(patience < 0)
+        {
+            patience = 0;
+        }
         Desperation();
         ReCalculate();
-        patienceMeter.fillAmount = (float)patience / character.GetPatience();
+        patienceArrow.SetRotation(patience, character.GetPatience());
         bargainometer.enabled = false;
         priceBox.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
@@ -305,7 +313,6 @@ public class GameManager : MonoBehaviour
     void ReCalculate()
     {
         float value = (patience / character.GetPatience());
-        Debug.Log("" + value);
         tolerance = Mathf.RoundToInt(custDesperation * value);
         price = basePrice + tolerance;
     }
