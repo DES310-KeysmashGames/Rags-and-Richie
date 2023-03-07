@@ -23,21 +23,5 @@ public class BaseCharacter : ScriptableObject
     [SerializeField] public List<TextDialogue> introText = new List<TextDialogue>();
     //[SerializeField] public TextDialogue[] introText;
     [SerializeField] public int patiece;
-    [SerializeField] public int tolerance;
     [SerializeField] public int desperation;
-}
-
-public class Script : MonoBehaviour
-{
-    BaseCharacter[] allChars;
-    private void Start()
-    {
-        allChars = (BaseCharacter[])Resources.FindObjectsOfTypeAll(typeof(BaseCharacter));
-        Debug.Log(allChars[0]);
-    }
-
-    public ScriptableObject[] getArray()
-    {
-        return allChars;
-    }
 }

@@ -38,6 +38,12 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void SaleOver()
+    {
+        prevCustomer.Add(currentChar);
+        currentChar = null;
+    }
+    
     public string GetIntro(int introNo)
     {
         return currentChar.introText[introNo].lineOfDialogue;
@@ -96,11 +102,6 @@ public class CharacterManager : MonoBehaviour
     public int GetPatience()
     {
         return currentChar.patiece;
-    }
-
-    public int GetTolerance()
-    {
-        return currentChar.tolerance;
     }
 
     public int GetDesperation()
