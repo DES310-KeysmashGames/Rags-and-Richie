@@ -10,7 +10,8 @@ public static class Loader
         MainMenuScene,
         DayOverviewScene,
         ItemSelectScene,
-        TradeScene
+        TradeScene,
+        EndingScene
     }
 
     public static void Load(Scene targetScene){

@@ -14,7 +14,14 @@ public class InventorySelection : MonoBehaviour
     [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
     [SerializeField] private Image[] scavengedItemSprites;
     [SerializeField] private Image[] sprites;
+    [SerializeField] Button confirmButton;
 
+    private void Awake(){
+        confirmButton.onClick.AddListener(()=> {
+            //click action
+            Loader.Load(Loader.Scene.TradeScene);
+        });
+    }
     private void Start(){
         ShuffleItems(scavengedItems);
         AssignSprites();

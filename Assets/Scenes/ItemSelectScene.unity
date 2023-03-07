@@ -2117,6 +2117,7 @@ MonoBehaviour:
   - {fileID: 574793644}
   - {fileID: 183406539}
   sprites: []
+  confirmButton: {fileID: 570890814}
 --- !u!1 &1441498110
 GameObject:
   m_ObjectHideFlags: 0
