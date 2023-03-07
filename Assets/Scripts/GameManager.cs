@@ -31,9 +31,9 @@ public class GameManager : MonoBehaviour
     //ui for Bargaining phase
     [Header("UI elements for the the bargaining phase")]
     [SerializeField] private Button increaseButton;
-    [SerializeField] private Button increaseByFive;
+    [SerializeField] private Button increaseByTen;
     [SerializeField] private Button decreaseButton;
-    [SerializeField] private Button decreaseByFive;
+    [SerializeField] private Button decreaseByTen;
     [SerializeField] private Image patienceMeter;
     [SerializeField] private Button confirmButton2;
     [SerializeField] private TextMeshProUGUI bargainSpeech;
@@ -78,9 +78,9 @@ public class GameManager : MonoBehaviour
         priceBox.gameObject.SetActive(false);
         confirmButton.gameObject.SetActive(false);
         increaseButton.gameObject.SetActive(false);
-        increaseByFive.gameObject.SetActive(false);
+        increaseByTen.gameObject.SetActive(false);
         decreaseButton.gameObject.SetActive(false);
-        decreaseByFive.gameObject.SetActive(false);
+        decreaseByTen.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
@@ -116,8 +116,8 @@ public class GameManager : MonoBehaviour
                 priceBox.text = setPrice.ToString();
                 increaseButton.gameObject.SetActive(true);
                 decreaseButton.gameObject.SetActive(true);
-                increaseByFive.gameObject.SetActive(true);
-                decreaseByFive.gameObject.SetActive(true);
+                increaseByTen.gameObject.SetActive(true);
+                decreaseByTen.gameObject.SetActive(true);
                 confirmButton2.gameObject.SetActive(true);
                 bargainSpeech.enabled = false;
             }
@@ -142,19 +142,19 @@ public class GameManager : MonoBehaviour
             if (introCount == 2 && introCount < introLength)
             {
                 speechText.text = "" + character.GetIntro(introCount);
-                timer = 2.0f;
+                timer = 3.0f;
                 introCount = 3;
             }
             else if (introCount == 1 && introCount < introLength)
             {
                 speechText.text = "" + character.GetIntro(introCount);
-                timer = 2.0f;
+                timer = 3.0f;
                 introCount = 2;
             }
             else if (introCount == 3 || introCount >= introLength)
             {
                 speechText.text = "" + character.TradeSpeech();
-                timer = 2.0f;
+                timer = 3.0f;
                 trade = true;
                 introCount = 0;
             }
@@ -198,22 +198,21 @@ public class GameManager : MonoBehaviour
         priceBox.text = setPrice.ToString();
         increaseButton.gameObject.SetActive(true);
         decreaseButton.gameObject.SetActive(true);
-        increaseByFive.gameObject.SetActive(true);
-        decreaseByFive.gameObject.SetActive(true);
+        increaseByTen.gameObject.SetActive(true);
+        decreaseByTen.gameObject.SetActive(true);
         priceBox.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(true);
     }
 
     public void PriceConfirm()
     {
-        setPrice = 0;
         confirmButton.gameObject.SetActive(false);
         priceBox.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
         increaseButton.gameObject.SetActive(false);
-        increaseByFive.gameObject.SetActive(false);
+        increaseByTen.gameObject.SetActive(false);
         decreaseButton.gameObject.SetActive(false);
-        decreaseByFive.gameObject.SetActive(false);
+        decreaseByTen.gameObject.SetActive(false);
         bargainSpeech.enabled = true;
         bargainometer.enabled = false;
         bargain = true;
@@ -232,6 +231,7 @@ public class GameManager : MonoBehaviour
         {
             bargainSpeech.text = character.GenerateTradeText(0);
         }
+        setPrice = 0;
     }
 
     public void OfferPrice()
@@ -248,9 +248,9 @@ public class GameManager : MonoBehaviour
         priceBox.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
         increaseButton.gameObject.SetActive(false);
-        increaseByFive.gameObject.SetActive(false);
+        increaseByTen.gameObject.SetActive(false);
         decreaseButton.gameObject.SetActive(false);
-        decreaseByFive.gameObject.SetActive(false);
+        decreaseByTen.gameObject.SetActive(false);
         timer = 5.0f;
     }
 
@@ -407,12 +407,12 @@ public class GameManager : MonoBehaviour
         setPrice -= 1;
     }
 
-    public void IncreaseFive()
+    public void IncreaseTen()
     {
         setPrice += 10;
     }
 
-    public void DecreaseFive()
+    public void DecreaseTen()
     {
         setPrice -= 10;
     }
