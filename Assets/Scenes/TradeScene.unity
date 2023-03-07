@@ -343,7 +343,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 944116509}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DecreaseFive
+        m_MethodName: DecreaseTen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2265,7 +2265,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1728261b86c35374989d7d86832b5514, type: 2}
   - {fileID: 11400000, guid: 07c6c19601a5f844385b556807278900, type: 2}
   - {fileID: 11400000, guid: f31133a0819ee1e43b95d9acf4a5a6ad, type: 2}
-  - {fileID: 11400000, guid: f31133a0819ee1e43b95d9acf4a5a6ad, type: 2}
   acceptTrade:
   - {fileID: 11400000, guid: de54b890f99dae146a0dc18c9aaa6982, type: 2}
   declineTrade:
@@ -2322,9 +2321,9 @@ MonoBehaviour:
   priceBox: {fileID: 1313629533}
   confirmButton: {fileID: 1767635020}
   increaseButton: {fileID: 1241513306}
-  increaseByFive: {fileID: 1209477430}
+  increaseByTen: {fileID: 1209477430}
   decreaseButton: {fileID: 756828089}
-  decreaseByFive: {fileID: 16949817}
+  decreaseByTen: {fileID: 16949817}
   patienceMeter: {fileID: 1835678559}
   confirmButton2: {fileID: 15338446}
   bargainSpeech: {fileID: 150303958}
@@ -2611,7 +2610,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 944116509}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreaseFive
+        m_MethodName: IncreaseTen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

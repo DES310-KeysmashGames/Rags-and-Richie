@@ -17,9 +17,9 @@ MonoBehaviour:
   type: 3
   Description: A bottle of wine that's been broken, containing only half of it's
     volume.
-  foodValue: 1
-  drinkValue: 3
+  foodValue: 2
+  drinkValue: 4
   warmthValue: 0
   weaponValue: 3
   machineryValue: 0
-  luxuryValue: 4
+  luxuryValue: 5
