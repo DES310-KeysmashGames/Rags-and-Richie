@@ -16,11 +16,9 @@ MonoBehaviour:
   itemName: Gas Mask
   type: 5
   Description: A gas mask from a long time ago.
-  inspected: 0
-  price: 15
   foodValue: 0
-  weaponValue: 0
   drinkValue: 0
-  machineryValue: 0
-  luxuryValue: 0
-  warmthValue: 0
+  warmthValue: 1
+  weaponValue: 3
+  machineryValue: 1
+  luxuryValue: 5

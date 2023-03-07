@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     //ui for Bargaining phase
     [Header("UI elements for the the bargaining phase")]
+    [SerializeField] private TextMeshProUGUI patienceText;
     [SerializeField] private Button increaseButton;
     [SerializeField] private Button increaseByTen;
     [SerializeField] private Button decreaseButton;
@@ -82,6 +83,7 @@ public class GameManager : MonoBehaviour
         decreaseButton.gameObject.SetActive(false);
         decreaseByTen.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
+        patienceText.enabled = false;
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
         patienceDecrease = 0;
@@ -119,6 +121,7 @@ public class GameManager : MonoBehaviour
                 increaseByTen.gameObject.SetActive(true);
                 decreaseByTen.gameObject.SetActive(true);
                 confirmButton2.gameObject.SetActive(true);
+                patienceText.enabled = true;
                 bargainSpeech.enabled = false;
             }
         }
