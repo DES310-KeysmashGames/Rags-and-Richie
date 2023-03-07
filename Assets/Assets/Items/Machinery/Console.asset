@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
-  m_Name: Half Bottle of Wine
+  m_Name: Console
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 40600c7fcc33de34f864e61f7a8a2d63, type: 3}
-  itemName: Half Bottle of Wine
-  type: 3
-  Description: A bottle of wine that's been broken, containing only half of it's
-    volume.
-  foodValue: 2
-  drinkValue: 4
-  warmthValue: 0
-  weaponValue: 3
-  machineryValue: 0
-  luxuryValue: 5
+  frontSprite: {fileID: 21300000, guid: 929292ad063606e479a1a7f22230a2d4, type: 3}
+  itemName: 
+  type: 0
+  Description: 
+  foodValue: 3
+  drinkValue: 0
+  warmthValue: 1
+  weaponValue: 0
+  machineryValue: 4
+  luxuryValue: 2

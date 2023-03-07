@@ -285,7 +285,7 @@ public class GameManager : MonoBehaviour
         }
         if (turnCount == 5)
         {
-            if (discrepancy < 1.0f)
+            if (discrepancy <= 1.0f)
             {
                 AcceptDeal();
             }
