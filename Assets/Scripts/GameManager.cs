@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
                 confirmButton2.gameObject.SetActive(true);
                 patienceText.enabled = true;
                 bargainSpeech.enabled = false;
+                customer.enabled = false;
             }
         }
     }
@@ -235,11 +236,13 @@ public class GameManager : MonoBehaviour
             bargainSpeech.text = character.GenerateTradeText(0);
         }
         setPrice = 0;
+        customer.enabled = true;
     }
 
     public void OfferPrice()
     {
         bargainSpeech.enabled = true;
+        customer.enabled = true;
         turnCount++;
         patienceDecrease += 5;
         PriceCheck();
