@@ -9,11 +9,15 @@ using UnityEngine.UI;
 public class InventorySelection : MonoBehaviour
 {
     //list for items to be selected from
+    //scavanged items
     [SerializeField] public List<BaseItem> scavengedItems = new List<BaseItem>();
-    //list for items to be selected into
-    [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
     [SerializeField] private Image[] scavengedItemSprites;
-    [SerializeField] private Image[] sprites;
+    //list for items to be selected into
+    //chosen items
+    [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
+    [SerializeField] private Image[] chosenItemsprites;
+
+    //buttons
     [SerializeField] Button confirmButton;
 
     private void Awake(){
@@ -25,6 +29,10 @@ public class InventorySelection : MonoBehaviour
     private void Start(){
         ShuffleItems(scavengedItems);
         AssignSprites();
+    }
+
+    private void Update(){
+        
     }
 
     void ShuffleItems<T>(List<T> inputList){
@@ -49,4 +57,6 @@ public class InventorySelection : MonoBehaviour
             scavengedItemSprites[i].sprite = GetSprite(i);
         }
     }
+
+
 }

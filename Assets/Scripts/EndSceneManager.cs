@@ -1,18 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndSceneManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] Button finishButton;
+    [SerializeField] Image[] endScreens;
+    [SerializeField] private int value;
+    
+
+
+    private void Awake(){
+        finishButton.onClick.AddListener(()=> {
+            //click action
+            Loader.Load(Loader.Scene.MainMenuScene);
+        });
+        //set all images to disabled
+        for (int i =0; i < endScreens.Length; i++){
+                endScreens[i].enabled = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void Start(){
+        //display bad ending
+        if (value<10){
+            endScreens[0].enabled = true;
+        }
+        //display neutral ending
         
+        if (value >= 10 & value <50)
+        {
+            endScreens[1].enabled = true;
+        }
+        //display good ending
+        if (value >= 50){
+            endScreens[2].enabled = true;
+        }
     }
+    
 }
