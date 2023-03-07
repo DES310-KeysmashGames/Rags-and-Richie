@@ -10,6 +10,7 @@ public class InventorySelection : MonoBehaviour
 {
     //list for items to be selected from
     //scavanged items
+    [SerializeField] private List<Button> selectionButtons = new List<Button>();
     [SerializeField] public List<BaseItem> scavengedItems = new List<BaseItem>();
     [SerializeField] private Image[] scavengedItemSprites;
     //list for items to be selected into
@@ -23,17 +24,40 @@ public class InventorySelection : MonoBehaviour
     private void Awake(){
         confirmButton.onClick.AddListener(()=> {
             //click action
-            Loader.Load(Loader.Scene.TradeScene);
+            if(chosenInventory.Count == 4){
+                Loader.Load(Loader.Scene.TradeScene);
+            }
+            
         });
     }
     private void Start(){
         ShuffleItems(scavengedItems);
         AssignSprites();
+        for (int i = 0; i < selectionButtons.Count; i++){
+        int closureIndex = i ; // Prevents the closure problem
+        selectionButtons[closureIndex].onClick.AddListener( () => TaskOnClick( closureIndex ) );
+        }
     }
 
     private void Update(){
-        
+  
     }
+
+    private void TaskOnClick( int buttonIndex )
+  {
+      //Debug.Log("You have clicked the button #" + buttonIndex, selectionButtons[buttonIndex]);
+      
+      //if inventory is not full, add item
+      if(chosenInventory.Count < 4){
+        Debug.Log("This item is: " + scavengedItems[buttonIndex]);
+        chosenInventory.Add(scavengedItems[buttonIndex]);
+        Debug.Log("You have added "+chosenInventory.Count + " items to your inventory");
+      }else{
+        Debug.Log("Inventory is full");
+      }
+      
+
+  }
 
     void ShuffleItems<T>(List<T> inputList){
         for (int i=0;i<inputList.Count - 1 ;i++){
