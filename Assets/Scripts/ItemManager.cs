@@ -77,9 +77,15 @@ public class ItemManager : MonoBehaviour
         // return CurrentItems[itemNo].machineryValue;
         return inventory[itemNo].machineryValue;
     }
-
     public int GetWarmthValue(int itemNo)
     {
         return inventory[itemNo].warmthValue;
+    }
+    public void Reset()
+    {
+        for(int i =0; i < inventory.Count; i++)
+        {
+            inventory.RemoveAt(i);
+        }
     }
 }
