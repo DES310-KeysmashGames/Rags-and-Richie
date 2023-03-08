@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Toilet Seat
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: c1e6c79f0ac3f0b40ab6644a1a6bd632, type: 3}
-  itemName: 
+  itemName: Toilet Seat
   type: 4
   Description: 
   foodValue: 1
