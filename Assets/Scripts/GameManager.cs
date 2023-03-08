@@ -76,6 +76,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("items from selection screen" + StaticInventory.intermediateList[0]);
+        Debug.Log(StaticInventory.intermediateList[1]);
+        Debug.Log(StaticInventory.intermediateList[2]);
+        Debug.Log(StaticInventory.intermediateList[3]);
         NewCustomer();
         itemManager.GenerateItemList();
         for (int i = 0; i < itemButtons.Length; ++i)
