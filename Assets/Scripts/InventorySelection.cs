@@ -26,6 +26,9 @@ public class InventorySelection : MonoBehaviour
         confirmButton.onClick.AddListener(()=> {
             //click action
             if(chosenInventory.Count == 4){
+                for( int i =0; i < chosenInventory.Count; i++){
+                    StaticInventory.intermediateList.Add(chosenInventory[i]);
+                }
                 
                 Loader.Load(Loader.Scene.TradeScene);
             }
