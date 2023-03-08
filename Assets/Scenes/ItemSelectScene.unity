@@ -2109,12 +2109,12 @@ MonoBehaviour:
   - {fileID: 768199864}
   - {fileID: 34663490}
   scavengedItems:
-  - {fileID: 11400000, guid: 97744c88d518f08488cc85e47728166a, type: 2}
+  - {fileID: 11400000, guid: 142c147a6b7be454b8e1067f1879ed0e, type: 2}
   - {fileID: 11400000, guid: 68e1657683684274f955cddf9e9b0499, type: 2}
   - {fileID: 11400000, guid: 9bc0c0252e44f214cb0c0c3278b7bf8e, type: 2}
-  - {fileID: 11400000, guid: 1bdc9968bd9b7ff4ea4bf178b5d8a06f, type: 2}
-  - {fileID: 11400000, guid: 8938fe44c53856544bd6f3e55844d29a, type: 2}
-  - {fileID: 11400000, guid: 6d1c93c0e3f3ab344b8e5e1faafb23e2, type: 2}
+  - {fileID: 11400000, guid: 739b5cff8b5962a49b1dd5d7126bd04e, type: 2}
+  - {fileID: 11400000, guid: 7ad0c9c41a253f645a3ca6ab8775e658, type: 2}
+  - {fileID: 11400000, guid: 917a3d83865683b4f90f67a8a5185657, type: 2}
   scavengedItemSprites:
   - {fileID: 1584030262}
   - {fileID: 1426993002}
