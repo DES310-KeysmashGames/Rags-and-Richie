@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 88889d6cac899ed458dfe4186659c746, type: 3}
   itemName: 
-  type: 0
+  type: 4
   Description: 
   foodValue: 3
   drinkValue: 0

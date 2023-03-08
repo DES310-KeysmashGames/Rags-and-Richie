@@ -123,4 +123,12 @@ public class CharacterManager : MonoBehaviour
     {
         return declineTrade[no].lineOfDialogue;
     }
+
+    public void Reset()
+    {
+        for(int i = 0; i < prevCustomer.Count; ++i)
+        {
+            prevCustomer.RemoveAt(i);
+        }
+    }
 }
