@@ -87,13 +87,15 @@ public class ItemManager : MonoBehaviour
     }
     public void Reset()
     {
-        for(int i =0; i < inventory.Count; i++)
-        {
-            inventory.RemoveAt(i);
-        }
-        for (int j = 0; j < StaticInventory.intermediateList.Count; ++j)
-        {
-            StaticInventory.intermediateList.RemoveAt(j);
-        }
+        //for(int i =0; i < inventory.Count; i++)
+        //{
+        //    inventory.RemoveAt(i);
+        //}
+        //for (int j = 0; j < StaticInventory.intermediateList.Count; ++j)
+        //{
+        //    StaticInventory.intermediateList.RemoveAt(j);
+        //}
+        inventory.RemoveRange(0, inventory.Count);
+        StaticInventory.intermediateList.RemoveRange(0, StaticInventory.intermediateList.Count);
     }
 }
