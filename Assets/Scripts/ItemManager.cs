@@ -91,5 +91,9 @@ public class ItemManager : MonoBehaviour
         {
             inventory.RemoveAt(i);
         }
+        for (int j = 0; j < StaticInventory.intermediateList.Count; ++j)
+        {
+            StaticInventory.intermediateList.RemoveAt(j);
+        }
     }
 }
