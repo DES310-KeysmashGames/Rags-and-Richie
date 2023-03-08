@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     private ItemManager itemManager;
     private CharacterManager character;
     private PatienceMeter patienceArrow;
+    private EndSceneManager endSceneManager;
 
     //ui elements
     //ui for the intro and item select
@@ -40,6 +42,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bargainSpeech;
     [SerializeField] private int tolerance;
 
+    //UI for ending the game
+    [Header("UI elements for ending the game")]
+    [SerializeField] private Button endGameButton;
+
+    //miscellaneous values
+    [Header("Private game attributes")]
     private float timer;
     private bool trade;
     [SerializeField] private int price;
@@ -60,6 +68,11 @@ public class GameManager : MonoBehaviour
         character = GetComponent<CharacterManager>();
         itemManager = GetComponent<ItemManager>();
         patienceArrow = GetComponent<PatienceMeter>();
+
+        endGameButton.onClick.AddListener(() => {
+            //click action
+            Loader.Load(Loader.Scene.EndingScene);
+        });
     }
 
     // Start is called before the first frame update
@@ -84,6 +97,7 @@ public class GameManager : MonoBehaviour
         decreaseButton.gameObject.SetActive(false);
         decreaseByTen.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
+        endGameButton.gameObject.SetActive(false);
         patienceText.enabled = false;
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
@@ -320,11 +334,7 @@ public class GameManager : MonoBehaviour
     {
         if (patience <= 0)
         {
-            bargainSpeech.text = character.NoPatience(0);
-            speechText.enabled = true;
-            speechText.text = "You failed to sell the item!";
-            customer.enabled = false;
-            bargain = false;
+            DeclineDeal();
         }
     }
 
@@ -431,20 +441,35 @@ public class GameManager : MonoBehaviour
 
     void AcceptDeal()
     {
+        endGameButton.gameObject.SetActive(true);
         bargainSpeech.text = character.AcceptDeal(0);
         speechText.enabled = true;
         speechText.text = "You sold the item!";
         itemManager.SoldItem(selectedItem);
         customer.enabled = false;
         bargain = false;
+        endSceneManager.SetScene(2);
     }
 
     void DeclineDeal()
     {
+        endGameButton.gameObject.SetActive(true);
         bargainSpeech.text = character.DeclineDeal(0);
         speechText.enabled = true;
         speechText.text = "You failed to sell the item!";
         customer.enabled = false;
         bargain = false;
+        endSceneManager.SetScene(0);
+    }
+
+    void ResetLevel()
+    {
+        itemManager.Reset();
+        character.Reset();
+    }
+
+    public void EndGame()
+    {
+        Loader.Load(Loader.Scene.EndingScene);
     }
 }

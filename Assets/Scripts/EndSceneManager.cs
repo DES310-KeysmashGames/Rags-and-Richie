@@ -39,4 +39,8 @@ public class EndSceneManager : MonoBehaviour
         }
     }
     
+    public void SetScene(int sceneNo)
+    {
+        endScreens[sceneNo].enabled = true;
+    }
 }
