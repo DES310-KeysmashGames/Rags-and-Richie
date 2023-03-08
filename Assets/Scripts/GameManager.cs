@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     private ItemManager itemManager;
     private CharacterManager character;
     private PatienceMeter patienceArrow;
-    private EndSceneManager endSceneManager;
 
     //ui elements
     //ui for the intro and item select
@@ -32,7 +31,6 @@ public class GameManager : MonoBehaviour
 
     //ui for Bargaining phase
     [Header("UI elements for the the bargaining phase")]
-    [SerializeField] private TextMeshProUGUI patienceText;
     [SerializeField] private Button increaseButton;
     [SerializeField] private Button increaseByTen;
     [SerializeField] private Button decreaseButton;
@@ -98,7 +96,6 @@ public class GameManager : MonoBehaviour
         decreaseByTen.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
         endGameButton.gameObject.SetActive(false);
-        patienceText.enabled = false;
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
         patienceArrow.setInactive();
@@ -137,7 +134,6 @@ public class GameManager : MonoBehaviour
                 increaseByTen.gameObject.SetActive(true);
                 decreaseByTen.gameObject.SetActive(true);
                 confirmButton2.gameObject.SetActive(true);
-                patienceText.enabled = true;
                 bargainSpeech.enabled = false;
                 customer.enabled = false;
             }
@@ -448,7 +444,7 @@ public class GameManager : MonoBehaviour
         itemManager.SoldItem(selectedItem);
         customer.enabled = false;
         bargain = false;
-        endSceneManager.SetScene(2);
+        PlayerPrefs.SetInt("wallet", 0);
     }
 
     void DeclineDeal()
@@ -459,7 +455,7 @@ public class GameManager : MonoBehaviour
         speechText.text = "You failed to sell the item!";
         customer.enabled = false;
         bargain = false;
-        endSceneManager.SetScene(0);
+        PlayerPrefs.SetInt("wallet", 0);
     }
 
     void ResetLevel()
