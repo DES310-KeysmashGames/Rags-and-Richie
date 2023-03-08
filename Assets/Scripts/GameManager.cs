@@ -448,7 +448,8 @@ public class GameManager : MonoBehaviour
         itemManager.SoldItem(selectedItem);
         customer.enabled = false;
         bargain = false;
-        PlayerPrefs.SetInt("wallet", 0);
+        PlayerPrefs.SetInt("wallet", 2);
+        ResetLevel();
     }
 
     void DeclineDeal()
@@ -460,6 +461,7 @@ public class GameManager : MonoBehaviour
         customer.enabled = false;
         bargain = false;
         PlayerPrefs.SetInt("wallet", 0);
+        ResetLevel();
     }
 
     void ResetLevel()
