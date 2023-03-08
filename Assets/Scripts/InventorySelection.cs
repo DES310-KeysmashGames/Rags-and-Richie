@@ -17,6 +17,7 @@ public class InventorySelection : MonoBehaviour
     //chosen items
     [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
     [SerializeField] private Image[] chosenItemsprites;
+    private int chosenIndexStart = 0;
 
     //buttons
     [SerializeField] Button confirmButton;
@@ -25,6 +26,10 @@ public class InventorySelection : MonoBehaviour
         confirmButton.onClick.AddListener(()=> {
             //click action
             if(chosenInventory.Count == 4){
+                for( int i =0; i < chosenInventory.Count; i++){
+                    StaticInventory.intermediateList.Add(chosenInventory[i]);
+                }
+                
                 Loader.Load(Loader.Scene.TradeScene);
             }
             
@@ -40,7 +45,11 @@ public class InventorySelection : MonoBehaviour
     }
 
     private void Update(){
-  
+        if (chosenInventory.Count !=4){
+            confirmButton.GetComponent<Image>().color = Color.grey;
+        }else{
+            confirmButton.GetComponent<Image>().color = Color.green;
+        }
     }
 
     private void TaskOnClick( int buttonIndex )
@@ -55,6 +64,7 @@ public class InventorySelection : MonoBehaviour
       }else{
         Debug.Log("Inventory is full");
       }
+      UpdateChosenSprites(buttonIndex);
       
 
   }
@@ -80,6 +90,12 @@ public class InventorySelection : MonoBehaviour
             scavengedItemSprites[i].enabled = true;
             scavengedItemSprites[i].sprite = GetSprite(i);
         }
+    }
+
+    private void UpdateChosenSprites(int index){
+        chosenItemsprites[chosenIndexStart].sprite = GetSprite(index);
+        chosenIndexStart++;
+        
     }
 
 

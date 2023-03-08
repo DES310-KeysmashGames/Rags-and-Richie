@@ -2110,8 +2110,8 @@ MonoBehaviour:
   - {fileID: 34663490}
   scavengedItems:
   - {fileID: 11400000, guid: 97744c88d518f08488cc85e47728166a, type: 2}
-  - {fileID: 11400000, guid: 27b2d755417c90f4ca7b78c6f6a045a2, type: 2}
-  - {fileID: 11400000, guid: b84b74970ab9552408818592c10442f7, type: 2}
+  - {fileID: 11400000, guid: 68e1657683684274f955cddf9e9b0499, type: 2}
+  - {fileID: 11400000, guid: 9bc0c0252e44f214cb0c0c3278b7bf8e, type: 2}
   - {fileID: 11400000, guid: 1bdc9968bd9b7ff4ea4bf178b5d8a06f, type: 2}
   - {fileID: 11400000, guid: 8938fe44c53856544bd6f3e55844d29a, type: 2}
   - {fileID: 11400000, guid: 6d1c93c0e3f3ab344b8e5e1faafb23e2, type: 2}

@@ -76,6 +76,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("items from selection screen" + StaticInventory.intermediateList[0]);
+        Debug.Log(StaticInventory.intermediateList[1]);
+        Debug.Log(StaticInventory.intermediateList[2]);
+        Debug.Log(StaticInventory.intermediateList[3]);
         NewCustomer();
         itemManager.GenerateItemList();
         for (int i = 0; i < itemButtons.Length; ++i)
@@ -444,8 +448,8 @@ public class GameManager : MonoBehaviour
         itemManager.SoldItem(selectedItem);
         customer.enabled = false;
         bargain = false;
-        ResetLevel();
         PlayerPrefs.SetInt("wallet", 2);
+        ResetLevel();
     }
 
     void DeclineDeal()
@@ -456,13 +460,18 @@ public class GameManager : MonoBehaviour
         speechText.text = "You failed to sell the item!";
         customer.enabled = false;
         bargain = false;
-        ResetLevel();
         PlayerPrefs.SetInt("wallet", 0);
+        ResetLevel();
     }
 
     void ResetLevel()
     {
         itemManager.Reset();
         character.Reset();
+    }
+
+    public void EndGame()
+    {
+        Loader.Load(Loader.Scene.EndingScene);
     }
 }

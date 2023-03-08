@@ -14,26 +14,30 @@ public class ItemManager : MonoBehaviour
     //generate 4 items from the list of items and adds them to the array of current items available in the store
     public void GenerateItemList()
     {
-        for (int i = 0; i < 5; ++i)
+        //for (int i = 0; i < 5; ++i)
+        //{
+        //    int index = UnityEngine.Random.Range(0, fullstock.Count);
+        //    for (int j = 0; j < inventory.Count; ++j)
+        //    {
+        //        if (fullstock[index].name == inventory[j].name)
+        //        {
+        //            itemExists = true;
+        //        }
+        //    }
+        //    if (itemExists)
+        //    {
+        //        i--;
+        //    }
+        //    else
+        //    {
+        //        inventory.Add(fullstock[index]);
+        //    }
+        //    itemExists = false;
+        // } 
+        for( int i = 0; i < StaticInventory.intermediateList.Count; ++i )
         {
-            int index = UnityEngine.Random.Range(0, fullstock.Count);
-            for (int j = 0; j < inventory.Count; ++j)
-            {
-                if (fullstock[index].name == inventory[j].name)
-                {
-                    itemExists = true;
-                }
-            }
-            if (itemExists)
-            {
-                i--;
-            }
-            else
-            {
-                inventory.Add(fullstock[index]);
-            }
-            itemExists = false;
-         } 
+            inventory.Add( StaticInventory.intermediateList[i] );
+        }
     }
 
     public void SoldItem(int no)
@@ -83,9 +87,15 @@ public class ItemManager : MonoBehaviour
     }
     public void Reset()
     {
-        for(int i =0; i < inventory.Count; i++)
-        {
-            inventory.RemoveAt(i);
-        }
+        //for(int i =0; i < inventory.Count; i++)
+        //{
+        //    inventory.RemoveAt(i);
+        //}
+        //for (int j = 0; j < StaticInventory.intermediateList.Count; ++j)
+        //{
+        //    StaticInventory.intermediateList.RemoveAt(j);
+        //}
+        inventory.RemoveRange(0, inventory.Count);
+        StaticInventory.intermediateList.RemoveRange(0, StaticInventory.intermediateList.Count);
     }
 }
