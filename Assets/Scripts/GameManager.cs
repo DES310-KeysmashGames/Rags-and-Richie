@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image customer;
     [SerializeField] private TextMeshProUGUI[] itemText;
     [SerializeField] private Button[] itemButtons;
+    [SerializeField] private Button TextPrompt;
 
     //ui for selecting inital price
     [Header("UI elements for selecting the initial price")]
@@ -46,7 +47,6 @@ public class GameManager : MonoBehaviour
 
     //miscellaneous values
     [Header("Private game attributes")]
-    private float timer;
     private bool trade;
     [SerializeField] private int price;
     [SerializeField] private int basePrice;
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     private bool bargain;
     private int introLength;
     private int introCount;
+    private bool textProgression;
 
     private void Awake()
     {
@@ -76,10 +77,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("items from selection screen" + StaticInventory.intermediateList[0]);
-        Debug.Log(StaticInventory.intermediateList[1]);
-        Debug.Log(StaticInventory.intermediateList[2]);
-        Debug.Log(StaticInventory.intermediateList[3]);
         NewCustomer();
         itemManager.GenerateItemList();
         for (int i = 0; i < itemButtons.Length; ++i)
@@ -90,7 +87,7 @@ public class GameManager : MonoBehaviour
         }
         trade = false;
         bargain = false;
-        timer = 5.0f;
+        textProgression = false;
         bargainometer.enabled = false;
         priceBox.gameObject.SetActive(false);
         confirmButton.gameObject.SetActive(false);
@@ -110,11 +107,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
         //initial intro dialogue loop
         if (!itemsShown)
         {
-            InitialTrade(timer);
+            InitialTrade();
         }
         priceBox.text = setPrice.ToString("00");
         if(setPrice > 99)
@@ -128,7 +124,7 @@ public class GameManager : MonoBehaviour
         if (bargain)
         {
             PatienceCheck();
-            if (timer <= 0.0f)
+            if (textProgression)
             {
                 bargainometer.enabled = true;
                 priceBox.gameObject.SetActive(true);
@@ -140,45 +136,44 @@ public class GameManager : MonoBehaviour
                 confirmButton2.gameObject.SetActive(true);
                 bargainSpeech.enabled = false;
                 customer.enabled = false;
+                textProgression = false;
             }
         }
     }
 
-    void InitialTrade(float time)
+    void InitialTrade()
     {
-        time -= Time.deltaTime;
-        TradeSpeech(time);
+        TradeSpeech();
         //transitions to selling the stores wares.
-        if (timer <= 0.0f && trade == true)
+        if (trade == true)
         {
             ItemsForSale();
         }
     }
 
-    void TradeSpeech(float time)
+    void TradeSpeech()
     {
-        if (time <= 0.0f)
+        if (textProgression)
         {
             if (introCount == 2 && introCount < introLength)
             {
                 speechText.text = "" + character.GetIntro(introCount);
-                timer = 3.0f;
                 introCount = 3;
+                textProgression = false;
             }
             else if (introCount == 1 && introCount < introLength)
             {
                 speechText.text = "" + character.GetIntro(introCount);
-                timer = 3.0f;
                 introCount = 2;
+                textProgression = false;
             }
             else if (introCount == 3 || introCount >= introLength)
             {
                 speechText.text = "" + character.TradeSpeech();
-                timer = 3.0f;
                 trade = true;
                 introCount = 0;
+                textProgression = false;
             }
-
         }
     }
     //generate a new customer.
@@ -190,7 +185,6 @@ public class GameManager : MonoBehaviour
         introCount = 1;
         patience = character.GetPatience();
         custDesperation = character.GetDesperation();
-        timer = 5.0f;
         introLength = character.GetIntroLength();
     }
 
@@ -238,7 +232,6 @@ public class GameManager : MonoBehaviour
         bargain = true;
         patienceMeter.enabled = true;
         patienceArrow.SetRotation(patience, character.GetPatience());
-        timer = 5.0f;
         turnCount = 1;
         if (setPrice < price)
         {
@@ -252,8 +245,8 @@ public class GameManager : MonoBehaviour
         {
             bargainSpeech.text = character.GenerateTradeText(0);
         }
-        //setPrice = 0;
         customer.enabled = true;
+        textProgression = false;
     }
 
     public void OfferPrice()
@@ -278,7 +271,6 @@ public class GameManager : MonoBehaviour
         increaseByTen.gameObject.SetActive(false);
         decreaseButton.gameObject.SetActive(false);
         decreaseByTen.gameObject.SetActive(false);
-        timer = 5.0f;
     }
 
     void PriceCheck()
@@ -473,5 +465,10 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Loader.Load(Loader.Scene.EndingScene);
+    }
+
+    public void ProgressText()
+    {
+        textProgression = true;
     }
 }
