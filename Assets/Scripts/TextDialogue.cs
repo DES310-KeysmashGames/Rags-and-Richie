@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum IntroCategory
 {
-    Food, Drink, Machinery, Luxury, Warmth, Weapon
+    Food, Drink, Machinery, Luxury, Warmth, Weapon, Trade, None
 }
 
 [CreateAssetMenu(menuName = "Dialogue System/Dialogue", fileName = "New Dialogue")]

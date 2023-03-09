@@ -6,25 +6,50 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] BaseCharacter[] character;
-    private BaseCharacter currentChar;
-    [SerializeField] TextDialogue[] intro;
+    [SerializeField] private List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
+    public BaseCharacter currentChar;
+    private bool custExists;
     [SerializeField] TextDialogue tradeSpeech;
     [SerializeField] TextDialogue[] inTradeText;
+    [SerializeField] TextDialogue[] acceptTrade;
+    [SerializeField] TextDialogue[] declineTrade;
+    [SerializeField] TextDialogue[] zeroPatience;
 
     //generates a random customer from the available list of possible customers, with an intro text.
-    public void generateCustomer()
+    public void GenerateCustomer()
     {
         int index = Random.Range(0, character.Length);
-        currentChar = character[index];
-        currentChar.introText = intro[index];
+        //checks to see if the customer has already visited today.
+        for (int i = 0; i < prevCustomer.Count; i++)
+        {
+            if (character[index] == prevCustomer[i])
+            {
+                custExists = true;
+            }
+        }
+        if (!custExists)
+        {
+            currentChar = character[index];
+            for(int j = 0; j < character[index].introText.Count; j++)
+            {
+                currentChar.introText[j] = character[index].introText[j];
+            }
+            custExists = false;
+        }
     }
 
-    public string getIntro()
+    public void SaleOver()
     {
-        return currentChar.introText.lineOfDialogue;
+        prevCustomer.Add(currentChar);
+        currentChar = null;
+    }
+    
+    public string GetIntro(int introNo)
+    {
+        return currentChar.introText[introNo].lineOfDialogue;
     }
 
-    public Sprite getSprite()
+    public Sprite GetSprite()
     {
         return currentChar.charSprite;
     }
@@ -33,10 +58,77 @@ public class CharacterManager : MonoBehaviour
     {
         return tradeSpeech.lineOfDialogue;
     }
-    
-    public string GenerateTradeText()
+
+    public int GetIntroLength()
     {
-        int index = Random.Range(0, inTradeText.Length);
-        return inTradeText[index].lineOfDialogue;
+        return currentChar.introText.Count;
+    }
+
+    public string GenerateTradeText(int no)
+    {
+        return inTradeText[no].lineOfDialogue;
+    }
+
+    public int GetFood()
+    {
+        return currentChar.foodDesire;
+    }
+
+    public int GetDrink()
+    {
+        return currentChar.drinkDesire;
+    }
+
+    public int GetWarmth()
+    {
+        return currentChar.warmthDesire;
+    }
+
+    public int GetLuxury()
+    {
+        return currentChar.luxuryDesire;
+    }
+
+    public int GetMachinery()
+    {
+        return currentChar.machineryDesire;
+    }
+
+    public int GetWeapon()
+    {
+        return currentChar.weaponDesire;
+    }
+
+    public int GetPatience()
+    {
+        return currentChar.patiece;
+    }
+
+    public int GetDesperation()
+    {
+        return currentChar.desperation;
+    }
+
+    public string NoPatience(int no)
+    {
+        return zeroPatience[no].lineOfDialogue;
+    }
+
+    public string AcceptDeal(int no)
+    {
+        return acceptTrade[no].lineOfDialogue;
+    }
+
+    public string DeclineDeal(int no)
+    {
+        return declineTrade[no].lineOfDialogue;
+    }
+
+    public void Reset()
+    {
+        for(int i = 0; i < prevCustomer.Count; ++i)
+        {
+            prevCustomer.RemoveAt(i);
+        }
     }
 }

@@ -4,36 +4,24 @@ using UnityEngine;
 
 [System.Serializable]
 
-public enum CharacterPersonality
+public enum CharacterDesire
 {
-    happy, sad, calm, mysterious, angry, neutral, excited, timid, scared
+    Food, Drink, Warmth, Luxury, Machinery, Weaponary
 }
 
 [CreateAssetMenu(menuName = "CharacterCreator/Character", fileName = "New Character")]
 public class BaseCharacter : ScriptableObject
 {
     [SerializeField] public Sprite charSprite;
-    [SerializeField] public CharacterPersonality personality;
+    [SerializeField] public CharacterDesire desire;
     [SerializeField] public int foodDesire;
     [SerializeField] public int drinkDesire;
+    [SerializeField] public int warmthDesire;
     [SerializeField] public int weaponDesire;
     [SerializeField] public int machineryDesire;
     [SerializeField] public int luxuryDesire;
-    [SerializeField] public int warmthDesire;
-    [SerializeField] public TextDialogue introText { get; set; }
-}
-
-public class Script : MonoBehaviour
-{
-    BaseCharacter[] allChars;
-    private void Start()
-    {
-        allChars = (BaseCharacter[])Resources.FindObjectsOfTypeAll(typeof(BaseCharacter));
-        Debug.Log(allChars[0]);
-    }
-
-    public ScriptableObject[] getArray()
-    {
-        return allChars;
-    }
+    [SerializeField] public List<TextDialogue> introText = new List<TextDialogue>();
+    //[SerializeField] public TextDialogue[] introText;
+    [SerializeField] public int patiece;
+    [SerializeField] public int desperation;
 }
