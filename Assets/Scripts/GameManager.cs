@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     //UI for ending the game
     [Header("UI elements for ending the game")]
     [SerializeField] private Button endGameButton;
+    [SerializeField] private Button nextCustomerButton;
 
     //miscellaneous values
     [Header("Private game attributes")]
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
     private int introLength;
     private int introCount;
     private bool textProgression;
+    private bool dealOver;
+    [SerializeField] private int customerCount;
 
     private void Awake()
     {
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour
         trade = false;
         bargain = false;
         textProgression = false;
+        dealOver = false;
         bargainometer.enabled = false;
         priceBox.gameObject.SetActive(false);
         confirmButton.gameObject.SetActive(false);
@@ -97,11 +101,13 @@ public class GameManager : MonoBehaviour
         decreaseByTen.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
         endGameButton.gameObject.SetActive(false);
+        nextCustomerButton.gameObject.SetActive(false);
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
         patienceArrow.setInactive();
         patienceDecrease = 0;
         turnCount = 0;
+        customerCount = 1;
     }
 
     // Update is called once per frame
@@ -191,9 +197,10 @@ public class GameManager : MonoBehaviour
     //displays the items available for sale.
     void ItemsForSale()
     {
-        for (int i = 0; i < itemButtons.Length; ++i)
+        for (int i = 0; i < itemManager.RemainingItems(); ++i)
         {
             itemButtons[i].image.sprite = itemManager.GetSprite(i);
+            itemText[i].text = itemManager.GetName(i);
             itemText[i].enabled = true;
             itemButtons[i].gameObject.SetActive(true);
             trade = false;
@@ -261,9 +268,12 @@ public class GameManager : MonoBehaviour
         {
             patience = 0;
         }
-        Desperation();
-        ReCalculate();
-        patienceArrow.SetRotation(patience, character.GetPatience());
+        if (!dealOver)
+        {
+            Desperation();
+            ReCalculate();
+            patienceArrow.SetRotation(patience, character.GetPatience());
+        }
         bargainometer.enabled = false;
         priceBox.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
@@ -433,33 +443,53 @@ public class GameManager : MonoBehaviour
 
     void AcceptDeal()
     {
-        endGameButton.gameObject.SetActive(true);
+        dealOver = true;
         bargainSpeech.text = character.AcceptDeal(0);
         speechText.enabled = true;
         speechText.text = "You sold the item!";
         itemManager.SoldItem(selectedItem);
+        character.SaleOver();
         customer.enabled = false;
         bargain = false;
-        PlayerPrefs.SetInt("wallet", 2);
-        ResetLevel();
+        int wallet = PlayerPrefs.GetInt("wallet") + (int)setPrice;
+        PlayerPrefs.SetInt("wallet", wallet);
+        TextPrompt.gameObject.SetActive(false);
+        if (customerCount < 4)
+        {
+            Debug.Log("It gets here");
+            nextCustomerButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            ResetLevel();
+        }
     }
 
     void DeclineDeal()
     {
-        endGameButton.gameObject.SetActive(true);
+        dealOver = true;
         bargainSpeech.text = character.DeclineDeal(0);
         speechText.enabled = true;
         speechText.text = "You failed to sell the item!";
         customer.enabled = false;
+        character.SaleOver();
         bargain = false;
-        PlayerPrefs.SetInt("wallet", 0);
-        ResetLevel();
+        TextPrompt.gameObject.SetActive(false);
+        if (customerCount < 4)
+        {
+            nextCustomerButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            ResetLevel();
+        }
     }
 
     void ResetLevel()
     {
         itemManager.Reset();
         character.Reset();
+        endGameButton.gameObject.SetActive(true);
     }
 
     public void EndGame()
@@ -470,5 +500,47 @@ public class GameManager : MonoBehaviour
     public void ProgressText()
     {
         textProgression = true;
+    }
+
+    public void NextCustomer()
+    {
+        NewCustomer();
+        itemsShown = false;
+        trade = false;
+        bargain = false;
+        textProgression = false;
+        bargainometer.enabled = false;
+        customer.enabled = true;
+        speechText.enabled = true;
+        priceBox.gameObject.SetActive(false);
+        confirmButton.gameObject.SetActive(false);
+        increaseButton.gameObject.SetActive(false);
+        increaseByTen.gameObject.SetActive(false);
+        decreaseButton.gameObject.SetActive(false);
+        decreaseByTen.gameObject.SetActive(false);
+        confirmButton2.gameObject.SetActive(false);
+        endGameButton.gameObject.SetActive(false);
+        nextCustomerButton.gameObject.SetActive(false);
+        TextPrompt.gameObject.SetActive(true);
+        patienceMeter.enabled = false;
+        bargainSpeech.enabled = false;
+        patienceArrow.setInactive();
+        customerCount += 1;
+        itemButtons[selectedItem].interactable = true;
+        itemButtons[selectedItem].gameObject.SetActive(false);
+        itemText[selectedItem].enabled = false;
+        switch (customerCount)
+        {
+            case 2:
+                itemButtons[3].gameObject.SetActive(false);
+                break;
+            case 3:
+                itemButtons[2].gameObject.SetActive(false);
+                break;
+            case 4:
+                itemButtons[1].gameObject.SetActive(false);
+                break;
+
+        }
     }
 }

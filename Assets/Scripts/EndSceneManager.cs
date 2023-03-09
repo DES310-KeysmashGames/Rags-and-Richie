@@ -23,24 +23,25 @@ public class EndSceneManager : MonoBehaviour
     }
 
     private void Start(){
-        //display bad ending
-        //if (value<10){
-        //    endScreens[0].enabled = true;
-        //}
-        ////display neutral ending
-
-        //if (value >= 10 & value <50)
-        //{
-        //    endScreens[1].enabled = true;
-        //}
-        ////display good ending
-        //if (value >= 50){
-        //    endScreens[2].enabled = true;
-        //}
         value = PlayerPrefs.GetInt("wallet");
-        endScreens[value].enabled = true;
+        //display bad ending
+        if (value < 30)
+        {
+            endScreens[0].enabled = true;
+        }
+        //display neutral ending
+
+        if (value >= 50 & value < 80)
+        {
+            endScreens[1].enabled = true;
+        }
+        //display good ending
+        if (value >= 80)
+        {
+            endScreens[2].enabled = true;
+        };
     }
-    
+
     public void SetScene(int sceneNo)
     {
         endScreens[sceneNo].enabled = true;
