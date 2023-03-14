@@ -8,9 +8,10 @@ public static class Loader
 {
     public enum Scene{
         MainMenuScene,
-        DayOverviewScene,
+        TravelScene,
         ItemSelectScene,
         TradeScene,
+        DayEndScene,
         EndingScene
     }
 
