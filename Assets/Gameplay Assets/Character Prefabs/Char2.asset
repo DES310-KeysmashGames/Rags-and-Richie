@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
   desire: 2
+  charName: Frozen Freddy
   foodDesire: 2
   drinkDesire: 1
   warmthDesire: 4
