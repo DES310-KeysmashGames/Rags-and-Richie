@@ -137,14 +137,7 @@ public class GameManager : MonoBehaviour
             if (textProgression)
             {
                 bargainometer.enabled = true;
-                priceBox.gameObject.SetActive(true);
-                priceBox.text = setPrice.ToString("00");
-                increaseButton.gameObject.SetActive(true);
-                decreaseButton.gameObject.SetActive(true);
-                increaseByTen.gameObject.SetActive(true);
-                decreaseByTen.gameObject.SetActive(true);
-                makeOfferButton.gameObject.SetActive(true);
-                bargainSpeech.enabled = false;
+                MakeOfferPhaseSetActive();
                 customer.enabled = false;
                 textProgression = false;
                 TextPrompt.gameObject.SetActive(false);
@@ -220,31 +213,17 @@ public class GameManager : MonoBehaviour
         basePrice = (character.GetDrink() * itemManager.GetDrinkValue(selectedItem)) + (character.GetFood() * itemManager.GetFoodValue(selectedItem)) + (character.GetLuxury() + itemManager.GetLuxuryValue(selectedItem))
             + (character.GetWeapon() * itemManager.GetWeaponValue(selectedItem)) + (character.GetWarmth() * itemManager.GetWarmthValue(selectedItem)) + (character.GetMachinery() * itemManager.GetMachineryValue(selectedItem));
         price = basePrice + tolerance;
-        bargainometer.enabled = true;
-        priceBox.gameObject.SetActive(true);
+        InitialOfferPhaseSetActive();
         priceBox.text = setPrice.ToString("00");
-        increaseButton.gameObject.SetActive(true);
-        decreaseButton.gameObject.SetActive(true);
-        increaseByTen.gameObject.SetActive(true);
-        decreaseByTen.gameObject.SetActive(true);
-        priceBox.gameObject.SetActive(true);
-        confirmButton.gameObject.SetActive(true);
         TextPrompt.gameObject.SetActive(false);
     }
 
     public void PriceConfirm()
     {
         TextPrompt.gameObject.SetActive(true);
-        confirmButton.gameObject.SetActive(false);
-        priceBox.gameObject.SetActive(false);
-        makeOfferButton.gameObject.SetActive(false);
-        increaseButton.gameObject.SetActive(false);
-        increaseByTen.gameObject.SetActive(false);
-        decreaseButton.gameObject.SetActive(false);
-        decreaseByTen.gameObject.SetActive(false);
+        InitialOfferSetInactive();
         TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
-        bargainometer.enabled = false;
         bargain = true;
         patienceMeter.enabled = true;
         patienceArrow.SetRotation(patience, character.GetPatience());
@@ -521,17 +500,11 @@ public class GameManager : MonoBehaviour
         trade = false;
         bargain = false;
         textProgression = false;
-        bargainometer.enabled = false;
         customer.enabled = true;
         speechText.enabled = true;
         patienceDecrease = 0;
         turnCount = 0;
-        priceBox.gameObject.SetActive(false);
-        confirmButton.gameObject.SetActive(false);
-        increaseButton.gameObject.SetActive(false);
-        increaseByTen.gameObject.SetActive(false);
-        decreaseButton.gameObject.SetActive(false);
-        decreaseByTen.gameObject.SetActive(false);
+        InitialOfferSetInactive();
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
         nextCustomerButton.gameObject.SetActive(false);
@@ -580,6 +553,7 @@ public class GameManager : MonoBehaviour
         priceAdjustment.enabled = false;
         previousPriceText.gameObject.SetActive(false);
         differenceText.gameObject.SetActive(false);
+        bargainSpeech.enabled = true;
     }
 
     void InitialOfferPhaseSetActive()

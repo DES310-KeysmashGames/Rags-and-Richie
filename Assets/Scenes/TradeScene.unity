@@ -3696,7 +3696,7 @@ MonoBehaviour:
   bargainometer: {fileID: 138217584}
   priceBox: {fileID: 1313629533}
   confirmButton: {fileID: 1767635020}
-  ReselectItemButton: {fileID: 0}
+  ReselectItemButton: {fileID: 1998500119}
   increaseButton: {fileID: 1241513306}
   increaseByTen: {fileID: 1209477430}
   decreaseButton: {fileID: 756828089}
@@ -3707,7 +3707,7 @@ MonoBehaviour:
   decreaseByTen2: {fileID: 363050603}
   priceAdjustment: {fileID: 961897975}
   patienceMeter: {fileID: 248181377}
-  confirmButton2: {fileID: 15338446}
+  makeOfferButton: {fileID: 15338446}
   bargainSpeech: {fileID: 150303958}
   tolerance: 0
   previousPriceText: {fileID: 1592474660}
