@@ -39,4 +39,9 @@ public class PatienceMeter : MonoBehaviour
     {
         patienceArrow.enabled = false;
     }
+
+    public void setActive()
+    {
+        patienceArrow.enabled = true;
+    }
 }

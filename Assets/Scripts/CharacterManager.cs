@@ -22,7 +22,7 @@ public class CharacterManager : MonoBehaviour
         //checks to see if the customer has already visited today.
         for (int i = 0; i < prevCustomer.Count; i++)
         {
-            if (character[index] == prevCustomer[i])
+            if (character[index].name == prevCustomer[i].name)
             {
                 custExists = true;
             }
@@ -35,6 +35,11 @@ public class CharacterManager : MonoBehaviour
                 currentChar.introText[j] = character[index].introText[j];
             }
             custExists = false;
+        }
+        else
+        {
+            custExists = false;
+            GenerateCustomer();
         }
     }
 

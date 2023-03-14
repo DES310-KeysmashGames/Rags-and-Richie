@@ -14,6 +14,7 @@ public class BaseCharacter : ScriptableObject
 {
     [SerializeField] public Sprite charSprite;
     [SerializeField] public CharacterDesire desire;
+    [SerializeField] public string charName;
     [SerializeField] public int foodDesire;
     [SerializeField] public int drinkDesire;
     [SerializeField] public int warmthDesire;
@@ -21,7 +22,6 @@ public class BaseCharacter : ScriptableObject
     [SerializeField] public int machineryDesire;
     [SerializeField] public int luxuryDesire;
     [SerializeField] public List<TextDialogue> introText = new List<TextDialogue>();
-    //[SerializeField] public TextDialogue[] introText;
     [SerializeField] public int patiece;
     [SerializeField] public int desperation;
 }
