@@ -14,7 +14,6 @@ public class BaseCharacter : ScriptableObject
 {
     [SerializeField] public Sprite charSprite;
     [SerializeField] public CharacterDesire desire;
-    [SerializeField] public string charName;
     [SerializeField] public int foodDesire;
     [SerializeField] public int drinkDesire;
     [SerializeField] public int warmthDesire;

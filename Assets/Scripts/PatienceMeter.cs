@@ -35,13 +35,8 @@ public class PatienceMeter : MonoBehaviour
         patienceArrow.transform.eulerAngles = new Vector3(0,0,GetRotation(patience, maxPatience));
     }
 
-    public void setInactive()
+    public void SetInactive()
     {
         patienceArrow.enabled = false;
-    }
-
-    public void setActive()
-    {
-        patienceArrow.enabled = true;
     }
 }

@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         nextCustomerButton.gameObject.SetActive(false);
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
-        patienceArrow.setInactive();
+        patienceArrow.SetInactive();
         patienceDecrease = 0;
         turnCount = 0;
         customerCount = 1;
@@ -260,7 +260,6 @@ public class GameManager : MonoBehaviour
         }
         customer.enabled = true;
         textProgression = false;
-        patienceArrow.setActive();
     }
 
     public void OfferPrice()
@@ -536,7 +535,7 @@ public class GameManager : MonoBehaviour
         TextPrompt.gameObject.SetActive(true);
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
-        patienceArrow.setInactive();
+        patienceArrow.SetInactive();
         customerCount += 1;
         itemButtons[selectedItem].interactable = true;
         itemButtons[selectedItem].gameObject.SetActive(false);
