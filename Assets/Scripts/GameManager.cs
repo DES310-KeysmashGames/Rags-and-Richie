@@ -101,10 +101,11 @@ public class GameManager : MonoBehaviour
         decreaseByTen.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
         endGameButton.gameObject.SetActive(false);
+        TextPrompt.gameObject.SetActive(true);
         nextCustomerButton.gameObject.SetActive(false);
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
-        patienceArrow.setInactive();
+        patienceArrow.SetInactive();
         patienceDecrease = 0;
         turnCount = 0;
         customerCount = 1;
@@ -143,6 +144,7 @@ public class GameManager : MonoBehaviour
                 bargainSpeech.enabled = false;
                 customer.enabled = false;
                 textProgression = false;
+                TextPrompt.gameObject.SetActive(false);
             }
         }
     }
@@ -203,6 +205,7 @@ public class GameManager : MonoBehaviour
             itemText[i].text = itemManager.GetName(i);
             itemText[i].enabled = true;
             itemButtons[i].gameObject.SetActive(true);
+            TextPrompt.gameObject.SetActive(false);
             trade = false;
             itemsShown = true;
         }
@@ -223,10 +226,12 @@ public class GameManager : MonoBehaviour
         decreaseByTen.gameObject.SetActive(true);
         priceBox.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(true);
+        TextPrompt.gameObject.SetActive(false);
     }
 
     public void PriceConfirm()
     {
+        TextPrompt.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(false);
         priceBox.gameObject.SetActive(false);
         confirmButton2.gameObject.SetActive(false);
@@ -234,6 +239,7 @@ public class GameManager : MonoBehaviour
         increaseByTen.gameObject.SetActive(false);
         decreaseButton.gameObject.SetActive(false);
         decreaseByTen.gameObject.SetActive(false);
+        TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
         bargainometer.enabled = false;
         bargain = true;
@@ -258,6 +264,7 @@ public class GameManager : MonoBehaviour
 
     public void OfferPrice()
     {
+        TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
         customer.enabled = true;
         turnCount++;
@@ -280,7 +287,7 @@ public class GameManager : MonoBehaviour
         increaseButton.gameObject.SetActive(false);
         increaseByTen.gameObject.SetActive(false);
         decreaseButton.gameObject.SetActive(false);
-        decreaseByTen.gameObject.SetActive(false);
+        decreaseByTen.gameObject.SetActive(false);      
     }
 
     void PriceCheck()
@@ -447,6 +454,7 @@ public class GameManager : MonoBehaviour
         bargainSpeech.text = character.AcceptDeal(0);
         speechText.enabled = true;
         speechText.text = "You sold the item!";
+        TextPrompt.gameObject.SetActive(false);
         itemManager.SoldItem(selectedItem);
         character.SaleOver();
         customer.enabled = false;
@@ -456,7 +464,6 @@ public class GameManager : MonoBehaviour
         TextPrompt.gameObject.SetActive(false);
         if (customerCount < 4)
         {
-            Debug.Log("It gets here");
             nextCustomerButton.gameObject.SetActive(true);
         }
         else
@@ -470,6 +477,7 @@ public class GameManager : MonoBehaviour
         dealOver = true;
         bargainSpeech.text = character.DeclineDeal(0);
         speechText.enabled = true;
+        TextPrompt.gameObject.SetActive(false);
         speechText.text = "You failed to sell the item!";
         customer.enabled = false;
         character.SaleOver();
@@ -504,6 +512,7 @@ public class GameManager : MonoBehaviour
 
     public void NextCustomer()
     {
+        Debug.Log("Calling the next customer");
         NewCustomer();
         itemsShown = false;
         trade = false;
@@ -512,6 +521,8 @@ public class GameManager : MonoBehaviour
         bargainometer.enabled = false;
         customer.enabled = true;
         speechText.enabled = true;
+        patienceDecrease = 0;
+        turnCount = 0;
         priceBox.gameObject.SetActive(false);
         confirmButton.gameObject.SetActive(false);
         increaseButton.gameObject.SetActive(false);
@@ -524,7 +535,7 @@ public class GameManager : MonoBehaviour
         TextPrompt.gameObject.SetActive(true);
         patienceMeter.enabled = false;
         bargainSpeech.enabled = false;
-        patienceArrow.setInactive();
+        patienceArrow.SetInactive();
         customerCount += 1;
         itemButtons[selectedItem].interactable = true;
         itemButtons[selectedItem].gameObject.SetActive(false);
