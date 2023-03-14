@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
   m_Name: Cow Friend
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 3da8bf253aafa6d4daad6288aeba7138, type: 3}
+  frontSprite: {fileID: 21300000, guid: 33f04ecac53813a41967dc1f4fb992c0, type: 3}
   itemName: Cow Friend
   type: 0
   Description: 
