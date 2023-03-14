@@ -2385,13 +2385,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 739b5cff8b5962a49b1dd5d7126bd04e, type: 2}
   - {fileID: 11400000, guid: 7ad0c9c41a253f645a3ca6ab8775e658, type: 2}
   - {fileID: 11400000, guid: 917a3d83865683b4f90f67a8a5185657, type: 2}
-  scavengedItems:
-  - {fileID: 11400000, guid: 142c147a6b7be454b8e1067f1879ed0e, type: 2}
-  - {fileID: 11400000, guid: 68e1657683684274f955cddf9e9b0499, type: 2}
-  - {fileID: 11400000, guid: 9bc0c0252e44f214cb0c0c3278b7bf8e, type: 2}
-  - {fileID: 11400000, guid: 739b5cff8b5962a49b1dd5d7126bd04e, type: 2}
-  - {fileID: 11400000, guid: 7ad0c9c41a253f645a3ca6ab8775e658, type: 2}
-  - {fileID: 11400000, guid: 917a3d83865683b4f90f67a8a5185657, type: 2}
+  scavengedItems: []
   scavengedItemSprites:
   - {fileID: 1584030262}
   - {fileID: 1426993002}
