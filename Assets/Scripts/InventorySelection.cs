@@ -18,6 +18,7 @@ public class InventorySelection : MonoBehaviour
     //chosen items
     [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
     [SerializeField] private Image[] chosenItemsprites;
+    private bool reactivate;
     private int chosenIndexStart = 0;
 
     bool itemExists;
@@ -40,7 +41,7 @@ public class InventorySelection : MonoBehaviour
         });
     }
     private void Start(){
-        ShuffleItems(scavengedItems);
+        ShuffleItems(/*scavengedItems*/);
         AssignSprites();
         for (int i = 0; i < selectionButtons.Count; i++){
         int closureIndex = i ; // Prevents the closure problem
@@ -82,14 +83,20 @@ public class InventorySelection : MonoBehaviour
         UpdateChosenSprites(buttonIndex);
     }
 
-    void ShuffleItems<T>(List<T> inputList)
+    //void ShuffleItems<T>(List<T> inputList)
+    void ShuffleItems()
     {
-        for (int i=0;i<inputList.Count - 1 ;i++)
+        //for (int i=0;i<inputList.Count - 1 ;i++)
+        //{
+        //    T temp = inputList[i];
+        //    int rand = UnityEngine.Random.Range(i,inputList.Count);
+        //    inputList[i] = inputList[rand];
+        //    inputList[rand] = temp;
+        //}
+        for (int i = 0; i < 7; ++i)
         {
-            T temp = inputList[i];
-            int rand = UnityEngine.Random.Range(i,inputList.Count);
-            inputList[i] = inputList[rand];
-            inputList[rand] = temp;
+            int index = UnityEngine.Random.Range(0, fullItemList.Count);
+            scavengedItems.Add(fullItemList[index]);
         }
         //code that should work for randomly selecting 6 "scavenged" items from the full list, but seems to cause an infinite loop?
         //for (int i = 0; i < 7; ++i)
@@ -143,13 +150,18 @@ public class InventorySelection : MonoBehaviour
     {
         for(int i = 0; i < scavengedItems.Count; ++i)
         {
-            if (chosenInventory[chosenIndexStart - 1].name == scavengedItems[i].name)
+            if (!reactivate)
             {
-                selectionButtons[i].interactable = true;
+                if (chosenInventory[chosenIndexStart - 1].name == scavengedItems[i].name && selectionButtons[i].interactable == false)
+                {
+                    selectionButtons[i].interactable = true;
+                    reactivate = true;
+                }
             }
         }
         chosenInventory.RemoveAt(chosenInventory.Count - 1);
         chosenItemsprites[chosenIndexStart - 1].sprite = null;
         chosenIndexStart--;
+        reactivate = false;
     }
 }

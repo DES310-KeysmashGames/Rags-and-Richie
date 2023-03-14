@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField] public List<BaseItem> fullstock = new List<BaseItem>();
-    [SerializeField] public List<BaseItem> inventory = new List<BaseItem>();
+    [SerializeField] private List<BaseItem> fullstock = new List<BaseItem>();
+    [SerializeField] private List<BaseItem> inventory = new List<BaseItem>();
+    [SerializeField] private List<BaseItem> soldItems = new List<BaseItem>();
     private bool itemExists;
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
@@ -39,10 +40,15 @@ public class ItemManager : MonoBehaviour
             inventory.Add( StaticInventory.intermediateList[i] );
         }
     }
-
     public void SoldItem(int no)
     {
+        soldItems.Add(inventory[no]);
         inventory.RemoveAt(no);
+    }
+
+    public int RemainingItems()
+    {
+        return inventory.Count;
     }
 
     public Sprite GetSprite(int itemNo)
@@ -50,12 +56,10 @@ public class ItemManager : MonoBehaviour
         //return CurrentItems[itemNo].frontSprite;
         return inventory[itemNo].frontSprite;
     }
-
     public string GetName(int itemNo)
     {
         return inventory[itemNo].name;
     }
-
     public int GetWeaponValue(int itemNo)
     {
         //return CurrentItems[itemNo].weaponValue;
@@ -87,14 +91,6 @@ public class ItemManager : MonoBehaviour
     }
     public void Reset()
     {
-        //for(int i =0; i < inventory.Count; i++)
-        //{
-        //    inventory.RemoveAt(i);
-        //}
-        //for (int j = 0; j < StaticInventory.intermediateList.Count; ++j)
-        //{
-        //    StaticInventory.intermediateList.RemoveAt(j);
-        //}
         inventory.RemoveRange(0, inventory.Count);
         StaticInventory.intermediateList.RemoveRange(0, StaticInventory.intermediateList.Count);
     }
