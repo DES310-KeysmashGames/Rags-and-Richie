@@ -523,6 +523,7 @@ public class GameManager : MonoBehaviour
         speechText.enabled = true;
         patienceDecrease = 0;
         turnCount = 0;
+        dealOver = false;
         InitialOfferSetInactive();
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
