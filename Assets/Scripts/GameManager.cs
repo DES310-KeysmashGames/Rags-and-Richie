@@ -471,6 +471,7 @@ public class GameManager : MonoBehaviour
         {
             ResetLevel();
         }
+        setPrice = 0;
     }
 
     void DeclineDeal()
@@ -492,6 +493,7 @@ public class GameManager : MonoBehaviour
         {
             ResetLevel();
         }
+        setPrice = 0;
     }
 
     void ResetLevel()
