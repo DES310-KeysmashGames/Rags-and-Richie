@@ -14,7 +14,8 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] TextDialogue[] acceptTrade;
     [SerializeField] TextDialogue[] declineTrade;
     [SerializeField] TextDialogue[] zeroPatience;
-
+    private int introTextNo;
+    
     //generates a random customer from the available list of possible customers, with an intro text.
     public void GenerateCustomer()
     {
@@ -51,12 +52,27 @@ public class CharacterManager : MonoBehaviour
     
     public string GetIntro(int introNo)
     {
-        return currentChar.introText[introNo].lineOfDialogue;
+        switch(introTextNo)
+        {
+            case 0:
+                return currentChar.introText[introNo].lineOfDialogue;
+            case 1:
+                return currentChar.introText2[introNo].lineOfDialogue;
+            case 2:
+                return currentChar.introText3[introNo].lineOfDialogue;
+            default:
+                return currentChar.introText[introNo].lineOfDialogue;
+        }    
     }
 
     public Sprite GetSprite()
     {
         return currentChar.charSprite;
+    }
+
+    public string GetCustName()
+    {
+        return currentChar.CustName;
     }
 
     public string TradeSpeech()
@@ -66,7 +82,18 @@ public class CharacterManager : MonoBehaviour
 
     public int GetIntroLength()
     {
-        return currentChar.introText.Count;
+        introTextNo = Random.Range(0, 2);
+        switch(introTextNo)
+        {
+            case 0:
+                return currentChar.introText.Count;
+            case 1:
+                return currentChar.introText2.Count;
+            case 2:
+                return currentChar.introText3.Count;
+            default:
+                return currentChar.introText.Count;
+        }
     }
 
     public string GenerateTradeText(int no)

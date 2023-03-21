@@ -22,7 +22,7 @@ public class InventorySelection : MonoBehaviour
     private bool reactivate;
     private int chosenIndexStart = 0;
 
-    bool itemExists;
+    [SerializeField] private Image itemCard;
 
     //buttons
     [SerializeField] Button confirmButton;

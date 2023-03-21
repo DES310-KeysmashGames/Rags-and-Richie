@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Char2
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
+  CustName: Char 2
   desire: 2
-  charName: Frozen Freddy
   foodDesire: 2
   drinkDesire: 1
   warmthDesire: 4
@@ -22,6 +22,10 @@ MonoBehaviour:
   machineryDesire: 3
   luxuryDesire: 1
   introText:
+  - {fileID: 11400000, guid: c9e6247a9f547074abe9897c9d963b3e, type: 2}
+  introText2:
+  - {fileID: 11400000, guid: c9e6247a9f547074abe9897c9d963b3e, type: 2}
+  introText3:
   - {fileID: 11400000, guid: c9e6247a9f547074abe9897c9d963b3e, type: 2}
   patiece: 100
   desperation: 8

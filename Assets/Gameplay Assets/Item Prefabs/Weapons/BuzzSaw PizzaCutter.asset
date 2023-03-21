@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
-  m_Name: Freeze Ray
+  m_Name: BuzzSaw PizzaCutter
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: c0deaea91a65d7249bc26e88c67144f5, type: 3}
-  itemName: Freeze Ray
-  primaryType: 0
+  frontSprite: {fileID: 0}
+  itemName: Buzzsaw PizzaCutter
+  primaryType: 1
   secondaryType: 4
-  tertiaryType: 3
-  itemDescription: {fileID: 21300000, guid: 696243ac1f74bb543b2f8dea81493683, type: 3}
+  tertiaryType: 0
   Description: 
-  foodValue: 0
-  drinkValue: 2
+  foodValue: 3
+  drinkValue: 0
   warmthValue: 0
-  weaponValue: 4
-  machineryValue: 3
+  weaponValue: 5
+  machineryValue: 4
   luxuryValue: 1
