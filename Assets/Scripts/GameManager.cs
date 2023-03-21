@@ -29,22 +29,33 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image bargainometer;
     [SerializeField] private TextMeshProUGUI priceBox;
     [SerializeField] private Button confirmButton;
-
-    //ui for Bargaining phase
-    [Header("UI elements for the the bargaining phase")]
+    [SerializeField] private Button ReselectItemButton;
     [SerializeField] private Button increaseButton;
     [SerializeField] private Button increaseByTen;
     [SerializeField] private Button decreaseButton;
     [SerializeField] private Button decreaseByTen;
+
+    //ui for Bargaining phase
+    [Header("UI elements for the the bargaining phase")]
+    [SerializeField] private Button increaseButton2;
+    [SerializeField] private Button increaseByTen2;
+    [SerializeField] private Button decreaseButton2;
+    [SerializeField] private Button decreaseByTen2;
+    [SerializeField] private Image priceAdjustment;
     [SerializeField] private Image patienceMeter;
-    [SerializeField] private Button confirmButton2;
+    [SerializeField] private Button makeOfferButton;
     [SerializeField] private TextMeshProUGUI bargainSpeech;
     [SerializeField] private int tolerance;
+    [SerializeField] private TextMeshProUGUI previousPriceText;
+    [SerializeField] private float previousPrice;
+    [SerializeField] private TextMeshProUGUI differenceText;
+    [SerializeField] private float priceDifference;
 
     //UI for ending the game
     [Header("UI elements for ending the game")]
     [SerializeField] private Button endGameButton;
     [SerializeField] private Button nextCustomerButton;
+    [SerializeField] private TextMeshProUGUI walletText;
 
     //miscellaneous values
     [Header("Private game attributes")]
@@ -80,6 +91,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         NewCustomer();
         itemManager.GenerateItemList();
         for (int i = 0; i < itemButtons.Length; ++i)
@@ -92,14 +104,8 @@ public class GameManager : MonoBehaviour
         bargain = false;
         textProgression = false;
         dealOver = false;
-        bargainometer.enabled = false;
-        priceBox.gameObject.SetActive(false);
-        confirmButton.gameObject.SetActive(false);
-        increaseButton.gameObject.SetActive(false);
-        increaseByTen.gameObject.SetActive(false);
-        decreaseButton.gameObject.SetActive(false);
-        decreaseByTen.gameObject.SetActive(false);
-        confirmButton2.gameObject.SetActive(false);
+        InitialOfferSetInactive();
+        MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
         TextPrompt.gameObject.SetActive(true);
         nextCustomerButton.gameObject.SetActive(false);
@@ -114,6 +120,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ResetToMenu();
+        walletText.text = PlayerPrefs.GetInt("wallet").ToString();
         //initial intro dialogue loop
         if (!itemsShown)
         {
@@ -133,18 +141,18 @@ public class GameManager : MonoBehaviour
             PatienceCheck();
             if (textProgression)
             {
-                bargainometer.enabled = true;
-                priceBox.gameObject.SetActive(true);
-                priceBox.text = setPrice.ToString("00");
-                increaseButton.gameObject.SetActive(true);
-                decreaseButton.gameObject.SetActive(true);
-                increaseByTen.gameObject.SetActive(true);
-                decreaseByTen.gameObject.SetActive(true);
-                confirmButton2.gameObject.SetActive(true);
-                bargainSpeech.enabled = false;
-                customer.enabled = false;
+                MakeOfferPhaseSetActive();
                 textProgression = false;
                 TextPrompt.gameObject.SetActive(false);
+            }
+            priceDifference = previousPrice - setPrice;
+            if (priceDifference < 0)
+            {
+                differenceText.SetText("+" + MathF.Abs(priceDifference).ToString());
+            }
+            else
+            {
+                differenceText.SetText("-" + priceDifference.ToString());
             }
         }
     }
@@ -217,31 +225,17 @@ public class GameManager : MonoBehaviour
         basePrice = (character.GetDrink() * itemManager.GetDrinkValue(selectedItem)) + (character.GetFood() * itemManager.GetFoodValue(selectedItem)) + (character.GetLuxury() + itemManager.GetLuxuryValue(selectedItem))
             + (character.GetWeapon() * itemManager.GetWeaponValue(selectedItem)) + (character.GetWarmth() * itemManager.GetWarmthValue(selectedItem)) + (character.GetMachinery() * itemManager.GetMachineryValue(selectedItem));
         price = basePrice + tolerance;
-        bargainometer.enabled = true;
-        priceBox.gameObject.SetActive(true);
+        InitialOfferPhaseSetActive();
         priceBox.text = setPrice.ToString("00");
-        increaseButton.gameObject.SetActive(true);
-        decreaseButton.gameObject.SetActive(true);
-        increaseByTen.gameObject.SetActive(true);
-        decreaseByTen.gameObject.SetActive(true);
-        priceBox.gameObject.SetActive(true);
-        confirmButton.gameObject.SetActive(true);
         TextPrompt.gameObject.SetActive(false);
     }
 
     public void PriceConfirm()
     {
         TextPrompt.gameObject.SetActive(true);
-        confirmButton.gameObject.SetActive(false);
-        priceBox.gameObject.SetActive(false);
-        confirmButton2.gameObject.SetActive(false);
-        increaseButton.gameObject.SetActive(false);
-        increaseByTen.gameObject.SetActive(false);
-        decreaseButton.gameObject.SetActive(false);
-        decreaseByTen.gameObject.SetActive(false);
+        InitialOfferSetInactive();
         TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
-        bargainometer.enabled = false;
         bargain = true;
         patienceMeter.enabled = true;
         patienceArrow.SetRotation(patience, character.GetPatience());
@@ -260,6 +254,7 @@ public class GameManager : MonoBehaviour
         }
         customer.enabled = true;
         textProgression = false;
+        previousPrice = setPrice;
     }
 
     public void OfferPrice()
@@ -281,13 +276,8 @@ public class GameManager : MonoBehaviour
             ReCalculate();
             patienceArrow.SetRotation(patience, character.GetPatience());
         }
-        bargainometer.enabled = false;
-        priceBox.gameObject.SetActive(false);
-        confirmButton2.gameObject.SetActive(false);
-        increaseButton.gameObject.SetActive(false);
-        increaseByTen.gameObject.SetActive(false);
-        decreaseButton.gameObject.SetActive(false);
-        decreaseByTen.gameObject.SetActive(false);      
+        MakeOfferPhaseSetInactive();     
+        previousPrice = setPrice;
     }
 
     void PriceCheck()
@@ -428,6 +418,17 @@ public class GameManager : MonoBehaviour
         CalculatePrice();
     }
 
+    public void ReselectItems()
+    {
+        for(int i = 0; i < itemManager.RemainingItems(); ++i)
+        {
+            itemText[i].enabled = true;
+            itemButtons[i].gameObject.SetActive(true);
+            itemButtons[i].interactable = true;
+        }
+        InitialOfferSetInactive();
+    }
+
     public void IncreasePrice()
     {
         setPrice += 1;
@@ -459,8 +460,8 @@ public class GameManager : MonoBehaviour
         character.SaleOver();
         customer.enabled = false;
         bargain = false;
-        int wallet = PlayerPrefs.GetInt("wallet") + (int)setPrice;
-        PlayerPrefs.SetInt("wallet", wallet);
+        int walletValue = PlayerPrefs.GetInt("wallet") + (int)setPrice;
+        PlayerPrefs.SetInt("wallet", walletValue);
         TextPrompt.gameObject.SetActive(false);
         if (customerCount < 4)
         {
@@ -470,6 +471,7 @@ public class GameManager : MonoBehaviour
         {
             ResetLevel();
         }
+        setPrice = 0;
     }
 
     void DeclineDeal()
@@ -491,6 +493,7 @@ public class GameManager : MonoBehaviour
         {
             ResetLevel();
         }
+        setPrice = 0;
     }
 
     void ResetLevel()
@@ -518,18 +521,13 @@ public class GameManager : MonoBehaviour
         trade = false;
         bargain = false;
         textProgression = false;
-        bargainometer.enabled = false;
         customer.enabled = true;
         speechText.enabled = true;
         patienceDecrease = 0;
         turnCount = 0;
-        priceBox.gameObject.SetActive(false);
-        confirmButton.gameObject.SetActive(false);
-        increaseButton.gameObject.SetActive(false);
-        increaseByTen.gameObject.SetActive(false);
-        decreaseButton.gameObject.SetActive(false);
-        decreaseByTen.gameObject.SetActive(false);
-        confirmButton2.gameObject.SetActive(false);
+        dealOver = false;
+        InitialOfferSetInactive();
+        MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
         nextCustomerButton.gameObject.SetActive(false);
         TextPrompt.gameObject.SetActive(true);
@@ -551,7 +549,65 @@ public class GameManager : MonoBehaviour
             case 4:
                 itemButtons[1].gameObject.SetActive(false);
                 break;
+        }
+    }
 
+    void MakeOfferPhaseSetActive()
+    {
+        makeOfferButton.gameObject.SetActive(true);
+        increaseButton2.gameObject.SetActive(true);
+        increaseByTen2.gameObject.SetActive(true);
+        decreaseButton2.gameObject.SetActive(true);
+        decreaseByTen2.gameObject.SetActive(true);
+        priceAdjustment.enabled = true;
+        previousPriceText.gameObject.SetActive(true);
+        differenceText.gameObject.SetActive(true);
+        previousPriceText.SetText(previousPrice.ToString());
+    }
+
+    void MakeOfferPhaseSetInactive()
+    {
+        makeOfferButton.gameObject.SetActive(false);
+        increaseButton2.gameObject.SetActive(false);
+        increaseByTen2.gameObject.SetActive(false);
+        decreaseButton2.gameObject.SetActive(false);
+        decreaseByTen2.gameObject.SetActive(false);
+        priceAdjustment.enabled = false;
+        previousPriceText.gameObject.SetActive(false);
+        differenceText.gameObject.SetActive(false);
+        bargainSpeech.enabled = true;
+    }
+
+    void InitialOfferPhaseSetActive()
+    {
+        bargainometer.enabled = true;
+        priceBox.gameObject.SetActive(true);
+        confirmButton.gameObject.SetActive(true);
+        increaseButton.gameObject.SetActive(true);
+        increaseByTen.gameObject.SetActive(true);
+        decreaseButton.gameObject.SetActive(true);
+        decreaseByTen.gameObject.SetActive(true);
+        ReselectItemButton.gameObject.SetActive(true);
+    }
+
+    void InitialOfferSetInactive()
+    {
+        bargainometer.enabled = false;
+        priceBox.gameObject.SetActive(false);
+        confirmButton.gameObject.SetActive(false);
+        increaseButton.gameObject.SetActive(false);
+        increaseByTen.gameObject.SetActive(false);
+        decreaseButton.gameObject.SetActive(false);
+        decreaseByTen.gameObject.SetActive(false);
+        ReselectItemButton.gameObject.SetActive(false);
+    }
+
+   void ResetToMenu()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Loader.Load(Loader.Scene.MainMenuScene);
+            ResetLevel();
         }
     }
 }
