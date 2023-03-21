@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using UnityEngine.EventSystems;
+using System.Timers;
 
 public class TravelManager : MonoBehaviour
 {
@@ -19,11 +21,14 @@ public class TravelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currency;
     [SerializeField] private Button nextButton;
 
-    //Truck 
+
+    //Truck & City
+    [Header("Truck and City")]
+    [SerializeField] private Button cityButton;
     [SerializeField] private Image truck;
 
     //Variables
-    private bool truckMoved;
+    private bool truckMoved, cityClicked, nextClicked;
     private int moveSpeed;
     private int wallet;
     private int expenses;
@@ -33,14 +38,19 @@ public class TravelManager : MonoBehaviour
         //Go to Item Selection scene on Click
         nextButton.onClick.AddListener(() =>
         {
-            Loader.Load(Loader.Scene.ItemSelectScene);
+            nextClicked = true;
         });
-       
+
+        //Make next day button visible on click
+        cityButton.onClick.AddListener(() =>
+        {
+            cityClicked = true;
+        });
     }
 
     void Start()
     {
-        //Setting Variables' status
+        //Setting Richie vars to false
         richieText.enabled = false;
         richieImage.enabled = false;
         richieTextBox.enabled = false;
@@ -48,18 +58,41 @@ public class TravelManager : MonoBehaviour
         nextButton.gameObject.SetActive(false);
         truck.enabled = true;
 
-        moveSpeed = 2;
+        moveSpeed = 3;
+
+        cityClicked = false;
+        nextClicked = false;
         truckMoved = false;
 
+        PlayerPrefs.SetInt("wallet", 0);
         wallet = PlayerPrefs.GetInt("wallet");
-
     }
 
     void Update()
     {
-        MoveTruck();
+        //Update Wallet 
         UpdateCurrency();
+
+        //Enable Richie Dialogue
         RichieDialogue();
+
+        //Enable Next button if city is clicked
+        if (cityClicked)
+        {
+            nextButton.gameObject.SetActive(true);
+        }
+
+        //Move truck if next is clicked
+        if (nextClicked)
+        {
+            MoveTruck();
+        }
+
+        //Load next scene when truck has finished moving
+        if (truckMoved)
+        {
+            Loader.Load(Loader.Scene.ItemSelectScene);
+        }
     }
 
     void RichieDialogue()
@@ -67,9 +100,12 @@ public class TravelManager : MonoBehaviour
         //Initiate Richie Dialogue
         richieImage.enabled = true;
         richieTextBox.enabled = true;
-        richieText.gameObject.SetActive(true);
+        richieText.enabled = true;
 
         richieText.text = "What's up... The name's Richie";
+
+        //richieText.text = "Another day on the road, looks like we're travelling to Toxic Towers today!";
+        //richieText.text = "Anyways, lets get going!";
     }
 
     void UpdateCurrency()
@@ -79,18 +115,13 @@ public class TravelManager : MonoBehaviour
    
     //Function to move truck across screen
     void MoveTruck()
-    {
+    { 
+        truck.transform.position = Vector2.Lerp(truck.transform.position, new Vector2(Screen.width * .9f, truck.transform.position.y), Time.deltaTime * moveSpeed);
 
-        if (Input.GetKey(KeyCode.G))
+        if (truck.transform.position.x >= Screen.width * .85f)
         {
-            truck.transform.position = Vector2.Lerp(truck.transform.position, new Vector2(1000, truck.transform.position.y), Time.deltaTime * moveSpeed);
+            truck.enabled = false;
             truckMoved = true;
-        }
-
-        //If truck has moved, allow user to go to next scene
-        if (truckMoved)
-        {
-            nextButton.gameObject.SetActive(true);
         }
     }
 }
