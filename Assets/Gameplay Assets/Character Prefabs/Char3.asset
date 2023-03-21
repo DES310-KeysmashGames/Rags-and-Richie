@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
   m_Name: Char3
   m_EditorClassIdentifier: 
-  charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
+  charSprite: {fileID: 21300000, guid: cfa8e8d1a0259a8449a3d3b84a30dc90, type: 3}
   desire: 4
-  charName: Mechanical Michael
   foodDesire: 1
   drinkDesire: 3
   warmthDesire: 1
