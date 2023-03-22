@@ -1382,7 +1382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 768199863}
   - component: {fileID: 768199864}
-  - component: {fileID: 768199865}
   m_Layer: 5
   m_Name: Button5
   m_TagString: Untagged
@@ -1500,7 +1499,6 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-
   m_GameObject: {fileID: 792121231}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3436,12 +3434,12 @@ MonoBehaviour:
   - {fileID: 1252864770}
   - {fileID: 1351134211}
   scavengedItemSprites:
-  - {fileID: 1584030262}
-  - {fileID: 1426993002}
-  - {fileID: 1045921029}
-  - {fileID: 1403487773}
-  - {fileID: 574793644}
-  - {fileID: 183406539}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   chosenInventory: []
   chosenItemsprites:
   - {fileID: 1441498112}
