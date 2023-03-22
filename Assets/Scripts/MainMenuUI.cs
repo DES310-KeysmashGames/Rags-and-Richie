@@ -19,7 +19,7 @@ public class MainMenuUI : MonoBehaviour
 
         playButton.onClick.AddListener(()=> {
             //click action
-            Loader.Load(Loader.Scene.ItemSelectScene);
+            Loader.Load(Loader.Scene.TravelScene);
             PlayerPrefs.SetInt("wallet", 0);
         });
         optionsButton.onClick.AddListener(()=> {
