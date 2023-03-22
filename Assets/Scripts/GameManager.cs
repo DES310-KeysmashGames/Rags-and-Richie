@@ -73,7 +73,11 @@ public class GameManager : MonoBehaviour
 
         endGameButton.onClick.AddListener(() => {
             //click action
-            Loader.Load(Loader.Scene.EndingScene);
+            for (int i = 0; i < itemManager.soldItems.Count ; i++){
+                StaticInventory.soldItemsList.Add(itemManager.soldItems[i]);
+                Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
+            }
+            Loader.Load(Loader.Scene.DayEndScene);
         });
     }
 

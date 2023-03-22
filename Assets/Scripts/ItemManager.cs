@@ -9,7 +9,7 @@ public class ItemManager : MonoBehaviour
 {
     [SerializeField] private List<BaseItem> fullstock = new List<BaseItem>();
     [SerializeField] private List<BaseItem> inventory = new List<BaseItem>();
-    [SerializeField] private List<BaseItem> soldItems = new List<BaseItem>();
+    [SerializeField] public List<BaseItem> soldItems = new List<BaseItem>();
     private bool itemExists;
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
