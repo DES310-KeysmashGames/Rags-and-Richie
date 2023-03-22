@@ -12,15 +12,18 @@ public enum CharacterDesire
 [CreateAssetMenu(menuName = "CharacterCreator/Character", fileName = "New Character")]
 public class BaseCharacter : ScriptableObject
 {
-    [SerializeField] public Sprite charSprite;
-    [SerializeField] public CharacterDesire desire;
-    [SerializeField] public int foodDesire;
-    [SerializeField] public int drinkDesire;
-    [SerializeField] public int warmthDesire;
-    [SerializeField] public int weaponDesire;
-    [SerializeField] public int machineryDesire;
-    [SerializeField] public int luxuryDesire;
-    [SerializeField] public List<TextDialogue> introText = new List<TextDialogue>();
-    [SerializeField] public int patiece;
-    [SerializeField] public int desperation;
+    public Sprite charSprite;
+    public string CustName;
+    public CharacterDesire desire;
+    public int foodDesire;
+    public int drinkDesire;
+    public int warmthDesire;
+    public int weaponDesire;
+    public int machineryDesire;
+    public int luxuryDesire;
+    public List<TextDialogue> introText = new List<TextDialogue>();
+    public List<TextDialogue> introText2 = new List<TextDialogue>();
+    public List<TextDialogue> introText3 = new List<TextDialogue>();
+    public int patiece;
+    public int desperation;
 }

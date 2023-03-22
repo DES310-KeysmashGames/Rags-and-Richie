@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
-  m_Name: Gas Mask
+  m_Name: Beer Mask
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: a7825e7761e57bd4dbee3174fbfa76fe, type: 3}
-  itemName: Gas Mask
-  type: 5
-  Description: A gas mask from a long time ago.
+  frontSprite: {fileID: 0}
+  itemName: Beer Mask
+  primaryType: 3
+  secondaryType: 5
+  tertiaryType: 4
+  Description: 
   foodValue: 0
-  drinkValue: 0
-  warmthValue: 1
-  weaponValue: 3
-  machineryValue: 1
-  luxuryValue: 5
+  drinkValue: 5
+  warmthValue: 0
+  weaponValue: 0
+  machineryValue: 3
+  luxuryValue: 4

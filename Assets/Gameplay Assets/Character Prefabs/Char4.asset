@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Char4
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
+  CustName: Dr. Dante
   desire: 5
-  charName: Fistful Francis
   foodDesire: 1
   drinkDesire: 1
   warmthDesire: 2
@@ -24,5 +24,9 @@ MonoBehaviour:
   introText:
   - {fileID: 11400000, guid: 43b397e2165d4754398f0ddad1417bd8, type: 2}
   - {fileID: 11400000, guid: 90c42dda14d750847a5487832f48a1da, type: 2}
+  introText2:
+  - {fileID: 11400000, guid: 43b397e2165d4754398f0ddad1417bd8, type: 2}
+  introText3:
+  - {fileID: 11400000, guid: 43b397e2165d4754398f0ddad1417bd8, type: 2}
   patiece: 100
   desperation: 6
