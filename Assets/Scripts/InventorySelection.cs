@@ -23,6 +23,7 @@ public class InventorySelection : MonoBehaviour
     private int chosenIndexStart = 0;
 
     [SerializeField] private Image itemCard;
+    [SerializeField] private Image itemCard2;
 
     //buttons
     [SerializeField] Button confirmButton;
@@ -39,9 +40,11 @@ public class InventorySelection : MonoBehaviour
             }
             
         });
+        itemCard.enabled = false;
+        itemCard2.enabled = false;
     }
     private void Start(){
-        ShuffleItems(/*scavengedItems*/);
+        ShuffleItems();
         AssignSprites();
         for (int i = 0; i < selectionButtons.Count; i++){
         int closureIndex = i ; // Prevents the closure problem
@@ -208,6 +211,43 @@ public class InventorySelection : MonoBehaviour
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
+    }
+
+    public void HoverEnterButtonOne()
+    {
+        itemCard2.enabled = true;
+        itemCard2.sprite = scavengedItems[0].itemDescription;
+    }
+    public void HoverEnterButtonTwo()
+    {
+        itemCard2.enabled = true;
+        itemCard2.sprite = scavengedItems[1].itemDescription;
+    }
+    public void HoverEnterButtonThree()
+    {
+        itemCard2.enabled = true;
+        itemCard2.sprite = scavengedItems[2].itemDescription;
+    }
+    public void HoverEnterButtonFour()
+    {
+        itemCard.enabled = true;
+        itemCard.sprite = scavengedItems[3].itemDescription;
+    }
+    public void HoverEnterButtonFive()
+    {
+        itemCard.enabled = true;
+        itemCard.transform.position = new Vector3(530, itemCard.transform.position.y, itemCard.transform.position.z);
+        itemCard.sprite = scavengedItems[4].itemDescription;
+    }
+    public void HoverEnterButtonSix()
+    {
+        itemCard.enabled = true;
+        itemCard.sprite = scavengedItems[5].itemDescription;
+    }
+    public void HoverExitButton()
+    {
+        itemCard.enabled = false;
+        itemCard2.enabled = false;
     }
 }
 
