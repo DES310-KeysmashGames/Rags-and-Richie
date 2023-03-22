@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Char3
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
-  CustName: Cahr 3
+  CustName: Antsy Angela
   desire: 4
   foodDesire: 1
   drinkDesire: 3
