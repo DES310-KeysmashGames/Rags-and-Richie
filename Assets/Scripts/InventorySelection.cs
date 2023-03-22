@@ -14,7 +14,7 @@ public class InventorySelection : MonoBehaviour
     [SerializeField] private List<BaseItem> fullItemList = new List<BaseItem> ();
     [SerializeField] public List<BaseItem> scavengedItems = new List<BaseItem>();
     [SerializeField] private Button[] removeButtons;
-    [SerializeField] private Image[] scavengedItemSprites;
+    [SerializeField] private Button[] scavengedItemSprites;
     //list for items to be selected into
     //chosen items
     [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
@@ -103,8 +103,8 @@ public class InventorySelection : MonoBehaviour
     private void AssignSprites(){
         for (int i = 0; i < scavengedItemSprites.Length; ++i)
         {
-            scavengedItemSprites[i].enabled = true;
-            scavengedItemSprites[i].sprite = GetSprite(i);
+            scavengedItemSprites[i].gameObject.SetActive(true);
+            scavengedItemSprites[i].image.sprite = GetSprite(i);
         }
     }
 
