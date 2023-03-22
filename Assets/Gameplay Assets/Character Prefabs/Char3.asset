@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
   m_Name: Char3
   m_EditorClassIdentifier: 
-  charSprite: {fileID: 21300000, guid: cfa8e8d1a0259a8449a3d3b84a30dc90, type: 3}
+  charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
+  CustName: Cahr 3
   desire: 4
   foodDesire: 1
   drinkDesire: 3
@@ -24,5 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 70a34d889d69120458961382daaa3740, type: 2}
   - {fileID: 11400000, guid: 35246c7bab207ad4a8126ac8c634931a, type: 2}
   - {fileID: 11400000, guid: 4f7e7b34b783dba4a851546aba06d009, type: 2}
+  introText2:
+  - {fileID: 11400000, guid: 70a34d889d69120458961382daaa3740, type: 2}
+  introText3:
+  - {fileID: 11400000, guid: 70a34d889d69120458961382daaa3740, type: 2}
   patiece: 100
   desperation: 2
