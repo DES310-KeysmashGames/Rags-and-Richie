@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
   m_Name: Char4
   m_EditorClassIdentifier: 
-  charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
+  charSprite: {fileID: 21300000, guid: 02725f78b39460c438f8194584460509, type: 3}
   CustName: Dr. Dante
   desire: 5
   foodDesire: 1

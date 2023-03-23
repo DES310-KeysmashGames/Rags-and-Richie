@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
   m_Name: Char6
   m_EditorClassIdentifier: 
-  charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
+  charSprite: {fileID: 21300000, guid: 1af40cba47b918c478a5b335b65b36ce, type: 3}
   CustName: Kranky Kevin
   desire: 1
   foodDesire: 3
