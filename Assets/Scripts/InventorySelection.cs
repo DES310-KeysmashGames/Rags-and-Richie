@@ -14,7 +14,7 @@ public class InventorySelection : MonoBehaviour
     [SerializeField] private List<BaseItem> fullItemList = new List<BaseItem> ();
     [SerializeField] public List<BaseItem> scavengedItems = new List<BaseItem>();
     [SerializeField] private Button[] removeButtons;
-    [SerializeField] private Image[] scavengedItemSprites;
+    [SerializeField] private Button[] scavengedItemSprites;
     //list for items to be selected into
     //chosen items
     [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
@@ -22,7 +22,8 @@ public class InventorySelection : MonoBehaviour
     private bool reactivate;
     private int chosenIndexStart = 0;
 
-    bool itemExists;
+    [SerializeField] private Image itemCard;
+    [SerializeField] private Image itemCard2;
 
     //buttons
     [SerializeField] Button confirmButton;
@@ -39,9 +40,11 @@ public class InventorySelection : MonoBehaviour
             }
             
         });
+        itemCard.enabled = false;
+        itemCard2.enabled = false;
     }
     private void Start(){
-        ShuffleItems(/*scavengedItems*/);
+        ShuffleItems();
         AssignSprites();
         for (int i = 0; i < selectionButtons.Count; i++){
         int closureIndex = i ; // Prevents the closure problem
@@ -100,8 +103,8 @@ public class InventorySelection : MonoBehaviour
     private void AssignSprites(){
         for (int i = 0; i < scavengedItemSprites.Length; ++i)
         {
-            scavengedItemSprites[i].enabled = true;
-            scavengedItemSprites[i].sprite = GetSprite(i);
+            scavengedItemSprites[i].gameObject.SetActive(true);
+            scavengedItemSprites[i].image.sprite = GetSprite(i);
         }
     }
 
@@ -208,6 +211,43 @@ public class InventorySelection : MonoBehaviour
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
+    }
+
+    public void HoverEnterButtonOne()
+    {
+        itemCard2.enabled = true;
+        itemCard2.sprite = scavengedItems[0].itemDescription;
+    }
+    public void HoverEnterButtonTwo()
+    {
+        itemCard2.enabled = true;
+        itemCard2.sprite = scavengedItems[1].itemDescription;
+    }
+    public void HoverEnterButtonThree()
+    {
+        itemCard2.enabled = true;
+        itemCard2.sprite = scavengedItems[2].itemDescription;
+    }
+    public void HoverEnterButtonFour()
+    {
+        itemCard.enabled = true;
+        itemCard.sprite = scavengedItems[3].itemDescription;
+    }
+    public void HoverEnterButtonFive()
+    {
+        itemCard.enabled = true;
+        itemCard.transform.position = new Vector3(530, itemCard.transform.position.y, itemCard.transform.position.z);
+        itemCard.sprite = scavengedItems[4].itemDescription;
+    }
+    public void HoverEnterButtonSix()
+    {
+        itemCard.enabled = true;
+        itemCard.sprite = scavengedItems[5].itemDescription;
+    }
+    public void HoverExitButton()
+    {
+        itemCard.enabled = false;
+        itemCard2.enabled = false;
     }
 }
 

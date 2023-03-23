@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 4dab986b5faa37046a79cef03ec3483c, type: 3}
   itemName: Hot Sauce
-  type: 3
+  primaryType: 3
+  secondaryType: 2
+  tertiaryType: 0
+  itemDescription: {fileID: 21300000, guid: 684feaf0407499048bc5b3596cb854ef, type: 3}
   Description: 
   foodValue: 2
   drinkValue: 4

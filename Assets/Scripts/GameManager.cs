@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("UI elements for the intro and Item Select")] 
     [SerializeField] private TextMeshProUGUI speechText;
     [SerializeField] private Image customer;
+    [SerializeField] private TextMeshProUGUI custName;
     [SerializeField] private TextMeshProUGUI[] itemText;
     [SerializeField] private Button[] itemButtons;
     [SerializeField] private Button TextPrompt;
@@ -198,6 +199,7 @@ public class GameManager : MonoBehaviour
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
         speechText.text = "" + character.GetIntro(introCount);
+        custName.text = "" + character.GetCustName();
         introCount = 1;
         patience = character.GetPatience();
         custDesperation = character.GetDesperation();
@@ -372,6 +374,7 @@ public class GameManager : MonoBehaviour
         itemButtons[2].gameObject.SetActive(false);
         itemButtons[3].gameObject.SetActive(false);
         speechText.enabled = false;
+        custName.enabled = false;
         selectedItem = 0;
         CalculatePrice();
     }
@@ -387,6 +390,7 @@ public class GameManager : MonoBehaviour
         itemButtons[3].gameObject.SetActive(false);
         selectedItem = 1;
         speechText.enabled = false;
+        custName.enabled = false;
         CalculatePrice();
     }
 
@@ -401,6 +405,7 @@ public class GameManager : MonoBehaviour
         itemButtons[3].gameObject.SetActive(false);
         selectedItem = 2;
         speechText.enabled = false;
+        custName.enabled = false;
         CalculatePrice();
     }
 
@@ -414,6 +419,7 @@ public class GameManager : MonoBehaviour
         itemButtons[2].gameObject.SetActive(false);
         itemButtons[3].interactable = false;
         speechText.enabled = false;
+        custName.enabled = false;
         selectedItem = 3;
         CalculatePrice();
     }
@@ -523,6 +529,7 @@ public class GameManager : MonoBehaviour
         textProgression = false;
         customer.enabled = true;
         speechText.enabled = true;
+        custName.enabled = true;
         patienceDecrease = 0;
         turnCount = 0;
         dealOver = false;

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Char1
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
+  CustName: Rushing Randy
   desire: 0
-  charName: Hungry Henry
   foodDesire: 4
   drinkDesire: 2
   warmthDesire: 1
@@ -22,7 +22,11 @@ MonoBehaviour:
   machineryDesire: 1
   luxuryDesire: 1
   introText:
+  - {fileID: 11400000, guid: 97117d8163efea948b4795ee1c5a0269, type: 2}
+  - {fileID: 11400000, guid: cdf7cfeebb299df4eb76d6c0d089c022, type: 2}
+  introText2:
   - {fileID: 11400000, guid: a28f8f108220463489a7c3296cbea4ba, type: 2}
-  - {fileID: 11400000, guid: 3999320a9bd358c4f9579847606f7063, type: 2}
-  patiece: 100
+  introText3:
+  - {fileID: 11400000, guid: a28f8f108220463489a7c3296cbea4ba, type: 2}
+  patiece: 94
   desperation: 5

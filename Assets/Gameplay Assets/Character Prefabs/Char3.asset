@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: Char3
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: f795250277ef5704da47049583952145, type: 3}
+  CustName: Antsy Angela
   desire: 4
-  charName: Mechanical Michael
   foodDesire: 1
-  drinkDesire: 3
-  warmthDesire: 1
-  weaponDesire: 1
+  drinkDesire: 1
+  warmthDesire: 2
+  weaponDesire: 3
   machineryDesire: 4
   luxuryDesire: 2
   introText:
   - {fileID: 11400000, guid: 70a34d889d69120458961382daaa3740, type: 2}
   - {fileID: 11400000, guid: 35246c7bab207ad4a8126ac8c634931a, type: 2}
   - {fileID: 11400000, guid: 4f7e7b34b783dba4a851546aba06d009, type: 2}
-  patiece: 100
+  introText2:
+  - {fileID: 11400000, guid: 70a34d889d69120458961382daaa3740, type: 2}
+  introText3:
+  - {fileID: 11400000, guid: 70a34d889d69120458961382daaa3740, type: 2}
+  patiece: 64
   desperation: 2
