@@ -10,6 +10,9 @@ public class CharacterManager : MonoBehaviour
     public BaseCharacter currentChar;
     private bool custExists;
     [SerializeField] TextDialogue tradeSpeech;
+    [SerializeField] TextDialogue[] happyDialogue;
+    [SerializeField] TextDialogue[] okayDialogue;
+    [SerializeField] TextDialogue[] angryDialogue;
     [SerializeField] TextDialogue[] inTradeText;
     [SerializeField] TextDialogue[] acceptTrade;
     [SerializeField] TextDialogue[] declineTrade;

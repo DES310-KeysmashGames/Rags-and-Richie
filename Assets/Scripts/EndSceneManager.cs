@@ -25,7 +25,7 @@ public class EndSceneManager : MonoBehaviour
     private void Start(){
         value = PlayerPrefs.GetInt("wallet");
         //display bad ending
-        if (value < 30)
+        if (value < 50)
         {
             endScreens[0].enabled = true;
         }
