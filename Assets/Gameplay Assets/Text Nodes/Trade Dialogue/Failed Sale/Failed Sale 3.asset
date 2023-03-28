@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
-  m_Name: Price is too Low
+  m_Name: Failed Sale 3
   m_EditorClassIdentifier: 
-  lineOfDialogue: Wow, that's a really good price!
+  lineOfDialogue: What a joke of a salesman.
   category: 6
