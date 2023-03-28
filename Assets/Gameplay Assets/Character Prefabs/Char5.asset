@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
-  m_Name: Char1
+  m_Name: Char5
   m_EditorClassIdentifier: 
-  charSprite: {fileID: 21300000, guid: 1c6f5e9a9e71b82488ea56287f43f428, type: 3}
-  CustName: Rushing Randy
-  desire: 0
-  foodDesire: 4
-  drinkDesire: 2
+  charSprite: {fileID: 21300000, guid: 361dda063d5aa74409d4e01ab485f59a, type: 3}
+  CustName: Bussin Barry
+  desire: 3
+  foodDesire: 1
+  drinkDesire: 1
   warmthDesire: 1
-  weaponDesire: 3
-  machineryDesire: 1
-  luxuryDesire: 1
+  weaponDesire: 2
+  machineryDesire: 3
+  luxuryDesire: 5
   introText:
   - {fileID: 11400000, guid: 97117d8163efea948b4795ee1c5a0269, type: 2}
   - {fileID: 11400000, guid: cdf7cfeebb299df4eb76d6c0d089c022, type: 2}
   introText2:
-  - {fileID: 11400000, guid: a28f8f108220463489a7c3296cbea4ba, type: 2}
+  - {fileID: 11400000, guid: 97117d8163efea948b4795ee1c5a0269, type: 2}
   introText3:
-  - {fileID: 11400000, guid: a28f8f108220463489a7c3296cbea4ba, type: 2}
-  patiece: 94
-  desperation: 5
+  - {fileID: 11400000, guid: 97117d8163efea948b4795ee1c5a0269, type: 2}
+  patiece: 97
+  desperation: 6
