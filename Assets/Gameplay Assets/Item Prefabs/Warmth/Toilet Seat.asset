@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Toilet Seat
   primaryType: 2
   secondaryType: 5
-  tertiaryType: 4
+  tertiaryType: 6
   itemDescription: {fileID: 21300000, guid: 3f4fe9fc734085746839d42e81ca15fe, type: 3}
   Description: 
   foodValue: 1
