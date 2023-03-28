@@ -11,6 +11,7 @@ public enum ItemType
     Drink,
     Machinery,
     Luxury,
+    Mystery,
 }
 
 [CreateAssetMenu(menuName = "Item System/Item", fileName = "New Item")]
