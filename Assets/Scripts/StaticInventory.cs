@@ -8,5 +8,6 @@ public static class StaticInventory
 
     public static List<BaseItem> soldItemsList = new List<BaseItem>();
 
-
+    public static List<int> basePrice = new List<int>();
+    public static List<int> sellPrice = new List<int>();
 }
