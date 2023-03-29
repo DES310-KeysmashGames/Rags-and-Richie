@@ -9,7 +9,10 @@ public class ItemManager : MonoBehaviour
 {
     [SerializeField] private List<BaseItem> fullstock = new List<BaseItem>();
     [SerializeField] private List<BaseItem> inventory = new List<BaseItem>();
-    [SerializeField] public List<BaseItem> soldItems = new List<BaseItem>();
+    public List<BaseItem> soldItems = new List<BaseItem>();
+    public List<int> itemPrice = new List<int>();
+    public List<int> sellPrice = new List<int>();
+
     private bool itemExists;
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
@@ -20,10 +23,20 @@ public class ItemManager : MonoBehaviour
             inventory.Add( StaticInventory.intermediateList[i] );
         }
     }
-    public void SoldItem(int no)
+
+    public void FailedToSell(int no, int price, int sell)
+    {
+        soldItems.Add(inventory[no]);
+        itemPrice.Add(price);
+        sellPrice.Add(sell);
+    }
+
+    public void SoldItem(int no, int price, int sell)
     {
         soldItems.Add(inventory[no]);
         inventory.RemoveAt(no);
+        itemPrice.Add(price);
+        sellPrice.Add(sell);
     }
 
     public int RemainingItems()
