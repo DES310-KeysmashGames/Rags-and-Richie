@@ -236,7 +236,6 @@ public class InventorySelection : MonoBehaviour
     public void HoverEnterButtonFive()
     {
         itemCard.enabled = true;
-        itemCard.transform.position = new Vector3(530, itemCard.transform.position.y, itemCard.transform.position.z);
         itemCard.sprite = scavengedItems[4].itemDescription;
     }
     public void HoverEnterButtonSix()

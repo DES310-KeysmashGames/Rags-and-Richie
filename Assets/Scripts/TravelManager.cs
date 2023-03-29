@@ -64,7 +64,6 @@ public class TravelManager : MonoBehaviour
         nextClicked = false;
         truckMoved = false;
 
-        PlayerPrefs.SetInt("wallet", 0);
         wallet = PlayerPrefs.GetInt("wallet");
     }
 
