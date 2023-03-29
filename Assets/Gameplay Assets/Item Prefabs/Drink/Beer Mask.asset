@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
   m_Name: Beer Mask
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 0}
+  frontSprite: {fileID: 21300000, guid: a824f7b205a1ba4438a6d1b907a8985f, type: 3}
   itemName: Beer Mask
   primaryType: 3
   secondaryType: 5
-  tertiaryType: 4
+  tertiaryType: 6
+  itemDescription: {fileID: 21300000, guid: ac09cdbb811f3b14b8b1e005637e48a2, type: 3}
   Description: 
   foodValue: 0
   drinkValue: 5

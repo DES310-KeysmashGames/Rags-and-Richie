@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
   m_Name: BuzzSaw PizzaCutter
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 0}
+  frontSprite: {fileID: 21300000, guid: a7d92042d2c18a44fad3dd815c2a34d8, type: 3}
   itemName: Buzzsaw PizzaCutter
   primaryType: 1
   secondaryType: 4
-  tertiaryType: 0
+  tertiaryType: 6
+  itemDescription: {fileID: 21300000, guid: 8edd89d8b3604364d9f45ea6c43ab2cd, type: 3}
   Description: 
   foodValue: 3
   drinkValue: 0
