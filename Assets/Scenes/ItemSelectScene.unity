@@ -3964,6 +3964,14 @@ MonoBehaviour:
   - {fileID: 1570285181}
   - {fileID: 768199864}
   - {fileID: 34663490}
+  itemTagSprites:
+  - {fileID: 21300000, guid: 0c16c6fbd1987c64ea153511077cb83e, type: 3}
+  - {fileID: 21300000, guid: 9675492bbe652a64a98c06fbcc8f934b, type: 3}
+  - {fileID: 21300000, guid: 66a75feb6f5bea14db467e845d5be50d, type: 3}
+  - {fileID: 21300000, guid: e5dc4e076561eb24aafaf748c323d815, type: 3}
+  - {fileID: 21300000, guid: aba3cd0ac4b7fd345912e76b8b50c474, type: 3}
+  - {fileID: 21300000, guid: 8d3cc4a45a963ce41bf123ed9d667db2, type: 3}
+  - {fileID: 21300000, guid: 6c395e9e3d528b548bf860903803059a, type: 3}
   chosenInventory: []
   chosenItemsprites:
   - {fileID: 1441498112}
@@ -3985,6 +3993,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 63abf0511025cb041919e39ac51e1599, type: 3}
   - {fileID: 21300000, guid: 85a706d90e76da54ba42eca74cae5a83, type: 3}
   itemCount: 000000000000000000000000000000000000000000000000
+  itemOfDay: 
   confirmButton: {fileID: 570890814}
 --- !u!1 &1441498110
 GameObject:

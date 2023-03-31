@@ -16,6 +16,8 @@ public class InventorySelection : MonoBehaviour
     [SerializeField] public List<BaseItem> scavengedItems = new List<BaseItem>();
     [SerializeField] private Button[] removeButtons;
     [SerializeField] private Button[] scavengedItemSprites;
+    [SerializeField] private Sprite[] itemTagSprites;
+
     //list for items to be selected into
     //chosen items
     [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
@@ -30,6 +32,7 @@ public class InventorySelection : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] itemTypeCount;
     [SerializeField] private Sprite[] continueSprite;
     [SerializeField] private int[] itemCount;
+    [SerializeField] private string itemOfDay;
 
     //buttons
     [SerializeField] Button confirmButton;
@@ -47,6 +50,7 @@ public class InventorySelection : MonoBehaviour
         });
         itemCard.enabled = false;
         itemCard2.enabled = false;
+        itemOfDay = StaticTravel.itemOfTheDay;
     }
     private void Start(){
         ShuffleItems();
@@ -58,6 +62,31 @@ public class InventorySelection : MonoBehaviour
         for (int j = 0; j < removeButtons.Length; ++j)
         {
             removeButtons[j].gameObject.SetActive(false);
+        }
+
+        switch (itemOfDay)
+        {
+            case "Weapon":
+                itemOfTheDayImage.sprite = itemTagSprites[0];
+                break;
+            case "Warmth":
+                itemOfTheDayImage.sprite = itemTagSprites[1];
+                break;
+            case "Mechanical":
+                itemOfTheDayImage.sprite = itemTagSprites[2];
+                break;
+            case "Food":
+                itemOfTheDayImage.sprite = itemTagSprites[3];
+                break;
+            case "Drink":
+                itemOfTheDayImage.sprite = itemTagSprites[4];
+                break;
+            case "Luxury":
+                itemOfTheDayImage.sprite = itemTagSprites[5];
+                break;
+            case "Mystery":
+                itemOfTheDayImage.sprite = itemTagSprites[6];
+                break;
         }
     }
 

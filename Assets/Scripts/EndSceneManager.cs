@@ -15,6 +15,7 @@ public class EndSceneManager : MonoBehaviour
         finishButton.onClick.AddListener(()=> {
             //click action
             Loader.Load(Loader.Scene.MainMenuScene);
+            StaticTravel.dayCount = 2;
         });
         //set all images to disabled
         for (int i =0; i < endScreens.Length; i++){

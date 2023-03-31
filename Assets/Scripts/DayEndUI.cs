@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,16 +12,29 @@ public class DayEndUI : MonoBehaviour
     [SerializeField] private Image[] soldItemSprites;
     [SerializeField] private Image[] thumbSprites;
     [SerializeField] private Sprite[] thumb;
-
+    [SerializeField] private TextMeshProUGUI expenses;
 
     [SerializeField] Button endButton;
 
 
     private void Awake(){
-        endButton.onClick.AddListener(()=> {
-            Loader.Load(Loader.Scene.EndingScene);
-            ClearItems();
-        });
+        if (StaticTravel.dayCount < 3)
+        {
+            endButton.onClick.AddListener(() =>
+            {
+                Loader.Load(Loader.Scene.TravelScene);
+                StaticTravel.dayCount++;
+                ClearItems();
+            });
+        }
+        else
+        {
+            endButton.onClick.AddListener(() =>
+            {
+                Loader.Load(Loader.Scene.EndingScene);
+                ClearItems();
+            });
+        }
     }
 
     private void Start(){
@@ -31,6 +45,7 @@ public class DayEndUI : MonoBehaviour
         }
         AssignSprites();
         AssignThumb();
+        expenses.text = StaticTravel.expenses.ToString();
     }
 
     private Sprite GetSprite(int i)
