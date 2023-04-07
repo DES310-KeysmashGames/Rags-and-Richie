@@ -3864,7 +3864,22 @@ MonoBehaviour:
   happyDialogue:
   - {fileID: 0}
   okayDialogue: []
-  angryDialogue: []
+  angryDialogue:
+  - {fileID: 11400000, guid: f31133a0819ee1e43b95d9acf4a5a6ad, type: 2}
+  - {fileID: 11400000, guid: b1ebbdce373f938439be4fc26887c3b4, type: 2}
+  - {fileID: 11400000, guid: 0f5f4b516dcb76f4f956147f3494745d, type: 2}
+  - {fileID: 11400000, guid: c4848f8538762814789d20c31a6e7d5b, type: 2}
+  - {fileID: 11400000, guid: e82b871101ff33d408d841205b50865f, type: 2}
+  - {fileID: 11400000, guid: c86f4363433acc14897d4b805dc0debf, type: 2}
+  - {fileID: 11400000, guid: d376cf17974fe3d4cbf741ea3b062907, type: 2}
+  - {fileID: 11400000, guid: 9e8bc56d4e24bc049a00108704e473c2, type: 2}
+  - {fileID: 11400000, guid: 6db1c9d184e8f674990566e5b3192a1b, type: 2}
+  - {fileID: 11400000, guid: 82cb024cbb206974c8ecd5cf6f4950b9, type: 2}
+  - {fileID: 11400000, guid: b42f0ed405040be42906ba54c27c4b06, type: 2}
+  - {fileID: 11400000, guid: 52ee3901bb44f954f998baf32585aa13, type: 2}
+  - {fileID: 11400000, guid: 4e2fbb0e6e6cd4348a6886554e7a6e6f, type: 2}
+  - {fileID: 11400000, guid: 160c2968205e8b0498bfbcc6f1c88aea, type: 2}
+  - {fileID: 11400000, guid: 02565ea400ea003468428226d8648acd, type: 2}
   inTradeText:
   - {fileID: 11400000, guid: 1728261b86c35374989d7d86832b5514, type: 2}
   - {fileID: 11400000, guid: 07c6c19601a5f844385b556807278900, type: 2}
