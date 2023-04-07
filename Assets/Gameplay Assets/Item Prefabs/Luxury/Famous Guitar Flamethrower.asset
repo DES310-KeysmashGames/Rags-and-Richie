@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
   m_Name: Famous Guitar Flamethrower
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 0}
+  frontSprite: {fileID: 21300000, guid: 156f92bf66fdf4e43904a4d0dac155ba, type: 3}
   itemName: Famous Guitar Flamethrower
   primaryType: 5
   secondaryType: 1
   tertiaryType: 2
+  itemDescription: {fileID: 0}
   Description: "\t\t"
   foodValue: 0
   drinkValue: 0
