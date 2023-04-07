@@ -3862,7 +3862,26 @@ MonoBehaviour:
   currentChar: {fileID: 0}
   tradeSpeech: {fileID: 11400000, guid: 2b7ccd313247d4347b0794c55e075fee, type: 2}
   happyDialogue:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 07c6c19601a5f844385b556807278900, type: 2}
+  - {fileID: 11400000, guid: bf2c6253d93d64946a3dd87028c69242, type: 2}
+  - {fileID: 11400000, guid: c13b79d6775ccb440be0c3cffbe429ea, type: 2}
+  - {fileID: 11400000, guid: f1f6cea031c30c041b97d4a1e0c68b6a, type: 2}
+  - {fileID: 11400000, guid: 3ce1007fb427900429b12fccbbad4337, type: 2}
+  - {fileID: 11400000, guid: b9fea6b584eba914d91cb1636320c32d, type: 2}
+  - {fileID: 11400000, guid: 49b2a89192e1a6a479a427adc64e5050, type: 2}
+  - {fileID: 11400000, guid: efe062c9a99594744a65f766d6d07b96, type: 2}
+  - {fileID: 11400000, guid: 56290aa2fbc47154dbeaa10b11ba8789, type: 2}
+  - {fileID: 11400000, guid: b4b60462b6b6c8145a0fc040937280bd, type: 2}
+  - {fileID: 11400000, guid: cd0bb48f65d5f6e4a8e5152e1fcde98b, type: 2}
+  - {fileID: 11400000, guid: 3dec50c7f6ca63c4fb5c618f324d4f65, type: 2}
+  - {fileID: 11400000, guid: 11f0ce437c6d09446adae8f2f1b1176d, type: 2}
+  - {fileID: 11400000, guid: 052f09681d144874896feb40b05d2afc, type: 2}
+  - {fileID: 11400000, guid: 912398562e1627845a9b9b7dc32f956d, type: 2}
+  - {fileID: 11400000, guid: 5cbc9dd482a431647a5f8dcd01328cc0, type: 2}
+  - {fileID: 11400000, guid: 4a2dfd8e794de784ab6f99d289f3c0f8, type: 2}
+  - {fileID: 11400000, guid: d7586861afdb0074bbb1b4aefbed2bbc, type: 2}
+  - {fileID: 11400000, guid: c1ff99acb9719c34c9ae4d456e31ed62, type: 2}
+  - {fileID: 11400000, guid: 09a69af2ee42cd149810e02ad3056425, type: 2}
   okayDialogue:
   - {fileID: 11400000, guid: 1728261b86c35374989d7d86832b5514, type: 2}
   - {fileID: 11400000, guid: 380861497e833264d86197a630ea13d2, type: 2}
