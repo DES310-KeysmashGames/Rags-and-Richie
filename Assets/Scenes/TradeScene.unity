@@ -3861,18 +3861,43 @@ MonoBehaviour:
   prevCustomer: []
   currentChar: {fileID: 0}
   tradeSpeech: {fileID: 11400000, guid: 2b7ccd313247d4347b0794c55e075fee, type: 2}
+  happyDialogue:
+  - {fileID: 0}
+  okayDialogue: []
+  angryDialogue: []
   inTradeText:
   - {fileID: 11400000, guid: 1728261b86c35374989d7d86832b5514, type: 2}
   - {fileID: 11400000, guid: 07c6c19601a5f844385b556807278900, type: 2}
   - {fileID: 11400000, guid: f31133a0819ee1e43b95d9acf4a5a6ad, type: 2}
   acceptTrade:
   - {fileID: 11400000, guid: de54b890f99dae146a0dc18c9aaa6982, type: 2}
+  - {fileID: 11400000, guid: 1d4f6e4bb51444f47a577b0a24dfd6cc, type: 2}
+  - {fileID: 11400000, guid: c3ebde43074e43c4ab6cdd92897242e0, type: 2}
+  - {fileID: 11400000, guid: 9b563be80f4cdba4ab51b25be34ce9e5, type: 2}
+  - {fileID: 11400000, guid: 73b90483e4777d54685d6c1672b87cb1, type: 2}
+  - {fileID: 11400000, guid: 9d8be1e0132af574a9484a80b86965b0, type: 2}
+  - {fileID: 11400000, guid: d6eda424e5605d04fafe3e8b7927dd58, type: 2}
   declineTrade:
   - {fileID: 11400000, guid: 35b21e58f6694774d904d6e0f51bc5b7, type: 2}
+  - {fileID: 11400000, guid: 8a6dfe5d28677194f96557fac9dfb8cf, type: 2}
+  - {fileID: 11400000, guid: 8b8dfa39520ec684d9d5a8f1b9eb1940, type: 2}
+  - {fileID: 11400000, guid: 1c07dc814d3b68e42affa029774c54b9, type: 2}
+  - {fileID: 11400000, guid: 20a068de87055e943a2b40669df8424d, type: 2}
+  - {fileID: 11400000, guid: d0b63d06287aaaa449dbd724a483572f, type: 2}
+  - {fileID: 11400000, guid: bd89672a65eed0f41b8ad86be417c6d2, type: 2}
+  - {fileID: 11400000, guid: ae81f73163ffa864ebe13f05fbb59526, type: 2}
   zeroPatience:
   - {fileID: 11400000, guid: 8a6dfe5d28677194f96557fac9dfb8cf, type: 2}
-  - {fileID: 11400000, guid: 35ad6a121028d7d4881534ed56f2bca1, type: 2}
-  - {fileID: 11400000, guid: ea91256baf7f0a84d81233585ecf66f0, type: 2}
+  - {fileID: 11400000, guid: c02bcf59e997cd241acf5c211483c4de, type: 2}
+  - {fileID: 11400000, guid: 806f3464f04deae46bddb49767421969, type: 2}
+  - {fileID: 11400000, guid: 176fac12c64578c48926e16cbbd73f64, type: 2}
+  - {fileID: 11400000, guid: 6d88fd39a942b184c8a920ccd6ba4258, type: 2}
+  - {fileID: 11400000, guid: bd6c1271568323a439ce7d91a65a5ca1, type: 2}
+  - {fileID: 11400000, guid: f20d37ae8ee727146b724faf890a7127, type: 2}
+  - {fileID: 11400000, guid: b57fe8f0674c47b4cb19ac68e7e6d332, type: 2}
+  - {fileID: 11400000, guid: d9a0bcc3b8933234db10d9f6e719b0a9, type: 2}
+  - {fileID: 11400000, guid: 78aacf0d15c82dd4a870ee332d421357, type: 2}
+  - {fileID: 11400000, guid: 95c8e4b285c33ec4d8e614081fd97c29, type: 2}
 --- !u!114 &944116508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3894,6 +3919,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9bc0c0252e44f214cb0c0c3278b7bf8e, type: 2}
   inventory: []
   soldItems: []
+  itemPrice: 
+  sellPrice: 
 --- !u!114 &944116509
 MonoBehaviour:
   m_ObjectHideFlags: 0
