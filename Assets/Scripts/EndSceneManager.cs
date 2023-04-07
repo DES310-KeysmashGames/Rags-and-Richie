@@ -15,6 +15,7 @@ public class EndSceneManager : MonoBehaviour
         finishButton.onClick.AddListener(()=> {
             //click action
             Loader.Load(Loader.Scene.MainMenuScene);
+            StaticTravel.dayCount = 2;
         });
         //set all images to disabled
         for (int i =0; i < endScreens.Length; i++){
@@ -25,7 +26,7 @@ public class EndSceneManager : MonoBehaviour
     private void Start(){
         value = PlayerPrefs.GetInt("wallet");
         //display bad ending
-        if (value < 30)
+        if (value < 50)
         {
             endScreens[0].enabled = true;
         }

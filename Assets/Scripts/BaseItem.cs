@@ -7,23 +7,27 @@ public enum ItemType
 {
     Food,
     Weapon,
-    Clothing,
+    Warmth,
     Drink,
     Machinery,
     Luxury,
+    Mystery,
 }
 
 [CreateAssetMenu(menuName = "Item System/Item", fileName = "New Item")]
 public class BaseItem : ScriptableObject
 {
-    [SerializeField] public Sprite frontSprite;
-    [SerializeField] public string itemName;
-    [SerializeField] public ItemType type;
-    [TextArea][SerializeField] public string Description;
-    [SerializeField] public int foodValue;
-    [SerializeField] public int drinkValue;
-    [SerializeField] public int warmthValue;
-    [SerializeField] public int weaponValue;
-    [SerializeField] public int machineryValue;
-    [SerializeField] public int luxuryValue;
+    public Sprite frontSprite;
+    public string itemName;
+    public ItemType primaryType;
+    public ItemType secondaryType;
+    public ItemType tertiaryType;
+    public Sprite itemDescription;
+    [TextArea] public string Description;
+    public int foodValue;
+    public int drinkValue;
+    public int warmthValue;
+    public int weaponValue;
+    public int machineryValue;
+    public int luxuryValue;
 }

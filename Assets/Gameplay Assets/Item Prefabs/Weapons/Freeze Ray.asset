@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: c0deaea91a65d7249bc26e88c67144f5, type: 3}
   itemName: Freeze Ray
-  type: 1
+  primaryType: 1
+  secondaryType: 4
+  tertiaryType: 6
+  itemDescription: {fileID: 21300000, guid: 696243ac1f74bb543b2f8dea81493683, type: 3}
   Description: 
   foodValue: 0
   drinkValue: 2

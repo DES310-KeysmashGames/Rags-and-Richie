@@ -19,8 +19,9 @@ public class MainMenuUI : MonoBehaviour
 
         playButton.onClick.AddListener(()=> {
             //click action
-            Loader.Load(Loader.Scene.ItemSelectScene);
+            Loader.Load(Loader.Scene.TravelScene);
             PlayerPrefs.SetInt("wallet", 0);
+            StaticTravel.dayCount = 1;
         });
         optionsButton.onClick.AddListener(()=> {
             //click action

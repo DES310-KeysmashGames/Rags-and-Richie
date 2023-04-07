@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("UI elements for the intro and Item Select")] 
     [SerializeField] private TextMeshProUGUI speechText;
     [SerializeField] private Image customer;
+    [SerializeField] private TextMeshProUGUI custName;
     [SerializeField] private TextMeshProUGUI[] itemText;
     [SerializeField] private Button[] itemButtons;
     [SerializeField] private Button TextPrompt;
@@ -75,6 +76,15 @@ public class GameManager : MonoBehaviour
     private bool textProgression;
     private bool dealOver;
     [SerializeField] private int customerCount;
+    private int sellCount;
+
+    //multipliers for specific locations
+    private int foodMultiplier = 1;
+    private int drinkMultiplier = 1;
+    private int warmthMultiplier = 1;
+    private int weaponMultiplier = 1;
+    private int machineryMultiplier = 1;
+    private int luxuryMultiplier = 1;
 
     private void Awake()
     {
@@ -84,7 +94,13 @@ public class GameManager : MonoBehaviour
 
         endGameButton.onClick.AddListener(() => {
             //click action
-            Loader.Load(Loader.Scene.EndingScene);
+            for (int i = 0; i < itemManager.soldItems.Count ; i++){
+                StaticInventory.soldItemsList.Add(itemManager.soldItems[i]);
+                Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
+                StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
+                StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
+            }
+            Loader.Load(Loader.Scene.DayEndScene);
         });
     }
 
@@ -115,6 +131,28 @@ public class GameManager : MonoBehaviour
         patienceDecrease = 0;
         turnCount = 0;
         customerCount = 1;
+        sellCount = 0;
+        switch (StaticTravel.itemOfTheDay)
+        {
+            case "Food":
+                foodMultiplier = 2;
+                break;
+            case "Drink":
+                drinkMultiplier = 2;
+                break;
+            case "Mechanical":
+                machineryMultiplier = 2;
+                break;
+            case "Warmth":
+                warmthMultiplier = 2;
+                break;
+            case "Weapon":
+                weaponMultiplier = 2;
+                break;
+            case "Luxury":
+                luxuryMultiplier = 2;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -198,6 +236,7 @@ public class GameManager : MonoBehaviour
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
         speechText.text = "" + character.GetIntro(introCount);
+        custName.text = "" + character.GetCustName();
         introCount = 1;
         patience = character.GetPatience();
         custDesperation = character.GetDesperation();
@@ -222,8 +261,8 @@ public class GameManager : MonoBehaviour
     void CalculatePrice()
     {
         tolerance = Mathf.RoundToInt(custDesperation * (patience / character.GetPatience()));
-        basePrice = (character.GetDrink() * itemManager.GetDrinkValue(selectedItem)) + (character.GetFood() * itemManager.GetFoodValue(selectedItem)) + (character.GetLuxury() + itemManager.GetLuxuryValue(selectedItem))
-            + (character.GetWeapon() * itemManager.GetWeaponValue(selectedItem)) + (character.GetWarmth() * itemManager.GetWarmthValue(selectedItem)) + (character.GetMachinery() * itemManager.GetMachineryValue(selectedItem));
+        basePrice = ((character.GetDrink() * itemManager.GetDrinkValue(selectedItem)) * drinkMultiplier) + ((character.GetFood() * itemManager.GetFoodValue(selectedItem)) * foodMultiplier) + ((character.GetLuxury() + itemManager.GetLuxuryValue(selectedItem)) * luxuryMultiplier)
+            + ((character.GetWeapon() * itemManager.GetWeaponValue(selectedItem)) * weaponMultiplier) + ((character.GetWarmth() * itemManager.GetWarmthValue(selectedItem)) * warmthMultiplier) + ((character.GetMachinery() * itemManager.GetMachineryValue(selectedItem)) * machineryMultiplier);
         price = basePrice + tolerance;
         InitialOfferPhaseSetActive();
         priceBox.text = setPrice.ToString("00");
@@ -372,6 +411,7 @@ public class GameManager : MonoBehaviour
         itemButtons[2].gameObject.SetActive(false);
         itemButtons[3].gameObject.SetActive(false);
         speechText.enabled = false;
+        custName.enabled = false;
         selectedItem = 0;
         CalculatePrice();
     }
@@ -387,6 +427,7 @@ public class GameManager : MonoBehaviour
         itemButtons[3].gameObject.SetActive(false);
         selectedItem = 1;
         speechText.enabled = false;
+        custName.enabled = false;
         CalculatePrice();
     }
 
@@ -401,6 +442,7 @@ public class GameManager : MonoBehaviour
         itemButtons[3].gameObject.SetActive(false);
         selectedItem = 2;
         speechText.enabled = false;
+        custName.enabled = false;
         CalculatePrice();
     }
 
@@ -414,6 +456,7 @@ public class GameManager : MonoBehaviour
         itemButtons[2].gameObject.SetActive(false);
         itemButtons[3].interactable = false;
         speechText.enabled = false;
+        custName.enabled = false;
         selectedItem = 3;
         CalculatePrice();
     }
@@ -456,7 +499,7 @@ public class GameManager : MonoBehaviour
         speechText.enabled = true;
         speechText.text = "You sold the item!";
         TextPrompt.gameObject.SetActive(false);
-        itemManager.SoldItem(selectedItem);
+        itemManager.SoldItem(selectedItem, basePrice, (int)setPrice);
         character.SaleOver();
         customer.enabled = false;
         bargain = false;
@@ -472,6 +515,7 @@ public class GameManager : MonoBehaviour
             ResetLevel();
         }
         setPrice = 0;
+        ++sellCount;
     }
 
     void DeclineDeal()
@@ -480,6 +524,7 @@ public class GameManager : MonoBehaviour
         bargainSpeech.text = character.DeclineDeal(0);
         speechText.enabled = true;
         TextPrompt.gameObject.SetActive(false);
+        itemManager.FailedToSell(selectedItem, basePrice, 0);
         speechText.text = "You failed to sell the item!";
         customer.enabled = false;
         character.SaleOver();
@@ -500,8 +545,15 @@ public class GameManager : MonoBehaviour
     {
         itemManager.Reset();
         character.Reset();
+        sellCount = 0;
         endGameButton.gameObject.SetActive(true);
-    }
+        foodMultiplier = 1;
+        drinkMultiplier = 1;
+        warmthMultiplier = 1;
+        weaponMultiplier = 1;
+        machineryMultiplier = 1;
+        luxuryMultiplier = 1;
+}
 
     public void EndGame()
     {
@@ -523,6 +575,7 @@ public class GameManager : MonoBehaviour
         textProgression = false;
         customer.enabled = true;
         speechText.enabled = true;
+        custName.enabled = true;
         patienceDecrease = 0;
         turnCount = 0;
         dealOver = false;
@@ -538,15 +591,15 @@ public class GameManager : MonoBehaviour
         itemButtons[selectedItem].interactable = true;
         itemButtons[selectedItem].gameObject.SetActive(false);
         itemText[selectedItem].enabled = false;
-        switch (customerCount)
+        switch (sellCount)
         {
-            case 2:
+            case 1:
                 itemButtons[3].gameObject.SetActive(false);
                 break;
-            case 3:
+            case 2:
                 itemButtons[2].gameObject.SetActive(false);
                 break;
-            case 4:
+            case 3:
                 itemButtons[1].gameObject.SetActive(false);
                 break;
         }
