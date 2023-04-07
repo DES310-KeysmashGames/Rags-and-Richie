@@ -5,6 +5,7 @@ using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventorySelection : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class InventorySelection : MonoBehaviour
     [SerializeField] public List<BaseItem> scavengedItems = new List<BaseItem>();
     [SerializeField] private Button[] removeButtons;
     [SerializeField] private Button[] scavengedItemSprites;
+    [SerializeField] private Sprite[] itemTagSprites;
+
     //list for items to be selected into
     //chosen items
     [SerializeField] public List<BaseItem> chosenInventory = new List<BaseItem>();
@@ -24,6 +27,12 @@ public class InventorySelection : MonoBehaviour
 
     [SerializeField] private Image itemCard;
     [SerializeField] private Image itemCard2;
+    [SerializeField] private Image itemOfTheDayImage;
+    [SerializeField] private Image itemTrackerImage;
+    [SerializeField] private TextMeshProUGUI[] itemTypeCount;
+    [SerializeField] private Sprite[] continueSprite;
+    [SerializeField] private int[] itemCount;
+    [SerializeField] private string itemOfDay;
 
     //buttons
     [SerializeField] Button confirmButton;
@@ -35,13 +44,13 @@ public class InventorySelection : MonoBehaviour
                 for( int i =0; i < chosenInventory.Count; i++){
                     StaticInventory.intermediateList.Add(chosenInventory[i]);
                 }
-                
                 Loader.Load(Loader.Scene.TradeScene);
             }
             
         });
         itemCard.enabled = false;
         itemCard2.enabled = false;
+        itemOfDay = StaticTravel.itemOfTheDay;
     }
     private void Start(){
         ShuffleItems();
@@ -54,13 +63,38 @@ public class InventorySelection : MonoBehaviour
         {
             removeButtons[j].gameObject.SetActive(false);
         }
+
+        switch (itemOfDay)
+        {
+            case "Weapon":
+                itemOfTheDayImage.sprite = itemTagSprites[0];
+                break;
+            case "Warmth":
+                itemOfTheDayImage.sprite = itemTagSprites[1];
+                break;
+            case "Mechanical":
+                itemOfTheDayImage.sprite = itemTagSprites[2];
+                break;
+            case "Food":
+                itemOfTheDayImage.sprite = itemTagSprites[3];
+                break;
+            case "Drink":
+                itemOfTheDayImage.sprite = itemTagSprites[4];
+                break;
+            case "Luxury":
+                itemOfTheDayImage.sprite = itemTagSprites[5];
+                break;
+            case "Mystery":
+                itemOfTheDayImage.sprite = itemTagSprites[6];
+                break;
+        }
     }
 
     private void Update(){
         if (chosenInventory.Count !=4){
-            confirmButton.GetComponent<Image>().color = Color.grey;
+            confirmButton.GetComponent<Image>().sprite = continueSprite[0];
         }else{
-            confirmButton.GetComponent<Image>().color = Color.green;
+            confirmButton.GetComponent<Image>().sprite = continueSprite[1];
         }
     }
 
@@ -84,6 +118,7 @@ public class InventorySelection : MonoBehaviour
         {
             removeButtons[i].gameObject.SetActive(true);
         }
+        UpdateItemTypeCount(buttonIndex);
     }
 
     void ShuffleItems()
@@ -113,8 +148,162 @@ public class InventorySelection : MonoBehaviour
         chosenIndexStart++;
     }
 
+
+    private void UpdateItemTypeCount(int buttonIndex)
+    {
+        string primary = scavengedItems[buttonIndex].primaryType.ToString();
+        string secondary = scavengedItems[buttonIndex].secondaryType.ToString();
+        string tertiary = scavengedItems[buttonIndex].tertiaryType.ToString();
+        switch (primary)
+        {
+            case "Weapon":
+                ++itemCount[0];
+                break;
+            case "Warmth":
+                ++itemCount[1];
+                break;
+            case "Machinery":
+                ++itemCount[2];
+                break;
+            case "Food":
+                ++itemCount[3];
+                break;
+            case "Drink":
+                ++itemCount[4];
+                break;
+            case "Luxury":
+                ++itemCount[5];
+                break;
+        }
+        switch (secondary)
+        {
+            case "Weapon":
+                ++itemCount[0];
+                break;
+            case "Warmth":
+                ++itemCount[1];
+                break;
+            case "Machinery":
+                ++itemCount[2];
+                break;
+            case "Food":
+                ++itemCount[3];
+                break;
+            case "Drink":
+                ++itemCount[4];
+                break;
+            case "Luxury":
+                ++itemCount[5];
+                break;
+        }
+        switch (tertiary)
+        {
+            case "Weapon":
+                ++itemCount[0];
+                break;
+            case "Warmth":
+                ++itemCount[1];
+                break;
+            case "Machinery":
+                ++itemCount[2];
+                break;
+            case "Food":
+                ++itemCount[3];
+                break;
+            case "Drink":
+                ++itemCount[4];
+                break;
+            case "Luxury":
+                ++itemCount[5];
+                break;
+            case "Mystery":
+                break;
+        }
+        for (int i =0; i < itemTypeCount.Length; ++i)
+        {
+            itemTypeCount[i].text = itemCount[i].ToString();
+        }
+    }
+
+    private void removedItemCountUpdate(int no)
+    {
+        string primary = chosenInventory[no].primaryType.ToString();
+        string secondary = chosenInventory[no].secondaryType.ToString();
+        string tertiary = chosenInventory[no].tertiaryType.ToString();
+        switch (primary)
+        {
+            case "Weapon":
+                --itemCount[0];
+                break;
+            case "Warmth":
+                --itemCount[1];
+                break;
+            case "Machinery":
+                --itemCount[2];
+                break;
+            case "Food":
+                --itemCount[3];
+                break;
+            case "Drink":
+                --itemCount[4];
+                break;
+            case "Luxury":
+                --itemCount[5];
+                break;
+        }
+        switch (secondary)
+        {
+            case "Weapon":
+                --itemCount[0];
+                break;
+            case "Warmth":
+                --itemCount[1];
+                break;
+            case "Machinery":
+                --itemCount[2];
+                break;
+            case "Food":
+                --itemCount[3];
+                break;
+            case "Drink":
+                --itemCount[4];
+                break;
+            case "Luxury":
+                --itemCount[5];
+                break;
+        }
+        switch (tertiary)
+        {
+            case "Weapon":
+                --itemCount[0];
+                break;
+            case "Warmth":
+                --itemCount[1];
+                break;
+            case "Machinery":
+                --itemCount[2];
+                break;
+            case "Food":
+                --itemCount[3];
+                break;
+            case "Drink":
+                --itemCount[4];
+                break;
+            case "Luxury":
+                --itemCount[5];
+                break;
+            case "Mystery":
+                break;
+        }
+        for (int i = 0; i < itemTypeCount.Length; ++i)
+        {
+            itemTypeCount[i].text = itemCount[i].ToString();
+        }
+    }
+
     public void RemoveItemOne()
     {
+        removedItemCountUpdate(0);
         Debug.Log("Button One is pressed");
         for(int i = 0; i < scavengedItems.Count; ++i)
         {
@@ -140,6 +329,7 @@ public class InventorySelection : MonoBehaviour
 
     public void RemoveItemTwo()
     {
+        removedItemCountUpdate(1);
         Debug.Log("Button Two is pressed");
         for (int i = 0; i < scavengedItems.Count; ++i)
         {
@@ -165,6 +355,7 @@ public class InventorySelection : MonoBehaviour
 
     public void RemoveItemThree()
     {
+        removedItemCountUpdate(2);
         Debug.Log("Button Three is pressed");
         for (int i = 0; i < scavengedItems.Count; ++i)
         {
@@ -190,6 +381,7 @@ public class InventorySelection : MonoBehaviour
 
     public void RemoveItemFour()
     {
+        removedItemCountUpdate(3);
         Debug.Log("Button Four is pressed");
         for (int i = 0; i < scavengedItems.Count; ++i)
         {

@@ -16,8 +16,7 @@ MonoBehaviour:
   itemName: Beer Mask
   primaryType: 3
   secondaryType: 5
-  tertiaryType: 4
-  itemDescription: {fileID: 0}
+  tertiaryType: 6
   Description: 
   foodValue: 0
   drinkValue: 5

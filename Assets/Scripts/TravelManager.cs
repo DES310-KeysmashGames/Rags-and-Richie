@@ -6,6 +6,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine.EventSystems;
 using System.Timers;
+using Unity.VisualScripting;
 
 public class TravelManager : MonoBehaviour
 {
@@ -24,14 +25,17 @@ public class TravelManager : MonoBehaviour
 
     //Truck & City
     [Header("Truck and City")]
-    [SerializeField] private Button cityButton;
+    [SerializeField] private Button[] cityButton;
     [SerializeField] private Image truck;
+    [SerializeField] private Sprite[] citySprites;
+    [SerializeField] private Sprite[] citySelectedSprites;
 
     //Variables
-    private bool truckMoved, cityClicked, nextClicked;
+    [SerializeField] private bool truckMoved, cityClicked, nextClicked;
     private int moveSpeed;
     private int wallet;
     private int expenses;
+    private int day;
 
     private void Awake()
     {
@@ -40,16 +44,11 @@ public class TravelManager : MonoBehaviour
         {
             nextClicked = true;
         });
-
-        //Make next day button visible on click
-        cityButton.onClick.AddListener(() =>
-        {
-            cityClicked = true;
-        });
     }
 
     void Start()
     {
+        day = StaticTravel.dayCount;
         //Setting Richie vars to false
         richieText.enabled = false;
         richieImage.enabled = false;
@@ -65,6 +64,29 @@ public class TravelManager : MonoBehaviour
         truckMoved = false;
 
         wallet = PlayerPrefs.GetInt("wallet");
+        if (day == 1)
+        {
+            cityButton[1].image.sprite = citySprites[0];
+            cityButton[1].gameObject.SetActive(true);
+            cityButton[0].gameObject.SetActive(false);
+            cityButton[2].gameObject.SetActive(false);
+        }
+        else if (day == 2)
+        {
+            for (int i = 0; i < cityButton.Length; ++i)
+            {
+                cityButton[i].image.sprite = citySprites[i + 1];
+                cityButton[i].gameObject.SetActive(true);
+            }
+        }
+        else if (day == 3)
+        {
+            for (int i = 0; i < cityButton.Length; ++i)
+            {
+                cityButton[i].image.sprite = citySprites[i + 4];
+                cityButton[i].gameObject.SetActive(true);
+            }
+        }
     }
 
     void Update()
@@ -115,12 +137,83 @@ public class TravelManager : MonoBehaviour
     //Function to move truck across screen
     void MoveTruck()
     { 
-        truck.transform.position = Vector2.Lerp(truck.transform.position, new Vector2(Screen.width * .9f, truck.transform.position.y), Time.deltaTime * moveSpeed);
+        truck.transform.position = Vector2.Lerp(truck.transform.position, new Vector2(Screen.width * 1.3f, truck.transform.position.y), Time.deltaTime * moveSpeed);
 
-        if (truck.transform.position.x >= Screen.width * .85f)
+        if (truck.transform.position.x >= Screen.width)
         {
             truck.enabled = false;
             truckMoved = true;
+        }
+    }
+
+    public void CityClicked1()
+    {
+        cityClicked = true;
+        switch (day)
+        {
+            case 2:
+                StaticTravel.expenses = 30;
+                StaticTravel.itemOfTheDay = "Drink";
+                cityButton[0].image.sprite = citySelectedSprites[1];
+                cityButton[1].image.sprite = citySprites[2];
+                cityButton[2].image.sprite = citySprites[3];
+                break;
+            case 3:
+                StaticTravel.expenses = 40;
+                StaticTravel.itemOfTheDay = "Mechanical";
+                cityButton[0].image.sprite = citySelectedSprites[4];
+                cityButton[1].image.sprite = citySprites[5];
+                cityButton[2].image.sprite = citySprites[6];
+                break;
+        }
+    }
+
+    public void CityClicked2()
+    {
+        cityClicked = true;
+        switch (day)
+        {
+            case 1:
+                StaticTravel.expenses = 20;
+                StaticTravel.itemOfTheDay = "Weapon";
+                cityButton[1].image.sprite = citySelectedSprites[0];
+                break;
+            case 2:
+                StaticTravel.expenses = 20;
+                StaticTravel.itemOfTheDay = "Mystery";
+                cityButton[1].image.sprite = citySelectedSprites[2];
+                cityButton[0].image.sprite = citySprites[1];
+                cityButton[2].image.sprite = citySprites[3];
+                break;
+            case 3:
+                StaticTravel.expenses = 40;
+                StaticTravel.itemOfTheDay = "Food";
+                cityButton[1].image.sprite = citySelectedSprites[5];
+                cityButton[0].image.sprite = citySprites[4];
+                cityButton[2].image.sprite = citySprites[6];
+                break;
+        }
+    }
+
+    public void CityClicked3()
+    {
+        cityClicked = true;
+        switch (day)
+        {
+            case 2:
+                StaticTravel.expenses = 30;
+                StaticTravel.itemOfTheDay = "Warmth";
+                cityButton[2].image.sprite = citySelectedSprites[3];
+                cityButton[0].image.sprite = citySprites[1];
+                cityButton[1].image.sprite = citySprites[2];
+                break;
+            case 3:
+                StaticTravel.expenses = 40;
+                StaticTravel.itemOfTheDay = "Luxury";
+                cityButton[2].image.sprite = citySelectedSprites[6];
+                cityButton[0].image.sprite = citySprites[4];
+                cityButton[1].image.sprite = citySprites[5];
+                break;
         }
     }
 }

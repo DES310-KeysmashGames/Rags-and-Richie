@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: Portable Fan
   primaryType: 4
   secondaryType: 5
-  tertiaryType: 1
-  itemDescription: {fileID: 0}
+  tertiaryType: 6
+  itemDescription: {fileID: 21300000, guid: 13ff7d443b518e340b9292e46c9453f3, type: 3}
   Description: 
   foodValue: 0
   drinkValue: 0

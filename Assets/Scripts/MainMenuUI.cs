@@ -21,6 +21,7 @@ public class MainMenuUI : MonoBehaviour
             //click action
             Loader.Load(Loader.Scene.TravelScene);
             PlayerPrefs.SetInt("wallet", 0);
+            StaticTravel.dayCount = 1;
         });
         optionsButton.onClick.AddListener(()=> {
             //click action

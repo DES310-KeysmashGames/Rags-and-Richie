@@ -132,6 +132,27 @@ public class GameManager : MonoBehaviour
         turnCount = 0;
         customerCount = 1;
         sellCount = 0;
+        switch (StaticTravel.itemOfTheDay)
+        {
+            case "Food":
+                foodMultiplier = 2;
+                break;
+            case "Drink":
+                drinkMultiplier = 2;
+                break;
+            case "Mechanical":
+                machineryMultiplier = 2;
+                break;
+            case "Warmth":
+                warmthMultiplier = 2;
+                break;
+            case "Weapon":
+                weaponMultiplier = 2;
+                break;
+            case "Luxury":
+                luxuryMultiplier = 2;
+                break;
+        }
     }
 
     // Update is called once per frame
