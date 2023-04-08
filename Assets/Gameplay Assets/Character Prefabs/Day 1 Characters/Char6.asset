@@ -25,8 +25,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6402907e3852bf44195d12f7471c794b, type: 2}
   - {fileID: 11400000, guid: d8985ac80975f8c4e8d6a624973b90a4, type: 2}
   introText2:
-  - {fileID: 11400000, guid: 6402907e3852bf44195d12f7471c794b, type: 2}
+  - {fileID: 11400000, guid: 4b138c270a3a6d44a87771dbc96464e4, type: 2}
+  - {fileID: 11400000, guid: ceb5cf0af2f6421499f32ca6dbf7f7c4, type: 2}
+  - {fileID: 11400000, guid: d7856cd8aaeefdb4488c78c9c0a8dcca, type: 2}
   introText3:
-  - {fileID: 11400000, guid: 6402907e3852bf44195d12f7471c794b, type: 2}
+  - {fileID: 11400000, guid: e053c5c8ddb8e3f45915e4d9d8e810d5, type: 2}
+  - {fileID: 11400000, guid: 98fa469ded528c54b91e4124f259499e, type: 2}
+  - {fileID: 11400000, guid: c7e2591a6d261564189148cb0a32754c, type: 2}
   patiece: 69
   desperation: 6
