@@ -3858,6 +3858,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55c018b4ec3bab440bd5f64dc645008b, type: 2}
   - {fileID: 11400000, guid: aab9f3279893ca244abe55e2c7a2a7d8, type: 2}
   - {fileID: 11400000, guid: c1d2023f76081b849a5488d373807c82, type: 2}
+  - {fileID: 11400000, guid: 8686bae5ce28ac54583dd22ceabe9a06, type: 2}
+  - {fileID: 11400000, guid: c839a1681b4c25a468db77166e956f49, type: 2}
   prevCustomer: []
   currentChar: {fileID: 0}
   tradeSpeech: {fileID: 11400000, guid: 2b7ccd313247d4347b0794c55e075fee, type: 2}
