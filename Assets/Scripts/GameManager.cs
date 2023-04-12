@@ -99,9 +99,28 @@ public class GameManager : MonoBehaviour
                 Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
                 StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                 StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
+                
             }
             Loader.Load(Loader.Scene.DayEndScene);
         });
+        for (int i = 0; i < itemButtons.Length; ++i)
+        {
+            int index = i;
+            itemButtons[index].onClick.AddListener(() => SelectItem(index));
+        }
+        ReselectItemButton.onClick.AddListener(() => ReselectItems());
+        nextCustomerButton.onClick.AddListener(() => NextCustomer());
+        confirmButton.onClick.AddListener(() => PriceConfirm());
+        makeOfferButton.onClick.AddListener(() => OfferPrice());
+        increaseButton.onClick.AddListener(() => IncreasePrice());
+        increaseButton2.onClick.AddListener(() => IncreasePrice());
+        decreaseButton.onClick.AddListener(() => DecreasePrice());
+        decreaseButton2.onClick.AddListener(() => DecreasePrice());
+        increaseByTen.onClick.AddListener(() => IncreaseTen());
+        increaseByTen2.onClick.AddListener(() => IncreaseTen());
+        decreaseByTen.onClick.AddListener(() => DecreaseTen());
+        decreaseByTen2.onClick.AddListener(() => DecreaseTen());
+        TextPrompt.onClick.AddListener(() => ProgressText());
     }
 
     // Start is called before the first frame update
@@ -269,7 +288,7 @@ public class GameManager : MonoBehaviour
         TextPrompt.gameObject.SetActive(false);
     }
 
-    public void PriceConfirm()
+    private void PriceConfirm()
     {
         TextPrompt.gameObject.SetActive(true);
         InitialOfferSetInactive();
@@ -296,7 +315,7 @@ public class GameManager : MonoBehaviour
         previousPrice = setPrice;
     }
 
-    public void OfferPrice()
+    private void OfferPrice()
     {
         TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
@@ -401,67 +420,26 @@ public class GameManager : MonoBehaviour
         };
     }
 
-    public void SelectItem1()
+    private void SelectItem(int index)
     {
-        itemText[1].enabled = false;
-        itemText[2].enabled = false;
-        itemText[3].enabled = false;
-        itemButtons[0].interactable = false;
-        itemButtons[1].gameObject.SetActive(false);
-        itemButtons[2].gameObject.SetActive(false);
-        itemButtons[3].gameObject.SetActive(false);
-        speechText.enabled = false;
-        custName.enabled = false;
-        selectedItem = 0;
-        CalculatePrice();
-    }
-
-    public void SelectItem2()
-    {
-        itemText[0].enabled = false;
-        itemText[2].enabled = false;
-        itemText[3].enabled = false;
-        itemButtons[0].gameObject.SetActive(false);
-        itemButtons[1].interactable = false;
-        itemButtons[2].gameObject.SetActive(false);
-        itemButtons[3].gameObject.SetActive(false);
-        selectedItem = 1;
-        speechText.enabled = false;
+        for (int i = 0; i < itemButtons.Length; ++i)
+        {
+            if (i != index)
+            {
+                itemButtons[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                itemButtons[i].interactable = false;
+            }
+        }
+        selectedItem = index;
+        speechText.enabled = false; 
         custName.enabled = false;
         CalculatePrice();
     }
 
-    public void SelectItem3()
-    {
-        itemText[0].enabled = false;
-        itemText[1].enabled = false;
-        itemText[3].enabled = false;
-        itemButtons[0].gameObject.SetActive(false);
-        itemButtons[1].gameObject.SetActive(false);
-        itemButtons[2].interactable = false;
-        itemButtons[3].gameObject.SetActive(false);
-        selectedItem = 2;
-        speechText.enabled = false;
-        custName.enabled = false;
-        CalculatePrice();
-    }
-
-    public void SelectItem4()
-    {
-        itemText[0].enabled = false;
-        itemText[1].enabled = false;
-        itemText[2].enabled = false;
-        itemButtons[0].gameObject.SetActive(false);
-        itemButtons[1].gameObject.SetActive(false);
-        itemButtons[2].gameObject.SetActive(false);
-        itemButtons[3].interactable = false;
-        speechText.enabled = false;
-        custName.enabled = false;
-        selectedItem = 3;
-        CalculatePrice();
-    }
-
-    public void ReselectItems()
+    private void ReselectItems()
     {
         for(int i = 0; i < itemManager.RemainingItems(); ++i)
         {
@@ -494,6 +472,7 @@ public class GameManager : MonoBehaviour
 
     void AcceptDeal()
     {
+        Debug.Log("accept deal");
         dealOver = true;
         bargainSpeech.text = character.AcceptDeal(0);
         speechText.enabled = true;
@@ -553,11 +532,6 @@ public class GameManager : MonoBehaviour
         weaponMultiplier = 1;
         machineryMultiplier = 1;
         luxuryMultiplier = 1;
-}
-
-    public void EndGame()
-    {
-        Loader.Load(Loader.Scene.EndingScene);
     }
 
     public void ProgressText()
@@ -565,7 +539,7 @@ public class GameManager : MonoBehaviour
         textProgression = true;
     }
 
-    public void NextCustomer()
+    private void NextCustomer()
     {
         Debug.Log("Calling the next customer");
         NewCustomer();
