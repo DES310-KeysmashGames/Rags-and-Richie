@@ -3829,6 +3829,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6260ca1916514db6dad1e4127a2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundImages:
+  - {fileID: 21300000, guid: 97ae0aaf72eff2646b319f9e245e7128, type: 3}
+  - {fileID: 21300000, guid: 4b61955bf5428fa40959aa71a042d09a, type: 3}
+  - {fileID: 21300000, guid: f6b348a86c1311a4db2ed9e4909a202c, type: 3}
+  - {fileID: 21300000, guid: 05ee5fbcbd7dc6a4d8803ceeef19a8af, type: 3}
+  - {fileID: 21300000, guid: 79ad3deeefaa49c47aa9cc738319c8e7, type: 3}
+  - {fileID: 21300000, guid: d0674abb70ffe1046ad38cfe5b3cfc2c, type: 3}
+  - {fileID: 21300000, guid: d0674abb70ffe1046ad38cfe5b3cfc2c, type: 3}
+  background: {fileID: 1304924177}
   speechText: {fileID: 907828969}
   customer: {fileID: 1552433595}
   custName: {fileID: 519890214}
