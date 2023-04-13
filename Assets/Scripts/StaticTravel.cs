@@ -10,4 +10,5 @@ public static class StaticTravel
     //multiplier values
     public static string itemOfTheDay;
     public static int expenses;
+    public static string location;
 }

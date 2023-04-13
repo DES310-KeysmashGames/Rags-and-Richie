@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     private CharacterManager character;
     private PatienceMeter patienceArrow;
 
+    //images for the background
+    [SerializeField] private Sprite[] backgroundImages;
+    [SerializeField] private Image background;
+    private string location;
+    
     //ui elements
     //ui for the intro and item select
     [Header("UI elements for the intro and Item Select")] 
@@ -121,6 +126,31 @@ public class GameManager : MonoBehaviour
         decreaseByTen.onClick.AddListener(() => DecreaseTen());
         decreaseByTen2.onClick.AddListener(() => DecreaseTen());
         TextPrompt.onClick.AddListener(() => ProgressText());
+        location = StaticTravel.location;
+        switch (location)
+        {
+            case "ToxicTowers":
+                background.sprite = backgroundImages[4];
+                break;
+            case "Burnington":
+                background.sprite = backgroundImages[0];
+                break;
+            case "Vacancy":
+                background.sprite = backgroundImages[5];
+                break;
+            case "SkyHigh":
+                background.sprite = backgroundImages[3];
+                break;
+            case "BrokenMetro":
+                background.sprite = backgroundImages[1];
+                break;
+            case "ForsakenFalls":
+                background.sprite = backgroundImages[0];
+                break;
+            case "LostAngeles":
+                background.sprite = backgroundImages[2];
+                break;
+        }
     }
 
     // Start is called before the first frame update
