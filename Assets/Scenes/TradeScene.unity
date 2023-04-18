@@ -206,19 +206,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 15338447}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OfferPrice
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &15338447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,19 +328,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16949818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DecreaseTen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &16949818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,19 +1257,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 363050604}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DecreaseTen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &363050604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,19 +1938,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 465598526}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DecreasePrice
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &465598526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2577,19 +2529,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 628221360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SelectItem4
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &628221360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2981,19 +2921,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 756828090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DecreasePrice
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &756828090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3154,19 +3082,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 818137889}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ProgressText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &818137889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3985,6 +3901,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6260ca1916514db6dad1e4127a2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundImages:
+  - {fileID: 21300000, guid: 97ae0aaf72eff2646b319f9e245e7128, type: 3}
+  - {fileID: 21300000, guid: 4b61955bf5428fa40959aa71a042d09a, type: 3}
+  - {fileID: 21300000, guid: f6b348a86c1311a4db2ed9e4909a202c, type: 3}
+  - {fileID: 21300000, guid: 05ee5fbcbd7dc6a4d8803ceeef19a8af, type: 3}
+  - {fileID: 21300000, guid: 79ad3deeefaa49c47aa9cc738319c8e7, type: 3}
+  - {fileID: 21300000, guid: d0674abb70ffe1046ad38cfe5b3cfc2c, type: 3}
+  - {fileID: 21300000, guid: d0674abb70ffe1046ad38cfe5b3cfc2c, type: 3}
+  background: {fileID: 1304924177}
   speechText: {fileID: 907828969}
   customer: {fileID: 1552433595}
   custName: {fileID: 519890214}
@@ -4264,19 +4189,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 992928425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NextCustomer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &992928425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4398,19 +4311,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1033718727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreasePrice
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1033718727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4839,19 +4740,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1209477431}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreaseTen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1209477431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5040,19 +4929,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1241513307}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreasePrice
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1241513307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5656,19 +5533,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1441956545}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreaseTen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1441956545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5963,19 +5828,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540995287}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SelectItem1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!1 &1552433592
 GameObject:
   m_ObjectHideFlags: 0
@@ -6173,19 +6026,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1558219267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SelectItem2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!1 &1592474658
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,19 +6515,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1767635021}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PriceConfirm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1767635021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7348,19 +7177,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1998500120}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ReselectItems
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &1998500120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7520,19 +7337,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2051614553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 944116509}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SelectItem3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!1 &2060305963
 GameObject:
   m_ObjectHideFlags: 0
