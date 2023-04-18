@@ -22,11 +22,14 @@ MonoBehaviour:
   machineryDesire: 3
   luxuryDesire: 5
   introText:
-  - {fileID: 11400000, guid: 97117d8163efea948b4795ee1c5a0269, type: 2}
-  - {fileID: 11400000, guid: cdf7cfeebb299df4eb76d6c0d089c022, type: 2}
+  - {fileID: 11400000, guid: b5f7ebeb9838e9e4f8d22599616f9419, type: 2}
+  - {fileID: 11400000, guid: 5e1c637e190e4f34ab8fdfcf4ee287cc, type: 2}
+  - {fileID: 11400000, guid: 11012beed00d04f4f9cc341e1f542dc7, type: 2}
   introText2:
-  - {fileID: 11400000, guid: 97117d8163efea948b4795ee1c5a0269, type: 2}
+  - {fileID: 11400000, guid: 8f6e8d378e0f15746a950c9ea59c33bc, type: 2}
+  - {fileID: 11400000, guid: ac77f98d562c9ad42bd59d6a74668540, type: 2}
   introText3:
-  - {fileID: 11400000, guid: 97117d8163efea948b4795ee1c5a0269, type: 2}
+  - {fileID: 11400000, guid: 4d1484c6bbcd640429c93091c4b0d427, type: 2}
+  - {fileID: 11400000, guid: 43b272460e4ce0641ba75fdb888a7cde, type: 2}
   patiece: 97
   desperation: 6
