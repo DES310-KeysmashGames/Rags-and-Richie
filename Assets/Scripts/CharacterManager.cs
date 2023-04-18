@@ -10,11 +10,10 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
     public BaseCharacter currentChar;
     private bool custExists;
-    [SerializeField] TextDialogue tradeSpeech;
+    [SerializeField] TextDialogue[] tradeSpeech;
     [SerializeField] TextDialogue[] happyDialogue;
     [SerializeField] TextDialogue[] okayDialogue;
     [SerializeField] TextDialogue[] angryDialogue;
-    [SerializeField] TextDialogue[] inTradeText;
     [SerializeField] TextDialogue[] acceptTrade;
     [SerializeField] TextDialogue[] declineTrade;
     [SerializeField] TextDialogue[] zeroPatience;
@@ -79,9 +78,10 @@ public class CharacterManager : MonoBehaviour
         return currentChar.CustName;
     }
 
-    public string TradeSpeech()
+    public string GetTradeSpeech()
     {
-        return tradeSpeech.lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, tradeSpeech.Length);
+        return tradeSpeech[i].lineOfDialogue;
     }
 
     public int GetIntroLength()
@@ -134,11 +134,6 @@ public class CharacterManager : MonoBehaviour
     {
         int i = UnityEngine.Random.Range(0, zeroPatience.Length);
         return zeroPatience[i].lineOfDialogue;
-    }
-
-    public string GenerateTradeText(int no)
-    {
-        return inTradeText[no].lineOfDialogue;
     }
 
     public int GetFood()

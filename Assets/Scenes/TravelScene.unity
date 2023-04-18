@@ -317,6 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 789197628}
   - component: {fileID: 789197627}
+  - component: {fileID: 789197629}
   m_Layer: 0
   m_Name: TravelManager
   m_TagString: Untagged
@@ -379,6 +380,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &789197629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789197626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ede4f500491e6489f5b40d739f81cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayStart: []
+  custEnter: []
+  custLeave: []
+  dayEnd: []
+  tutorialText:
+  - {fileID: 11400000, guid: fa050b656dab5b64a81089f01c8e187a, type: 2}
+  - {fileID: 11400000, guid: e233b1d80c7f0864db4b11fd514184c4, type: 2}
+  - {fileID: 11400000, guid: f5932d3ac09cc094e8e7dd36d34d6b92, type: 2}
+  day1:
+  - {fileID: 11400000, guid: 6deef14e521622546a18d63619033643, type: 2}
+  - {fileID: 11400000, guid: ca7f9b7c68c235b41828bfd578887438, type: 2}
+  - {fileID: 11400000, guid: 2296eba233ed4d24ab9c52550459dad0, type: 2}
+  day2:
+  - {fileID: 11400000, guid: f3bc511fe91e6504eb59f5c54fa8db06, type: 2}
+  - {fileID: 11400000, guid: e469fd7ecd2f1c249b52900f7f7d98f0, type: 2}
+  day3:
+  - {fileID: 11400000, guid: fc44d155d40013b44847765e0f5c4a71, type: 2}
+  - {fileID: 11400000, guid: 3a303fe82b0fdf44e933636502e6cb27, type: 2}
+  - {fileID: 11400000, guid: 8ed4cb19b001e114db34acea51e9dddc, type: 2}
 --- !u!1 &851372073
 GameObject:
   m_ObjectHideFlags: 0

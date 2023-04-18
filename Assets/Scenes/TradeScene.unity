@@ -3751,6 +3751,7 @@ GameObject:
   - component: {fileID: 944116509}
   - component: {fileID: 944116508}
   - component: {fileID: 944116507}
+  - component: {fileID: 944116512}
   - component: {fileID: 944116511}
   m_Layer: 0
   m_Name: GameManager
@@ -4000,6 +4001,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patienceArrow: {fileID: 923658520}
+--- !u!114 &944116512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944116506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ede4f500491e6489f5b40d739f81cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayStart:
+  - {fileID: 11400000, guid: 8e26d95a1fd132042947dd34a774f7d5, type: 2}
+  - {fileID: 11400000, guid: e505dfde5b130144c86e618dc79119e4, type: 2}
+  - {fileID: 11400000, guid: 2319291dd702d444880d1ce0666107a2, type: 2}
+  - {fileID: 11400000, guid: 11126e2fc27eeb64da783ffa97334864, type: 2}
+  custEnter:
+  - {fileID: 11400000, guid: b78933fc72f77a44d93b162705f75aa6, type: 2}
+  - {fileID: 11400000, guid: 036d7a4bdf970ab4b97e1c1840253f23, type: 2}
+  - {fileID: 11400000, guid: 587420b23fc5ac447a83f7fd0e13ebf9, type: 2}
+  - {fileID: 11400000, guid: b24296088012a3c4ea8e1b763d8e7949, type: 2}
+  custLeave:
+  - {fileID: 11400000, guid: e6877a490c46385478c128edc54c0c3a, type: 2}
+  - {fileID: 11400000, guid: 99c2d046eaae9d24ea93849383074963, type: 2}
+  - {fileID: 11400000, guid: 77a4260d7b66b8b4a916162450f79ddd, type: 2}
+  - {fileID: 11400000, guid: d56c30dc11e83944e8a50aadfb45f3d0, type: 2}
+  dayEnd:
+  - {fileID: 11400000, guid: ef8758d02cf55374f9e417b9f3b57878, type: 2}
+  - {fileID: 11400000, guid: dae14507518c33f4bba4e4dc9bdb2a96, type: 2}
+  - {fileID: 11400000, guid: 38b24abdf2210594c84fb17c0d8c5569, type: 2}
+  - {fileID: 11400000, guid: 96b69237b04d4644681ae5136deff903, type: 2}
 --- !u!1 &961897973
 GameObject:
   m_ObjectHideFlags: 0

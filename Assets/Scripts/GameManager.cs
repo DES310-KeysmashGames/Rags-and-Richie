@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private ItemManager itemManager;
     private CharacterManager character;
     private PatienceMeter patienceArrow;
+    private RichieScript richie;
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
     [SerializeField] private Sprite[] emoticons;
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
         character = GetComponent<CharacterManager>();
         itemManager = GetComponent<ItemManager>();
         patienceArrow = GetComponent<PatienceMeter>();
+        richie = GetComponent<RichieScript>();
 
         endGameButton.onClick.AddListener(() => {
             //click action
@@ -277,7 +279,7 @@ public class GameManager : MonoBehaviour
             }
             else if (introCount == 3 || introCount >= introLength)
             {
-                bargainSpeech.text = "" + character.TradeSpeech();
+                bargainSpeech.text = "" + character.GetTradeSpeech();
                 //speechText.text = "" + character.TradeSpeech();
                 trade = true;
                 introCount = 0;
@@ -335,7 +337,7 @@ public class GameManager : MonoBehaviour
         bargainSpeech.enabled = true;
         bargain = true;
         patienceMeter.enabled = true;
-        patienceArrow.SetRotation(patience, character.GetPatience());
+        patienceArrow.SetRotation(patience);
         charEmote.enabled = true;
         turnCount = 1;
         if (setPrice < price)
@@ -382,7 +384,7 @@ public class GameManager : MonoBehaviour
         {
             Desperation();
             ReCalculate();
-            patienceArrow.SetRotation(patience, character.GetPatience());
+            patienceArrow.SetRotation(patience);
         }
         MakeOfferPhaseSetInactive();     
         previousPrice = setPrice;
@@ -420,7 +422,7 @@ public class GameManager : MonoBehaviour
                 bargainSpeech.text = character.GetOkayText();
                 speechBubbleImage.sprite = speechBubbles[2];
                 charEmote.sprite = emoticons[2];
-                bargainSpeech.text = character.GenerateTradeText(0);
+                bargainSpeech.text = character.GetTradeSpeech();
             }
             else if (discrepancy <= 1.0f)
             {
@@ -450,7 +452,7 @@ public class GameManager : MonoBehaviour
     void PatienceCheck()
     {
         int charPatience = character.GetPatience();
-        if(patience < ((charPatience/3)*2) && patience > (charPatience/3))
+        if(patience < ((100/3)*2) && patience > (100/3))
         {
             patienceMeter.sprite = patienceMeters[1];
         }
