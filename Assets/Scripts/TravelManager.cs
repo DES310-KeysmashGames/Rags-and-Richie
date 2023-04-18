@@ -75,6 +75,7 @@ public class TravelManager : MonoBehaviour
         {
             cityButton[0].image.sprite = citySprites[1];
             cityButton[0].gameObject.SetActive(true);
+            cityButton[1].gameObject.SetActive(false);
             cityButton[2].image.sprite = citySprites[2];
             cityButton[2].gameObject.SetActive(true);
         }
