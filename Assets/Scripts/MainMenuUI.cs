@@ -22,28 +22,18 @@ public class MainMenuUI : MonoBehaviour
             Loader.Load(Loader.Scene.TravelScene);
             PlayerPrefs.SetInt("wallet", 0);
             StaticTravel.dayCount = 1;
-
-            //Main Menu Button Audio
-
         });
         optionsButton.onClick.AddListener(()=> {
             //click action
 
-            //Options Button Audio
-
         });
 
         quitButton.onClick.AddListener(()=> {
-            //Main Menu Button Audio
-
             //click action
             Application.Quit();
         });
     }
 
-    //Main Menu Background Audio
-
-    //Basic Audio by Leslie
     public void SetSFXVolume(float SFXvolume){
         Debug.Log("sfx volume = " + SFXvolume);
         audioMixer.SetFloat("mixVolume", SFXvolume);

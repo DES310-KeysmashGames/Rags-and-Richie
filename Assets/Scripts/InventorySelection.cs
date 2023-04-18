@@ -39,8 +39,6 @@ public class InventorySelection : MonoBehaviour
 
     private void Awake(){
         confirmButton.onClick.AddListener(()=> {
-            //Confirm Selection Button Audio
-
             //click action
             if(chosenInventory.Count == 4){
                 for( int i =0; i < chosenInventory.Count; i++){
@@ -66,7 +64,6 @@ public class InventorySelection : MonoBehaviour
             removeButtons[j].gameObject.SetActive(false);
         }
 
-        //Pick a category to be the Item of the Day
         switch (itemOfDay)
         {
             case "Weapon":
@@ -111,8 +108,6 @@ public class InventorySelection : MonoBehaviour
             chosenInventory.Add(scavengedItems[buttonIndex]);
             Debug.Log("You have added " + chosenInventory.Count + " items to your inventory");
             selectionButtons[buttonIndex].interactable = false;
-
-            //Item Selection Button Audio
         }
         else
         {
@@ -152,6 +147,7 @@ public class InventorySelection : MonoBehaviour
         chosenItemsprites[chosenIndexStart].sprite = GetSprite(index);
         chosenIndexStart++;
     }
+
 
     private void UpdateItemTypeCount(int buttonIndex)
     {
@@ -329,8 +325,6 @@ public class InventorySelection : MonoBehaviour
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
-
-        //Item Deselection Button Audio
     }
 
     public void RemoveItemTwo()
@@ -357,8 +351,6 @@ public class InventorySelection : MonoBehaviour
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
-
-        //Item Deselection Button Audio
     }
 
     public void RemoveItemThree()
@@ -385,8 +377,6 @@ public class InventorySelection : MonoBehaviour
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
-
-        //Item Deselection Button Audio
     }
 
     public void RemoveItemFour()
@@ -413,8 +403,6 @@ public class InventorySelection : MonoBehaviour
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
-
-        //Item Deselection Button Audio
     }
 
     public void HoverEnterButtonOne()
