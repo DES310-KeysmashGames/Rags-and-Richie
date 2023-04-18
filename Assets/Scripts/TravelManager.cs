@@ -42,6 +42,8 @@ public class TravelManager : MonoBehaviour
         //Go to Item Selection scene on Click
         nextButton.onClick.AddListener(() =>
         {
+            //Next Day Button Audio
+
             nextClicked = true;
         });
     }
@@ -123,6 +125,8 @@ public class TravelManager : MonoBehaviour
         richieTextBox.enabled = true;
         richieText.enabled = true;
 
+        //Richie Speaking Audio
+
         richieText.text = "What's up... The name's Richie";
 
         //richieText.text = "Another day on the road, looks like we're travelling to Toxic Towers today!";
@@ -147,7 +151,7 @@ public class TravelManager : MonoBehaviour
     }
 
     public void CityClicked1()
-    {
+    { 
         cityClicked = true;
         switch (day)
         {
@@ -166,6 +170,9 @@ public class TravelManager : MonoBehaviour
                 cityButton[2].image.sprite = citySprites[6];
                 break;
         }
+
+        //City Click Button Audio
+
     }
 
     public void CityClicked2()
@@ -193,6 +200,9 @@ public class TravelManager : MonoBehaviour
                 cityButton[2].image.sprite = citySprites[6];
                 break;
         }
+
+        //City Click Button Audio
+
     }
 
     public void CityClicked3()
@@ -215,5 +225,10 @@ public class TravelManager : MonoBehaviour
                 cityButton[1].image.sprite = citySprites[5];
                 break;
         }
+
+        //City Click Button Audio
+
     }
+
+    //Travel Scene Background Audio
 }

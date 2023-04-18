@@ -209,6 +209,8 @@ public class GameManager : MonoBehaviour
     {
         if (textProgression)
         {
+            //Customer Speech Audio
+
             if (introCount == 2 && introCount < introLength)
             {
                 speechText.text = "" + character.GetIntro(introCount);
@@ -230,9 +232,12 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     //generate a new customer.
     void NewCustomer()
     {
+        //Customer Arrival Audio
+
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
         speechText.text = "" + character.GetIntro(introCount);
@@ -271,6 +276,8 @@ public class GameManager : MonoBehaviour
 
     public void PriceConfirm()
     {
+        //Price Confirm Button Audio
+
         TextPrompt.gameObject.SetActive(true);
         InitialOfferSetInactive();
         TextPrompt.gameObject.SetActive(true);
@@ -282,14 +289,20 @@ public class GameManager : MonoBehaviour
         if (setPrice < price)
         {
             bargainSpeech.text = character.GenerateTradeText(1);
+
+            //Customer Response Audio
         }
         else if( setPrice > price)
         {
             bargainSpeech.text = character.GenerateTradeText(2);
+
+            //Customer Response Audio
         }
         else if (setPrice > basePrice)
         {
             bargainSpeech.text = character.GenerateTradeText(0);
+
+            //Customer Response Audio
         }
         customer.enabled = true;
         textProgression = false;
@@ -332,16 +345,22 @@ public class GameManager : MonoBehaviour
             {
                 patienceDecrease += 20;
                 bargainSpeech.text = character.GenerateTradeText(2);
+
+                //Customer Response Audio
             }
             else if (discrepancy > 1.5f)
             {
                 patienceDecrease += 15;
                 bargainSpeech.text = character.GenerateTradeText(2);
+
+                //Customer Response Audio
             }
             else if (discrepancy > 1.0f)
             {
                 patienceDecrease += 10;
                 bargainSpeech.text = character.GenerateTradeText(0);
+
+                //Customer Response Audio
             }
             else if (discrepancy <= 1.0f)
             {
@@ -403,6 +422,8 @@ public class GameManager : MonoBehaviour
 
     public void SelectItem1()
     {
+        //Item Select Audio
+
         itemText[1].enabled = false;
         itemText[2].enabled = false;
         itemText[3].enabled = false;
@@ -418,6 +439,8 @@ public class GameManager : MonoBehaviour
 
     public void SelectItem2()
     {
+        //Item Select Audio
+
         itemText[0].enabled = false;
         itemText[2].enabled = false;
         itemText[3].enabled = false;
@@ -433,6 +456,8 @@ public class GameManager : MonoBehaviour
 
     public void SelectItem3()
     {
+        //Item Select Audio
+
         itemText[0].enabled = false;
         itemText[1].enabled = false;
         itemText[3].enabled = false;
@@ -448,6 +473,8 @@ public class GameManager : MonoBehaviour
 
     public void SelectItem4()
     {
+        //Item Select Audio
+
         itemText[0].enabled = false;
         itemText[1].enabled = false;
         itemText[2].enabled = false;
@@ -494,6 +521,8 @@ public class GameManager : MonoBehaviour
 
     void AcceptDeal()
     {
+        //Successful Sale Audio
+
         dealOver = true;
         bargainSpeech.text = character.AcceptDeal(0);
         speechText.enabled = true;
@@ -520,6 +549,8 @@ public class GameManager : MonoBehaviour
 
     void DeclineDeal()
     {
+        //Failed Sale Audio
+
         dealOver = true;
         bargainSpeech.text = character.DeclineDeal(0);
         speechText.enabled = true;
@@ -607,6 +638,8 @@ public class GameManager : MonoBehaviour
 
     void MakeOfferPhaseSetActive()
     {
+        //Increase / Decrease Price Audio
+
         makeOfferButton.gameObject.SetActive(true);
         increaseButton2.gameObject.SetActive(true);
         increaseByTen2.gameObject.SetActive(true);
@@ -633,6 +666,8 @@ public class GameManager : MonoBehaviour
 
     void InitialOfferPhaseSetActive()
     {
+        //Increase / Decrease Price Audio
+
         bargainometer.enabled = true;
         priceBox.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(true);
@@ -663,4 +698,6 @@ public class GameManager : MonoBehaviour
             ResetLevel();
         }
     }
+
+    //Game Scene Background Audio
 }
