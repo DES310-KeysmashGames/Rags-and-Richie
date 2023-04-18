@@ -73,17 +73,16 @@ public class TravelManager : MonoBehaviour
         }
         else if (day == 2)
         {
-            for (int i = 0; i < cityButton.Length; ++i)
-            {
-                cityButton[i].image.sprite = citySprites[i + 1];
-                cityButton[i].gameObject.SetActive(true);
-            }
+            cityButton[0].image.sprite = citySprites[1];
+            cityButton[0].gameObject.SetActive(true);
+            cityButton[2].image.sprite = citySprites[2];
+            cityButton[2].gameObject.SetActive(true);
         }
         else if (day == 3)
         {
             for (int i = 0; i < cityButton.Length; ++i)
             {
-                cityButton[i].image.sprite = citySprites[i + 4];
+                cityButton[i].image.sprite = citySprites[i + 3];
                 cityButton[i].gameObject.SetActive(true);
             }
         }
@@ -181,21 +180,13 @@ public class TravelManager : MonoBehaviour
                 StaticTravel.location = "ToxicTowers";
                 cityButton[1].image.sprite = citySelectedSprites[0];
                 break;
-            case 2:
+            case 3:
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Mystery";
                 StaticTravel.location = "Vacancy";
                 cityButton[1].image.sprite = citySelectedSprites[2];
                 cityButton[0].image.sprite = citySprites[1];
                 cityButton[2].image.sprite = citySprites[3];
-                break;
-            case 3:
-                StaticTravel.expenses = 40;
-                StaticTravel.itemOfTheDay = "Food";
-                StaticTravel.location = "ForsakenFalls";
-                cityButton[1].image.sprite = citySelectedSprites[5];
-                cityButton[0].image.sprite = citySprites[4];
-                cityButton[2].image.sprite = citySprites[6];
                 break;
         }
     }
