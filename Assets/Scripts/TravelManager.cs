@@ -73,17 +73,17 @@ public class TravelManager : MonoBehaviour
         }
         else if (day == 2)
         {
-            for (int i = 0; i < cityButton.Length; ++i)
-            {
-                cityButton[i].image.sprite = citySprites[i + 1];
-                cityButton[i].gameObject.SetActive(true);
-            }
+            cityButton[0].image.sprite = citySprites[1];
+            cityButton[0].gameObject.SetActive(true);
+            cityButton[1].gameObject.SetActive(false);
+            cityButton[2].image.sprite = citySprites[2];
+            cityButton[2].gameObject.SetActive(true);
         }
         else if (day == 3)
         {
             for (int i = 0; i < cityButton.Length; ++i)
             {
-                cityButton[i].image.sprite = citySprites[i + 4];
+                cityButton[i].image.sprite = citySprites[i + 3];
                 cityButton[i].gameObject.SetActive(true);
             }
         }
@@ -154,6 +154,7 @@ public class TravelManager : MonoBehaviour
             case 2:
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Drink";
+                StaticTravel.location = "Burnington";
                 cityButton[0].image.sprite = citySelectedSprites[1];
                 cityButton[1].image.sprite = citySprites[2];
                 cityButton[2].image.sprite = citySprites[3];
@@ -161,6 +162,7 @@ public class TravelManager : MonoBehaviour
             case 3:
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Mechanical";
+                StaticTravel.location = "BrokenMetro";
                 cityButton[0].image.sprite = citySelectedSprites[4];
                 cityButton[1].image.sprite = citySprites[5];
                 cityButton[2].image.sprite = citySprites[6];
@@ -176,21 +178,16 @@ public class TravelManager : MonoBehaviour
             case 1:
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Weapon";
+                StaticTravel.location = "ToxicTowers";
                 cityButton[1].image.sprite = citySelectedSprites[0];
                 break;
-            case 2:
+            case 3:
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Mystery";
+                StaticTravel.location = "Vacancy";
                 cityButton[1].image.sprite = citySelectedSprites[2];
                 cityButton[0].image.sprite = citySprites[1];
                 cityButton[2].image.sprite = citySprites[3];
-                break;
-            case 3:
-                StaticTravel.expenses = 40;
-                StaticTravel.itemOfTheDay = "Food";
-                cityButton[1].image.sprite = citySelectedSprites[5];
-                cityButton[0].image.sprite = citySprites[4];
-                cityButton[2].image.sprite = citySprites[6];
                 break;
         }
     }
@@ -203,6 +200,7 @@ public class TravelManager : MonoBehaviour
             case 2:
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Warmth";
+                StaticTravel.location = "SkyHigh";
                 cityButton[2].image.sprite = citySelectedSprites[3];
                 cityButton[0].image.sprite = citySprites[1];
                 cityButton[1].image.sprite = citySprites[2];
@@ -210,6 +208,7 @@ public class TravelManager : MonoBehaviour
             case 3:
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Luxury";
+                StaticTravel.location = "LostAngeles";
                 cityButton[2].image.sprite = citySelectedSprites[6];
                 cityButton[0].image.sprite = citySprites[4];
                 cityButton[1].image.sprite = citySprites[5];

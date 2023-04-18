@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,11 +10,10 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
     public BaseCharacter currentChar;
     private bool custExists;
-    [SerializeField] TextDialogue tradeSpeech;
+    [SerializeField] TextDialogue[] tradeSpeech;
     [SerializeField] TextDialogue[] happyDialogue;
     [SerializeField] TextDialogue[] okayDialogue;
     [SerializeField] TextDialogue[] angryDialogue;
-    [SerializeField] TextDialogue[] inTradeText;
     [SerializeField] TextDialogue[] acceptTrade;
     [SerializeField] TextDialogue[] declineTrade;
     [SerializeField] TextDialogue[] zeroPatience;
@@ -22,7 +22,7 @@ public class CharacterManager : MonoBehaviour
     //generates a random customer from the available list of possible customers, with an intro text.
     public void GenerateCustomer()
     {
-        int index = Random.Range(0, character.Length);
+        int index = UnityEngine.Random.Range(0, character.Length);
         //checks to see if the customer has already visited today.
         for (int i = 0; i < prevCustomer.Count; i++)
         {
@@ -78,14 +78,15 @@ public class CharacterManager : MonoBehaviour
         return currentChar.CustName;
     }
 
-    public string TradeSpeech()
+    public string GetTradeSpeech()
     {
-        return tradeSpeech.lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, tradeSpeech.Length);
+        return tradeSpeech[i].lineOfDialogue;
     }
 
     public int GetIntroLength()
     {
-        introTextNo = Random.Range(0, 2);
+        introTextNo = UnityEngine.Random.Range(0, 2);
         switch(introTextNo)
         {
             case 0:
@@ -99,9 +100,40 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public string GenerateTradeText(int no)
+    public string GetAngryText()
     {
-        return inTradeText[no].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, angryDialogue.Length);
+        return angryDialogue[i].lineOfDialogue;
+    }
+
+    public string GetHappyText()
+    {
+        int i = UnityEngine.Random.Range(0, happyDialogue.Length);
+        return happyDialogue[i].lineOfDialogue;
+    }
+
+    public string GetOkayText()
+    {
+        int i = UnityEngine.Random.Range(0, okayDialogue.Length);
+        return okayDialogue[i].lineOfDialogue;
+    }
+    
+    public string GetAcceptTrade()
+    {
+        int i = UnityEngine.Random.Range(0, acceptTrade.Length);
+        return acceptTrade[i].lineOfDialogue;
+    }
+
+    public string GetDeclineTrade()
+    {
+        int i = UnityEngine.Random.Range(0, declineTrade.Length);
+        return declineTrade[i].lineOfDialogue;
+    }
+
+    public string GetZeroPatience()
+    {
+        int i = UnityEngine.Random.Range(0, zeroPatience.Length);
+        return zeroPatience[i].lineOfDialogue;
     }
 
     public int GetFood()

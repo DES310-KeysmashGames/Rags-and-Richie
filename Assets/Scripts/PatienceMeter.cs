@@ -21,18 +21,18 @@ public class PatienceMeter : MonoBehaviour
         
     }
 
-    private float GetRotation(float patience, int maxPatience)
+    private float GetRotation(float patience)
     {
         float totalAngleSize = MIN_PATIENCE_ANGLE - MAX_PATIENCE_ANGLE;
-        float patienceNormalized = patience / maxPatience;
+        float patienceNormalized = patience / 100;
 
         return MAX_PATIENCE_ANGLE + (patienceNormalized * totalAngleSize);
     }
 
-    public void SetRotation(float patience, int maxPatience)
+    public void SetRotation(float patience)
     {
         patienceArrow.enabled = true;
-        patienceArrow.transform.eulerAngles = new Vector3(0,0,GetRotation(patience, maxPatience));
+        patienceArrow.transform.eulerAngles = new Vector3(0,0,GetRotation(patience));
     }
 
     public void SetInactive()
