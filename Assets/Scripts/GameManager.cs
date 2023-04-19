@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private CharacterManager character;
     private PatienceMeter patienceArrow;
     private RichieScript richie;
+    [SerializeField] Button richieTextAdvance;
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
     [SerializeField] private Sprite[] emoticons;
@@ -498,6 +499,7 @@ public class GameManager : MonoBehaviour
             if (i != index)
             {
                 itemButtons[i].gameObject.SetActive(false);
+                itemText[i].enabled = false;
             }
             else
             {
