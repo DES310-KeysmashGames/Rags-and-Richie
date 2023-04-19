@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     //ui for selecting inital price
     [Header("UI elements for selecting the initial price")]
     [SerializeField] private Image bargainometer;
+    [SerializeField] private Image dimmer;
     [SerializeField] private TextMeshProUGUI priceBox;
     [SerializeField] private Button confirmButton;
     [SerializeField] private Button ReselectItemButton;
@@ -687,6 +688,7 @@ public class GameManager : MonoBehaviour
     void InitialOfferPhaseSetActive()
     {
         bargainometer.enabled = true;
+        dimmer.enabled = true;
         priceBox.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(true);
         increaseButton.gameObject.SetActive(true);
@@ -699,6 +701,7 @@ public class GameManager : MonoBehaviour
     void InitialOfferSetInactive()
     {
         bargainometer.enabled = false;
+        dimmer.enabled = false;
         priceBox.gameObject.SetActive(false);
         confirmButton.gameObject.SetActive(false);
         increaseButton.gameObject.SetActive(false);
