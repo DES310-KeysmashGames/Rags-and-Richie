@@ -10,6 +10,8 @@ using Unity.VisualScripting;
 
 public class TravelManager : MonoBehaviour
 {
+    RichieScript richie;
+
     //Richie Info interaction
     [Header("Richie Dialogue")]
     [SerializeField] private Image richieImage;
@@ -30,6 +32,11 @@ public class TravelManager : MonoBehaviour
     [SerializeField] private Sprite[] citySprites;
     [SerializeField] private Sprite[] citySelectedSprites;
 
+    //RichieText
+    [SerializeField] private Button continueTextButton;
+    [SerializeField] private int tutorialCount;
+    [SerializeField] bool readText;
+
     //Variables
     [SerializeField] private bool truckMoved, cityClicked, nextClicked;
     private int moveSpeed;
@@ -39,6 +46,8 @@ public class TravelManager : MonoBehaviour
 
     private void Awake()
     {
+        richie = GetComponent<RichieScript>();
+        continueTextButton.onClick.AddListener(() => TextRead());
         //Go to Item Selection scene on Click
         nextButton.onClick.AddListener(() =>
         {
@@ -46,15 +55,20 @@ public class TravelManager : MonoBehaviour
 
             nextClicked = true;
         });
+        tutorialCount = 0;
+        readText = false;
     }
 
     void Start()
     {
         day = StaticTravel.dayCount;
         //Setting Richie vars to false
-        richieText.enabled = false;
-        richieImage.enabled = false;
-        richieTextBox.enabled = false;
+        //richieText.enabled = false;
+        //richieImage.enabled = false;
+        //richieTextBox.enabled = false;
+        richieImage.enabled = true;
+        richieTextBox.enabled = true;
+        richieText.enabled = true;
 
         nextButton.gameObject.SetActive(false);
         truck.enabled = true;
@@ -68,6 +82,9 @@ public class TravelManager : MonoBehaviour
         wallet = PlayerPrefs.GetInt("wallet");
         if (day == 1)
         {
+            richieText.text = richie.GetTutorial(tutorialCount);
+            continueTextButton.gameObject.SetActive(true);
+            ++tutorialCount;
             cityButton[1].image.sprite = citySprites[0];
             cityButton[1].gameObject.SetActive(true);
             cityButton[0].gameObject.SetActive(false);
@@ -93,11 +110,34 @@ public class TravelManager : MonoBehaviour
 
     void Update()
     {
+        if(day == 1)
+        {
+            if (readText)
+            {
+                switch (tutorialCount)
+                {
+                    case 1:
+                        richieText.text = richie.GetTutorial(tutorialCount);
+                        continueTextButton.gameObject.SetActive(true);
+                        ++tutorialCount;
+                        readText = false;
+                        break;
+                    case 2:
+                        richieText.text = richie.GetTutorial(tutorialCount);
+                        continueTextButton.gameObject.SetActive(true);
+                        tutorialCount = 0;
+                        readText = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         //Update Wallet 
         UpdateCurrency();
 
         //Enable Richie Dialogue
-        RichieDialogue();
+        //RichieDialogue();
 
         //Enable Next button if city is clicked
         if (cityClicked)
@@ -156,6 +196,7 @@ public class TravelManager : MonoBehaviour
         switch (day)
         {
             case 2:
+                richieText.text = richie.GetBurnington();
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Drink";
                 StaticTravel.location = "Burnington";
@@ -164,6 +205,7 @@ public class TravelManager : MonoBehaviour
                 cityButton[2].image.sprite = citySprites[3];
                 break;
             case 3:
+                richieText.text = richie.GetBrokenMetro();
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Mechanical";
                 StaticTravel.location = "BrokenMetro";
@@ -183,12 +225,14 @@ public class TravelManager : MonoBehaviour
         switch (day)
         {
             case 1:
+                richieText.text = richie.GetToxicTowers();
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Weapon";
                 StaticTravel.location = "ToxicTowers";
                 cityButton[1].image.sprite = citySelectedSprites[0];
                 break;
             case 3:
+                richieText.text = richie.GetVacancy();
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Mystery";
                 StaticTravel.location = "Vacancy";
@@ -208,6 +252,7 @@ public class TravelManager : MonoBehaviour
         switch (day)
         {
             case 2:
+                richieText.text = richie.GetSkyHigh();
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Warmth";
                 StaticTravel.location = "SkyHigh";
@@ -216,6 +261,7 @@ public class TravelManager : MonoBehaviour
                 cityButton[1].image.sprite = citySprites[2];
                 break;
             case 3:
+                richieText.text = richie.GetLostAngeles();
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Luxury";
                 StaticTravel.location = "LostAngeles";
@@ -228,6 +274,10 @@ public class TravelManager : MonoBehaviour
         //City Click Button Audio
 
     }
-
-    //Travel Scene Background Audio
+    
+    private void TextRead()
+    {
+        readText = true;
+        continueTextButton.gameObject.SetActive(false);
+    }
 }
