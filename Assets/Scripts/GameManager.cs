@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private CharacterManager character;
     private PatienceMeter patienceArrow;
     private RichieScript richie;
+    [SerializeField] private Image richiePicture;
     [SerializeField] Button richieTextAdvance;
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
