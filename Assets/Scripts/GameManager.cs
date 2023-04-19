@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     private bool dealOver;
     [SerializeField] private int customerCount;
     private int sellCount;
+    private bool richieAdvanceText;
 
     //multipliers for specific locations
     private int foodMultiplier = 1;
@@ -136,6 +137,7 @@ public class GameManager : MonoBehaviour
         decreaseByTen.onClick.AddListener(() => DecreaseTen());
         decreaseByTen2.onClick.AddListener(() => DecreaseTen());
         TextPrompt.onClick.AddListener(() => ProgressText());
+        richieTextAdvance.onClick.AddListener(() => AdvanceRichieText());
         location = StaticTravel.location;
         switch (location)
         {
@@ -163,7 +165,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         NewCustomer();
         itemManager.GenerateItemList();
         for (int i = 0; i < itemButtons.Length; ++i)
@@ -189,6 +190,7 @@ public class GameManager : MonoBehaviour
         turnCount = 0;
         customerCount = 1;
         sellCount = 0;
+        richieAdvanceText = false;
         switch (StaticTravel.itemOfTheDay)
         {
             case "Food":
@@ -218,6 +220,18 @@ public class GameManager : MonoBehaviour
         ResetToMenu();
         walletText.text = PlayerPrefs.GetInt("wallet").ToString();
         //initial intro dialogue loop
+        //if (!richieAdvanceText)
+        //{
+        //    richiePicture.enabled = true;
+        //    richieTextAdvance.gameObject.SetActive(true);
+        //    speechText.enabled = true;
+        //}
+        //else
+        //{
+        //    richieTextAdvance.gameObject.SetActive(false);
+        //    richiePicture.enabled = false;
+        //    speechText.enabled = false;
+        //}
         if (!itemsShown)
         {
             InitialTrade();
@@ -293,6 +307,8 @@ public class GameManager : MonoBehaviour
     //generate a new customer.
     void NewCustomer()
     {
+        richieAdvanceText = false;
+        speechText.text = richie.GetCustEnter();
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
         bargainSpeech.text = "" + character.GetIntro(introCount);
@@ -425,7 +441,7 @@ public class GameManager : MonoBehaviour
                 bargainSpeech.text = character.GetOkayText();
                 speechBubbleImage.sprite = speechBubbles[2];
                 charEmote.sprite = emoticons[2];
-                bargainSpeech.text = character.GetTradeSpeech();
+                //bargainSpeech.text = character.GetTradeSpeech();
             }
             else if (discrepancy <= 1.0f)
             {
@@ -718,5 +734,10 @@ public class GameManager : MonoBehaviour
             Loader.Load(Loader.Scene.MainMenuScene);
             ResetLevel();
         }
+    }
+
+    void AdvanceRichieText()
+    {
+        richieAdvanceText = true; 
     }
 }
