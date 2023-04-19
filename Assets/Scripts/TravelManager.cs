@@ -201,17 +201,16 @@ public class TravelManager : MonoBehaviour
                 StaticTravel.itemOfTheDay = "Drink";
                 StaticTravel.location = "Burnington";
                 cityButton[0].image.sprite = citySelectedSprites[1];
-                cityButton[1].image.sprite = citySprites[2];
-                cityButton[2].image.sprite = citySprites[3];
+                cityButton[2].image.sprite = citySprites[2];
                 break;
             case 3:
                 richieText.text = richie.GetBrokenMetro();
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Mechanical";
                 StaticTravel.location = "BrokenMetro";
-                cityButton[0].image.sprite = citySelectedSprites[4];
-                cityButton[1].image.sprite = citySprites[5];
-                cityButton[2].image.sprite = citySprites[6];
+                cityButton[0].image.sprite = citySelectedSprites[3];
+                cityButton[1].image.sprite = citySprites[4];
+                cityButton[2].image.sprite = citySprites[5];
                 break;
         }
 
@@ -236,9 +235,9 @@ public class TravelManager : MonoBehaviour
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Mystery";
                 StaticTravel.location = "Vacancy";
-                cityButton[1].image.sprite = citySelectedSprites[2];
-                cityButton[0].image.sprite = citySprites[1];
-                cityButton[2].image.sprite = citySprites[3];
+                cityButton[1].image.sprite = citySelectedSprites[4];
+                cityButton[0].image.sprite = citySprites[3];
+                cityButton[2].image.sprite = citySprites[5];
                 break;
         }
 
@@ -256,18 +255,17 @@ public class TravelManager : MonoBehaviour
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Warmth";
                 StaticTravel.location = "SkyHigh";
-                cityButton[2].image.sprite = citySelectedSprites[3];
+                cityButton[2].image.sprite = citySelectedSprites[2];
                 cityButton[0].image.sprite = citySprites[1];
-                cityButton[1].image.sprite = citySprites[2];
                 break;
             case 3:
                 richieText.text = richie.GetLostAngeles();
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Luxury";
                 StaticTravel.location = "LostAngeles";
-                cityButton[2].image.sprite = citySelectedSprites[6];
-                cityButton[0].image.sprite = citySprites[4];
-                cityButton[1].image.sprite = citySprites[5];
+                cityButton[2].image.sprite = citySelectedSprites[5];
+                cityButton[0].image.sprite = citySprites[3];
+                cityButton[1].image.sprite = citySprites[4];
                 break;
         }
 
