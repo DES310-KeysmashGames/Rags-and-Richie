@@ -3781,7 +3781,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c839a1681b4c25a468db77166e956f49, type: 2}
   prevCustomer: []
   currentChar: {fileID: 0}
-  tradeSpeech: {fileID: 11400000, guid: 2b7ccd313247d4347b0794c55e075fee, type: 2}
+  tradeSpeech:
+  - {fileID: 11400000, guid: 2b7ccd313247d4347b0794c55e075fee, type: 2}
+  - {fileID: 11400000, guid: 1f31c15c4a027a145aa3b34c78eaf589, type: 2}
+  - {fileID: 11400000, guid: 04f77fba44d05044088de7219a6710ed, type: 2}
+  - {fileID: 11400000, guid: 998d6bead1d91a041894d5391d400b72, type: 2}
+  - {fileID: 11400000, guid: ab0e01280959938458922f27f29b92aa, type: 2}
+  - {fileID: 11400000, guid: 888b023bc055ce344a9fbb6bfeb8bfd0, type: 2}
+  - {fileID: 11400000, guid: fad3604b90a2fc343916b8035084fc2c, type: 2}
+  - {fileID: 11400000, guid: e89969d79945ecb4ea2b62600a45d797, type: 2}
   happyDialogue:
   - {fileID: 11400000, guid: 07c6c19601a5f844385b556807278900, type: 2}
   - {fileID: 11400000, guid: bf2c6253d93d64946a3dd87028c69242, type: 2}
@@ -3836,10 +3844,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e2fbb0e6e6cd4348a6886554e7a6e6f, type: 2}
   - {fileID: 11400000, guid: 160c2968205e8b0498bfbcc6f1c88aea, type: 2}
   - {fileID: 11400000, guid: 02565ea400ea003468428226d8648acd, type: 2}
-  inTradeText:
-  - {fileID: 11400000, guid: 1728261b86c35374989d7d86832b5514, type: 2}
-  - {fileID: 11400000, guid: 07c6c19601a5f844385b556807278900, type: 2}
-  - {fileID: 11400000, guid: f31133a0819ee1e43b95d9acf4a5a6ad, type: 2}
   acceptTrade:
   - {fileID: 11400000, guid: de54b890f99dae146a0dc18c9aaa6982, type: 2}
   - {fileID: 11400000, guid: 1d4f6e4bb51444f47a577b0a24dfd6cc, type: 2}
@@ -4033,6 +4037,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dae14507518c33f4bba4e4dc9bdb2a96, type: 2}
   - {fileID: 11400000, guid: 38b24abdf2210594c84fb17c0d8c5569, type: 2}
   - {fileID: 11400000, guid: 96b69237b04d4644681ae5136deff903, type: 2}
+  tutorialText: []
+  day1: []
+  day2: []
+  day3: []
 --- !u!1 &961897973
 GameObject:
   m_ObjectHideFlags: 0
@@ -6457,8 +6465,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18, y: 9}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 22.318, y: 44.431}
+  m_SizeDelta: {x: 180.638, y: 170.863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706070750
 MonoBehaviour:
