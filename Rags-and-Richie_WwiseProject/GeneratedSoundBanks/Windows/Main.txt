@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3055784172	Play_581415__peanut_shaman__western_bass			\Default Work Unit\Play_581415__peanut_shaman__western_bass	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	661455387	581415__peanut_shaman__western-bass	H:\Year3\Term2\DES310\Rags-and-Richie\Rags-and-Richie_WwiseProject\.cache\Windows\SFX\581415__peanut_shaman__western-bass_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\581415__peanut_shaman__western-bass		12490316
+

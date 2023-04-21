@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{CD255CD3-2E34-4E6A-B632-C02CE2325949}" SchemaVersion="110">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{CD255CD3-2E34-4E6A-B632-C02CE2325949}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="sfx_menu_itemconfirm_01" ID="{BB239B41-8EAC-426E-806A-1648DB0F521F}" ShortID="22985794">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8D7AED9C-0611-44D3-9B5D-46495B9D1EC1}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4F00FABD-5986-401C-83E1-C736D03F63C6}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="sfx_menu_itemconfirm_01" ID="{C5788C60-5268-4A68-9540-0EEB97D320E1}">
+							<Language>SFX</Language>
+							<AudioFile>sfx_menu_itemconfirm_01.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="229545222"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="sfx_menu_itemconfirm_01" ID="{C5788C60-5268-4A68-9540-0EEB97D320E1}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="581415__peanut_shaman__western-bass" ID="{36571902-BC3D-4332-AC12-03056DF04CBB}" ShortID="893198103">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8D7AED9C-0611-44D3-9B5D-46495B9D1EC1}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4F00FABD-5986-401C-83E1-C736D03F63C6}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="581415__peanut_shaman__western-bass" ID="{B92CA74C-9584-4C46-85FC-6DE174C14CB1}">
+							<Language>SFX</Language>
+							<AudioFile>581415__peanut_shaman__western-bass.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="661455387"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="581415__peanut_shaman__western-bass" ID="{B92CA74C-9584-4C46-85FC-6DE174C14CB1}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
