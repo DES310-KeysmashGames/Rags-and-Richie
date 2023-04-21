@@ -11,6 +11,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button optionsButton;
     [SerializeField] Button quitButton;
     public AudioMixer audioMixer;
+    public AK.Wwise.Event playambientMusic;
+    private bool playing;
 
     private void Awake(){
         //optionsCanvas = GetComponent<Canvas>();
@@ -39,6 +41,26 @@ public class MainMenuUI : MonoBehaviour
             //click action
             Application.Quit();
         });
+        //playambientMusic.Post(gameObject);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playing = !playing;
+        }
+
+        if (playing)
+        {
+            playambientMusic.Post(gameObject);
+        }
+        else
+        {
+            {
+                playambientMusic.Stop(gameObject);
+            }
+        }
     }
 
     //Main Menu Background Audio
@@ -52,5 +74,4 @@ public class MainMenuUI : MonoBehaviour
     public void SetMusicVolume(float musicVolume){
         Debug.Log("music volume = " + musicVolume);
     }
-
 }
