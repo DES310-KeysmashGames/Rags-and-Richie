@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7bc80d8c5405274aa1ea2359e6d1ad8d
     GuidInternal: 
-    m_lastTime: -8585195379296072832
+    m_lastTime: -8585192597708907755
     List:
     - name: Play_581415__peanut_shaman__western_bass
       guid: ed0a50726b46984ab5f8042c3eb275d4
@@ -110,6 +110,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: ed0a50726b46984ab5f8042c3eb275d4
       Path: Events\Default Work Unit\Play_581415__peanut_shaman__western_bass
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_ButtonPress
+      guid: 072601d39e34d34abc9af01a5aa6e0e1
+      id: 2652178615
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7bc80d8c5405274aa1ea2359e6d1ad8d
+      - ElementName: Play_ButtonPress
+        ObjectType: 3
+        guid: 072601d39e34d34abc9af01a5aa6e0e1
+      Path: Events\Default Work Unit\Play_ButtonPress
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -170,7 +187,7 @@ MonoBehaviour:
     m_lastTime: -8585195392526610275
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000b00000072010000730100004b0200004c020000
+  ExpandedWaapiItemIds: 0500000006000000070000000b0000000d0000000e00000072010000730100004b0200004c020000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

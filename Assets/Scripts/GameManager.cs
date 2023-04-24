@@ -101,6 +101,10 @@ public class GameManager : MonoBehaviour
     private int machineryMultiplier = 1;
     private int luxuryMultiplier = 1;
 
+    //audio 
+    public AK.Wwise.Event playerApproachEvent;
+    public AK.Wwise.Event playerLeaveEvent;
+
     private void Awake()
     {
         character = GetComponent<CharacterManager>();
@@ -307,6 +311,7 @@ public class GameManager : MonoBehaviour
     //generate a new customer.
     void NewCustomer()
     {
+        playerApproachEvent.Post(gameObject);
         richieAdvanceText = false;
         speechText.text = richie.GetCustEnter();
         character.GenerateCustomer();
@@ -589,6 +594,7 @@ public class GameManager : MonoBehaviour
         }
         setPrice = 0;
         ++sellCount;
+        playerLeaveEvent.Post(gameObject);
     }
 
     void DeclineDeal()
@@ -613,6 +619,7 @@ public class GameManager : MonoBehaviour
             ResetLevel();
         }
         setPrice = 0;
+        playerLeaveEvent.Post(gameObject);
     }
 
     void ResetLevel()

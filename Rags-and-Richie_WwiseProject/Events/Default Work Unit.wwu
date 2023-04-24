@@ -14,6 +14,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_ButtonPress" ID="{D3012607-349E-4AD3-BC9A-F01A5AA6E0E1}">
+					<ChildrenList>
+						<Action Name="" ID="{A91C109A-543F-4A4D-A28F-7E337378F659}" ShortID="429356172">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ButtonPress" ID="{B0E38FCD-A26D-4E46-8371-E5B913C4DF15}" WorkUnitID="{CD255CD3-2E34-4E6A-B632-C02CE2325949}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_sfx_customer_leaving_01" ID="{785AAFF3-2590-4F96-9224-D03DAD56B8AB}">
+					<ChildrenList>
+						<Action Name="" ID="{0F722CBA-B498-490D-80C7-B4878C735AB2}" ShortID="958097648">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_customer_leaving_01" ID="{6F64A67D-EAEB-4017-8D55-BBB4E77B77C2}" WorkUnitID="{CD255CD3-2E34-4E6A-B632-C02CE2325949}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_sfx_customer_approaching_01" ID="{3CF30AE2-D744-470A-85E1-280B7DAA0584}">
+					<ChildrenList>
+						<Action Name="" ID="{B2818F10-4119-45FF-AEF6-DE7229C1C0B5}" ShortID="152485680">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_customer_approaching_01" ID="{E948CD16-59A6-4C1C-A06C-A833E629D7D1}" WorkUnitID="{CD255CD3-2E34-4E6A-B632-C02CE2325949}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

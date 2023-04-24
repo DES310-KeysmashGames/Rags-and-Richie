@@ -1,6 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
+	1192913631	Play_sfx_customer_approaching_01			\Default Work Unit\Play_sfx_customer_approaching_01	
+	2652178615	Play_ButtonPress			\Default Work Unit\Play_ButtonPress	
 	3055784172	Play_581415__peanut_shaman__western_bass			\Default Work Unit\Play_581415__peanut_shaman__western_bass	
+	3409249835	Play_sfx_customer_leaving_01			\Default Work Unit\Play_sfx_customer_leaving_01	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	159095501	ButtonPress	H:\Year3\Term2\DES310\Rags-and-Richie\Rags-and-Richie_WwiseProject\.cache\Windows\SFX\ButtonPress_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ButtonPress		7204
+	654560125	sfx_customer_leaving_01	H:\Year3\Term2\DES310\Rags-and-Richie\Rags-and-Richie_WwiseProject\.cache\Windows\SFX\sfx_customer_leaving_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_customer_leaving_01		286724
 	661455387	581415__peanut_shaman__western-bass	H:\Year3\Term2\DES310\Rags-and-Richie\Rags-and-Richie_WwiseProject\.cache\Windows\SFX\581415__peanut_shaman__western-bass_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\581415__peanut_shaman__western-bass		12490316
+	903616425	sfx_customer_approaching_01	H:\Year3\Term2\DES310\Rags-and-Richie\Rags-and-Richie_WwiseProject\.cache\Windows\SFX\sfx_customer_approaching_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_customer_approaching_01		286724
 

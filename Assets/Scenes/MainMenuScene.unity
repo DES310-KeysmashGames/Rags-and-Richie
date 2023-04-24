@@ -1478,6 +1478,10 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 174a3beaf1cf8774688949c04f1101b0, type: 2}
+  buttonClickEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1d535c7576bbf5446b653014b4ef5688, type: 2}
 --- !u!114 &1275069060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1580,7 +1584,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1451299324
 GameObject:

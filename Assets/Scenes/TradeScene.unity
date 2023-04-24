@@ -1190,7 +1190,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &332960983
 GameObject:
@@ -4427,8 +4427,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9a0bcc3b8933234db10d9f6e719b0a9, type: 2}
   - {fileID: 11400000, guid: 78aacf0d15c82dd4a870ee332d421357, type: 2}
   - {fileID: 11400000, guid: 95c8e4b285c33ec4d8e614081fd97c29, type: 2}
-  CustomerArrive: {fileID: 1385776654}
-  HappyCustomer: {fileID: 943878882}
 --- !u!114 &944116508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4536,6 +4534,14 @@ MonoBehaviour:
   custDesperation: 0
   turnCount: 0
   customerCount: 0
+  playerApproachEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: faaaa1037cd293545b8dbf94642ee795, type: 2}
+  playerLeaveEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2e997714d0ee85f428956ab8744a4623, type: 2}
 --- !u!4 &944116510
 Transform:
   m_ObjectHideFlags: 0
