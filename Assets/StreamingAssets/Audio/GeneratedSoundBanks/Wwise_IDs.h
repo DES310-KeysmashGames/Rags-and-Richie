@@ -14,6 +14,9 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_581415__PEANUT_SHAMAN__WESTERN_BASS = 3055784172U;
+        static const AkUniqueID PLAY_BUTTONPRESS = 2652178615U;
+        static const AkUniqueID PLAY_SFX_CUSTOMER_APPROACHING_01 = 1192913631U;
+        static const AkUniqueID PLAY_SFX_CUSTOMER_LEAVING_01 = 3409249835U;
     } // namespace EVENTS
 
     namespace BANKS

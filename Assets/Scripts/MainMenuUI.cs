@@ -12,7 +12,10 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button quitButton;
     public AudioMixer audioMixer;
     public AK.Wwise.Event playambientMusic;
+    public AK.Wwise.Event buttonClickEvent;
     private bool playing;
+    private bool playGame;
+    private float timer;
 
     private void Awake(){
         //optionsCanvas = GetComponent<Canvas>();
@@ -21,10 +24,8 @@ public class MainMenuUI : MonoBehaviour
 
         playButton.onClick.AddListener(()=> {
             //click action
-            Loader.Load(Loader.Scene.TravelScene);
-            PlayerPrefs.SetInt("wallet", 0);
-            StaticTravel.dayCount = 1;
-
+            buttonClickEvent.Post(gameObject);
+            playGame = true;
             //Main Menu Button Audio
 
         });
@@ -32,16 +33,19 @@ public class MainMenuUI : MonoBehaviour
             //click action
 
             //Options Button Audio
-
+            buttonClickEvent.Post(gameObject);
         });
 
         quitButton.onClick.AddListener(()=> {
             //Main Menu Button Audio
-
+            buttonClickEvent.Post(gameObject);
             //click action
+
             Application.Quit();
         });
         //playambientMusic.Post(gameObject);
+        timer = 2.0f;
+        playGame = false;
     }
 
     private void Update()
@@ -61,17 +65,30 @@ public class MainMenuUI : MonoBehaviour
                 playambientMusic.Stop(gameObject);
             }
         }
+
+        if (playGame)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer <= 0)
+        {
+            Loader.Load(Loader.Scene.TravelScene);
+            PlayerPrefs.SetInt("wallet", 0);
+            StaticTravel.dayCount = 1;
+        }
+
     }
 
     //Main Menu Background Audio
 
-    //Basic Audio by Leslie
-    public void SetSFXVolume(float SFXvolume){
-        Debug.Log("sfx volume = " + SFXvolume);
-        audioMixer.SetFloat("mixVolume", SFXvolume);
-    }
+    ////Basic Audio by Leslie
+    //public void SetSFXVolume(float SFXvolume){
+    //    Debug.Log("sfx volume = " + SFXvolume);
+    //    audioMixer.SetFloat("mixVolume", SFXvolume);
+    //}
 
-    public void SetMusicVolume(float musicVolume){
-        Debug.Log("music volume = " + musicVolume);
-    }
+    //public void SetMusicVolume(float musicVolume){
+    //    Debug.Log("music volume = " + musicVolume);
+    //}
 }
