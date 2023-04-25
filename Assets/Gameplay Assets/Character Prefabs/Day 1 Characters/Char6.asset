@@ -18,8 +18,8 @@ MonoBehaviour:
   foodDesire: 3
   drinkDesire: 5
   warmthDesire: 2
-  weaponDesire: 0
-  machineryDesire: 0
+  weaponDesire: 1
+  machineryDesire: 1
   luxuryDesire: 2
   introText:
   - {fileID: 11400000, guid: 6402907e3852bf44195d12f7471c794b, type: 2}

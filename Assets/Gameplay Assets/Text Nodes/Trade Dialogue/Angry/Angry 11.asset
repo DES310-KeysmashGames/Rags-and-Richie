@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Angry 11
   m_EditorClassIdentifier: 
-  lineOfDialogue: Does it look like im made of floppy disks?
+  lineOfDialogue: Does it look like I'm made of floppy disks?
   category: 6

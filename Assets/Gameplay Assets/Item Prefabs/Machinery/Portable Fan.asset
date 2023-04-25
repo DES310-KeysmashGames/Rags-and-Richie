@@ -19,9 +19,9 @@ MonoBehaviour:
   tertiaryType: 6
   itemDescription: {fileID: 21300000, guid: 13ff7d443b518e340b9292e46c9453f3, type: 3}
   Description: 
-  foodValue: 0
-  drinkValue: 0
-  warmthValue: 0
-  weaponValue: 3
-  machineryValue: 5
-  luxuryValue: 4
+  foodValue: 1
+  drinkValue: 1
+  warmthValue: 1
+  weaponValue: 5
+  machineryValue: 7
+  luxuryValue: 5
