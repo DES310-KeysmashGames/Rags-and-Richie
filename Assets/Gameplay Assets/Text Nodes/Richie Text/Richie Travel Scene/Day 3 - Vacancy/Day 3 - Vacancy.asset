@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 3 - Vacancy
   m_EditorClassIdentifier: 
-  lineOfDialogue: "I've never seen a lot of people around here so I'm not too sure
-    what they want. It is close by, so we don\u2019t need to travel far and it has
-    a cheap motel."
+  lineOfDialogue: I've never seen a lot of people around here so I'm not too sure
+    what they want. At least it's nearby, and accommodation is cheap!
   category: 6

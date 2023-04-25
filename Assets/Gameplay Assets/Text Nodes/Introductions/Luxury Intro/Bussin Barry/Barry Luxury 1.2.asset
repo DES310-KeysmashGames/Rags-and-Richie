@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Barry Luxury 1.2
   m_EditorClassIdentifier: 
-  lineOfDialogue: Hahaha, guess not but I know you have something fancy for me.
+  lineOfDialogue: No? Hahaha, fair enough, but I'm sure you've got a lil' someting
+    behind the counter for me...
   category: 3

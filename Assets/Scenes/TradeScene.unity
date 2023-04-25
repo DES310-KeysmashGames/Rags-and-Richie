@@ -4357,7 +4357,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4b60462b6b6c8145a0fc040937280bd, type: 2}
   - {fileID: 11400000, guid: cd0bb48f65d5f6e4a8e5152e1fcde98b, type: 2}
   - {fileID: 11400000, guid: 3dec50c7f6ca63c4fb5c618f324d4f65, type: 2}
-  - {fileID: 11400000, guid: 11f0ce437c6d09446adae8f2f1b1176d, type: 2}
   - {fileID: 11400000, guid: 052f09681d144874896feb40b05d2afc, type: 2}
   - {fileID: 11400000, guid: 912398562e1627845a9b9b7dc32f956d, type: 2}
   - {fileID: 11400000, guid: 5cbc9dd482a431647a5f8dcd01328cc0, type: 2}
@@ -4382,6 +4381,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2754e811738e8bb469b64d579f16759c, type: 2}
   - {fileID: 11400000, guid: 98af0946a44d4754e8d7638ba5a73257, type: 2}
   - {fileID: 11400000, guid: 874c97cf8eef17b41aafbd745048de13, type: 2}
+  - {fileID: 11400000, guid: 17172d265fef35c42a1445183f616af9, type: 2}
   angryDialogue:
   - {fileID: 11400000, guid: f31133a0819ee1e43b95d9acf4a5a6ad, type: 2}
   - {fileID: 11400000, guid: b1ebbdce373f938439be4fc26887c3b4, type: 2}
@@ -4420,7 +4420,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c02bcf59e997cd241acf5c211483c4de, type: 2}
   - {fileID: 11400000, guid: 806f3464f04deae46bddb49767421969, type: 2}
   - {fileID: 11400000, guid: 176fac12c64578c48926e16cbbd73f64, type: 2}
-  - {fileID: 11400000, guid: 6d88fd39a942b184c8a920ccd6ba4258, type: 2}
   - {fileID: 11400000, guid: bd6c1271568323a439ce7d91a65a5ca1, type: 2}
   - {fileID: 11400000, guid: f20d37ae8ee727146b724faf890a7127, type: 2}
   - {fileID: 11400000, guid: b57fe8f0674c47b4cb19ac68e7e6d332, type: 2}

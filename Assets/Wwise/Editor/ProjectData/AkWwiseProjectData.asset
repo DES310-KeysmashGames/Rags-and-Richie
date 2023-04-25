@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 746e5c420c1c8245be9a90fdd1ecaa16
     GuidInternal: 
-    m_lastTime: -8585195392527356567
+    m_lastTime: -8585191790620011184
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: bdfa004f86591c4083e1c736d03f63c6
     GuidInternal: 
-    m_lastTime: -8585195392528175666
+    m_lastTime: -8585191790621481559
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: bdc63ce81997c24ba4d0736a0fedb303
     GuidInternal: 
-    m_lastTime: -8585195379295827848
+    m_lastTime: -8585191790620031130
     List:
     - name: Main
       guid: ba181c90dedd4a46b97d82594b01a971
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7bc80d8c5405274aa1ea2359e6d1ad8d
     GuidInternal: 
-    m_lastTime: -8585192597708907755
+    m_lastTime: -8585191790622269452
     List:
     - name: Play_581415__peanut_shaman__western_bass
       guid: ed0a50726b46984ab5f8042c3eb275d4
@@ -130,6 +130,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_sfx_customer_approaching_01
+      guid: e20af33c44d70a4785e1280b7daa0584
+      id: 1192913631
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7bc80d8c5405274aa1ea2359e6d1ad8d
+      - ElementName: Play_sfx_customer_approaching_01
+        ObjectType: 3
+        guid: e20af33c44d70a4785e1280b7daa0584
+      Path: Events\Default Work Unit\Play_sfx_customer_approaching_01
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_sfx_customer_leaving_01
+      guid: f3af5a789025964f9224d03dad56b8ab
+      id: 3409249835
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7bc80d8c5405274aa1ea2359e6d1ad8d
+      - ElementName: Play_sfx_customer_leaving_01
+        ObjectType: 3
+        guid: f3af5a789025964f9224d03dad56b8ab
+      Path: Events\Default Work Unit\Play_sfx_customer_leaving_01
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -142,7 +176,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 6d98b9f7d461944681d615e66be82db6
     GuidInternal: 
-    m_lastTime: -8585195392527041275
+    m_lastTime: -8585191790622259479
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -156,7 +190,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: bf8924aba65c034991e179507583d854
     GuidInternal: 
-    m_lastTime: -8585195392527540752
+    m_lastTime: -8585191790620021154
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -170,7 +204,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 21fb1b289ea7ba489264430ed559b6a0
     GuidInternal: 
-    m_lastTime: -8585195392526544217
+    m_lastTime: -8585191790620021154
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -184,10 +218,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 34bfa5a29dd0e146b0a9299d70e1303c
     GuidInternal: 
-    m_lastTime: -8585195392526610275
+    m_lastTime: -8585191790620011184
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000b0000000d0000000e00000072010000730100004b0200004c020000
+  ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
