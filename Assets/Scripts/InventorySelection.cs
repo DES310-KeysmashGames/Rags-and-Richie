@@ -37,6 +37,8 @@ public class InventorySelection : MonoBehaviour
     //buttons
     [SerializeField] Button confirmButton;
 
+    public AK.Wwise.Event buttonPressEvent;
+
     private void Awake(){
         confirmButton.onClick.AddListener(()=> {
             //Confirm Selection Button Audio
@@ -48,7 +50,7 @@ public class InventorySelection : MonoBehaviour
                 }
                 Loader.Load(Loader.Scene.TradeScene);
             }
-            
+            buttonPressEvent.Post(gameObject);
         });
         itemCard.enabled = false;
         itemCard2.enabled = false;
@@ -331,6 +333,7 @@ public class InventorySelection : MonoBehaviour
         reactivate = false;
 
         //Item Deselection Button Audio
+        buttonPressEvent.Post(gameObject);
     }
 
     public void RemoveItemTwo()
@@ -359,6 +362,7 @@ public class InventorySelection : MonoBehaviour
         reactivate = false;
 
         //Item Deselection Button Audio
+        buttonPressEvent.Post(gameObject);
     }
 
     public void RemoveItemThree()
@@ -387,6 +391,7 @@ public class InventorySelection : MonoBehaviour
         reactivate = false;
 
         //Item Deselection Button Audio
+        buttonPressEvent.Post(gameObject);
     }
 
     public void RemoveItemFour()
@@ -415,6 +420,7 @@ public class InventorySelection : MonoBehaviour
         reactivate = false;
 
         //Item Deselection Button Audio
+        buttonPressEvent.Post(gameObject);
     }
 
     public void HoverEnterButtonOne()

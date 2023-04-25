@@ -45,16 +45,21 @@ public class TravelManager : MonoBehaviour
     private int day;
 
     public AK.Wwise.Event richieDialogueEvent;
+    public AK.Wwise.Event buttonPressEvent;
 
     private void Awake()
     {
         richie = GetComponent<RichieScript>();
-        continueTextButton.onClick.AddListener(() => TextRead());
+        continueTextButton.onClick.AddListener(() =>
+        {
+            TextRead();
+            buttonPressEvent.Post(gameObject);
+        });
         //Go to Item Selection scene on Click
         nextButton.onClick.AddListener(() =>
         {
             //Next Day Button Audio
-
+            buttonPressEvent.Post(gameObject);
             nextClicked = true;
         });
         tutorialCount = 0;
@@ -198,6 +203,7 @@ public class TravelManager : MonoBehaviour
     public void CityClicked1()
     { 
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 2:
@@ -228,6 +234,7 @@ public class TravelManager : MonoBehaviour
     public void CityClicked2()
     {
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 1:
@@ -257,6 +264,7 @@ public class TravelManager : MonoBehaviour
     public void CityClicked3()
     {
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 2:
