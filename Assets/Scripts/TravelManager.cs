@@ -44,15 +44,22 @@ public class TravelManager : MonoBehaviour
     private int expenses;
     private int day;
 
+    public AK.Wwise.Event richieDialogueEvent;
+    public AK.Wwise.Event buttonPressEvent;
+
     private void Awake()
     {
         richie = GetComponent<RichieScript>();
-        continueTextButton.onClick.AddListener(() => TextRead());
+        continueTextButton.onClick.AddListener(() =>
+        {
+            TextRead();
+            buttonPressEvent.Post(gameObject);
+        });
         //Go to Item Selection scene on Click
         nextButton.onClick.AddListener(() =>
         {
             //Next Day Button Audio
-
+            buttonPressEvent.Post(gameObject);
             nextClicked = true;
         });
         tutorialCount = 0;
@@ -83,6 +90,7 @@ public class TravelManager : MonoBehaviour
         if (day == 1)
         {
             richieText.text = richie.GetTutorial(tutorialCount);
+            richieDialogueEvent.Post(gameObject);
             continueTextButton.gameObject.SetActive(true);
             ++tutorialCount;
             cityButton[1].image.sprite = citySprites[0];
@@ -121,12 +129,14 @@ public class TravelManager : MonoBehaviour
                         continueTextButton.gameObject.SetActive(true);
                         ++tutorialCount;
                         readText = false;
+                        richieDialogueEvent.Post(gameObject);
                         break;
                     case 2:
                         richieText.text = richie.GetTutorial(tutorialCount);
                         continueTextButton.gameObject.SetActive(true);
                         tutorialCount = 0;
                         readText = false;
+                        richieDialogueEvent.Post(gameObject);
                         break;
                     default:
                         break;
@@ -193,10 +203,12 @@ public class TravelManager : MonoBehaviour
     public void CityClicked1()
     { 
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 2:
                 richieText.text = richie.GetBurnington();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Drink";
                 StaticTravel.location = "Burnington";
@@ -205,6 +217,7 @@ public class TravelManager : MonoBehaviour
                 break;
             case 3:
                 richieText.text = richie.GetBrokenMetro();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Mechanical";
                 StaticTravel.location = "BrokenMetro";
@@ -221,10 +234,12 @@ public class TravelManager : MonoBehaviour
     public void CityClicked2()
     {
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 1:
                 richieText.text = richie.GetToxicTowers();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Weapon";
                 StaticTravel.location = "ToxicTowers";
@@ -232,6 +247,7 @@ public class TravelManager : MonoBehaviour
                 break;
             case 3:
                 richieText.text = richie.GetVacancy();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Mystery";
                 StaticTravel.location = "Vacancy";
@@ -248,10 +264,12 @@ public class TravelManager : MonoBehaviour
     public void CityClicked3()
     {
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 2:
                 richieText.text = richie.GetSkyHigh();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Warmth";
                 StaticTravel.location = "SkyHigh";
@@ -260,6 +278,7 @@ public class TravelManager : MonoBehaviour
                 break;
             case 3:
                 richieText.text = richie.GetLostAngeles();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Luxury";
                 StaticTravel.location = "LostAngeles";

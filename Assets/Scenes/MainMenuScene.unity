@@ -1362,6 +1362,7 @@ GameObject:
   - component: {fileID: 1275069053}
   - component: {fileID: 1275069057}
   - component: {fileID: 1275069060}
+  - component: {fileID: 1275069061}
   m_Layer: 5
   m_Name: MainMenuUI
   m_TagString: Untagged
@@ -1477,11 +1478,11 @@ MonoBehaviour:
   playambientMusic:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 174a3beaf1cf8774688949c04f1101b0, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 3d42b401abdda2949bf57bce202a3696, type: 2}
   buttonClickEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1d535c7576bbf5446b653014b4ef5688, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: aaa7e3c80684d7d4d83cc243800bd6f4, type: 2}
 --- !u!114 &1275069060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,6 +1505,30 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &1275069061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275069052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66b36c9abdb89b429cfa4b84816db97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4a60cb23cd42c6543854b4779abea8a0, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1419605342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,7 +1564,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 9c691fd3e989c0e45a1844cd93fd2d53, type: 2}
+    WwiseObjectReference: {fileID: 0}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
