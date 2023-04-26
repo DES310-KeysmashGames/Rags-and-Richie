@@ -40,6 +40,7 @@ public class DayEndUI : MonoBehaviour
                 //Next Day Button Audio
             });
         }
+        PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - StaticTravel.expenses));
     }
 
     private void Start(){
