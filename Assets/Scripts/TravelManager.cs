@@ -69,10 +69,6 @@ public class TravelManager : MonoBehaviour
     void Start()
     {
         day = StaticTravel.dayCount;
-        //Setting Richie vars to false
-        //richieText.enabled = false;
-        //richieImage.enabled = false;
-        //richieTextBox.enabled = false;
         richieImage.enabled = true;
         richieTextBox.enabled = true;
         richieText.enabled = true;
@@ -91,6 +87,7 @@ public class TravelManager : MonoBehaviour
         {
             richieText.text = richie.GetTutorial(tutorialCount);
             richieDialogueEvent.Post(gameObject);
+            cityButton[1].interactable = false;
             continueTextButton.gameObject.SetActive(true);
             ++tutorialCount;
             cityButton[1].image.sprite = citySprites[0];
@@ -133,7 +130,8 @@ public class TravelManager : MonoBehaviour
                         break;
                     case 2:
                         richieText.text = richie.GetTutorial(tutorialCount);
-                        continueTextButton.gameObject.SetActive(true);
+                        //continueTextButton.gameObject.SetActive(true);
+                        cityButton[1].interactable = true;
                         tutorialCount = 0;
                         readText = false;
                         richieDialogueEvent.Post(gameObject);

@@ -751,27 +751,26 @@ public class GameManager : MonoBehaviour
         bargainometer.enabled = true;
         animation.BargainPhaseSetActive();
         dimmer.enabled = true;
-        priceBox.gameObject.SetActive(true);
-        confirmButton.gameObject.SetActive(true);
-        increaseButton.gameObject.SetActive(true);
-        increaseByTen.gameObject.SetActive(true);
-        decreaseButton.gameObject.SetActive(true);
-        decreaseByTen.gameObject.SetActive(true);
-        ReselectItemButton.gameObject.SetActive(true);
+        //priceBox.gameObject.SetActive(true);
+        //confirmButton.gameObject.SetActive(true);
+        //increaseButton.gameObject.SetActive(true);
+        //increaseByTen.gameObject.SetActive(true);
+        //decreaseButton.gameObject.SetActive(true);
+        //decreaseByTen.gameObject.SetActive(true);
+        //ReselectItemButton.gameObject.SetActive(true);
     }
 
     void InitialOfferSetInactive()
     {
         animation.BargainPhaseSetInactive();
-        //bargainometer.enabled = false;
         dimmer.enabled = false;
-        priceBox.gameObject.SetActive(false);
-        confirmButton.gameObject.SetActive(false);
-        increaseButton.gameObject.SetActive(false);
-        increaseByTen.gameObject.SetActive(false);
-        decreaseButton.gameObject.SetActive(false);
-        decreaseByTen.gameObject.SetActive(false);
-        ReselectItemButton.gameObject.SetActive(false);
+        //priceBox.gameObject.SetActive(false);
+        //confirmButton.gameObject.SetActive(false);
+        //increaseButton.gameObject.SetActive(false);
+        //increaseByTen.gameObject.SetActive(false);
+        //decreaseButton.gameObject.SetActive(false);
+        //decreaseByTen.gameObject.SetActive(false);
+        //ReselectItemButton.gameObject.SetActive(false);
     }
 
    void ResetToMenu()

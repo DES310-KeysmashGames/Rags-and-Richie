@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AnimationTrade : MonoBehaviour
 {
-    Animator bargainPhaseAnimation;
+    [SerializeField] Animator bargainPhaseAnimation;
 
     private void Awake()
     {
-        bargainPhaseAnimation = GetComponent<Animator>();
+        
     }
 
     public void BargainPhaseSetActive()
