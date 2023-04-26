@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
   m_Name: Hot Sauce
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 4dab986b5faa37046a79cef03ec3483c, type: 3}
+  frontSprite: {fileID: 21300000, guid: 46dae8b937763d9419bf629ea1d468b9, type: 3}
   itemName: Hot Sauce
   primaryType: 3
   secondaryType: 2
