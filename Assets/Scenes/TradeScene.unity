@@ -4651,6 +4651,7 @@ GameObject:
   - component: {fileID: 961897974}
   - component: {fileID: 961897976}
   - component: {fileID: 961897975}
+  - component: {fileID: 961897977}
   m_Layer: 5
   m_Name: Price adjustment
   m_TagString: Untagged
@@ -4723,6 +4724,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961897973}
   m_CullTransparentMesh: 1
+--- !u!95 &961897977
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961897973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b97422a7125ea254287a58415686bcf2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &970031056
 GameObject:
   m_ObjectHideFlags: 0
