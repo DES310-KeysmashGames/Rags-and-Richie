@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] itemText;
     [SerializeField] private Button[] itemButtons;
     [SerializeField] private Button TextPrompt;
+    [SerializeField] private Image itemCard;
 
     //ui for selecting inital price
     [Header("UI elements for selecting the initial price")]
@@ -236,6 +237,7 @@ public class GameManager : MonoBehaviour
         TextPrompt.gameObject.SetActive(true);
         nextCustomerButton.gameObject.SetActive(false);
         patienceMeter.enabled = false;
+        itemCard.enabled = false;
         bargainSpeech.enabled = true;
         charEmote.enabled = false;
         patienceArrow.SetInactive();
@@ -776,5 +778,34 @@ public class GameManager : MonoBehaviour
             Loader.Load(Loader.Scene.MainMenuScene);
             ResetLevel();
         }
+    }
+
+   public void HoverItem1()
+    {
+        itemCard.enabled = true;
+        itemCard.sprite = itemManager.GetItemDescription(0);
+    }
+
+    public void HoverItem2()
+    {
+        itemCard.enabled = true;
+        itemCard.sprite = itemManager.GetItemDescription(1);
+    }
+
+    public void HoverItem3()
+    {
+        itemCard.enabled = true;
+        itemCard.sprite = itemManager.GetItemDescription(2);
+    }
+
+    public void HoverItem4()
+    {
+        itemCard.enabled = true;
+        itemCard.sprite = itemManager.GetItemDescription(3);
+    }
+
+    public void HoverExit()
+    {
+        itemCard.enabled = false;
     }
 }
