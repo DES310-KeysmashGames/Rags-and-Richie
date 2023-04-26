@@ -49,8 +49,8 @@ public class InventorySelection : MonoBehaviour
                     StaticInventory.intermediateList.Add(chosenInventory[i]);
                 }
                 Loader.Load(Loader.Scene.TradeScene);
+                buttonPressEvent.Post(gameObject);
             }
-            buttonPressEvent.Post(gameObject);
         });
         itemCard.enabled = false;
         itemCard2.enabled = false;
@@ -61,7 +61,9 @@ public class InventorySelection : MonoBehaviour
         AssignSprites();
         for (int i = 0; i < selectionButtons.Count; i++){
         int closureIndex = i ; // Prevents the closure problem
-        selectionButtons[closureIndex].onClick.AddListener( () => TaskOnClick( closureIndex ) );
+        selectionButtons[closureIndex].onClick.AddListener( () => {
+            TaskOnClick(closureIndex);
+            });
         }
         for (int j = 0; j < removeButtons.Length; ++j)
         {
@@ -126,6 +128,7 @@ public class InventorySelection : MonoBehaviour
             removeButtons[i].gameObject.SetActive(true);
         }
         UpdateItemTypeCount(buttonIndex);
+        buttonPressEvent.Post(gameObject);
     }
 
     void ShuffleItems()

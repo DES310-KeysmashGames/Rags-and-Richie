@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField] private List<BaseItem> fullstock = new List<BaseItem>();
     [SerializeField] private List<BaseItem> inventory = new List<BaseItem>();
     public List<BaseItem> soldItems = new List<BaseItem>();
     public List<int> itemPrice = new List<int>();
@@ -53,6 +52,12 @@ public class ItemManager : MonoBehaviour
     {
         return inventory[itemNo].name;
     }
+
+    public Sprite GetItemDescription(int itemNo)
+    {
+        return inventory[itemNo].itemDescription;
+    }
+
     public int GetWeaponValue(int itemNo)
     {
         //return CurrentItems[itemNo].weaponValue;
