@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private PatienceMeter patienceArrow;
     [SerializeField] AnimationTrade initialPrice;
     [SerializeField] AnimationTrade priceAdjuster;
+    [SerializeField] AnimationTrade patienceMeterdrop;
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
     [SerializeField] private Sprite[] emoticons;
@@ -725,12 +726,14 @@ public class GameManager : MonoBehaviour
     {
         priceAdjuster.PriceConfirmSetActive();
         previousPriceText.SetText(previousPrice.ToString());
+        patienceMeterdrop.PatienceMeterActive();
     }
 
     void MakeOfferPhaseSetInactive()
     {
         priceAdjuster.PriceConfirmSetInactive();
         bargainSpeech.enabled = true;
+        patienceMeterdrop.PatienceMeterInActive();
     }
 
     void InitialOfferPhaseSetActive()
