@@ -785,6 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bargainPhaseAnimation: {fileID: 138217585}
   priceConfirmAnimation: {fileID: 0}
+  patienceMeterAnimation: {fileID: 0}
 --- !u!1 &150303957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,6 +1175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248181376}
   - component: {fileID: 248181378}
+  - component: {fileID: 248181380}
   - component: {fileID: 248181377}
   - component: {fileID: 248181379}
   m_Layer: 5
@@ -1261,6 +1263,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &248181380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248181375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 0}
+  priceConfirmAnimation: {fileID: 0}
+  patienceMeterAnimation: {fileID: 248181379}
 --- !u!1 &305999706
 GameObject:
   m_ObjectHideFlags: 0
@@ -4466,6 +4483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPrice: {fileID: 138217586}
   priceAdjuster: {fileID: 961897978}
+  patienceMeterdrop: {fileID: 248181380}
   speechBubbles:
   - {fileID: 21300000, guid: 3cf31f86608cf114e847b455b56d3e91, type: 3}
   - {fileID: 21300000, guid: 6f615bf023b57364c84d4a5c844ea481, type: 3}
@@ -4782,6 +4800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 961897977}
+  patienceMeterAnimation: {fileID: 0}
 --- !u!1 &970031056
 GameObject:
   m_ObjectHideFlags: 0
