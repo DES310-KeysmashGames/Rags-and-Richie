@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private ItemManager itemManager;
     private CharacterManager character;
     private PatienceMeter patienceArrow;
+    [SerializeField] AnimationTrade animation;
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
     [SerializeField] private Sprite[] emoticons;
@@ -748,6 +749,7 @@ public class GameManager : MonoBehaviour
     void InitialOfferPhaseSetActive()
     {
         bargainometer.enabled = true;
+        animation.BargainPhaseSetActive();
         dimmer.enabled = true;
         priceBox.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(true);
@@ -760,7 +762,8 @@ public class GameManager : MonoBehaviour
 
     void InitialOfferSetInactive()
     {
-        bargainometer.enabled = false;
+        animation.BargainPhaseSetInactive();
+        //bargainometer.enabled = false;
         dimmer.enabled = false;
         priceBox.gameObject.SetActive(false);
         confirmButton.gameObject.SetActive(false);
