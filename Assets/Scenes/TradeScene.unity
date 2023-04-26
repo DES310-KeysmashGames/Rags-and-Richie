@@ -1175,9 +1175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248181376}
   - component: {fileID: 248181378}
-  - component: {fileID: 248181380}
   - component: {fileID: 248181377}
-  - component: {fileID: 248181379}
   m_Layer: 5
   m_Name: Patience Meter
   m_TagString: Untagged
@@ -1192,17 +1190,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248181375}
-  m_LocalRotation: {x: 0, y: 0, z: -0.043619405, w: 0.9990483}
+  m_LocalRotation: {x: -0, y: -0, z: -0.043619405, w: 0.99904823}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 816523530}
+  m_Father: {fileID: 1508699951}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -573, y: 797}
+  m_AnchoredPosition: {x: -602, y: 459}
   m_SizeDelta: {x: 694.8041, y: 229.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248181377
@@ -1243,41 +1241,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248181375}
   m_CullTransparentMesh: 1
---- !u!95 &248181379
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248181375}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8cfc479ac99a5844a375e7f50c0c0f6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &248181380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248181375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bargainPhaseAnimation: {fileID: 0}
-  priceConfirmAnimation: {fileID: 0}
-  patienceMeterAnimation: {fileID: 248181379}
 --- !u!1 &305999706
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,8 +3331,7 @@ RectTransform:
   - {fileID: 961897974}
   - {fileID: 1199778303}
   - {fileID: 150303960}
-  - {fileID: 248181376}
-  - {fileID: 923658522}
+  - {fileID: 1508699951}
   m_Father: {fileID: 194112167}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.684}
@@ -4178,12 +4140,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923658519}
-  m_LocalRotation: {x: 0, y: 0, z: 0.005410477, w: 0.9999854}
+  m_LocalRotation: {x: -0, y: -0, z: 0.005410477, w: 0.9999854}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1.1999999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 816523530}
+  m_Father: {fileID: 1508699951}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.62}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4483,7 +4445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPrice: {fileID: 138217586}
   priceAdjuster: {fileID: 961897978}
-  patienceMeterdrop: {fileID: 248181380}
+  patienceMeterdrop: {fileID: 0}
   speechBubbles:
   - {fileID: 21300000, guid: 3cf31f86608cf114e847b455b56d3e91, type: 3}
   - {fileID: 21300000, guid: 6f615bf023b57364c84d4a5c844ea481, type: 3}
@@ -6534,6 +6496,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457687735}
   m_CullTransparentMesh: 1
+--- !u!1 &1508699950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508699951}
+  - component: {fileID: 1508699953}
+  - component: {fileID: 1508699952}
+  m_Layer: 5
+  m_Name: PatienceMeterGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1508699951
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508699950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 248181376}
+  - {fileID: 923658522}
+  m_Father: {fileID: 816523530}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 450}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1508699952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508699950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 0}
+  priceConfirmAnimation: {fileID: 0}
+  patienceMeterAnimation: {fileID: 1508699953}
+--- !u!95 &1508699953
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508699950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8cfc479ac99a5844a375e7f50c0c0f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1540995285
 GameObject:
   m_ObjectHideFlags: 0
