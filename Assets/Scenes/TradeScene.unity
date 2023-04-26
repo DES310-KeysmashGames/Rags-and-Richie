@@ -4545,7 +4545,7 @@ MonoBehaviour:
   custDialogueEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 54131a58b0ad24c4798b42e43f2d009f, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 3d42b401abdda2949bf57bce202a3696, type: 2}
   buttonPressEvent:
     idInternal: 0
     valueGuidInternal: 
