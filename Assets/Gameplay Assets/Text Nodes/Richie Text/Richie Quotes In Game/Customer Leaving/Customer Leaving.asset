@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Customer Leaving
   m_EditorClassIdentifier: 
-  lineOfDialogue: "They were a weird one\u2026"
+  lineOfDialogue: "What a strange character\u2026"
   category: 6

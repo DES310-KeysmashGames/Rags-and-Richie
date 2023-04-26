@@ -17,7 +17,7 @@ MonoBehaviour:
   desire: 2
   foodDesire: 2
   drinkDesire: 1
-  warmthDesire: 4
+  warmthDesire: 5
   weaponDesire: 1
   machineryDesire: 3
   luxuryDesire: 1

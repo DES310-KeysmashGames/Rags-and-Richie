@@ -10,6 +10,8 @@ using Unity.VisualScripting;
 
 public class TravelManager : MonoBehaviour
 {
+    RichieScript richie;
+
     //Richie Info interaction
     [Header("Richie Dialogue")]
     [SerializeField] private Image richieImage;
@@ -30,6 +32,11 @@ public class TravelManager : MonoBehaviour
     [SerializeField] private Sprite[] citySprites;
     [SerializeField] private Sprite[] citySelectedSprites;
 
+    //RichieText
+    [SerializeField] private Button continueTextButton;
+    [SerializeField] private int tutorialCount;
+    [SerializeField] bool readText;
+
     //Variables
     [SerializeField] private bool truckMoved, cityClicked, nextClicked;
     private int moveSpeed;
@@ -37,22 +44,38 @@ public class TravelManager : MonoBehaviour
     private int expenses;
     private int day;
 
+    public AK.Wwise.Event richieDialogueEvent;
+    public AK.Wwise.Event buttonPressEvent;
+
     private void Awake()
     {
+        richie = GetComponent<RichieScript>();
+        continueTextButton.onClick.AddListener(() =>
+        {
+            TextRead();
+            buttonPressEvent.Post(gameObject);
+        });
         //Go to Item Selection scene on Click
         nextButton.onClick.AddListener(() =>
         {
+            //Next Day Button Audio
+            buttonPressEvent.Post(gameObject);
             nextClicked = true;
         });
+        tutorialCount = 0;
+        readText = false;
     }
 
     void Start()
     {
         day = StaticTravel.dayCount;
         //Setting Richie vars to false
-        richieText.enabled = false;
-        richieImage.enabled = false;
-        richieTextBox.enabled = false;
+        //richieText.enabled = false;
+        //richieImage.enabled = false;
+        //richieTextBox.enabled = false;
+        richieImage.enabled = true;
+        richieTextBox.enabled = true;
+        richieText.enabled = true;
 
         nextButton.gameObject.SetActive(false);
         truck.enabled = true;
@@ -66,6 +89,10 @@ public class TravelManager : MonoBehaviour
         wallet = PlayerPrefs.GetInt("wallet");
         if (day == 1)
         {
+            richieText.text = richie.GetTutorial(tutorialCount);
+            richieDialogueEvent.Post(gameObject);
+            continueTextButton.gameObject.SetActive(true);
+            ++tutorialCount;
             cityButton[1].image.sprite = citySprites[0];
             cityButton[1].gameObject.SetActive(true);
             cityButton[0].gameObject.SetActive(false);
@@ -91,11 +118,36 @@ public class TravelManager : MonoBehaviour
 
     void Update()
     {
+        if(day == 1)
+        {
+            if (readText)
+            {
+                switch (tutorialCount)
+                {
+                    case 1:
+                        richieText.text = richie.GetTutorial(tutorialCount);
+                        continueTextButton.gameObject.SetActive(true);
+                        ++tutorialCount;
+                        readText = false;
+                        richieDialogueEvent.Post(gameObject);
+                        break;
+                    case 2:
+                        richieText.text = richie.GetTutorial(tutorialCount);
+                        continueTextButton.gameObject.SetActive(true);
+                        tutorialCount = 0;
+                        readText = false;
+                        richieDialogueEvent.Post(gameObject);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         //Update Wallet 
         UpdateCurrency();
 
         //Enable Richie Dialogue
-        RichieDialogue();
+        //RichieDialogue();
 
         //Enable Next button if city is clicked
         if (cityClicked)
@@ -123,6 +175,8 @@ public class TravelManager : MonoBehaviour
         richieTextBox.enabled = true;
         richieText.enabled = true;
 
+        //Richie Speaking Audio
+
         richieText.text = "What's up... The name's Richie";
 
         //richieText.text = "Another day on the road, looks like we're travelling to Toxic Towers today!";
@@ -147,72 +201,100 @@ public class TravelManager : MonoBehaviour
     }
 
     public void CityClicked1()
-    {
+    { 
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 2:
+                richieText.text = richie.GetBurnington();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Drink";
                 StaticTravel.location = "Burnington";
                 cityButton[0].image.sprite = citySelectedSprites[1];
-                cityButton[1].image.sprite = citySprites[2];
-                cityButton[2].image.sprite = citySprites[3];
+                cityButton[2].image.sprite = citySprites[2];
                 break;
             case 3:
+                richieText.text = richie.GetBrokenMetro();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Mechanical";
                 StaticTravel.location = "BrokenMetro";
-                cityButton[0].image.sprite = citySelectedSprites[4];
-                cityButton[1].image.sprite = citySprites[5];
-                cityButton[2].image.sprite = citySprites[6];
+                cityButton[0].image.sprite = citySelectedSprites[3];
+                cityButton[1].image.sprite = citySprites[4];
+                cityButton[2].image.sprite = citySprites[5];
                 break;
         }
+
+        //City Click Button Audio
+
     }
 
     public void CityClicked2()
     {
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 1:
+                richieText.text = richie.GetToxicTowers();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Weapon";
                 StaticTravel.location = "ToxicTowers";
                 cityButton[1].image.sprite = citySelectedSprites[0];
                 break;
             case 3:
+                richieText.text = richie.GetVacancy();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 20;
                 StaticTravel.itemOfTheDay = "Mystery";
                 StaticTravel.location = "Vacancy";
-                cityButton[1].image.sprite = citySelectedSprites[2];
-                cityButton[0].image.sprite = citySprites[1];
-                cityButton[2].image.sprite = citySprites[3];
+                cityButton[1].image.sprite = citySelectedSprites[4];
+                cityButton[0].image.sprite = citySprites[3];
+                cityButton[2].image.sprite = citySprites[5];
                 break;
         }
+
+        //City Click Button Audio
+
     }
 
     public void CityClicked3()
     {
         cityClicked = true;
+        buttonPressEvent.Post(gameObject);
         switch (day)
         {
             case 2:
+                richieText.text = richie.GetSkyHigh();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 30;
                 StaticTravel.itemOfTheDay = "Warmth";
                 StaticTravel.location = "SkyHigh";
-                cityButton[2].image.sprite = citySelectedSprites[3];
+                cityButton[2].image.sprite = citySelectedSprites[2];
                 cityButton[0].image.sprite = citySprites[1];
-                cityButton[1].image.sprite = citySprites[2];
                 break;
             case 3:
+                richieText.text = richie.GetLostAngeles();
+                richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 40;
                 StaticTravel.itemOfTheDay = "Luxury";
                 StaticTravel.location = "LostAngeles";
-                cityButton[2].image.sprite = citySelectedSprites[6];
-                cityButton[0].image.sprite = citySprites[4];
-                cityButton[1].image.sprite = citySprites[5];
+                cityButton[2].image.sprite = citySelectedSprites[5];
+                cityButton[0].image.sprite = citySprites[3];
+                cityButton[1].image.sprite = citySprites[4];
                 break;
         }
+
+        //City Click Button Audio
+
+    }
+    
+    private void TextRead()
+    {
+        readText = true;
+        continueTextButton.gameObject.SetActive(false);
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day Start 3
   m_EditorClassIdentifier: 
-  lineOfDialogue: I traveled through here so many times. Not a fan, but the people
+  lineOfDialogue: I've traveled through here many times. Not a fan, but the people
     here are nice.
   category: 6

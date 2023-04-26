@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Let's Trade 1
   m_EditorClassIdentifier: 
-  lineOfDialogue: Anyway, enough about me, let's see your wares.
-  emotion: 2
+  lineOfDialogue: Anyways, that's enough about me. Let's see your wares.
+  category: 0
