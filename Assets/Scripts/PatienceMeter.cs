@@ -6,20 +6,8 @@ using UnityEngine.UI;
 public class PatienceMeter : MonoBehaviour
 {
     [SerializeField] private Image patienceArrow;
-    private const float MAX_PATIENCE_ANGLE = -90;
-    private const float MIN_PATIENCE_ANGLE = 90;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private const float MAX_PATIENCE_ANGLE = -95;
+    private const float MIN_PATIENCE_ANGLE = 85;
 
     private float GetRotation(float patience)
     {
