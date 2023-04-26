@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: 138217583}
   - component: {fileID: 138217584}
   - component: {fileID: 138217585}
+  - component: {fileID: 138217586}
   m_Layer: 5
   m_Name: Bargain Scene
   m_TagString: Untagged
@@ -770,6 +771,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &138217586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138217581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 138217585}
 --- !u!1 &150303957
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,6 +4442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6260ca1916514db6dad1e4127a2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation: {fileID: 138217586}
   speechBubbles:
   - {fileID: 21300000, guid: 3cf31f86608cf114e847b455b56d3e91, type: 3}
   - {fileID: 21300000, guid: 6f615bf023b57364c84d4a5c844ea481, type: 3}
