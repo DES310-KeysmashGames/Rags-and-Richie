@@ -55,6 +55,10 @@ public class InventorySelection : MonoBehaviour
         itemCard.enabled = false;
         itemCard2.enabled = false;
         itemOfDay = StaticTravel.itemOfTheDay;
+        for(int i = 0; i < chosenItemsprites.Length; ++i)
+        {
+            chosenItemsprites[i].enabled = false;
+        }
     }
     private void Start(){
         ShuffleItems();
@@ -155,6 +159,7 @@ public class InventorySelection : MonoBehaviour
 
     private void UpdateChosenSprites(int index){
         chosenItemsprites[chosenIndexStart].sprite = GetSprite(index);
+        chosenItemsprites[chosenIndexStart].enabled = true;
         chosenIndexStart++;
     }
 
@@ -331,6 +336,7 @@ public class InventorySelection : MonoBehaviour
             chosenItemsprites[i].sprite = chosenInventory[i].frontSprite;
         }
         chosenItemsprites[chosenInventory.Count].sprite = null;
+        chosenItemsprites[chosenInventory.Count].enabled = false;
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
@@ -360,6 +366,7 @@ public class InventorySelection : MonoBehaviour
             chosenItemsprites[i].sprite = chosenInventory[i].frontSprite;
         }
         chosenItemsprites[chosenInventory.Count].sprite = null;
+        chosenItemsprites[chosenInventory.Count].enabled = false;
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
@@ -389,6 +396,7 @@ public class InventorySelection : MonoBehaviour
             chosenItemsprites[i].sprite = chosenInventory[i].frontSprite;
         }
         chosenItemsprites[chosenInventory.Count].sprite = null;
+        chosenItemsprites[chosenInventory.Count].enabled = false;
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
@@ -418,6 +426,7 @@ public class InventorySelection : MonoBehaviour
             chosenItemsprites[i].sprite = chosenInventory[i].frontSprite;
         }
         chosenItemsprites[chosenInventory.Count].sprite = null;
+        chosenItemsprites[chosenInventory.Count].enabled = false;
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
