@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationTrade initialPrice;
     [SerializeField] AnimationTrade priceAdjuster;
     [SerializeField] AnimationTrade patienceMeterdrop;
+    [SerializeField] AnimationTrade customerSpeaking;
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
     [SerializeField] private Sprite[] emoticons;
@@ -614,6 +615,7 @@ public class GameManager : MonoBehaviour
 
     void AcceptDeal()
     {
+        customerSpeaking.CustomerSpeakingActive();
         Debug.Log("accept deal");
         custHappyEvent.Post(gameObject);
         dealOver = true;
@@ -643,6 +645,7 @@ public class GameManager : MonoBehaviour
 
     void DeclineDeal()
     {
+        customerSpeaking.CustomerSpeakingActive();
         dealOver = true;
         custAngryEvent.Post(gameObject);
         bargainSpeech.text = character.GetDeclineTrade();

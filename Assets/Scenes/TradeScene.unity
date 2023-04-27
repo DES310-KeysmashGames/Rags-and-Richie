@@ -786,6 +786,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 138217585}
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 0}
+  customerSpeakingAnimation: {fileID: 0}
 --- !u!1 &150303957
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,7 +4446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPrice: {fileID: 138217586}
   priceAdjuster: {fileID: 961897978}
-  patienceMeterdrop: {fileID: 0}
+  patienceMeterdrop: {fileID: 1508699952}
+  customerSpeaking: {fileID: 1552433597}
   speechBubbles:
   - {fileID: 21300000, guid: 3cf31f86608cf114e847b455b56d3e91, type: 3}
   - {fileID: 21300000, guid: 6f615bf023b57364c84d4a5c844ea481, type: 3}
@@ -4763,6 +4765,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 961897977}
   patienceMeterAnimation: {fileID: 0}
+  customerSpeakingAnimation: {fileID: 0}
 --- !u!1 &970031056
 GameObject:
   m_ObjectHideFlags: 0
@@ -6551,6 +6554,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 1508699953}
+  customerSpeakingAnimation: {fileID: 0}
 --- !u!95 &1508699953
 Animator:
   serializedVersion: 4
@@ -6750,6 +6754,8 @@ GameObject:
   - component: {fileID: 1552433593}
   - component: {fileID: 1552433594}
   - component: {fileID: 1552433595}
+  - component: {fileID: 1552433596}
+  - component: {fileID: 1552433597}
   m_Layer: 5
   m_Name: Customer Image
   m_TagString: Untagged
@@ -6805,7 +6811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1af40cba47b918c478a5b335b65b36ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6815,6 +6821,42 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1552433596
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552433592}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 685b40440d4a57e45b8dcc85e3079aa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1552433597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552433592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 0}
+  priceConfirmAnimation: {fileID: 0}
+  patienceMeterAnimation: {fileID: 0}
+  customerSpeakingAnimation: {fileID: 1552433596}
 --- !u!1 &1558219265
 GameObject:
   m_ObjectHideFlags: 0
