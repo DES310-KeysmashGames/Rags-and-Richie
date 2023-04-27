@@ -7,6 +7,7 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator bargainPhaseAnimation;
     [SerializeField] Animator priceConfirmAnimation;
     [SerializeField] Animator patienceMeterAnimation;
+    [SerializeField] Animator customerSpeakingAnimation;
 
     private void Awake()
     {
@@ -33,8 +34,6 @@ public class AnimationTrade : MonoBehaviour
         priceConfirmAnimation.SetBool("IsActive", false);
     }
 
-
-
     public void PatienceMeterActive()
     {
         patienceMeterAnimation.SetBool("IsActive", true);
@@ -45,6 +44,23 @@ public class AnimationTrade : MonoBehaviour
     {
        patienceMeterAnimation.SetBool("IsActive", false);
     }
+
+    public void CustomerSpeakingActive()
+    {
+        customerSpeakingAnimation.SetBool("IsActive", true);
+    }
+
+    public void CustomerSpeakingIsActive()
+
+    {
+        customerSpeakingAnimation.SetBool("IsActive", false);
+    }
+
+
+
+
+
+
 }
 
 
