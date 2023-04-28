@@ -81,14 +81,7 @@ public class AnimationTrade : MonoBehaviour
 
     public void BlinkingEmoticonActive()
     {
-        blinkingEmoticon.SetBool("IsActive", true);
-        Invoke("BlinkingEmoticonInActive", 2);
-    }
-
-    public void BlinkingEmoticonInActive()
-
-    {
-        blinkingEmoticon.SetBool("IsActive", false);
+        blinkingEmoticon.SetTrigger("Blink");
     }
 
 
