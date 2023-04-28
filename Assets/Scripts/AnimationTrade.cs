@@ -54,7 +54,7 @@ public class AnimationTrade : MonoBehaviour
        patienceMeterAnimation.SetBool("IsActive", false);
     }
 
-    // Customer Bobbing / Speaking Animation
+    // Customer Bobbing / Speaking Animation / Arrive / Leave
     public void CustomerSpeakingActive()
     {
         customerSpeakingAnimation.SetBool("IsActive", true);
@@ -66,6 +66,17 @@ public class AnimationTrade : MonoBehaviour
     {
         customerSpeakingAnimation.SetBool("IsActive", false);
     }
+
+    public void CustomerSpeakingArrive()
+    {
+        customerSpeakingAnimation.SetTrigger("Arrive");
+    }
+
+    public void CustomerSpeakingLeave()
+    {
+        customerSpeakingAnimation.SetTrigger("Leave");
+    }
+
 
     // Blinking Currency Animation
     public void BlinkingCurrencyActive()

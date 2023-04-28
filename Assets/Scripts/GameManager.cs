@@ -366,6 +366,7 @@ public class GameManager : MonoBehaviour
     //generate a new customer.
     void NewCustomer()
     {
+        customerSpeaking.CustomerSpeakingArrive();
         playerApproachEvent.Post(gameObject);
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
@@ -640,7 +641,8 @@ public class GameManager : MonoBehaviour
         itemManager.SoldItem(selectedItem, basePrice, (int)setPrice);
         character.SaleOver();
         charEmote.enabled = false;
-        customer.enabled = false;
+        customerSpeaking.CustomerSpeakingLeave();
+        customer.enabled = true;
         bargain = false;
         int walletValue = PlayerPrefs.GetInt("wallet") + (int)setPrice;
         PlayerPrefs.SetInt("wallet", walletValue);
@@ -706,6 +708,7 @@ public class GameManager : MonoBehaviour
 
     private void NextCustomer()
     {
+        customerSpeaking.CustomerSpeakingArrive();
         NewCustomer();
         itemsShown = false;
         trade = false;
