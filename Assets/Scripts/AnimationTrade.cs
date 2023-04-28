@@ -7,13 +7,17 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator bargainPhaseAnimation;
     [SerializeField] Animator priceConfirmAnimation;
     [SerializeField] Animator patienceMeterAnimation;
-    [SerializeField] Animator customerSpeakingAnimation;
+    [SerializeField] Animator customerAnimations;
+    [SerializeField] Animator blinkingMoney;
+    [SerializeField] Animator blinkingEmoticon;
 
     private void Awake()
     {
 
     }
 
+
+    // Initial Price Animations
     public void BargainPhaseSetActive()
     {
         bargainPhaseAnimation.SetBool("IsActive", true);
@@ -23,6 +27,9 @@ public class AnimationTrade : MonoBehaviour
     {
         bargainPhaseAnimation.SetBool("IsActive", false);
     }
+
+
+    // Price Adjuster Animation drop down
 
     public void PriceConfirmSetActive()
     {
@@ -34,6 +41,8 @@ public class AnimationTrade : MonoBehaviour
         priceConfirmAnimation.SetBool("IsActive", false);
     }
 
+
+    // Patience Meter Animation
     public void PatienceMeterActive()
     {
         patienceMeterAnimation.SetBool("IsActive", true);
@@ -45,19 +54,35 @@ public class AnimationTrade : MonoBehaviour
        patienceMeterAnimation.SetBool("IsActive", false);
     }
 
+    // Customer Bobbing / Speaking Animation / Arrive / Leave
     public void CustomerSpeakingActive()
     {
-        customerSpeakingAnimation.SetBool("IsActive", true);
+        customerAnimations.SetTrigger("Speaking");
     }
 
-    public void CustomerSpeakingIsActive()
-
+    public void CustomerSpeakingArrive()
     {
-        customerSpeakingAnimation.SetBool("IsActive", false);
+        customerAnimations.SetTrigger("Arrive");
+    }
+
+    public void CustomerSpeakingLeave()
+    {
+        customerAnimations.SetTrigger("Leave");
     }
 
 
+    // Blinking Currency Animation
+    public void BlinkingCurrencyActive()
+    {
+        blinkingMoney.SetTrigger("Blink");
+    }
 
+    // Blinking Emoticon Animation
+
+    public void BlinkingEmoticonActive()
+    {
+        blinkingEmoticon.SetTrigger("Blink");
+    }
 
 
 
