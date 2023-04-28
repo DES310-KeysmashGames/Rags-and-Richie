@@ -786,7 +786,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 138217585}
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 0}
-  customerSpeakingAnimation: {fileID: 0}
+  customerAnimations: {fileID: 0}
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
 --- !u!1 &150303957
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 0}
-  customerSpeakingAnimation: {fileID: 0}
+  customerAnimations: {fileID: 0}
   blinkingMoney: {fileID: 367320400}
   blinkingEmoticon: {fileID: 0}
 --- !u!1 &389495683
@@ -4489,7 +4489,7 @@ MonoBehaviour:
   initialPrice: {fileID: 138217586}
   priceAdjuster: {fileID: 961897978}
   patienceMeterdrop: {fileID: 1508699952}
-  customerSpeaking: {fileID: 1552433597}
+  customerAnimations: {fileID: 1552433597}
   blinkingMoney: {fileID: 367320401}
   blinkingEmoticon: {fileID: 1706070753}
   speechBubbles:
@@ -4809,7 +4809,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 961897977}
   patienceMeterAnimation: {fileID: 0}
-  customerSpeakingAnimation: {fileID: 0}
+  customerAnimations: {fileID: 0}
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
 --- !u!1 &970031056
@@ -6621,7 +6621,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 1508699953}
-  customerSpeakingAnimation: {fileID: 0}
+  customerAnimations: {fileID: 0}
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
 --- !u!95 &1508699953
@@ -6925,7 +6925,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 0}
-  customerSpeakingAnimation: {fileID: 1552433596}
+  customerAnimations: {fileID: 1552433596}
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
 --- !u!1 &1558219265
@@ -7403,7 +7403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: -61}
+  m_AnchoredPosition: {x: -98, y: -85}
   m_SizeDelta: {x: 180.638, y: 170.863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706070750
@@ -7479,7 +7479,7 @@ MonoBehaviour:
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 0}
-  customerSpeakingAnimation: {fileID: 0}
+  customerAnimations: {fileID: 0}
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 1706070752}
 --- !u!1 &1746487582

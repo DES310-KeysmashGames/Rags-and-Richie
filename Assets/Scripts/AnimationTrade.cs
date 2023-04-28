@@ -7,7 +7,7 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator bargainPhaseAnimation;
     [SerializeField] Animator priceConfirmAnimation;
     [SerializeField] Animator patienceMeterAnimation;
-    [SerializeField] Animator customerSpeakingAnimation;
+    [SerializeField] Animator customerAnimations;
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
 
@@ -57,38 +57,24 @@ public class AnimationTrade : MonoBehaviour
     // Customer Bobbing / Speaking Animation / Arrive / Leave
     public void CustomerSpeakingActive()
     {
-        customerSpeakingAnimation.SetBool("IsActive", true);
-        Invoke("CustomerSpeakingInActive", 3);
-    }
-
-    public void CustomerSpeakingInActive()
-
-    {
-        customerSpeakingAnimation.SetBool("IsActive", false);
+        customerAnimations.SetTrigger("Speaking");
     }
 
     public void CustomerSpeakingArrive()
     {
-        customerSpeakingAnimation.SetTrigger("Arrive");
+        customerAnimations.SetTrigger("Arrive");
     }
 
     public void CustomerSpeakingLeave()
     {
-        customerSpeakingAnimation.SetTrigger("Leave");
+        customerAnimations.SetTrigger("Leave");
     }
 
 
     // Blinking Currency Animation
     public void BlinkingCurrencyActive()
     {
-        blinkingMoney.SetBool("IsActive", true);
-        Invoke("BlinkingCurrencyInActive", 3);
-    }
-
-    public void BlinkingCurrencyInActive()
-
-    {
-        blinkingMoney.SetBool("IsActive", false);
+        blinkingMoney.SetTrigger("Blink");
     }
 
     // Blinking Emoticon Animation
