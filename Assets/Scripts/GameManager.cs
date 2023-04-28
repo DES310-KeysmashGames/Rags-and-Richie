@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationTrade customerAnimations;
     [SerializeField] AnimationTrade blinkingMoney;
     [SerializeField] AnimationTrade blinkingEmoticon;
+    [SerializeField] AnimationTrade shelfLock;
 
 
     [SerializeField] private Sprite[] speechBubbles;
@@ -393,6 +394,7 @@ public class GameManager : MonoBehaviour
             TextPrompt.gameObject.SetActive(false);
             trade = false;
             itemsShown = true;
+            shelfLock.ShelfOpen();
         }
     }
 
@@ -707,6 +709,7 @@ public class GameManager : MonoBehaviour
     private void NextCustomer()
     {
         NewCustomer();
+        shelfLock.ShelfClose();
         itemsShown = false;
         trade = false;
         bargain = false;

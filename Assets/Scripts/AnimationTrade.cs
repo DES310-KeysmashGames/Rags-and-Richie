@@ -10,6 +10,7 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator customerAnimations;
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
+    [SerializeField] Animator shelfLock;
 
     private void Awake()
     {
@@ -84,6 +85,15 @@ public class AnimationTrade : MonoBehaviour
         blinkingEmoticon.SetTrigger("Blink");
     }
 
+    public void ShelfClose()
+    {
+        shelfLock.SetTrigger("Close");
+    }
+
+    public void ShelfOpen()
+    {
+        shelfLock.SetTrigger("Open");
+    }
 
 
 }
