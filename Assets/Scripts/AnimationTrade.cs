@@ -8,12 +8,16 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator priceConfirmAnimation;
     [SerializeField] Animator patienceMeterAnimation;
     [SerializeField] Animator customerSpeakingAnimation;
+    [SerializeField] Animator blinkingMoney;
+    [SerializeField] Animator blinkingEmoticon;
 
     private void Awake()
     {
 
     }
 
+
+    // Initial Price Animations
     public void BargainPhaseSetActive()
     {
         bargainPhaseAnimation.SetBool("IsActive", true);
@@ -23,6 +27,9 @@ public class AnimationTrade : MonoBehaviour
     {
         bargainPhaseAnimation.SetBool("IsActive", false);
     }
+
+
+    // Price Adjuster Animation drop down
 
     public void PriceConfirmSetActive()
     {
@@ -34,6 +41,8 @@ public class AnimationTrade : MonoBehaviour
         priceConfirmAnimation.SetBool("IsActive", false);
     }
 
+
+    // Patience Meter Animation
     public void PatienceMeterActive()
     {
         patienceMeterAnimation.SetBool("IsActive", true);
@@ -45,19 +54,45 @@ public class AnimationTrade : MonoBehaviour
        patienceMeterAnimation.SetBool("IsActive", false);
     }
 
+    // Customer Bobbing / Speaking Animation
     public void CustomerSpeakingActive()
     {
         customerSpeakingAnimation.SetBool("IsActive", true);
+        Invoke("CustomerSpeakingInActive", 3);
     }
 
-    public void CustomerSpeakingIsActive()
+    public void CustomerSpeakingInActive()
 
     {
         customerSpeakingAnimation.SetBool("IsActive", false);
     }
 
+    // Blinking Currency Animation
+    public void BlinkingCurrencyActive()
+    {
+        blinkingMoney.SetBool("IsActive", true);
+        Invoke("BlinkingCurrencyInActive", 3);
+    }
 
+    public void BlinkingCurrencyInActive()
 
+    {
+        blinkingMoney.SetBool("IsActive", false);
+    }
+
+    // Blinking Emoticon Animation
+
+    public void BlinkingEmoticonActive()
+    {
+        blinkingEmoticon.SetBool("IsActive", true);
+        Invoke("BlinkingEmoticonInActive", 2);
+    }
+
+    public void BlinkingEmoticonInActive()
+
+    {
+        blinkingEmoticon.SetBool("IsActive", false);
+    }
 
 
 

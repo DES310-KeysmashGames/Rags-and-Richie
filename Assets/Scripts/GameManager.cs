@@ -14,10 +14,16 @@ public class GameManager : MonoBehaviour
     private ItemManager itemManager;
     private CharacterManager character;
     private PatienceMeter patienceArrow;
+
+    // Animations
     [SerializeField] AnimationTrade initialPrice;
     [SerializeField] AnimationTrade priceAdjuster;
     [SerializeField] AnimationTrade patienceMeterdrop;
     [SerializeField] AnimationTrade customerSpeaking;
+    [SerializeField] AnimationTrade blinkingMoney;
+    [SerializeField] AnimationTrade blinkingEmoticon;
+
+
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
     [SerializeField] private Sprite[] emoticons;
@@ -411,12 +417,14 @@ public class GameManager : MonoBehaviour
         patienceArrow.SetRotation(patience);
         charEmote.enabled = true;
         turnCount = 1;
+        blinkingEmoticon.BlinkingEmoticonActive();
         if (setPrice < price)
         {
             bargainSpeech.text = character.GetHappyText();
             custHappyEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
             charEmote.sprite = emoticons[1];
+            customerSpeaking.CustomerSpeakingActive();
         }
         else if( setPrice > price)
         {
@@ -424,6 +432,7 @@ public class GameManager : MonoBehaviour
             custAngryEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[0];
+            customerSpeaking.CustomerSpeakingActive();
         }
         else if (setPrice > basePrice)
         {
@@ -431,6 +440,7 @@ public class GameManager : MonoBehaviour
             custNeutralEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
             charEmote.sprite = emoticons[2];
+            customerSpeaking.CustomerSpeakingActive();
         }
         customer.enabled = true;
         textProgression = true;
@@ -459,6 +469,7 @@ public class GameManager : MonoBehaviour
         MakeOfferPhaseSetInactive();     
         previousPrice = setPrice;
         speechBubbleImage.enabled = true;
+        blinkingEmoticon.BlinkingEmoticonActive();
     }
 
     void PriceCheck()
@@ -477,6 +488,7 @@ public class GameManager : MonoBehaviour
                 speechBubbleImage.sprite = speechBubbles[0];
                 charEmote.sprite = emoticons[0];
                 custAngryEvent.Post(gameObject);
+                blinkingEmoticon.BlinkingEmoticonActive();
             }
             else if (discrepancy > 1.5f)
             {
@@ -485,6 +497,7 @@ public class GameManager : MonoBehaviour
                 speechBubbleImage.sprite = speechBubbles[0];
                 charEmote.sprite = emoticons[0];
                 custAngryEvent.Post(gameObject);
+                blinkingEmoticon.BlinkingEmoticonActive();
             }
             else if (discrepancy > 1.0f)
             {
@@ -493,6 +506,7 @@ public class GameManager : MonoBehaviour
                 speechBubbleImage.sprite = speechBubbles[2];
                 charEmote.sprite = emoticons[2];
                 custNeutralEvent.Post(gameObject);
+                blinkingEmoticon.BlinkingEmoticonActive();
             }
             else if (discrepancy <= 1.0f)
             {
@@ -616,6 +630,7 @@ public class GameManager : MonoBehaviour
     void AcceptDeal()
     {
         customerSpeaking.CustomerSpeakingActive();
+        blinkingMoney.BlinkingCurrencyActive();
         Debug.Log("accept deal");
         custHappyEvent.Post(gameObject);
         dealOver = true;
@@ -641,6 +656,7 @@ public class GameManager : MonoBehaviour
         setPrice = 0;
         ++sellCount;
         playerLeaveEvent.Post(gameObject);
+        blinkingMoney.BlinkingCurrencyActive();
     }
 
     void DeclineDeal()
@@ -685,6 +701,7 @@ public class GameManager : MonoBehaviour
     public void ProgressText()
     {
         textProgression = true;
+        customerSpeaking.CustomerSpeakingActive();
     }
 
     private void NextCustomer()

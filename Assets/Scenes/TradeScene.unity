@@ -787,6 +787,8 @@ MonoBehaviour:
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 0}
   customerSpeakingAnimation: {fileID: 0}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 0}
 --- !u!1 &150303957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,6 +1581,7 @@ GameObject:
   - component: {fileID: 367320399}
   - component: {fileID: 367320398}
   - component: {fileID: 367320400}
+  - component: {fileID: 367320401}
   m_Layer: 5
   m_Name: Wallet
   m_TagString: Untagged
@@ -1665,6 +1668,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &367320401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367320396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 0}
+  priceConfirmAnimation: {fileID: 0}
+  patienceMeterAnimation: {fileID: 0}
+  customerSpeakingAnimation: {fileID: 0}
+  blinkingMoney: {fileID: 367320400}
+  blinkingEmoticon: {fileID: 0}
 --- !u!1 &389495683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4468,6 +4489,8 @@ MonoBehaviour:
   priceAdjuster: {fileID: 961897978}
   patienceMeterdrop: {fileID: 1508699952}
   customerSpeaking: {fileID: 1552433597}
+  blinkingMoney: {fileID: 367320401}
+  blinkingEmoticon: {fileID: 1706070753}
   speechBubbles:
   - {fileID: 21300000, guid: 3cf31f86608cf114e847b455b56d3e91, type: 3}
   - {fileID: 21300000, guid: 6f615bf023b57364c84d4a5c844ea481, type: 3}
@@ -4786,6 +4809,8 @@ MonoBehaviour:
   priceConfirmAnimation: {fileID: 961897977}
   patienceMeterAnimation: {fileID: 0}
   customerSpeakingAnimation: {fileID: 0}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 0}
 --- !u!1 &970031056
 GameObject:
   m_ObjectHideFlags: 0
@@ -6597,6 +6622,8 @@ MonoBehaviour:
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 1508699953}
   customerSpeakingAnimation: {fileID: 0}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 0}
 --- !u!95 &1508699953
 Animator:
   serializedVersion: 4
@@ -6899,6 +6926,8 @@ MonoBehaviour:
   priceConfirmAnimation: {fileID: 0}
   patienceMeterAnimation: {fileID: 0}
   customerSpeakingAnimation: {fileID: 1552433596}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 0}
 --- !u!1 &1558219265
 GameObject:
   m_ObjectHideFlags: 0
@@ -7349,6 +7378,7 @@ GameObject:
   - component: {fileID: 1706070751}
   - component: {fileID: 1706070750}
   - component: {fileID: 1706070752}
+  - component: {fileID: 1706070753}
   m_Layer: 5
   m_Name: Emoticon
   m_TagString: Untagged
@@ -7434,6 +7464,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1706070753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706070748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 0}
+  priceConfirmAnimation: {fileID: 0}
+  patienceMeterAnimation: {fileID: 0}
+  customerSpeakingAnimation: {fileID: 0}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 1706070752}
 --- !u!1 &1746487582
 GameObject:
   m_ObjectHideFlags: 0
