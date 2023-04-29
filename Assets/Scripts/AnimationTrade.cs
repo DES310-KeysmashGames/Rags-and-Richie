@@ -8,9 +8,11 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator priceConfirmAnimation;
     [SerializeField] Animator patienceMeterAnimation;
     [SerializeField] Animator customerAnimations;
+    [SerializeField] Animator speechBubble;
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
     [SerializeField] Animator shelfLock;
+
 
     private void Awake()
     {
@@ -69,6 +71,14 @@ public class AnimationTrade : MonoBehaviour
     public void CustomerSpeakingLeave()
     {
         customerAnimations.SetTrigger("Leave");
+    }
+
+
+    // Speech Bubble
+
+    public void SpeechBubble()
+    {
+        speechBubble.SetTrigger("Speaking");
     }
 
 
