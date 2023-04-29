@@ -20,8 +20,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationTrade priceAdjuster;
     [SerializeField] AnimationTrade patienceMeterdrop;
     [SerializeField] AnimationTrade customerAnimations;
+    [SerializeField] AnimationTrade speechBubble;
     [SerializeField] AnimationTrade blinkingMoney;
     [SerializeField] AnimationTrade blinkingEmoticon;
+    [SerializeField] AnimationTrade shelfLock;
 
 
     [SerializeField] private Sprite[] speechBubbles;
@@ -393,6 +395,7 @@ public class GameManager : MonoBehaviour
             TextPrompt.gameObject.SetActive(false);
             trade = false;
             itemsShown = true;
+            shelfLock.ShelfOpen();
         }
     }
 
@@ -470,6 +473,7 @@ public class GameManager : MonoBehaviour
         MakeOfferPhaseSetInactive();     
         previousPrice = setPrice;
         speechBubbleImage.enabled = true;
+        speechBubble.SpeechBubble();
         blinkingEmoticon.BlinkingEmoticonActive();
     }
 
@@ -490,6 +494,7 @@ public class GameManager : MonoBehaviour
                 charEmote.sprite = emoticons[0];
                 custAngryEvent.Post(gameObject);
                 blinkingEmoticon.BlinkingEmoticonActive();
+                speechBubble.SpeechBubble();
             }
             else if (discrepancy > 1.5f)
             {
@@ -499,6 +504,7 @@ public class GameManager : MonoBehaviour
                 charEmote.sprite = emoticons[0];
                 custAngryEvent.Post(gameObject);
                 blinkingEmoticon.BlinkingEmoticonActive();
+                speechBubble.SpeechBubble();
             }
             else if (discrepancy > 1.0f)
             {
@@ -508,6 +514,7 @@ public class GameManager : MonoBehaviour
                 charEmote.sprite = emoticons[2];
                 custNeutralEvent.Post(gameObject);
                 blinkingEmoticon.BlinkingEmoticonActive();
+                speechBubble.SpeechBubble();
             }
             else if (discrepancy <= 1.0f)
             {
@@ -702,11 +709,13 @@ public class GameManager : MonoBehaviour
     {
         textProgression = true;
         customerAnimations.CustomerSpeakingActive();
+        speechBubble.SpeechBubble();
     }
 
     private void NextCustomer()
     {
         NewCustomer();
+        shelfLock.ShelfClose();
         itemsShown = false;
         trade = false;
         bargain = false;

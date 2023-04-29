@@ -8,8 +8,11 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator priceConfirmAnimation;
     [SerializeField] Animator patienceMeterAnimation;
     [SerializeField] Animator customerAnimations;
+    [SerializeField] Animator speechBubble;
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
+    [SerializeField] Animator shelfLock;
+
 
     private void Awake()
     {
@@ -71,6 +74,14 @@ public class AnimationTrade : MonoBehaviour
     }
 
 
+    // Speech Bubble
+
+    public void SpeechBubble()
+    {
+        speechBubble.SetTrigger("Speaking");
+    }
+
+
     // Blinking Currency Animation
     public void BlinkingCurrencyActive()
     {
@@ -84,6 +95,15 @@ public class AnimationTrade : MonoBehaviour
         blinkingEmoticon.SetTrigger("Blink");
     }
 
+    public void ShelfClose()
+    {
+        shelfLock.SetTrigger("Close");
+    }
+
+    public void ShelfOpen()
+    {
+        shelfLock.SetTrigger("Open");
+    }
 
 
 }
