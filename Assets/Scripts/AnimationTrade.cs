@@ -12,12 +12,26 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
     [SerializeField] Animator shelfLock;
+    [SerializeField] Animator tutorialTravelText;
 
 
     private void Awake()
     {
 
     }
+
+    // Tutorial Text Animations
+
+    public void TutorialText()
+    {
+        tutorialTravelText.SetTrigger("Tutorial");
+    }
+
+    public void NoneTutorialText()
+    {
+        tutorialTravelText.SetTrigger("NoTutorial");
+    }
+
 
 
     // Initial Price Animations

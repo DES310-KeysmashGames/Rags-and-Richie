@@ -17,6 +17,7 @@ public class TravelManager : MonoBehaviour
     [SerializeField] private Image richieImage;
     [SerializeField] private TextMeshProUGUI richieText;
     [SerializeField] private Image richieTextBox;
+    [SerializeField] private Image dimmer;
 
     //Button for next day
     [Header("Currency and Next Day")]
@@ -44,6 +45,8 @@ public class TravelManager : MonoBehaviour
     private int expenses;
     private int day;
 
+    [SerializeField] AnimationTrade travelTutorialText;
+
     public AK.Wwise.Event richieDialogueEvent;
     public AK.Wwise.Event buttonPressEvent;
 
@@ -70,7 +73,6 @@ public class TravelManager : MonoBehaviour
     {
         day = StaticTravel.dayCount;
         richieImage.enabled = true;
-        richieTextBox.enabled = true;
         richieText.enabled = true;
 
         nextButton.gameObject.SetActive(false);
@@ -85,6 +87,8 @@ public class TravelManager : MonoBehaviour
         wallet = PlayerPrefs.GetInt("wallet");
         if (day == 1)
         {
+            travelTutorialText.TutorialText();
+            dimmer.enabled = true;
             richieText.text = richie.GetTutorial(tutorialCount);
             richieDialogueEvent.Post(gameObject);
             cityButton[1].interactable = false;
@@ -97,6 +101,7 @@ public class TravelManager : MonoBehaviour
         }
         else if (day == 2)
         {
+            dimmer.enabled = false;
             cityButton[0].image.sprite = citySprites[1];
             cityButton[0].gameObject.SetActive(true);
             cityButton[1].gameObject.SetActive(false);
@@ -107,6 +112,7 @@ public class TravelManager : MonoBehaviour
         {
             for (int i = 0; i < cityButton.Length; ++i)
             {
+                dimmer.enabled = false;
                 cityButton[i].image.sprite = citySprites[i + 3];
                 cityButton[i].gameObject.SetActive(true);
             }
@@ -135,6 +141,8 @@ public class TravelManager : MonoBehaviour
                         tutorialCount = 0;
                         readText = false;
                         richieDialogueEvent.Post(gameObject);
+                        dimmer.enabled = false;
+                        travelTutorialText.NoneTutorialText();
                         break;
                     default:
                         break;
