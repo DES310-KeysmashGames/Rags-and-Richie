@@ -715,7 +715,6 @@ public class GameManager : MonoBehaviour
     private void NextCustomer()
     {
         NewCustomer();
-        shelfLock.ShelfClose();
         itemsShown = false;
         trade = false;
         bargain = false;
@@ -776,6 +775,7 @@ public class GameManager : MonoBehaviour
     {
         initialPrice.BargainPhaseSetInactive();
         dimmer.enabled = false;
+        shelfLock.ShelfClose();
     }
 
    void ResetToMenu()
