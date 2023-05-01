@@ -44,7 +44,7 @@ public class MainMenuUI : MonoBehaviour
             Application.Quit();
         });
         //playambientMusic.Post(gameObject);
-        timer = 2.0f;
+        timer = 1.0f;
         playGame = false;
     }
 
