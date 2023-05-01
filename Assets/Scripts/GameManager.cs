@@ -14,8 +14,18 @@ public class GameManager : MonoBehaviour
     private ItemManager itemManager;
     private CharacterManager character;
     private PatienceMeter patienceArrow;
+
+    // Animations
     [SerializeField] AnimationTrade initialPrice;
     [SerializeField] AnimationTrade priceAdjuster;
+    [SerializeField] AnimationTrade patienceMeterdrop;
+    [SerializeField] AnimationTrade customerAnimations;
+    [SerializeField] AnimationTrade speechBubble;
+    [SerializeField] AnimationTrade blinkingMoney;
+    [SerializeField] AnimationTrade blinkingEmoticon;
+    [SerializeField] AnimationTrade shelfLock;
+
+
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
     [SerializeField] private Sprite[] emoticons;
@@ -358,6 +368,7 @@ public class GameManager : MonoBehaviour
     //generate a new customer.
     void NewCustomer()
     {
+        customerAnimations.CustomerSpeakingArrive();
         playerApproachEvent.Post(gameObject);
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
@@ -384,6 +395,7 @@ public class GameManager : MonoBehaviour
             TextPrompt.gameObject.SetActive(false);
             trade = false;
             itemsShown = true;
+            shelfLock.ShelfOpen();
         }
     }
 
@@ -409,12 +421,14 @@ public class GameManager : MonoBehaviour
         patienceArrow.SetRotation(patience);
         charEmote.enabled = true;
         turnCount = 1;
+        blinkingEmoticon.BlinkingEmoticonActive();
         if (setPrice < price)
         {
             bargainSpeech.text = character.GetHappyText();
             custHappyEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
             charEmote.sprite = emoticons[1];
+            customerAnimations.CustomerSpeakingActive();
         }
         else if( setPrice > price)
         {
@@ -422,6 +436,7 @@ public class GameManager : MonoBehaviour
             custAngryEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[0];
+            customerAnimations.CustomerSpeakingActive();
         }
         else if (setPrice > basePrice)
         {
@@ -429,6 +444,7 @@ public class GameManager : MonoBehaviour
             custNeutralEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
             charEmote.sprite = emoticons[2];
+            customerAnimations.CustomerSpeakingActive();
         }
         customer.enabled = true;
         textProgression = true;
@@ -457,6 +473,8 @@ public class GameManager : MonoBehaviour
         MakeOfferPhaseSetInactive();     
         previousPrice = setPrice;
         speechBubbleImage.enabled = true;
+        speechBubble.SpeechBubble();
+        blinkingEmoticon.BlinkingEmoticonActive();
     }
 
     void PriceCheck()
@@ -475,6 +493,8 @@ public class GameManager : MonoBehaviour
                 speechBubbleImage.sprite = speechBubbles[0];
                 charEmote.sprite = emoticons[0];
                 custAngryEvent.Post(gameObject);
+                blinkingEmoticon.BlinkingEmoticonActive();
+                speechBubble.SpeechBubble();
             }
             else if (discrepancy > 1.5f)
             {
@@ -483,6 +503,8 @@ public class GameManager : MonoBehaviour
                 speechBubbleImage.sprite = speechBubbles[0];
                 charEmote.sprite = emoticons[0];
                 custAngryEvent.Post(gameObject);
+                blinkingEmoticon.BlinkingEmoticonActive();
+                speechBubble.SpeechBubble();
             }
             else if (discrepancy > 1.0f)
             {
@@ -491,6 +513,8 @@ public class GameManager : MonoBehaviour
                 speechBubbleImage.sprite = speechBubbles[2];
                 charEmote.sprite = emoticons[2];
                 custNeutralEvent.Post(gameObject);
+                blinkingEmoticon.BlinkingEmoticonActive();
+                speechBubble.SpeechBubble();
             }
             else if (discrepancy <= 1.0f)
             {
@@ -613,6 +637,7 @@ public class GameManager : MonoBehaviour
 
     void AcceptDeal()
     {
+        blinkingMoney.BlinkingCurrencyActive();
         Debug.Log("accept deal");
         custHappyEvent.Post(gameObject);
         dealOver = true;
@@ -622,7 +647,8 @@ public class GameManager : MonoBehaviour
         itemManager.SoldItem(selectedItem, basePrice, (int)setPrice);
         character.SaleOver();
         charEmote.enabled = false;
-        customer.enabled = false;
+        customerAnimations.CustomerSpeakingLeave();
+        customer.enabled = true;
         bargain = false;
         int walletValue = PlayerPrefs.GetInt("wallet") + (int)setPrice;
         PlayerPrefs.SetInt("wallet", walletValue);
@@ -647,8 +673,9 @@ public class GameManager : MonoBehaviour
         bargainSpeech.text = character.GetDeclineTrade();
         TextPrompt.gameObject.SetActive(false);
         itemManager.FailedToSell(selectedItem, basePrice, 0);
-        customer.enabled = false;
+        customer.enabled = true;
         charEmote.enabled = false;
+        customerAnimations.CustomerSpeakingLeave();
         character.SaleOver();
         bargain = false;
         TextPrompt.gameObject.SetActive(false);
@@ -681,6 +708,8 @@ public class GameManager : MonoBehaviour
     public void ProgressText()
     {
         textProgression = true;
+        customerAnimations.CustomerSpeakingActive();
+        speechBubble.SpeechBubble();
     }
 
     private void NextCustomer()
@@ -725,12 +754,14 @@ public class GameManager : MonoBehaviour
     {
         priceAdjuster.PriceConfirmSetActive();
         previousPriceText.SetText(previousPrice.ToString());
+        patienceMeterdrop.PatienceMeterActive();
     }
 
     void MakeOfferPhaseSetInactive()
     {
         priceAdjuster.PriceConfirmSetInactive();
         bargainSpeech.enabled = true;
+        patienceMeterdrop.PatienceMeterInActive();
     }
 
     void InitialOfferPhaseSetActive()
@@ -744,6 +775,7 @@ public class GameManager : MonoBehaviour
     {
         initialPrice.BargainPhaseSetInactive();
         dimmer.enabled = false;
+        shelfLock.ShelfClose();
     }
 
    void ResetToMenu()

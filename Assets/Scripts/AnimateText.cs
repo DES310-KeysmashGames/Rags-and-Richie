@@ -5,18 +5,31 @@ using TMPro;
 
 public class AnimateText : MonoBehaviour
 {
-    [SerializeField] [TextArea] private string[] itemInfo;
+    [Header("Text Settings")]
+    [SerializeField] [TextArea] private string[] textToScroll;
     [SerializeField] private float textSpeed;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI textBox;
+    private int currentTextIndex = 0;
+
+    public void GetText()
     {
-        
+        textToScroll[currentTextIndex] = textBox.text;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateText()
     {
-        
+        //start coroutine
+        StartCoroutine(AnimatedText());
+    }
+
+    IEnumerator AnimatedText()
+    {
+        for (int i = 0; i < textToScroll[currentTextIndex].Length + 1; ++i)
+        {
+            textBox.text = textToScroll[currentTextIndex].Substring(0,i);
+            yield return new WaitForSeconds(textSpeed);
+        }
     }
 }
