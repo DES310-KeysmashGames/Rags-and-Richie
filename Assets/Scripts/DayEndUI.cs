@@ -16,24 +16,39 @@ public class DayEndUI : MonoBehaviour
 
     [SerializeField] Button endButton;
 
+    //Audio
+    public AK.Wwise.Event buttonEvent;
 
     private void Awake(){
         if (StaticTravel.dayCount < 3)
         {
+            //Continue to next day
             endButton.onClick.AddListener(() =>
             {
+                buttonEvent.Post(gameObject);
                 Loader.Load(Loader.Scene.TravelScene);
                 StaticTravel.dayCount++;
                 ClearItems();
+
+                //Next Day Button Audio
             });
         }
         else
         {
+            //Show end screen
             endButton.onClick.AddListener(() =>
             {
                 Loader.Load(Loader.Scene.EndingScene);
                 ClearItems();
+
+                //Next Day Button Audio
             });
+        }
+
+        PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - StaticTravel.expenses));
+        if (PlayerPrefs.GetInt("wallet") < 0)
+        {
+            Loader.Load(Loader.Scene.EndingScene);
         }
     }
 
@@ -82,4 +97,6 @@ public class DayEndUI : MonoBehaviour
         StaticInventory.sellPrice.Clear();
         StaticInventory.basePrice.Clear();
     }
+
+    //End of Day Background Audio
 }

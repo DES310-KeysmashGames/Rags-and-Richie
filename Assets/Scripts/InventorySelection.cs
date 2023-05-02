@@ -37,33 +37,45 @@ public class InventorySelection : MonoBehaviour
     //buttons
     [SerializeField] Button confirmButton;
 
+    public AK.Wwise.Event buttonPressEvent;
+    public AK.Wwise.Event confirmEvent;
+
     private void Awake(){
         confirmButton.onClick.AddListener(()=> {
+            //Confirm Selection Button Audio
+            
             //click action
             if(chosenInventory.Count == 4){
                 for( int i =0; i < chosenInventory.Count; i++){
                     StaticInventory.intermediateList.Add(chosenInventory[i]);
                 }
                 Loader.Load(Loader.Scene.TradeScene);
+                confirmEvent.Post(gameObject);
             }
-            
         });
         itemCard.enabled = false;
         itemCard2.enabled = false;
         itemOfDay = StaticTravel.itemOfTheDay;
+        for(int i = 0; i < chosenItemsprites.Length; ++i)
+        {
+            chosenItemsprites[i].enabled = false;
+        }
     }
     private void Start(){
         ShuffleItems();
         AssignSprites();
         for (int i = 0; i < selectionButtons.Count; i++){
         int closureIndex = i ; // Prevents the closure problem
-        selectionButtons[closureIndex].onClick.AddListener( () => TaskOnClick( closureIndex ) );
+        selectionButtons[closureIndex].onClick.AddListener( () => {
+            TaskOnClick(closureIndex);
+            });
         }
         for (int j = 0; j < removeButtons.Length; ++j)
         {
             removeButtons[j].gameObject.SetActive(false);
         }
 
+        //Pick a category to be the Item of the Day
         switch (itemOfDay)
         {
             case "Weapon":
@@ -108,6 +120,8 @@ public class InventorySelection : MonoBehaviour
             chosenInventory.Add(scavengedItems[buttonIndex]);
             Debug.Log("You have added " + chosenInventory.Count + " items to your inventory");
             selectionButtons[buttonIndex].interactable = false;
+
+            //Item Selection Button Audio
         }
         else
         {
@@ -119,6 +133,7 @@ public class InventorySelection : MonoBehaviour
             removeButtons[i].gameObject.SetActive(true);
         }
         UpdateItemTypeCount(buttonIndex);
+        buttonPressEvent.Post(gameObject);
     }
 
     void ShuffleItems()
@@ -145,9 +160,9 @@ public class InventorySelection : MonoBehaviour
 
     private void UpdateChosenSprites(int index){
         chosenItemsprites[chosenIndexStart].sprite = GetSprite(index);
+        chosenItemsprites[chosenIndexStart].enabled = true;
         chosenIndexStart++;
     }
-
 
     private void UpdateItemTypeCount(int buttonIndex)
     {
@@ -322,9 +337,13 @@ public class InventorySelection : MonoBehaviour
             chosenItemsprites[i].sprite = chosenInventory[i].frontSprite;
         }
         chosenItemsprites[chosenInventory.Count].sprite = null;
+        chosenItemsprites[chosenInventory.Count].enabled = false;
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
+
+        //Item Deselection Button Audio
+        buttonPressEvent.Post(gameObject);
     }
 
     public void RemoveItemTwo()
@@ -348,9 +367,13 @@ public class InventorySelection : MonoBehaviour
             chosenItemsprites[i].sprite = chosenInventory[i].frontSprite;
         }
         chosenItemsprites[chosenInventory.Count].sprite = null;
+        chosenItemsprites[chosenInventory.Count].enabled = false;
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
+
+        //Item Deselection Button Audio
+        buttonPressEvent.Post(gameObject);
     }
 
     public void RemoveItemThree()
@@ -374,9 +397,13 @@ public class InventorySelection : MonoBehaviour
             chosenItemsprites[i].sprite = chosenInventory[i].frontSprite;
         }
         chosenItemsprites[chosenInventory.Count].sprite = null;
+        chosenItemsprites[chosenInventory.Count].enabled = false;
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
+
+        //Item Deselection Button Audio
+        buttonPressEvent.Post(gameObject);
     }
 
     public void RemoveItemFour()
@@ -400,9 +427,13 @@ public class InventorySelection : MonoBehaviour
             chosenItemsprites[i].sprite = chosenInventory[i].frontSprite;
         }
         chosenItemsprites[chosenInventory.Count].sprite = null;
+        chosenItemsprites[chosenInventory.Count].enabled = false;
         removeButtons[chosenInventory.Count].gameObject.SetActive(false);
         chosenIndexStart--;
         reactivate = false;
+
+        //Item Deselection Button Audio
+        buttonPressEvent.Post(gameObject);
     }
 
     public void HoverEnterButtonOne()

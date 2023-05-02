@@ -20,8 +20,8 @@ MonoBehaviour:
   itemDescription: {fileID: 21300000, guid: 3f4fe9fc734085746839d42e81ca15fe, type: 3}
   Description: 
   foodValue: 1
-  drinkValue: 0
-  warmthValue: 4
+  drinkValue: 1
+  warmthValue: 7
   weaponValue: 1
-  machineryValue: 2
-  luxuryValue: 3
+  machineryValue: 5
+  luxuryValue: 5

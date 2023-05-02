@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Leaving 14
   m_EditorClassIdentifier: 
-  lineOfDialogue: I'm tired from buying stuff.. I'm gonna go sleep.
+  lineOfDialogue: The unethical behaviour of capitalistic retailers has spread to
+    even here I see...
   category: 6

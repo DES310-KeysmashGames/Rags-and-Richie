@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Dialogue" ID="{2BF81638-82DB-4FEC-9D79-E8CBABFC8A1C}">
+					<ChildrenList>
+						<Action Name="" ID="{FA87EDDA-2287-4694-BEBD-AF5BE8E98777}" ShortID="558912475">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dialogue Random Container" ID="{6CAB1174-0FEF-457A-8ECE-36BA417207D1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{62A214BB-FBBE-4724-B72F-CD84EB59DCE2}" ShortID="1032852368">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Delay" Type="Real64" Value="4">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{D16C125D-2C6A-43A7-8E1F-DF929F32EE79}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="4"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="FadeTime" Type="Real64" Value="0.125"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dialogue Random Container" ID="{6CAB1174-0FEF-457A-8ECE-36BA417207D1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Price_Adjust_Up" ID="{E0AA61D9-2044-4459-AFF7-B48FCCC7DD37}">
+					<ChildrenList>
+						<Action Name="" ID="{F78F67F1-3ABC-4F06-B1F0-4E47BA1887A6}" ShortID="244304917">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Price Adjust Up Sequence Contrainer" ID="{FCC554D7-0993-42B9-8F34-DEDE55EAA200}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Price_Adjust_Down" ID="{1BC96C55-0721-4AEC-910A-35158366D25E}">
+					<ChildrenList>
+						<Action Name="" ID="{14A17521-6796-491E-BB3A-B4867BDB5B3B}" ShortID="714375587">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Price Adjust Down Sequence Contrainer" ID="{41458018-A4E0-44F1-8F0D-E404E3A10857}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Angry" ID="{6B3A5B02-A2A5-4DC0-9140-BAA19F34F7A2}">
+					<ChildrenList>
+						<Action Name="" ID="{6C66D821-6F17-4340-8A05-7C0138B94337}" ShortID="1010931068">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Angry Reaction Random Container" ID="{73680111-3219-4227-B737-62D02B23CBD0}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Happy" ID="{956398C5-4562-4AB3-B829-15E0BC97E062}">
+					<ChildrenList>
+						<Action Name="" ID="{0DBF3FC5-8927-4C1C-92F3-343EB62A735D}" ShortID="588707156">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Happy Reaction Random Contrainer" ID="{F940D9B9-42F7-4ED3-9D53-8BFE066A9FDB}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Neutral" ID="{1B22F1BB-15E9-4EE9-8B83-1AC0D980211D}">
+					<ChildrenList>
+						<Action Name="" ID="{BBC0C2B7-A33A-4AD1-8AF1-4AD743FCD735}" ShortID="934175374">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Neutral Reaction Random Container_01" ID="{41BD63BE-65AD-4A74-B01C-E69CD27C28FB}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Richie_Dialogue" ID="{E677ADE7-8EB5-48FF-BC05-9BE8C7733B67}">
+					<ChildrenList>
+						<Action Name="" ID="{4AB0CCAD-602A-4FB1-B8DB-1E7170322503}" ShortID="474953060">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Richie Dialogue Random Container" ID="{9C2C128D-F01B-4E58-8975-2AD47FC08D75}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{1E98D0A6-909F-4833-9C86-E2AA0AD30F45}" ShortID="1016507109">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Delay" Type="Real64" Value="4">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F7D3B3E0-0811-4973-BB8B-F8DA7746BFDB}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="4"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Richie Dialogue Random Container" ID="{9C2C128D-F01B-4E58-8975-2AD47FC08D75}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Customer_Arrive_and_Leave" ID="{8E237EC1-811E-40C1-86AF-C7FDA7D14AFB}">
+					<ChildrenList>
+						<Action Name="" ID="{59BC6816-F877-4F17-A1D1-63AD26B1D23B}" ShortID="357657478">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Customer Arrive and Leave Sequence Container" ID="{BA832FDE-747D-4936-B119-35415DEEA695}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Confirm" ID="{98221896-C577-40FA-8F0C-AD562872BE81}">
+					<ChildrenList>
+						<Action Name="" ID="{AADE63ED-FB2F-4330-BE49-BF6C89011256}" ShortID="1006294996">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_menu_itemconfirm_01" ID="{EAE984D6-2124-448E-B742-426136BBB2EC}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Select" ID="{4FD3BC35-AA49-4316-A3D8-523CD38F2864}">
+					<ChildrenList>
+						<Action Name="" ID="{7B4C44F8-E13C-4DA1-B475-1F0961C3135D}" ShortID="727511613">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_menu_itemselect_01" ID="{13E94999-963C-4142-BC7F-5009B4110B7A}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_PopUp" ID="{0BDFB3D4-8828-421A-A098-8C0003C743F7}">
+					<ChildrenList>
+						<Action Name="" ID="{F5C9E7B9-77C5-403C-8A34-FF8901C3BAF8}" ShortID="546286574">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_menu_popup_01" ID="{B274594B-65E3-4940-8B10-17C2017AF356}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Vroom" ID="{E1ED79DA-5912-4F5C-84B3-5805F26569CC}">
+					<ChildrenList>
+						<Action Name="" ID="{9DDA837A-DCD0-486A-BD18-8065C14F423C}" ShortID="171333148">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_van_vroom_01" ID="{942897F5-A15C-412F-9E93-ADD5D476F1E1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Sale_Failure" ID="{D9482DA7-3E58-4F02-B0B7-31098EE2C37E}">
+					<ChildrenList>
+						<Action Name="" ID="{2BFA5A53-7646-464D-B3D5-A77126B3A0D8}" ShortID="746294211">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_sale_failure_01" ID="{52D5C09F-2FE5-4B22-93DE-A16969A5CDBF}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Sale_Success" ID="{792B7AA2-A8A0-417A-A781-3542E5519A49}">
+					<ChildrenList>
+						<Action Name="" ID="{4890298F-71F9-429C-9CD8-B9BDAAB24F12}" ShortID="535195926">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_sale_successful_01" ID="{84A0519F-0386-4C99-8802-340CE030F4AD}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

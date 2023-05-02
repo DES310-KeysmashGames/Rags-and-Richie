@@ -16,13 +16,13 @@ MonoBehaviour:
   itemName: Half Bottle of Wine
   primaryType: 5
   secondaryType: 3
-  tertiaryType: 1
+  tertiaryType: 6
   itemDescription: {fileID: 21300000, guid: 08e16e90f1b18b04fac081847bd9e0c7, type: 3}
   Description: A bottle of wine that's been broken, containing only half of it's
     volume.
   foodValue: 2
-  drinkValue: 4
-  warmthValue: 0
-  weaponValue: 3
-  machineryValue: 0
-  luxuryValue: 5
+  drinkValue: 7
+  warmthValue: 1
+  weaponValue: 5
+  machineryValue: 1
+  luxuryValue: 8
