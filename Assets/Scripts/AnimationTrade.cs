@@ -62,13 +62,13 @@ public class AnimationTrade : MonoBehaviour
     // Patience Meter Animation
     public void PatienceMeterActive()
     {
-        patienceMeterAnimation.SetBool("IsActive", true);
+        patienceMeterAnimation.SetTrigger("Drop");
     }
 
      public void PatienceMeterInActive()
 
     {
-       patienceMeterAnimation.SetBool("IsActive", false);
+        patienceMeterAnimation.SetTrigger("Raise");
     }
 
     // Customer Bobbing / Speaking Animation / Arrive / Leave
