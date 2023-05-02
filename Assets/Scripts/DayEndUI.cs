@@ -16,12 +16,16 @@ public class DayEndUI : MonoBehaviour
 
     [SerializeField] Button endButton;
 
+    //Audio
+    public AK.Wwise.Event buttonEvent;
+
     private void Awake(){
         if (StaticTravel.dayCount < 3)
         {
             //Continue to next day
             endButton.onClick.AddListener(() =>
             {
+                buttonEvent.Post(gameObject);
                 Loader.Load(Loader.Scene.TravelScene);
                 StaticTravel.dayCount++;
                 ClearItems();

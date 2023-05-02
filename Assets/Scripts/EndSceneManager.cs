@@ -11,12 +11,14 @@ public class EndSceneManager : MonoBehaviour
     [SerializeField] private int value;
     [SerializeField] private TextMeshProUGUI walletText;
 
+    //audio
+    public AK.Wwise.Event buttonEvent;
 
     private void Awake(){
         finishButton.onClick.AddListener(()=> {
             //click action
+            buttonEvent.Post(gameObject);
             Loader.Load(Loader.Scene.MainMenuScene);
-            StaticTravel.dayCount = 2;
         });
         //set all images to disabled
         for (int i =0; i < endScreens.Length; i++){
