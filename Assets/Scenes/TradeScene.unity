@@ -4405,11 +4405,11 @@ MonoBehaviour:
   playerApproachEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 066c25cc230e03343b71f844f8df9630, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 91d134df35823414d9ec63821d12682c, type: 2}
   playerLeaveEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 0db0c4de5e16cb14496971d5efab2f5b, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 91d134df35823414d9ec63821d12682c, type: 2}
   priceUpEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -4437,7 +4437,7 @@ MonoBehaviour:
   buttonPressEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: aaa7e3c80684d7d4d83cc243800bd6f4, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: e3b0203c477c6014aa6a354594ae5c9b, type: 2}
 --- !u!4 &944116510
 Transform:
   m_ObjectHideFlags: 0

@@ -249,7 +249,7 @@ public class GameManager : MonoBehaviour
         bargain = false;
         textProgression = false;
         dealOver = false;
-        InitialOfferSetInactive();
+        InitialOfferSetInactive(true);
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
         TextPrompt.gameObject.SetActive(true);
@@ -427,7 +427,7 @@ public class GameManager : MonoBehaviour
     private void PriceConfirm()
     {
         TextPrompt.gameObject.SetActive(true);
-        InitialOfferSetInactive();
+        InitialOfferSetInactive(true);
         TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
         bargain = true;
@@ -638,7 +638,8 @@ public class GameManager : MonoBehaviour
             itemButtons[i].gameObject.SetActive(true);
             itemButtons[i].interactable = true;
         }
-        InitialOfferSetInactive();
+        InitialOfferSetInactive(false);
+        //shelfLock.ShelfOpen();
     }
 
     public void IncreasePrice()
@@ -757,7 +758,7 @@ public class GameManager : MonoBehaviour
         patienceDecrease = 0;
         turnCount = 0;
         dealOver = false;
-        InitialOfferSetInactive();
+        InitialOfferSetInactive(true);
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
         nextCustomerButton.gameObject.SetActive(false);
@@ -806,12 +807,16 @@ public class GameManager : MonoBehaviour
         dimmer.enabled = true;
     }
 
-    void InitialOfferSetInactive()
+    void InitialOfferSetInactive(bool buttonCheck)
     {
         wooshingUIevent.Post(gameObject);
         initialPrice.BargainPhaseSetInactive();
         dimmer.enabled = false;
-        shelfLock.ShelfClose();
+        if (buttonCheck )
+        {
+            shelfLock.ShelfClose();    
+        }
+        
     }
 
    void ResetToMenu()
