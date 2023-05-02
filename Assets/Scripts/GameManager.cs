@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
     public AK.Wwise.Event buttonPressEvent;
     public AK.Wwise.Event saleSuccess;
     public AK.Wwise.Event saleFailure;
+    public AK.Wwise.Event wooshingUIevent;
 
     private void Awake()
     {
@@ -382,6 +383,7 @@ public class GameManager : MonoBehaviour
         playerApproachEvent.Post(gameObject);
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
+        introLength = character.GetIntroLength();
         bargainSpeech.text = "" + character.GetIntro(introCount);
         animateText.GetText();
         animateText.ActivateText();
@@ -390,7 +392,7 @@ public class GameManager : MonoBehaviour
         introCount = 1;
         patience = character.GetPatience();
         custDesperation = character.GetDesperation();
-        introLength = character.GetIntroLength();
+        //introLength = character.GetIntroLength();
         speechBubbleImage.sprite = speechBubbles[2];
         patienceMeter.sprite = patienceMeters[0];
     }
@@ -783,6 +785,7 @@ public class GameManager : MonoBehaviour
 
     void MakeOfferPhaseSetActive()
     {
+        wooshingUIevent.Post(gameObject);
         priceAdjuster.PriceConfirmSetActive();
         previousPriceText.SetText(previousPrice.ToString());
         patienceMeterdrop.PatienceMeterActive();
@@ -790,6 +793,7 @@ public class GameManager : MonoBehaviour
 
     void MakeOfferPhaseSetInactive()
     {
+        wooshingUIevent.Post(gameObject);
         priceAdjuster.PriceConfirmSetInactive();
         bargainSpeech.enabled = true;
         patienceMeterdrop.PatienceMeterInActive();
@@ -797,6 +801,7 @@ public class GameManager : MonoBehaviour
 
     void InitialOfferPhaseSetActive()
     {
+        wooshingUIevent.Post(gameObject);
         bargainometer.enabled = true;
         initialPrice.BargainPhaseSetActive();
         dimmer.enabled = true;
@@ -804,6 +809,7 @@ public class GameManager : MonoBehaviour
 
     void InitialOfferSetInactive(bool buttonCheck)
     {
+        wooshingUIevent.Post(gameObject);
         initialPrice.BargainPhaseSetInactive();
         dimmer.enabled = false;
         if (buttonCheck )

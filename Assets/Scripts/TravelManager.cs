@@ -50,6 +50,7 @@ public class TravelManager : MonoBehaviour
 
     public AK.Wwise.Event richieDialogueEvent;
     public AK.Wwise.Event buttonPressEvent;
+    public AK.Wwise.Event truckVroomEvent;
 
     private void Awake()
     {
@@ -144,7 +145,6 @@ public class TravelManager : MonoBehaviour
                         richieText.text = richie.GetTutorial(tutorialCount);
                         animateText.GetText();
                         animateText.ActivateText();
-                        //continueTextButton.gameObject.SetActive(true);
                         cityButton[1].interactable = true;
                         tutorialCount = 0;
                         readText = false;
@@ -188,7 +188,7 @@ public class TravelManager : MonoBehaviour
     void MoveTruck()
     { 
         truck.transform.position = Vector2.Lerp(truck.transform.position, new Vector2(Screen.width * 2.0f, truck.transform.position.y), Time.deltaTime * moveSpeed);
-
+        truckVroomEvent.Post(gameObject);   
         if (truck.transform.position.x >= Screen.width)
         {
             truck.enabled = false;
