@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine.SceneManagement;
@@ -103,6 +104,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int customerCount;
     private int sellCount;
     private float textTimer;
+    private float animDelay;
 
     //multipliers for specific locations
     private int foodMultiplier = 1;
@@ -160,7 +162,7 @@ public class GameManager : MonoBehaviour
         });
         confirmButton.onClick.AddListener(() =>
         {
-            PriceConfirm();
+            PriceConfirmAsync();
             buttonPressEvent.Post(gameObject);
         });
         makeOfferButton.onClick.AddListener(() =>
@@ -422,10 +424,16 @@ public class GameManager : MonoBehaviour
         TextPrompt.gameObject.SetActive(false);
     }
 
-    private void PriceConfirm()
+    private async Task PriceConfirmAsync()
     {
+        animDelay = 10.0f;
         TextPrompt.gameObject.SetActive(true);
         InitialOfferSetInactive(true);
+        
+        //StartCoroutine(AnimDelay());
+        await Task.Delay(1000);
+        //speechBubble.SpeechBubble();
+
         TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
         bargain = true;
@@ -468,6 +476,10 @@ public class GameManager : MonoBehaviour
         textProgression = true;
         previousPrice = setPrice;
         speechBubbleImage.enabled = true;
+    }
+
+    IEnumerator AnimDelay(){
+        yield return new WaitForSeconds(10.0f);
     }
 
     private void OfferPrice()
