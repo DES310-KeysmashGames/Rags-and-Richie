@@ -45,6 +45,7 @@ public class TravelManager : MonoBehaviour
     private int wallet;
     private int expenses;
     private int day;
+    private bool isPlaying;
 
     [SerializeField] AnimationTrade travelTutorialText;
 
@@ -170,6 +171,11 @@ public class TravelManager : MonoBehaviour
         if (nextClicked)
         {
             MoveTruck();
+            if (!isPlaying)
+            {
+                truckVroomEvent.Post(gameObject);
+                isPlaying = true;
+            }
         }
 
         //Load next scene when truck has finished moving
@@ -187,8 +193,7 @@ public class TravelManager : MonoBehaviour
     //Function to move truck across screen
     void MoveTruck()
     { 
-        truck.transform.position = Vector2.Lerp(truck.transform.position, new Vector2(Screen.width * 2.0f, truck.transform.position.y), Time.deltaTime * moveSpeed);
-        truckVroomEvent.Post(gameObject);   
+        truck.transform.position = Vector2.Lerp(truck.transform.position, new Vector2(Screen.width * 2.0f, truck.transform.position.y), Time.deltaTime * moveSpeed); 
         if (truck.transform.position.x >= Screen.width)
         {
             truck.enabled = false;
