@@ -406,17 +406,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65479744}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0038570394, w: 0.99999255}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.22169535, y: 1, z: 1}
+  m_LocalScale: {x: 0.24621826, y: 1.0577289, z: 1.0577289}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 194112167}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.442}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 748, y: 6}
+  m_AnchoredPosition: {x: 748, y: 10.000018}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &65479746
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f517979767dfff34da89ebefd6354e7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3df7ada9a056b54baff9f87b34641d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -497,6 +497,7 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 65479746}
+  tutorialTravelText: {fileID: 0}
 --- !u!1 &90990995
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +834,7 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
 --- !u!1 &150303957
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,10 +902,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1733,6 +1735,7 @@ MonoBehaviour:
   blinkingMoney: {fileID: 367320400}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
 --- !u!1 &389495683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4172,6 +4175,7 @@ GameObject:
   - component: {fileID: 944116512}
   - component: {fileID: 944116511}
   - component: {fileID: 944116513}
+  - component: {fileID: 944116514}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4524,6 +4528,22 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
+--- !u!114 &944116514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944116506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da67c02072ee2b8488ff368ec27d62b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToScroll:
+  - 
+  textSpeed: 0.02
+  textBox: {fileID: 150303958}
 --- !u!1 &961897973
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,6 +4669,7 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
 --- !u!1 &970031056
 GameObject:
   m_ObjectHideFlags: 0
@@ -5370,6 +5391,7 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
 --- !u!1 &1209477428
 GameObject:
   m_ObjectHideFlags: 0
@@ -6484,6 +6506,7 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
 --- !u!95 &1508699953
 Animator:
   serializedVersion: 4
@@ -6790,6 +6813,7 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
 --- !u!1 &1558219265
 GameObject:
   m_ObjectHideFlags: 0
@@ -7346,6 +7370,7 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 1706070752}
   shelfLock: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
 --- !u!1 &1746487582
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private ItemManager itemManager;
     private CharacterManager character;
     private PatienceMeter patienceArrow;
+    private AnimateText animateText;
 
     // Animations
     [SerializeField] AnimationTrade initialPrice;
@@ -121,12 +122,15 @@ public class GameManager : MonoBehaviour
     public AK.Wwise.Event custNeutralEvent;
     public AK.Wwise.Event custDialogueEvent;
     public AK.Wwise.Event buttonPressEvent;
+    public AK.Wwise.Event saleSuccess;
+    public AK.Wwise.Event saleFailure;
 
     private void Awake()
     {
         character = GetComponent<CharacterManager>();
         itemManager = GetComponent<ItemManager>();
         patienceArrow = GetComponent<PatienceMeter>();
+        animateText = GetComponent<AnimateText>();
 
         endGameButton.onClick.AddListener(() => {
             //click action
@@ -344,6 +348,8 @@ public class GameManager : MonoBehaviour
             if (introCount == 2 && introCount < introLength)
             {
                 bargainSpeech.text = "" + character.GetIntro(introCount);
+                animateText.GetText();
+                animateText.ActivateText();
                 custDialogueEvent.Post(gameObject);
                 introCount = 3;
                 textProgression = false;
@@ -351,6 +357,8 @@ public class GameManager : MonoBehaviour
             else if (introCount == 1 && introCount < introLength)
             {
                 bargainSpeech.text = "" + character.GetIntro(introCount);
+                animateText.GetText();
+                animateText.ActivateText();
                 custDialogueEvent.Post(gameObject);
                 introCount = 2;
                 textProgression = false;
@@ -358,6 +366,8 @@ public class GameManager : MonoBehaviour
             else if (introCount == 3 || introCount >= introLength)
             {
                 bargainSpeech.text = "" + character.GetTradeSpeech();
+                animateText.GetText();
+                animateText.ActivateText();
                 custDialogueEvent.Post(gameObject);
                 trade = true;
                 introCount = 0;
@@ -373,6 +383,8 @@ public class GameManager : MonoBehaviour
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
         bargainSpeech.text = "" + character.GetIntro(introCount);
+        animateText.GetText();
+        animateText.ActivateText();
         custDialogueEvent.Post(gameObject);
         custName.text = "" + character.GetCustName();
         introCount = 1;
@@ -425,6 +437,8 @@ public class GameManager : MonoBehaviour
         if (setPrice < price)
         {
             bargainSpeech.text = character.GetHappyText();
+            animateText.GetText();
+            animateText.ActivateText();
             custHappyEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
             charEmote.sprite = emoticons[1];
@@ -433,6 +447,8 @@ public class GameManager : MonoBehaviour
         else if( setPrice > price)
         {
             bargainSpeech.text = character.GetAngryText();
+            animateText.GetText();
+            animateText.ActivateText();
             custAngryEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[0];
@@ -441,6 +457,8 @@ public class GameManager : MonoBehaviour
         else if (setPrice > basePrice)
         {
             bargainSpeech.text = character.GetOkayText();
+            animateText.GetText();
+            animateText.ActivateText();
             custNeutralEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
             charEmote.sprite = emoticons[2];
@@ -490,6 +508,8 @@ public class GameManager : MonoBehaviour
             {
                 patienceDecrease += 20;
                 bargainSpeech.text = character.GetAngryText();
+                animateText.GetText();
+                animateText.ActivateText();
                 speechBubbleImage.sprite = speechBubbles[0];
                 charEmote.sprite = emoticons[0];
                 custAngryEvent.Post(gameObject);
@@ -500,6 +520,8 @@ public class GameManager : MonoBehaviour
             {
                 patienceDecrease += 15;
                 bargainSpeech.text = character.GetAngryText();
+                animateText.GetText();
+                animateText.ActivateText();
                 speechBubbleImage.sprite = speechBubbles[0];
                 charEmote.sprite = emoticons[0];
                 custAngryEvent.Post(gameObject);
@@ -510,6 +532,8 @@ public class GameManager : MonoBehaviour
             {
                 patienceDecrease += 10;
                 bargainSpeech.text = character.GetOkayText();
+                animateText.GetText();
+                animateText.ActivateText();
                 speechBubbleImage.sprite = speechBubbles[2];
                 charEmote.sprite = emoticons[2];
                 custNeutralEvent.Post(gameObject);
@@ -638,11 +662,14 @@ public class GameManager : MonoBehaviour
     void AcceptDeal()
     {
         blinkingMoney.BlinkingCurrencyActive();
+        saleSuccess.Post(gameObject);
         Debug.Log("accept deal");
         custHappyEvent.Post(gameObject);
         dealOver = true;
         speechBubbleImage.sprite = speechBubbles[1];
         bargainSpeech.text = character.GetAcceptTrade();
+        animateText.GetText();
+        animateText.ActivateText();
         TextPrompt.gameObject.SetActive(false);
         itemManager.SoldItem(selectedItem, basePrice, (int)setPrice);
         character.SaleOver();
@@ -669,8 +696,11 @@ public class GameManager : MonoBehaviour
     void DeclineDeal()
     {
         dealOver = true;
+        saleFailure.Post(gameObject);
         custAngryEvent.Post(gameObject);
         bargainSpeech.text = character.GetDeclineTrade();
+        animateText.GetText();
+        animateText.ActivateText();
         TextPrompt.gameObject.SetActive(false);
         itemManager.FailedToSell(selectedItem, basePrice, 0);
         customer.enabled = true;
