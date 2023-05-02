@@ -153,10 +153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: []
+  prevCustomer: []
   currentChar: {fileID: 11400000, guid: 300d34ec47b1e1540ba3149616c45c52, type: 2}
-  intro: []
-  tradeSpeech: {fileID: 11400000, guid: 43b397e2165d4754398f0ddad1417bd8, type: 2}
-  inTradeText: []
+  tradeSpeech:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  happyDialogue: []
+  okayDialogue: []
+  angryDialogue: []
+  acceptTrade: []
+  declineTrade: []
+  zeroPatience: []
 --- !u!4 &357837796
 Transform:
   m_ObjectHideFlags: 0
@@ -253,7 +261,7 @@ SpriteRenderer:
   m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &488385773
@@ -388,7 +396,8 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
+  - component: {fileID: 519420034}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -396,14 +405,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -462,6 +463,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7c384e9b2ae014e8ec29247a73100a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5279c5f6d4fc52b41af9fb29f1ac9541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &586927504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,14 +1840,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6260ca1916514db6dad1e4127a2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 357837795}
+  initialPrice: {fileID: 0}
+  priceAdjuster: {fileID: 0}
+  patienceMeterdrop: {fileID: 0}
+  customerAnimations: {fileID: 0}
+  speechBubble: {fileID: 0}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 0}
+  shelfLock: {fileID: 0}
+  speechBubbles: []
+  speechBubbleImage: {fileID: 0}
+  emoticons: []
+  charEmote: {fileID: 0}
+  backgroundImages: []
+  background: {fileID: 0}
   speechText: {fileID: 1377797527}
   customer: {fileID: 425672525}
-  items: []
+  custName: {fileID: 0}
   itemText: []
-  timer: 0
-  trade: 0
-  itemManager: {fileID: 0}
+  itemButtons: []
+  TextPrompt: {fileID: 0}
+  itemCard: {fileID: 0}
+  bargainometer: {fileID: 0}
+  dimmer: {fileID: 0}
+  priceBox: {fileID: 0}
+  confirmButton: {fileID: 0}
+  ReselectItemButton: {fileID: 0}
+  increaseButton: {fileID: 0}
+  increaseByTen: {fileID: 0}
+  decreaseButton: {fileID: 0}
+  decreaseByTen: {fileID: 0}
+  patienceMeters: []
+  increaseButton2: {fileID: 0}
+  increaseByTen2: {fileID: 0}
+  decreaseButton2: {fileID: 0}
+  decreaseByTen2: {fileID: 0}
+  priceAdjustment: {fileID: 0}
+  patienceMeter: {fileID: 0}
+  makeOfferButton: {fileID: 0}
+  bargainSpeech: {fileID: 0}
+  tolerance: 0
+  previousPriceText: {fileID: 0}
+  previousPrice: 0
+  differenceText: {fileID: 0}
+  priceDifference: 0
+  endGameButton: {fileID: 0}
+  nextCustomerButton: {fileID: 0}
+  walletText: {fileID: 0}
+  price: 0
+  basePrice: 0
+  setPrice: 0
+  patience: 0
+  patienceDecrease: 0
+  custDesperation: 0
+  turnCount: 0
+  customerCount: 0
+  playerApproachEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  playerLeaveEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  priceUpEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  priceDownEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  custHappyEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  custAngryEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  custNeutralEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  custDialogueEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  buttonPressEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!4 &1545785305
 Transform:
   m_ObjectHideFlags: 0
@@ -2015,6 +2135,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1769652802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769652804}
+  - component: {fileID: 1769652803}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1769652803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769652802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6d9c4975e037f44af87d7f3f209d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: b22dd743e13f45f4d88ca558c36dbaec, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &1769652804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769652802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959716648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,12 +2221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5981172044624c4da7be545b9cba9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullstock:
-  - {fileID: 11400000, guid: 97744c88d518f08488cc85e47728166a, type: 2}
-  - {fileID: 11400000, guid: 27b2d755417c90f4ca7b78c6f6a045a2, type: 2}
-  - {fileID: 11400000, guid: b84b74970ab9552408818592c10442f7, type: 2}
-  - {fileID: 11400000, guid: 1bdc9968bd9b7ff4ea4bf178b5d8a06f, type: 2}
   inventory: []
+  soldItems: []
+  itemPrice: 
+  sellPrice: 
 --- !u!4 &1959716650
 Transform:
   m_ObjectHideFlags: 0

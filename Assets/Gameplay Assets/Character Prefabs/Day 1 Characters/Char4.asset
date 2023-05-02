@@ -27,6 +27,7 @@ MonoBehaviour:
   introText2:
   - {fileID: 11400000, guid: 6a5c207c5f331514d90f36cbd4aef81f, type: 2}
   - {fileID: 11400000, guid: 0bf83d59e7a26d94a8fcbaca16375184, type: 2}
+  - {fileID: 11400000, guid: 06e1175f5dbad65498cab1b384ccf6fd, type: 2}
   introText3:
   - {fileID: 11400000, guid: d167175eb75fbc3448ef2389799b5adc, type: 2}
   - {fileID: 11400000, guid: 27acb2c368225a24eabd916f3af959d6, type: 2}

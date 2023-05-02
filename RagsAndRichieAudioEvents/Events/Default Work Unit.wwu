@@ -125,56 +125,78 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_BEEP_01" ID="{BBE28BEE-0D64-45BD-ACD4-116B898E7D92}">
+				<Event Name="Play_Customer_Arrive_and_Leave" ID="{8E237EC1-811E-40C1-86AF-C7FDA7D14AFB}">
 					<ChildrenList>
-						<Action Name="" ID="{620BC02F-12E0-4C2E-A75A-68D1FDA278B7}" ShortID="799373772">
+						<Action Name="" ID="{59BC6816-F877-4F17-A1D1-63AD26B1D23B}" ShortID="357657478">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="BEEP 01" ID="{D4258CB6-01BA-46AE-8924-E5914FDA8A13}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+									<ObjectRef Name="Customer Arrive and Leave Sequence Container" ID="{BA832FDE-747D-4936-B119-35415DEEA695}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_BEEP_04" ID="{17CBD8C7-5F72-4F33-88A2-19B55266B5A7}">
+				<Event Name="Play_Confirm" ID="{98221896-C577-40FA-8F0C-AD562872BE81}">
 					<ChildrenList>
-						<Action Name="" ID="{32BB7400-1FE1-4589-AB84-9C04691C1245}" ShortID="478406229">
+						<Action Name="" ID="{AADE63ED-FB2F-4330-BE49-BF6C89011256}" ShortID="1006294996">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="BEEP 04" ID="{7A782422-8AAF-42D4-A555-2F194CD9D8BE}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+									<ObjectRef Name="sfx_menu_itemconfirm_01" ID="{EAE984D6-2124-448E-B742-426136BBB2EC}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_ButtonPress" ID="{06B5BF5C-DD28-40DF-B563-9D962AE65031}">
+				<Event Name="Play_Select" ID="{4FD3BC35-AA49-4316-A3D8-523CD38F2864}">
 					<ChildrenList>
-						<Action Name="" ID="{33255E61-326B-4FF6-8958-E3BD09530C87}" ShortID="595885943">
+						<Action Name="" ID="{7B4C44F8-E13C-4DA1-B475-1F0961C3135D}" ShortID="727511613">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="ButtonPress" ID="{6EE0F8E3-EE0B-486A-9023-53D1DFE77490}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+									<ObjectRef Name="sfx_menu_itemselect_01" ID="{13E94999-963C-4142-BC7F-5009B4110B7A}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_sfx_customer_approaching_01" ID="{EBAF5D64-F716-4819-A554-BEFAD2B91E4D}">
+				<Event Name="Play_PopUp" ID="{0BDFB3D4-8828-421A-A098-8C0003C743F7}">
 					<ChildrenList>
-						<Action Name="" ID="{7BD90A3F-B21E-4D65-8D61-7C554E6E0248}" ShortID="480817997">
+						<Action Name="" ID="{F5C9E7B9-77C5-403C-8A34-FF8901C3BAF8}" ShortID="546286574">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="sfx_customer_approaching_01" ID="{1EC25EC6-D0D8-4920-9352-069543206CAF}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+									<ObjectRef Name="sfx_menu_popup_01" ID="{B274594B-65E3-4940-8B10-17C2017AF356}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_sfx_customer_leaving_01" ID="{6C9770A9-F3EF-4D74-BD08-0ECD44AC9D76}">
+				<Event Name="Play_Vroom" ID="{E1ED79DA-5912-4F5C-84B3-5805F26569CC}">
 					<ChildrenList>
-						<Action Name="" ID="{3E22AF82-CFB5-4BDD-ADC7-2827EC355125}" ShortID="722188666">
+						<Action Name="" ID="{9DDA837A-DCD0-486A-BD18-8065C14F423C}" ShortID="171333148">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="sfx_customer_leaving_01" ID="{DB1A7657-9B88-4F3E-BF2D-914D41C791E3}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+									<ObjectRef Name="sfx_van_vroom_01" ID="{942897F5-A15C-412F-9E93-ADD5D476F1E1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Sale_Failure" ID="{D9482DA7-3E58-4F02-B0B7-31098EE2C37E}">
+					<ChildrenList>
+						<Action Name="" ID="{2BFA5A53-7646-464D-B3D5-A77126B3A0D8}" ShortID="746294211">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_sale_failure_01" ID="{52D5C09F-2FE5-4B22-93DE-A16969A5CDBF}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Sale_Success" ID="{792B7AA2-A8A0-417A-A781-3542E5519A49}">
+					<ChildrenList>
+						<Action Name="" ID="{4890298F-71F9-429C-9CD8-B9BDAAB24F12}" ShortID="535195926">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_sale_successful_01" ID="{84A0519F-0386-4C99-8802-340CE030F4AD}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

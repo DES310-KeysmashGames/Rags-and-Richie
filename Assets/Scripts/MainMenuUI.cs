@@ -18,8 +18,6 @@ public class MainMenuUI : MonoBehaviour
     private float timer;
 
     private void Awake(){
-        //optionsCanvas = GetComponent<Canvas>();
-       // optionsCanvas.enabled = false;
        optionsCanvas.gameObject.SetActive(false);
 
         playButton.onClick.AddListener(()=> {
@@ -43,8 +41,8 @@ public class MainMenuUI : MonoBehaviour
 
             Application.Quit();
         });
-        //playambientMusic.Post(gameObject);
-        timer = 2.0f;
+        playambientMusic.Post(gameObject);
+        timer = 1.0f;
         playGame = false;
     }
 
@@ -83,12 +81,12 @@ public class MainMenuUI : MonoBehaviour
     //Main Menu Background Audio
 
     ////Basic Audio by Leslie
-    //public void SetSFXVolume(float SFXvolume){
-    //    Debug.Log("sfx volume = " + SFXvolume);
-    //    audioMixer.SetFloat("mixVolume", SFXvolume);
-    //}
+    public void SetSFXVolume(float SFXvolume){
+        Debug.Log("sfx volume = " + SFXvolume);
+        audioMixer.SetFloat("mixVolume", SFXvolume);
+    }
 
-    //public void SetMusicVolume(float musicVolume){
-    //    Debug.Log("music volume = " + musicVolume);
-    //}
+    public void SetMusicVolume(float musicVolume){
+        Debug.Log("music volume = " + musicVolume);
+    }
 }

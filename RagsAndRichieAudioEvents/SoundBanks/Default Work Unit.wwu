@@ -5,16 +5,8 @@
 			<ChildrenList>
 				<SoundBank Name="Main_Soundbank" ID="{920C17E8-08C7-45D1-81B4-B480412A9101}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_ButtonPress" ID="{06B5BF5C-DD28-40DF-B563-9D962AE65031}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Price_Adjust_Up" ID="{E0AA61D9-2044-4459-AFF7-B48FCCC7DD37}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_sfx_customer_approaching_01" ID="{EBAF5D64-F716-4819-A554-BEFAD2B91E4D}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Richie_Dialogue" ID="{E677ADE7-8EB5-48FF-BC05-9BE8C7733B67}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Reaction_Happy" ID="{956398C5-4562-4AB3-B829-15E0BC97E062}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Price_Adjust_Down" ID="{1BC96C55-0721-4AEC-910A-35158366D25E}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_sfx_customer_leaving_01" ID="{6C9770A9-F3EF-4D74-BD08-0ECD44AC9D76}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Reaction_Angry" ID="{6B3A5B02-A2A5-4DC0-9140-BAA19F34F7A2}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Reaction_Neutral" ID="{1B22F1BB-15E9-4EE9-8B83-1AC0D980211D}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Dialogue" ID="{2BF81638-82DB-4FEC-9D79-E8CBABFC8A1C}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" WorkUnitID="{C9E23661-1D25-4204-A8E7-5CFBE027296A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
