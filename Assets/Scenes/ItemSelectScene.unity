@@ -4052,6 +4052,10 @@ MonoBehaviour:
   buttonPressEvent:
     idInternal: 0
     valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6d74048f4a5a053409b881fe3201503c, type: 2}
+  confirmEvent:
+    idInternal: 0
+    valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: e3b0203c477c6014aa6a354594ae5c9b, type: 2}
 --- !u!114 &1428797262
 MonoBehaviour:
