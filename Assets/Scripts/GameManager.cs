@@ -796,7 +796,6 @@ public class GameManager : MonoBehaviour
         wooshingUIevent.Post(gameObject);
         priceAdjuster.PriceConfirmSetInactive();
         bargainSpeech.enabled = true;
-        patienceMeterdrop.PatienceMeterInActive();
     }
 
     void InitialOfferPhaseSetActive()
