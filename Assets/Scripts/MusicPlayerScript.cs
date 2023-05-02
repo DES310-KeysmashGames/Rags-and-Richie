@@ -14,6 +14,7 @@ public class MusicPlayerScript : MonoBehaviour
     {
         musicObject = GameObject.FindWithTag("GameMusic");
         audioSource = musicObject.GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
