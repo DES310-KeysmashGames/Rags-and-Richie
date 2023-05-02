@@ -105,6 +105,9 @@ public class GameManager : MonoBehaviour
     private int sellCount;
     private float textTimer;
     private float animDelay;
+    private bool ending;
+    private float endingTimer;
+    private bool wooshEffectActive;
 
     //multipliers for specific locations
     private int foodMultiplier = 1;
@@ -239,6 +242,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ending = false;
+        endingTimer = 3.0f;
         NewCustomer();
         itemManager.GenerateItemList();
         for (int i = 0; i < itemButtons.Length; ++i)
@@ -293,6 +298,22 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ResetToMenu();
+        if(ending)
+        {
+            endingTimer -= Time.deltaTime;
+            if(endingTimer <= 0.0f)
+            {
+                for (int i = 0; i < itemManager.soldItems.Count; i++)
+                {
+                    StaticInventory.soldItemsList.Add(itemManager.soldItems[i]);
+                    Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
+                    StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
+                    StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
+                    buttonPressEvent.Post(gameObject);
+                }
+                Loader.Load(Loader.Scene.DayEndScene);
+            }
+        }
         walletText.text = PlayerPrefs.GetInt("wallet").ToString();
         if (!itemsShown)
         {
@@ -741,7 +762,8 @@ public class GameManager : MonoBehaviour
         itemManager.Reset();
         character.Reset();
         sellCount = 0;
-        endGameButton.gameObject.SetActive(true);
+        ending = true;
+        //endGameButton.gameObject.SetActive(true);
         foodMultiplier = 1;
         drinkMultiplier = 1;
         warmthMultiplier = 1;
@@ -797,7 +819,11 @@ public class GameManager : MonoBehaviour
 
     void MakeOfferPhaseSetActive()
     {
-        wooshingUIevent.Post(gameObject);
+        if (wooshEffectActive)
+        {
+            wooshingUIevent.Post(gameObject);
+            wooshEffectActive = false;
+        }
         priceAdjuster.PriceConfirmSetActive();
         previousPriceText.SetText(previousPrice.ToString());
         patienceMeterdrop.PatienceMeterActive();
@@ -805,6 +831,11 @@ public class GameManager : MonoBehaviour
 
     void MakeOfferPhaseSetInactive()
     {
+        if (!wooshEffectActive)
+        {
+            wooshingUIevent.Post(gameObject);
+            wooshEffectActive = true;
+        }
         wooshingUIevent.Post(gameObject);
         priceAdjuster.PriceConfirmSetInactive();
         bargainSpeech.enabled = true;
@@ -812,6 +843,11 @@ public class GameManager : MonoBehaviour
 
     void InitialOfferPhaseSetActive()
     {
+        if (wooshEffectActive)
+        {
+            wooshingUIevent.Post(gameObject);
+            wooshEffectActive = false;
+        }
         wooshingUIevent.Post(gameObject);
         bargainometer.enabled = true;
         initialPrice.BargainPhaseSetActive();
@@ -820,7 +856,11 @@ public class GameManager : MonoBehaviour
 
     void InitialOfferSetInactive(bool buttonCheck)
     {
-        wooshingUIevent.Post(gameObject);
+        if(!wooshEffectActive)
+        {
+            wooshingUIevent.Post(gameObject);
+            wooshEffectActive = true;
+        }
         initialPrice.BargainPhaseSetInactive();
         dimmer.enabled = false;
         if (buttonCheck )
