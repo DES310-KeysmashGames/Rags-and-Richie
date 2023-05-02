@@ -4052,7 +4052,7 @@ MonoBehaviour:
   buttonPressEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: aaa7e3c80684d7d4d83cc243800bd6f4, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: e3b0203c477c6014aa6a354594ae5c9b, type: 2}
 --- !u!114 &1428797262
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 12d38670da13f246b4b9ce5e865dfe70
     GuidInternal: 
-    m_lastTime: -8585191112500629581
+    m_lastTime: -8585198691030148821
     List: []
   - PhysicalPath: Virtual Acoustics\Factory Acoustic Textures.wwu
     PathAndIcons:
@@ -37,7 +37,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Factory Acoustic Textures
     guid: 6b663d46a83ca54f8b4a5fef12b883f6
     GuidInternal: 
-    m_lastTime: -8585191112500613622
+    m_lastTime: -8585293596224929886
     List:
     - name: Acoustic_Banner
       guid: f2532d2fccda8e408b8898b1b52a26d6
@@ -303,7 +303,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: c869a871382823449be97759a3894e95
     GuidInternal: 
-    m_lastTime: -8585191112501746295
+    m_lastTime: -8585198691031157632
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -331,7 +331,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a42bf338e693f7459acc11dc88983313
     GuidInternal: 
-    m_lastTime: -8585191112500679772
+    m_lastTime: -8585197085642663754
     List:
     - name: Main_Soundbank
       guid: e8170c92c708d14581b4b480412a9101
@@ -359,11 +359,11 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 6136e2c9251d0442a8e75cfbe027296a
     GuidInternal: 
-    m_lastTime: -8585191112502003562
+    m_lastTime: -8585186609726447826
     List:
-    - name: Play_BEEP_01
-      guid: ee8be2bb640dbd45acd4116b898e7d92
-      id: 3020927144
+    - name: Play_Confirm
+      guid: 9618229877c5fa408f0cad562872be81
+      id: 4136017490
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -371,16 +371,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 6136e2c9251d0442a8e75cfbe027296a
-      - ElementName: Play_BEEP_01
+      - ElementName: Play_Confirm
         ObjectType: 3
-        guid: ee8be2bb640dbd45acd4116b898e7d92
-      Path: Events\Default Work Unit\Play_BEEP_01
+        guid: 9618229877c5fa408f0cad562872be81
+      Path: Events\Default Work Unit\Play_Confirm
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Play_BEEP_04
-      guid: c7d8cb17725f334f88a219b55266b5a7
-      id: 3020927149
+    - name: Play_Customer_Arrive_and_Leave
+      guid: c17e238e1e81c14086afc7fda7d14afb
+      id: 3721732298
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -388,27 +388,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 6136e2c9251d0442a8e75cfbe027296a
-      - ElementName: Play_BEEP_04
+      - ElementName: Play_Customer_Arrive_and_Leave
         ObjectType: 3
-        guid: c7d8cb17725f334f88a219b55266b5a7
-      Path: Events\Default Work Unit\Play_BEEP_04
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Play_ButtonPress
-      guid: 5cbfb50628dddf40b5639d962ae65031
-      id: 2652178615
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 6136e2c9251d0442a8e75cfbe027296a
-      - ElementName: Play_ButtonPress
-        ObjectType: 3
-        guid: 5cbfb50628dddf40b5639d962ae65031
-      Path: Events\Default Work Unit\Play_ButtonPress
+        guid: c17e238e1e81c14086afc7fda7d14afb
+      Path: Events\Default Work Unit\Play_Customer_Arrive_and_Leave
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -426,6 +409,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: 3816f82bdb82ec4f9d79e8cbabfc8a1c
       Path: Events\Default Work Unit\Play_Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_PopUp
+      guid: d4b3df0b28881a42a0988c0003c743f7
+      id: 948866160
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_PopUp
+        ObjectType: 3
+        guid: d4b3df0b28881a42a0988c0003c743f7
+      Path: Events\Default Work Unit\Play_PopUp
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -531,9 +531,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Play_sfx_customer_approaching_01
-      guid: 645dafeb16f71948a554befad2b91e4d
-      id: 1192913631
+    - name: Play_Sale_Failure
+      guid: a72d48d9583e024fb0b731098ee2c37e
+      id: 4132380204
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -541,16 +541,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 6136e2c9251d0442a8e75cfbe027296a
-      - ElementName: Play_sfx_customer_approaching_01
+      - ElementName: Play_Sale_Failure
         ObjectType: 3
-        guid: 645dafeb16f71948a554befad2b91e4d
-      Path: Events\Default Work Unit\Play_sfx_customer_approaching_01
+        guid: a72d48d9583e024fb0b731098ee2c37e
+      Path: Events\Default Work Unit\Play_Sale_Failure
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Play_sfx_customer_leaving_01
-      guid: a970976ceff3744dbd080ecd44ac9d76
-      id: 3409249835
+    - name: Play_Sale_Success
+      guid: a27a2b79a0a87a41a7813542e5519a49
+      id: 478303155
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -558,10 +558,44 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 6136e2c9251d0442a8e75cfbe027296a
-      - ElementName: Play_sfx_customer_leaving_01
+      - ElementName: Play_Sale_Success
         ObjectType: 3
-        guid: a970976ceff3744dbd080ecd44ac9d76
-      Path: Events\Default Work Unit\Play_sfx_customer_leaving_01
+        guid: a27a2b79a0a87a41a7813542e5519a49
+      Path: Events\Default Work Unit\Play_Sale_Success
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Select
+      guid: 35bcd34f49aa1643a3d8523cd38f2864
+      id: 1042987450
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Select
+        ObjectType: 3
+        guid: 35bcd34f49aa1643a3d8523cd38f2864
+      Path: Events\Default Work Unit\Play_Select
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Vroom
+      guid: da79ede112595c4f84b35805f26569cc
+      id: 2608693169
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Vroom
+        ObjectType: 3
+        guid: da79ede112595c4f84b35805f26569cc
+      Path: Events\Default Work Unit\Play_Vroom
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -577,7 +611,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 1c3cfaaf56afd64c8539bf01a28288b8
     GuidInternal: 
-    m_lastTime: -8585191112501998427
+    m_lastTime: -8585198691033209393
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -591,7 +625,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 17f1e5c129b67147b57d45b26b5755ff
     GuidInternal: 
-    m_lastTime: -8585191112500659556
+    m_lastTime: -8585198691032327777
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -605,7 +639,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: dcb474ca9926d1429bc7a58a32a3b583
     GuidInternal: 
-    m_lastTime: -8585191112500649598
+    m_lastTime: -8585198691030457502
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -619,10 +653,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: fbe76a273d47e145ac9b812be020c681
     GuidInternal: 
-    m_lastTime: -8585191112500639613
+    m_lastTime: -8585198691029086056
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000150000001600000017000000
+  ExpandedWaapiItemIds: 06000000070000001800000019000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
