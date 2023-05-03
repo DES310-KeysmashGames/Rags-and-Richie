@@ -82,7 +82,7 @@ public class TravelManager : MonoBehaviour
         nextButton.gameObject.SetActive(false);
         truck.enabled = true;
 
-        moveSpeed = 3;
+        moveSpeed = 2;
 
         cityClicked = false;
         nextClicked = false;
