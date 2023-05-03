@@ -586,6 +586,7 @@ MonoBehaviour:
   truckVroomEvent:
     idInternal: 0
     valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
     WwiseObjectReference: {fileID: 11400000, guid: 7eb053e878cc8e741846f1950cd64d4d, type: 2}
 --- !u!4 &789197628
 Transform:
@@ -2577,6 +2578,7 @@ GameObject:
   - component: {fileID: 2136903300}
   - component: {fileID: 2136903299}
   - component: {fileID: 2136903298}
+  - component: {fileID: 2136903301}
   m_Layer: 3
   m_Name: Truck
   m_TagString: Untagged
@@ -2631,7 +2633,7 @@ RectTransform:
   m_GameObject: {fileID: 2136903297}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2652, y: 1.2652, z: 1.2652}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2020839910}
@@ -2640,8 +2642,28 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1626, y: 8}
-  m_SizeDelta: {x: 1313.4, y: 1044.7}
+  m_SizeDelta: {x: 1753, y: 1044.7}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &2136903301
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136903297}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46da81a8693b16c4aaf80b64e0169da9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2137794067
 GameObject:
   m_ObjectHideFlags: 0
