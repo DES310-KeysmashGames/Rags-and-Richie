@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
     private float animDelay;
     private bool ending;
     private float endingTimer;
-    private bool wooshEffectActive;
+    private bool wooshBool;     
 
     //multipliers for specific locations
     private int foodMultiplier = 1;
@@ -314,22 +314,6 @@ public class GameManager : MonoBehaviour
             }
         }
         ResetToMenu();
-        if(ending)
-        {
-            endingTimer -= Time.deltaTime;
-            if(endingTimer <= 0.0f)
-            {
-                for (int i = 0; i < itemManager.soldItems.Count; i++)
-                {
-                    StaticInventory.soldItemsList.Add(itemManager.soldItems[i]);
-                    Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
-                    StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
-                    StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
-                    buttonPressEvent.Post(gameObject);
-                }
-                Loader.Load(Loader.Scene.DayEndScene);
-            }
-        }
         walletText.text = PlayerPrefs.GetInt("wallet").ToString();
         if (!itemsShown)
         {
@@ -835,10 +819,10 @@ public class GameManager : MonoBehaviour
 
     void MakeOfferPhaseSetActive()
     {
-        if (wooshEffectActive)
+        if (wooshBool)
         {
             wooshingUIevent.Post(gameObject);
-            wooshEffectActive = false;
+            wooshBool = false;
         }
         priceAdjuster.PriceConfirmSetActive();
         previousPriceText.SetText(previousPrice.ToString());
@@ -847,10 +831,10 @@ public class GameManager : MonoBehaviour
 
     void MakeOfferPhaseSetInactive()
     {
-        if (!wooshEffectActive)
+        if (!wooshBool)
         {
             wooshingUIevent.Post(gameObject);
-            wooshEffectActive = true;
+            wooshBool = true;
         }
         priceAdjuster.PriceConfirmSetInactive();
         bargainSpeech.enabled = true;
@@ -858,10 +842,10 @@ public class GameManager : MonoBehaviour
 
     void InitialOfferPhaseSetActive()
     {
-        if (wooshEffectActive)
+        if (wooshBool)
         {
             wooshingUIevent.Post(gameObject);
-            wooshEffectActive = false;
+            wooshBool = false;
         }
         bargainometer.enabled = true;
         initialPrice.BargainPhaseSetActive();
@@ -870,10 +854,10 @@ public class GameManager : MonoBehaviour
 
     void InitialOfferSetInactive(bool buttonCheck)
     {
-        if(!wooshEffectActive)
+        if (!wooshBool)
         {
             wooshingUIevent.Post(gameObject);
-            wooshEffectActive = true;
+            wooshBool = true;
         }
         initialPrice.BargainPhaseSetInactive();
         dimmer.enabled = false;

@@ -4435,9 +4435,7 @@ MonoBehaviour:
   buttonPressEvent:
     idInternal: 0
     valueGuidInternal: 
-<<<<<<< Updated upstream
     WwiseObjectReference: {fileID: 11400000, guid: e3b0203c477c6014aa6a354594ae5c9b, type: 2}
-<<<<<<< Updated upstream
   saleSuccess:
     idInternal: 0
     valueGuidInternal: 
@@ -4450,19 +4448,6 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 87aa6572e4ea7bc40940a55f89353d17, type: 2}
-=======
-=======
-    WwiseObjectReference: {fileID: 11400000, guid: aaa7e3c80684d7d4d83cc243800bd6f4, type: 2}
-  saleSuccess:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  saleFailure:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 --- !u!4 &944116510
 Transform:
   m_ObjectHideFlags: 0
