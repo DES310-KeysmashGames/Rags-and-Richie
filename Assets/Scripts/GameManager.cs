@@ -297,6 +297,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ending)
+        {
+            endingTimer -= Time.deltaTime;
+            if (endingTimer <= 0.0f)
+            {
+                for (int i = 0; i < itemManager.soldItems.Count; i++)
+                {
+                    StaticInventory.soldItemsList.Add(itemManager.soldItems[i]);
+                    Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
+                    StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
+                    StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
+                    buttonPressEvent.Post(gameObject);
+                }
+                Loader.Load(Loader.Scene.DayEndScene);
+            }
+        }
         ResetToMenu();
         if(ending)
         {
@@ -836,7 +852,6 @@ public class GameManager : MonoBehaviour
             wooshingUIevent.Post(gameObject);
             wooshEffectActive = true;
         }
-        wooshingUIevent.Post(gameObject);
         priceAdjuster.PriceConfirmSetInactive();
         bargainSpeech.enabled = true;
     }
@@ -848,7 +863,6 @@ public class GameManager : MonoBehaviour
             wooshingUIevent.Post(gameObject);
             wooshEffectActive = false;
         }
-        wooshingUIevent.Post(gameObject);
         bargainometer.enabled = true;
         initialPrice.BargainPhaseSetActive();
         dimmer.enabled = true;
