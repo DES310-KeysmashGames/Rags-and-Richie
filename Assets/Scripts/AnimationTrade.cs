@@ -13,12 +13,19 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator blinkingEmoticon;
     [SerializeField] Animator shelfLock;
     [SerializeField] Animator tutorialTravelText;
+    [SerializeField] Animator truckVroom;
 
 
     private void Awake()
     {
 
     }
+
+    public void TruckDrive()
+    {
+        truckVroom.SetTrigger("Vroom");
+    }
+
 
     // Tutorial Text Animations
 
