@@ -744,7 +744,7 @@ AudioSource:
   m_GameObject: {fileID: 622100423}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b41fd2b6bfac94f4fac33cbfde9a5363, type: 2}
   m_audioClip: {fileID: 8300000, guid: 81155ebb5dbe8f64688c65d5412fcf3d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1723,10 +1723,6 @@ MonoBehaviour:
   optionsButton: {fileID: 780852145}
   quitButton: {fileID: 341038235}
   audioMixer: {fileID: 24100000, guid: b41fd2b6bfac94f4fac33cbfde9a5363, type: 2}
-  playambientMusic:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3d42b401abdda2949bf57bce202a3696, type: 2}
   buttonClickEvent:
     idInternal: 0
     valueGuidInternal: 
