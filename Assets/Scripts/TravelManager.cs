@@ -185,11 +185,6 @@ public class TravelManager : MonoBehaviour
         {
             Loader.Load(Loader.Scene.ItemSelectScene); 
         }
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            truckSwipe.TruckDrive();
-        }
     }
 
     void UpdateCurrency()
