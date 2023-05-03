@@ -11,7 +11,6 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button optionsButton;
     [SerializeField] Button quitButton;
     public AudioMixer audioMixer;
-    public AK.Wwise.Event playambientMusic;
     public AK.Wwise.Event buttonClickEvent;
     private bool playing;
     private bool playGame;
@@ -41,7 +40,6 @@ public class MainMenuUI : MonoBehaviour
 
             Application.Quit();
         });
-        playambientMusic.Post(gameObject);
         timer = 1.0f;
         playGame = false;
     }
@@ -51,17 +49,6 @@ public class MainMenuUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playing = !playing;
-        }
-
-        if (playing)
-        {
-            playambientMusic.Post(gameObject);
-        }
-        else
-        {
-            {
-                playambientMusic.Stop(gameObject);
-            }
         }
 
         if (playGame)
