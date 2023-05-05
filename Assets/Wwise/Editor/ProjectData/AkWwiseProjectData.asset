@@ -331,7 +331,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a42bf338e693f7459acc11dc88983313
     GuidInternal: 
-    m_lastTime: -8585185579448911197
+    m_lastTime: -8585183919629855752
     List:
     - name: Main_Soundbank
       guid: e8170c92c708d14581b4b480412a9101
@@ -359,8 +359,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 6136e2c9251d0442a8e75cfbe027296a
     GuidInternal: 
-    m_lastTime: -8585185579458749343
+    m_lastTime: -8585183919637057747
     List:
+    - name: Play_And_His_Name_is_JOHN_CENA___Sound_Effect__HD_
+      guid: b54208846657ed45a0855d60b3a480e8
+      id: 3009580462
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_And_His_Name_is_JOHN_CENA___Sound_Effect__HD_
+        ObjectType: 3
+        guid: b54208846657ed45a0855d60b3a480e8
+      Path: Events\Default Work Unit\Play_And_His_Name_is_JOHN_CENA___Sound_Effect__HD_
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Confirm
       guid: 9618229877c5fa408f0cad562872be81
       id: 4136017490
@@ -656,7 +673,7 @@ MonoBehaviour:
     m_lastTime: -8585185579448801650
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 05000000060000000700000018000000190000001a000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

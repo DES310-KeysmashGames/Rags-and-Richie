@@ -18,7 +18,7 @@ public class EndSceneManager : MonoBehaviour
         finishButton.onClick.AddListener(()=> {
             //click action
             buttonEvent.Post(gameObject);
-            Loader.Load(Loader.Scene.MainMenuScene);
+            Loader.Load(Loader.Scene.CreditScene);
         });
         //set all images to disabled
         for (int i =0; i < endScreens.Length; i++){

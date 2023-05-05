@@ -12,7 +12,8 @@ public static class Loader
         ItemSelectScene,
         TradeScene,
         DayEndScene,
-        EndingScene
+        EndingScene,
+        CreditScene
     }
 
     public static void Load(Scene targetScene){
