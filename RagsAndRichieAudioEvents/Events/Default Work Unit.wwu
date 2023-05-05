@@ -213,6 +213,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_The_End_Of_Evangelion___Komm_S_sser_Tod___Come_Sweet_Death__HQ_" ID="{068BFD59-DCC7-4496-9C1C-BDA1446D3E77}">
+					<ChildrenList>
+						<Action Name="" ID="{7A43B5E2-6578-4F07-8DDE-30E8FEF75C48}" ShortID="744446896">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ)" ID="{BD432290-30B2-46F2-A53D-1E8CB89E7DBD}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

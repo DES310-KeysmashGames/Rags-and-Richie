@@ -2279,6 +2279,28 @@
 						<ActiveSource Name="And His Name is JOHN CENA - Sound Effect (HD)" ID="{1B4CAECC-79B4-4D40-825B-D98AEF743032}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ)" ID="{BD432290-30B2-46F2-A53D-1E8CB89E7DBD}" ShortID="1064257035">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5CA965A4-7784-4AA0-AE0D-A088291206C7}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{71A869C8-2838-4423-9BE9-7759A3894E95}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ)" ID="{68F374D1-0407-4CF1-B484-7144FF8CD2E5}">
+							<Language>SFX</Language>
+							<AudioFile>The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ).wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="749132126"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ)" ID="{68F374D1-0407-4CF1-B484-7144FF8CD2E5}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
