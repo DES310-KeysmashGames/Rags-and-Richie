@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 6136e2c9251d0442a8e75cfbe027296a
     GuidInternal: 
-    m_lastTime: -8585183919637057747
+    m_lastTime: -8585183308172619101
     List:
     - name: Play_And_His_Name_is_JOHN_CENA___Sound_Effect__HD_
       guid: b54208846657ed45a0855d60b3a480e8
@@ -599,6 +599,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_The_End_Of_Evangelion___Komm_S_sser_Tod___Come_Sweet_Death__HQ_
+      guid: 59fd8b06c7dc96449c1cbda1446d3e77
+      id: 4253496954
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_The_End_Of_Evangelion___Komm_S_sser_Tod___Come_Sweet_Death__HQ_
+        ObjectType: 3
+        guid: 59fd8b06c7dc96449c1cbda1446d3e77
+      Path: Events\Default Work Unit\Play_The_End_Of_Evangelion___Komm_S_sser_Tod___Come_Sweet_Death__HQ_
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Vroom
       guid: da79ede112595c4f84b35805f26569cc
       id: 2608693169
@@ -673,8 +690,8 @@ MonoBehaviour:
     m_lastTime: -8585185579448801650
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000700000018000000190000001a000000
+  ExpandedWaapiItemIds: 020000000300000005000000060000000700000018000000190000001a000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

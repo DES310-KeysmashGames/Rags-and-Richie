@@ -71,6 +71,7 @@ public class TravelManager : MonoBehaviour
             buttonPressEvent.Post(gameObject);
             MoveTruck();
             nextClicked = true;
+            nextButton.gameObject.SetActive(false);
         });
         tutorialCount = 0;
         readText = false;
@@ -196,7 +197,7 @@ public class TravelManager : MonoBehaviour
     async void MoveTruck()
     {
         truckSwipe.TruckDrive();
-        await Task.Delay(3000);
+        await Task.Delay(2000);
         TruckHasMoved();
     }
 

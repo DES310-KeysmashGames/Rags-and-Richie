@@ -320,14 +320,6 @@ public class GameManager : MonoBehaviour
             InitialTrade();
         }
         priceBox.text = setPrice.ToString("00");
-        if(setPrice > 99)
-        {
-            setPrice = 99;
-        }
-        if (setPrice < 0)
-        {
-            setPrice = 0;
-        }
         if (bargain)
         {
             textTimer -= Time.deltaTime;
@@ -678,21 +670,37 @@ public class GameManager : MonoBehaviour
     public void IncreasePrice()
     {
         setPrice += 1;
+        if (setPrice > 99)
+        {
+            setPrice = 99;
+        }
     }
 
     public void DecreasePrice()
     {
         setPrice -= 1;
+        if (setPrice < 0)
+        {
+            setPrice = 0;
+        }
     }
 
     public void IncreaseTen()
     {
         setPrice += 10;
+        if (setPrice > 99)
+        {
+            setPrice = 99;
+        }
     }
 
     public void DecreaseTen()
     {
         setPrice -= 10;
+        if (setPrice < 0)
+        {
+            setPrice = 0;
+        }
     }
 
     void AcceptDeal()
