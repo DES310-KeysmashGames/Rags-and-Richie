@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Kevin 1
   m_EditorClassIdentifier: 
-  lineOfDialogue: Hello boys!!! I'm back!!
+  lineOfDialogue: Hello boys!!! I'm back!
   category: 1
