@@ -12,13 +12,14 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button quitButton;
     public AudioMixer audioMixer;
     public AK.Wwise.Event buttonClickEvent;
+    public AK.Wwise.Event bgmEvent;
     private bool playing;
     private bool playGame;
     private float timer;
 
     private void Awake(){
-       optionsCanvas.gameObject.SetActive(false);
-
+        optionsCanvas.gameObject.SetActive(false);
+        bgmEvent.Post(gameObject);
         playButton.onClick.AddListener(()=> {
             //click action
             buttonClickEvent.Post(gameObject);

@@ -84,9 +84,8 @@ public class TravelManager : MonoBehaviour
         richieText.enabled = true;
 
         nextButton.gameObject.SetActive(false);
+        continueTextButton.gameObject.SetActive(false);
         truck.enabled = true;
-
-
 
         cityClicked = false;
         nextClicked = false;

@@ -10,7 +10,6 @@ public class TitleScreenScript : MonoBehaviour
     [SerializeField] private bool fadeAway;
     [SerializeField] float timer;
     [SerializeField] private bool transition;
-    public AK.Wwise.Event song;
 
     public void Start()
     {
@@ -44,7 +43,6 @@ public class TitleScreenScript : MonoBehaviour
         // fade from opaque to transparent
         if (fadeAway)
         {
-            song.Post((gameObject));
             // loop over 1 second backwards
             for (float i = 1; i >= 0; i -= Time.deltaTime)
             {

@@ -1727,6 +1727,10 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: e3b0203c477c6014aa6a354594ae5c9b, type: 2}
+  bgmEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2fe78894e1c19fa4ca63a94493034746, type: 2}
 --- !u!114 &1275069060
 MonoBehaviour:
   m_ObjectHideFlags: 0

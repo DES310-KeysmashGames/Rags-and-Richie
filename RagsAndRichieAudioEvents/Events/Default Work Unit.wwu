@@ -202,23 +202,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_And_His_Name_is_JOHN_CENA___Sound_Effect__HD_" ID="{840842B5-5766-45ED-A085-5D60B3A480E8}">
+				<Event Name="Play_amb_background_music" ID="{14A3A3A0-090E-4B5A-8DBB-A2B624CBEFA6}">
 					<ChildrenList>
-						<Action Name="" ID="{4E274D5B-94AD-4191-9404-6BB47B8EE873}" ShortID="15512624">
+						<Action Name="" ID="{E061391D-BB7F-4F60-A67A-B123D1F1F928}" ShortID="314708025">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="And His Name is JOHN CENA - Sound Effect (HD)" ID="{9DFE102C-D3D9-4E92-91EF-0CA8798D3A9E}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_The_End_Of_Evangelion___Komm_S_sser_Tod___Come_Sweet_Death__HQ_" ID="{068BFD59-DCC7-4496-9C1C-BDA1446D3E77}">
-					<ChildrenList>
-						<Action Name="" ID="{7A43B5E2-6578-4F07-8DDE-30E8FEF75C48}" ShortID="744446896">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ)" ID="{BD432290-30B2-46F2-A53D-1E8CB89E7DBD}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+									<ObjectRef Name="amb_background_music" ID="{F86E4AD8-4226-4715-A3BD-E40DCC1F61F2}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -2252,7 +2252,10 @@
 						<ActiveSource Name="sfx_sale_successful_01" ID="{8764D65E-70DD-47EF-88D4-3BF1ED0C4FAB}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="And His Name is JOHN CENA - Sound Effect (HD)" ID="{9DFE102C-D3D9-4E92-91EF-0CA8798D3A9E}" ShortID="103622179">
+				<Sound Name="amb_background_music" ID="{F86E4AD8-4226-4715-A3BD-E40DCC1F61F2}" ShortID="26449158">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5CA965A4-7784-4AA0-AE0D-A088291206C7}"/>
@@ -2262,43 +2265,16 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="And His Name is JOHN CENA - Sound Effect (HD)" ID="{1B4CAECC-79B4-4D40-825B-D98AEF743032}">
-							<PropertyList>
-								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-								<Property Name="TrimBegin" Type="Real64" Value="0.350088013478819"/>
-								<Property Name="TrimEnd" Type="Real64" Value="6.57387491976892"/>
-							</PropertyList>
+						<AudioFileSource Name="581415__peanut_shaman__western-bass" ID="{135DB88F-5821-4E37-946A-19ABB986E2D6}">
 							<Language>SFX</Language>
-							<AudioFile>And His Name is JOHN CENA - Sound Effect (HD).wav</AudioFile>
+							<AudioFile>581415__peanut_shaman__western-bass.wav</AudioFile>
 							<MediaIDList>
-								<MediaID ID="954182832"/>
+								<MediaID ID="573416213"/>
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="And His Name is JOHN CENA - Sound Effect (HD)" ID="{1B4CAECC-79B4-4D40-825B-D98AEF743032}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ)" ID="{BD432290-30B2-46F2-A53D-1E8CB89E7DBD}" ShortID="1064257035">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5CA965A4-7784-4AA0-AE0D-A088291206C7}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{71A869C8-2838-4423-9BE9-7759A3894E95}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ)" ID="{68F374D1-0407-4CF1-B484-7144FF8CD2E5}">
-							<Language>SFX</Language>
-							<AudioFile>The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ).wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="749132126"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="The End Of Evangelion - Komm Süsser Tod - Come Sweet Death (HQ)" ID="{68F374D1-0407-4CF1-B484-7144FF8CD2E5}" Platform="Linked"/>
+						<ActiveSource Name="581415__peanut_shaman__western-bass" ID="{135DB88F-5821-4E37-946A-19ABB986E2D6}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
