@@ -6,13 +6,21 @@ using UnityEngine.UI;
 public class CreditScrawlScript : MonoBehaviour
 {
     [SerializeField] private Image credits;
-    [SerializeField] float timer;
     public AK.Wwise.Event creditEvent;
+    [SerializeField] private float posValue;
+    [SerializeField] private Button skipCredits;
+
+    private void Awake()
+    {
+        skipCredits.onClick.AddListener(() => 
+        {
+            Loader.Load(Loader.Scene.MainMenuScene);
+        });
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 30.0f;
         creditEvent.Post(gameObject);
     }
 
@@ -20,10 +28,10 @@ public class CreditScrawlScript : MonoBehaviour
     void FixedUpdate()
     {
         credits.transform.position = new Vector3(credits.transform.position.x, (float)((double)credits.transform.position.y + 2.0f), credits.transform.position.z);
-        timer -= Time.deltaTime;
-        if (timer <= 0)
+        posValue = credits.transform.position.y;
+  
+        if(posValue >= 800)
         {
-            creditEvent.Stop(gameObject);
             Loader.Load(Loader.Scene.MainMenuScene);
         }
     }
