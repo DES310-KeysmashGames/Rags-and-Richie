@@ -636,10 +636,10 @@ MonoBehaviour:
   fadeAway: 0
   timer: 0
   transition: 0
-  song:
+  bgmEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f27866c7fac587142a54efbedf833e15, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 2fe78894e1c19fa4ca63a94493034746, type: 2}
 --- !u!114 &1537807859
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,12 +10,14 @@ public class TitleScreenScript : MonoBehaviour
     [SerializeField] private bool fadeAway;
     [SerializeField] float timer;
     [SerializeField] private bool transition;
+    public AK.Wwise.Event bgmEvent;
 
     public void Start()
     {
         timer = 3.0f;
         fadeAway = true;
         StartCoroutine(FadeImage());
+        bgmEvent.Post(gameObject);
     }
 
     public void Update()
