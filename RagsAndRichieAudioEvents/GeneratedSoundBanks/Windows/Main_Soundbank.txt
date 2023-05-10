@@ -2,12 +2,12 @@ Event	ID	Name			Wwise Object Path	Notes
 	156049301	Play_Reaction_Angry			\Default Work Unit\Play_Reaction_Angry	
 	267911644	Play_Dialogue			\Default Work Unit\Play_Dialogue	
 	478303155	Play_Sale_Success			\Default Work Unit\Play_Sale_Success	
+	606149837	Play_amb_background_music_01			\Default Work Unit\Play_amb_background_music_01	
 	948866160	Play_PopUp			\Default Work Unit\Play_PopUp	
 	1028536316	Play_Price_Adjust_Down			\Default Work Unit\Play_Price_Adjust_Down	
 	1042987450	Play_Select			\Default Work Unit\Play_Select	
 	1360393603	Play_Richie_Dialogue			\Default Work Unit\Play_Richie_Dialogue	
 	1791468588	Play_Reaction_Happy			\Default Work Unit\Play_Reaction_Happy	
-	2065519745	Play_amb_background_music			\Default Work Unit\Play_amb_background_music	
 	2608693169	Play_Vroom			\Default Work Unit\Play_Vroom	
 	2733156247	Play_Price_Adjust_Up			\Default Work Unit\Play_Price_Adjust_Up	
 	3548034815	Play_Reaction_Neutral			\Default Work Unit\Play_Reaction_Neutral	
@@ -42,7 +42,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	525263453	sfx_priceselection_adjust_07	C:\Users\calvi\Documents\GitHub\Rags-and-Richie\RagsAndRichieAudioEvents\.cache\Windows\SFX\sfx_priceselection_adjust_07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Price Adjust Up Sequence Contrainer\sfx_priceselection_adjust_07		84720
 	531086122	dia_customer_speaking_06	C:\Users\calvi\Documents\GitHub\Rags-and-Richie\RagsAndRichieAudioEvents\.cache\Windows\SFX\dia_customer_speaking_06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Random Container\Normal Pitch Random Container\dia_customer_speaking_06		28768
 	547734136	sfx_sale_failure_01	C:\Users\calvi\Documents\GitHub\Rags-and-Richie\RagsAndRichieAudioEvents\.cache\Windows\SFX\sfx_sale_failure_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sfx_sale_failure_01		325424
-	573416213	amb_background_music	C:\Users\calvi\Documents\GitHub\Rags-and-Richie\RagsAndRichieAudioEvents\.cache\Windows\SFX\581415__peanut_shaman__western-bass_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\amb_background_music		12490316
+	573416213	amb_background_music_01	C:\Users\calvi\Documents\GitHub\Rags-and-Richie\RagsAndRichieAudioEvents\.cache\Windows\SFX\581415__peanut_shaman__western-bass_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\amb_background_music_01		12490316
 	604664771	sfx_priceselection_adjust_09	C:\Users\calvi\Documents\GitHub\Rags-and-Richie\RagsAndRichieAudioEvents\.cache\Windows\SFX\sfx_priceselection_adjust_09_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Price Adjust Up Sequence Contrainer\sfx_priceselection_adjust_09		84720
 	613131630	dia_customer_speaking_02	C:\Users\calvi\Documents\GitHub\Rags-and-Richie\RagsAndRichieAudioEvents\.cache\Windows\SFX\dia_customer_speaking_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue Random Container\Normal Pitch Random Container\dia_customer_speaking_02		24672
 	632319009	dia_richie_speaking_10	C:\Users\calvi\Documents\GitHub\Rags-and-Richie\RagsAndRichieAudioEvents\.cache\Windows\SFX\dia_richie_speaking_10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Richie Dialogue Random Container\dia_richie_speaking_10		18508

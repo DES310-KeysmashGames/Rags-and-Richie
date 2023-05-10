@@ -16,6 +16,10 @@ public class MainMenuUI : MonoBehaviour
     private bool playing;
     private bool playGame;
     private float timer;
+    private float sfx;
+    private float music;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider SFXSlider;
 
     private void Awake(){
         optionsCanvas.gameObject.SetActive(false);
@@ -68,13 +72,15 @@ public class MainMenuUI : MonoBehaviour
 
     //Main Menu Background Audio
 
-    ////Basic Audio by Leslie
-    public void SetSFXVolume(float SFXvolume){
-        Debug.Log("sfx volume = " + SFXvolume);
-        audioMixer.SetFloat("mixVolume", SFXvolume);
+    public void SetSFXVolume()
+    {
+        sfx = SFXSlider.value;
+        AkSoundEngine.SetRTPCValue("SFXVolume", sfx);
     }
 
-    public void SetMusicVolume(float musicVolume){
-        Debug.Log("music volume = " + musicVolume);
+    public void SetMusicVolume()
+    {
+        music = musicSlider.value;
+        AkSoundEngine.SetRTPCValue("MusicVolume", music);
     }
 }
