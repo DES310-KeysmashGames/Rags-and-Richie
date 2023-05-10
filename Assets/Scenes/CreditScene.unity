@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 88791597}
   - component: {fileID: 88791596}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SkipText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2579,7 +2579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   credits: {fileID: 388637803}
-  timer: 0
   creditEvent:
     idInternal: 0
     valueGuidInternal: 
