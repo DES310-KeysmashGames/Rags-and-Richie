@@ -71,7 +71,7 @@ public class TravelManager : MonoBehaviour
             buttonPressEvent.Post(gameObject);
             MoveTruck();
             nextClicked = true;
-            nextButton.gameObject.SetActive(false);
+            
         });
         tutorialCount = 0;
         readText = false;
@@ -177,6 +177,8 @@ public class TravelManager : MonoBehaviour
             {
                 truckVroomEvent.Post(gameObject);
                 isPlaying = true;
+                nextButton.gameObject.SetActive(false);
+                cityClicked = false;
             }
         }
 
@@ -198,6 +200,7 @@ public class TravelManager : MonoBehaviour
         truckSwipe.TruckDrive();
         await Task.Delay(2000);
         TruckHasMoved();
+        nextButton.gameObject.SetActive(false);
     }
 
     private void TruckHasMoved()
