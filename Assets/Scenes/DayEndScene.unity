@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 614694984}
   - component: {fileID: 614694983}
   - component: {fileID: 614694987}
+  - component: {fileID: 614694988}
   m_Layer: 5
   m_Name: DayEndUI
   m_TagString: Untagged
@@ -579,6 +580,30 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: e3b0203c477c6014aa6a354594ae5c9b, type: 2}
+--- !u!114 &614694988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614694982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66b36c9abdb89b429cfa4b84816db97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4a60cb23cd42c6543854b4779abea8a0, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &618569720
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,8 +29,6 @@ public class DayEndUI : MonoBehaviour
                 Loader.Load(Loader.Scene.TravelScene);
                 StaticTravel.dayCount++;
                 ClearItems();
-
-                //Next Day Button Audio
             });
         }
         else
@@ -40,8 +38,6 @@ public class DayEndUI : MonoBehaviour
             {
                 Loader.Load(Loader.Scene.EndingScene);
                 ClearItems();
-
-                //Next Day Button Audio
             });
         }
 
@@ -65,7 +61,6 @@ public class DayEndUI : MonoBehaviour
 
     private Sprite GetSprite(int i)
     {
-        //return CurrentItems[itemNo].frontSprite;
         return soldItemsReviewList[i].frontSprite;
     }
     private void AssignSprites(){
@@ -97,6 +92,4 @@ public class DayEndUI : MonoBehaviour
         StaticInventory.sellPrice.Clear();
         StaticInventory.basePrice.Clear();
     }
-
-    //End of Day Background Audio
 }

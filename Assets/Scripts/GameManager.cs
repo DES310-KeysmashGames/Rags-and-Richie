@@ -104,7 +104,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int customerCount;
     private int sellCount;
     private float textTimer;
-    private float animDelay;
     private bool ending;
     private float endingTimer;
     private bool wooshBool;     
@@ -441,7 +440,6 @@ public class GameManager : MonoBehaviour
 
     private async Task PriceConfirmAsync()
     {
-        animDelay = 10.0f;
         TextPrompt.gameObject.SetActive(true);
         InitialOfferSetInactive(true);
         
