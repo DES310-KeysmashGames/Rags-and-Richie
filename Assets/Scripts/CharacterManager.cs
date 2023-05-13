@@ -86,7 +86,7 @@ public class CharacterManager : MonoBehaviour
 
     public int GetIntroLength()
     {
-        introTextNo = UnityEngine.Random.Range(0, 2);
+        introTextNo = UnityEngine.Random.Range(0, 3);
         switch(introTextNo)
         {
             case 0:

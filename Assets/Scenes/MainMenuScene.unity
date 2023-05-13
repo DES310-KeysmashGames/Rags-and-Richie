@@ -744,7 +744,7 @@ AudioSource:
   m_GameObject: {fileID: 622100423}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b41fd2b6bfac94f4fac33cbfde9a5363, type: 2}
   m_audioClip: {fileID: 8300000, guid: 81155ebb5dbe8f64688c65d5412fcf3d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1723,14 +1723,16 @@ MonoBehaviour:
   optionsButton: {fileID: 780852145}
   quitButton: {fileID: 341038235}
   audioMixer: {fileID: 24100000, guid: b41fd2b6bfac94f4fac33cbfde9a5363, type: 2}
-  playambientMusic:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3d42b401abdda2949bf57bce202a3696, type: 2}
   buttonClickEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: e3b0203c477c6014aa6a354594ae5c9b, type: 2}
+  bgmEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2fe78894e1c19fa4ca63a94493034746, type: 2}
+  musicSlider: {fileID: 1876168461}
+  SFXSlider: {fileID: 1606234724}
 --- !u!114 &1275069060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,17 +2289,17 @@ MonoBehaviour:
   m_FillRect: {fileID: 2035042297}
   m_HandleRect: {fileID: 1030505816}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1275069057}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
         m_MethodName: SetSFXVolume
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2305,7 +2307,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &1635558287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,7 +2335,7 @@ RectTransform:
   m_GameObject: {fileID: 1635558287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0375, y: 1.2128936, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1275069056}
@@ -2741,16 +2743,16 @@ MonoBehaviour:
   m_HandleRect: {fileID: 642160751}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 91.7
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 531612235}
-        m_TargetAssemblyTypeName: MusicPlayerScript, Assembly-CSharp
-        m_MethodName: ChangeVolume
-        m_Mode: 0
+      - m_Target: {fileID: 1275069057}
+        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2758,7 +2760,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &1917462704
 GameObject:
   m_ObjectHideFlags: 0

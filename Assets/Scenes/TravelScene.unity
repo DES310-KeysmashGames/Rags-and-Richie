@@ -235,8 +235,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.979065, y: -1.8998108}
-  m_SizeDelta: {x: 1468.7463, y: 823.0634}
+  m_AnchoredPosition: {x: -1.2436, y: 0.010017}
+  m_SizeDelta: {x: 1469.9, y: 825.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &514889642
 MonoBehaviour:
@@ -568,6 +568,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c6afbad0f11d9f1428e10edaf02d8acb, type: 3}
   - {fileID: 21300000, guid: 1b4c5a62696f51a41839c353be4787b3, type: 3}
   - {fileID: 21300000, guid: 12a92e393da2c654e861b39eb1d1d272, type: 3}
+  truckSwipe: {fileID: 2136903302}
   continueTextButton: {fileID: 1161368183}
   tutorialCount: 0
   readText: 0
@@ -1463,6 +1464,7 @@ MonoBehaviour:
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
   tutorialTravelText: {fileID: 1638254820}
+  truckVroom: {fileID: 0}
 --- !u!1 &1679083356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,6 +2579,8 @@ GameObject:
   - component: {fileID: 2136903300}
   - component: {fileID: 2136903299}
   - component: {fileID: 2136903298}
+  - component: {fileID: 2136903301}
+  - component: {fileID: 2136903302}
   m_Layer: 3
   m_Name: Truck
   m_TagString: Untagged
@@ -2631,7 +2635,7 @@ RectTransform:
   m_GameObject: {fileID: 2136903297}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2652, y: 1.2652, z: 1.2652}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2020839910}
@@ -2639,9 +2643,51 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1626, y: 8}
-  m_SizeDelta: {x: 1313.4, y: 1044.7}
+  m_AnchoredPosition: {x: -1798, y: 8}
+  m_SizeDelta: {x: 1753, y: 1044.7}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &2136903301
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136903297}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46da81a8693b16c4aaf80b64e0169da9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2136903302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136903297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 0}
+  priceConfirmAnimation: {fileID: 0}
+  patienceMeterAnimation: {fileID: 0}
+  customerAnimations: {fileID: 0}
+  speechBubble: {fileID: 0}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 0}
+  shelfLock: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
+  truckVroom: {fileID: 2136903301}
 --- !u!1 &2137794067
 GameObject:
   m_ObjectHideFlags: 0

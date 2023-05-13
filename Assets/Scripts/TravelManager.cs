@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using UnityEngine.EventSystems;
+using System.Threading.Tasks;
 using System.Timers;
 using Unity.VisualScripting;
 
@@ -33,6 +34,7 @@ public class TravelManager : MonoBehaviour
     [SerializeField] private Image truck;
     [SerializeField] private Sprite[] citySprites;
     [SerializeField] private Sprite[] citySelectedSprites;
+    [SerializeField] AnimationTrade truckSwipe;
 
     //RichieText
     [SerializeField] private Button continueTextButton;
@@ -41,9 +43,9 @@ public class TravelManager : MonoBehaviour
 
     //Variables
     [SerializeField] private bool truckMoved, cityClicked, nextClicked;
-    private int moveSpeed;
+ 
     private int wallet;
-    private int expenses;
+
     private int day;
     private bool isPlaying;
 
@@ -67,7 +69,9 @@ public class TravelManager : MonoBehaviour
         {
             //Next Day Button Audio
             buttonPressEvent.Post(gameObject);
+            MoveTruck();
             nextClicked = true;
+            
         });
         tutorialCount = 0;
         readText = false;
@@ -80,9 +84,8 @@ public class TravelManager : MonoBehaviour
         richieText.enabled = true;
 
         nextButton.gameObject.SetActive(false);
+        continueTextButton.gameObject.SetActive(false);
         truck.enabled = true;
-
-        moveSpeed = 3;
 
         cityClicked = false;
         nextClicked = false;
@@ -169,19 +172,20 @@ public class TravelManager : MonoBehaviour
 
         //Move truck if next is clicked
         if (nextClicked)
-        {
-            MoveTruck();
+        {   
             if (!isPlaying)
             {
                 truckVroomEvent.Post(gameObject);
                 isPlaying = true;
+                nextButton.gameObject.SetActive(false);
+                cityClicked = false;
             }
         }
 
         //Load next scene when truck has finished moving
         if (truckMoved)
         {
-            Loader.Load(Loader.Scene.ItemSelectScene);
+            Loader.Load(Loader.Scene.ItemSelectScene); 
         }
     }
 
@@ -191,14 +195,19 @@ public class TravelManager : MonoBehaviour
     }
    
     //Function to move truck across screen
-    void MoveTruck()
-    { 
-        truck.transform.position = Vector2.Lerp(truck.transform.position, new Vector2(Screen.width * 2.0f, truck.transform.position.y), Time.deltaTime * moveSpeed); 
-        if (truck.transform.position.x >= Screen.width)
-        {
-            truck.enabled = false;
-            truckMoved = true;
-        }
+    async void MoveTruck()
+    {
+        truckSwipe.TruckDrive();
+        await Task.Delay(2000);
+        TruckHasMoved();
+        nextButton.gameObject.SetActive(false);
+    }
+
+    private void TruckHasMoved()
+    {
+
+        truckMoved = true;
+
     }
 
     public void CityClicked1()
