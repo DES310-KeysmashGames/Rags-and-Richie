@@ -8,29 +8,44 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gamePaused = false;
-    public GameObject pauseMenu;
+    private bool optionsOn = false;
 
-    [Header("Menu Buttons")]
+    [Header("Menu Panels")]
+    public GameObject pauseMenu;
+    public GameObject optionsMenu;
+
+    [Header("Pause Menu Buttons")]
     [SerializeField] private Button resumeButton;
-    [SerializeField] private Button settingsButton;
+    [SerializeField] private Button optionsButton;
     [SerializeField] private Button menuButton;
+
+    [Header("Options Menu Buttons")]
+    [SerializeField] private Button backButton;
+
+    //Wwise audio variables
+    [Header("Audio Events")]
+    public AK.Wwise.Event button;
+    public AK.Wwise.Event slider;
+    public AK.Wwise.Event tick;
 
     private void Awake()
     {
         //Resume Game via button click
         resumeButton.onClick.AddListener(() =>
         {
-            //Play button sound
-
             ResumeGame();
+
+            //Play button sound
+            button.Post(gameObject);
         });
 
-        //Bring up settings/options menu
-        settingsButton.onClick.AddListener(() =>
+        //Bring up Options menu
+        optionsButton.onClick.AddListener(() =>
         {
-            //Play button sound
-
             Settings();
+
+            //Play button sound
+            button.Post(gameObject);
         });
 
         //Reset Time, unpause game, return to main menu
@@ -42,17 +57,31 @@ public class PauseMenu : MonoBehaviour
 
             //Potentially pause background music
         });
+
+        //Return to Pause Menu
+        backButton.onClick.AddListener(() =>
+        {
+            Back();
+
+            //Play button sound
+            button.Post(gameObject);
+        });
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        //Pause or Resume if Escape is pressed
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gamePaused)
+            if (gamePaused && optionsOn)
+            {
+                Back();
+            } else if (gamePaused)
             {
                 ResumeGame();
-            } else
+            }
+            else
             {
                 PauseGame();
             }
@@ -64,6 +93,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
         gamePaused = true;
+        optionsOn = false;
         pauseMenu.gameObject.SetActive(true);
     }
 
@@ -77,8 +107,25 @@ public class PauseMenu : MonoBehaviour
 
     void Settings()
     {
-        Debug.Log("Imagine that theres a full working settings menu here...");
+        //Disable main pause menu buttons
+        resumeButton.gameObject.SetActive(false);
+        optionsButton.gameObject.SetActive(false);
+        menuButton.gameObject.SetActive(false);
 
-        //Various button sounds
+        //Enable Settings menu
+        optionsOn = true;
+        optionsMenu.gameObject.SetActive(true);
+    }
+
+    void Back()
+    {
+        //Disable Settings Menu
+        optionsOn = false;
+        optionsMenu.gameObject.SetActive(false);
+
+        //Re-enable main pause menu buttons 
+        resumeButton.gameObject.SetActive(true);
+        optionsButton.gameObject.SetActive(true);
+        menuButton.gameObject.SetActive(true);
     }
 }
