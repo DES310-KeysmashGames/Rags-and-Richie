@@ -47,6 +47,13 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    // Generates Tutorial Customer
+    public void GenerateTutorialCustomer()
+    {
+        //Select Rushing Randy as tutorial customer
+        currentChar = character[0];
+    }
+
     public void SaleOver()
     {
         prevCustomer.Add(currentChar);

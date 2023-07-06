@@ -106,7 +106,8 @@ public class GameManager : MonoBehaviour
     private float textTimer;
     private bool ending;
     private float endingTimer;
-    private bool wooshBool;     
+    private bool wooshBool;
+    private int day;
 
     //multipliers for specific locations
     private int foodMultiplier = 1;
@@ -136,6 +137,7 @@ public class GameManager : MonoBehaviour
         itemManager = GetComponent<ItemManager>();
         patienceArrow = GetComponent<PatienceMeter>();
         animateText = GetComponent<AnimateText>();
+
 
         endGameButton.onClick.AddListener(() => {
             //click action
@@ -243,7 +245,17 @@ public class GameManager : MonoBehaviour
     {
         ending = false;
         endingTimer = 3.0f;
-        NewCustomer();
+        day = StaticTravel.dayCount;
+
+        //If it's the first day, run tutorial character
+        if (day == 1)
+        {
+            TutorialCustomer();
+        } else
+        {
+            NewCustomer();
+        }
+
         itemManager.GenerateItemList();
         for (int i = 0; i < itemButtons.Length; ++i)
         {
@@ -389,6 +401,9 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    //Customer Functions
+
     //generate a new customer.
     void NewCustomer()
     {
@@ -409,6 +424,22 @@ public class GameManager : MonoBehaviour
         speechBubbleImage.sprite = speechBubbles[2];
         patienceMeter.sprite = patienceMeters[0];
     }
+
+    //Tutorial Customer to show Users how to play
+    void TutorialCustomer()
+    {
+        customerAnimations.CustomerSpeakingArrive();        // Customer arriving animation
+        playerApproachEvent.Post(gameObject);               // Customer approach sound 
+        character.GenerateTutorialCustomer();               // Generates Tutorial Character
+        customer.sprite = character.GetSprite();            // Generates Character Sprite
+    }
+
+    void ShadyCharacter()
+    {
+
+    }
+
+    //Item Functions
 
     //displays the items available for sale.
     void ItemsForSale()
