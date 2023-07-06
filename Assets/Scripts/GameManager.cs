@@ -312,7 +312,6 @@ public class GameManager : MonoBehaviour
                 Loader.Load(Loader.Scene.DayEndScene);
             }
         }
-        ResetToMenu();
         walletText.text = PlayerPrefs.GetInt("wallet").ToString();
         if (!itemsShown)
         {
@@ -872,15 +871,6 @@ public class GameManager : MonoBehaviour
             shelfLock.ShelfClose();    
         }
         
-    }
-
-   void ResetToMenu()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Loader.Load(Loader.Scene.MainMenuScene);
-            ResetLevel();
-        }
     }
 
    public void HoverItem1()
