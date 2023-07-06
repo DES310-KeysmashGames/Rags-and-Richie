@@ -136,6 +136,11 @@ public class CharacterManager : MonoBehaviour
         return zeroPatience[i].lineOfDialogue;
     }
 
+    public string GetPrimaryDesire()
+    {
+        return currentChar.desire.ToString();
+    }
+
     public int GetFood()
     {
         return currentChar.foodDesire;

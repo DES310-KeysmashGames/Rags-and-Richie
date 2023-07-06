@@ -244,7 +244,7 @@ public class GameManager : MonoBehaviour
         ending = false;
         endingTimer = 3.0f;
         NewCustomer();
-        itemManager.GenerateItemList();
+        //itemManager.GenerateItemList();
         for (int i = 0; i < itemButtons.Length; ++i)
         {
             itemText[i].text = itemManager.GetName(i);
@@ -409,6 +409,8 @@ public class GameManager : MonoBehaviour
         //introLength = character.GetIntroLength();
         speechBubbleImage.sprite = speechBubbles[2];
         patienceMeter.sprite = patienceMeters[0];
+        itemManager.GenerateItemStock(character.GetPrimaryDesire());
+        print(character.GetPrimaryDesire());
     }
 
     //displays the items available for sale.
@@ -809,18 +811,18 @@ public class GameManager : MonoBehaviour
         itemButtons[selectedItem].interactable = true;
         itemButtons[selectedItem].gameObject.SetActive(false);
         itemText[selectedItem].enabled = false;
-        switch (sellCount)
-        {
-            case 1:
-                itemButtons[3].gameObject.SetActive(false);
-                break;
-            case 2:
-                itemButtons[2].gameObject.SetActive(false);
-                break;
-            case 3:
-                itemButtons[1].gameObject.SetActive(false);
-                break;
-        }
+        //switch (sellCount)
+        //{
+        //    case 1:
+        //        itemButtons[3].gameObject.SetActive(false);
+        //        break;
+        //    case 2:
+        //        itemButtons[2].gameObject.SetActive(false);
+        //        break;
+        //    case 3:
+        //        itemButtons[1].gameObject.SetActive(false);
+        //        break;
+        //}
     }
 
     void MakeOfferPhaseSetActive()

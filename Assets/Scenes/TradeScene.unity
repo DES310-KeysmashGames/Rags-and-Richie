@@ -4309,6 +4309,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
+  shopStock:
+  - {fileID: 11400000, guid: 320c85e68c99cbe429f40d7aa7be3755, type: 2}
+  - {fileID: 11400000, guid: 68e1657683684274f955cddf9e9b0499, type: 2}
+  - {fileID: 11400000, guid: 9bc0c0252e44f214cb0c0c3278b7bf8e, type: 2}
+  - {fileID: 11400000, guid: f5bf1a0e77d306d4785152f4c64c2f12, type: 2}
+  - {fileID: 11400000, guid: 2b4a21c534feeae44b91acd7d30a5114, type: 2}
+  - {fileID: 11400000, guid: 739b5cff8b5962a49b1dd5d7126bd04e, type: 2}
+  - {fileID: 11400000, guid: 142c147a6b7be454b8e1067f1879ed0e, type: 2}
+  - {fileID: 11400000, guid: 3890fa6777d4d1443b3881b10d64dcf2, type: 2}
+  - {fileID: 11400000, guid: 8ca3d706a5544f043bfc4d98792b8284, type: 2}
+  - {fileID: 11400000, guid: 917a3d83865683b4f90f67a8a5185657, type: 2}
+  - {fileID: 11400000, guid: 371493c178e9eb5408216717af9a3c7d, type: 2}
+  - {fileID: 11400000, guid: 7ad0c9c41a253f645a3ca6ab8775e658, type: 2}
   soldItems: []
   itemPrice: 
   sellPrice: 

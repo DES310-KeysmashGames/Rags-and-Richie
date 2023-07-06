@@ -185,7 +185,8 @@ public class TravelManager : MonoBehaviour
         //Load next scene when truck has finished moving
         if (truckMoved)
         {
-            Loader.Load(Loader.Scene.ItemSelectScene); 
+            //Loader.Load(Loader.Scene.ItemSelectScene); 
+            Loader.Load(Loader.Scene.TradeScene);
         }
     }
 
