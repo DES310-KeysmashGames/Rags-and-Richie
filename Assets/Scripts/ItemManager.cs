@@ -13,7 +13,7 @@ public class ItemManager : MonoBehaviour
     public List<int> itemPrice = new List<int>();
     public List<int> sellPrice = new List<int>();
 
-    private bool itemTagMatch;
+    private bool itemTagMatch = false;
     private bool itemExists;
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
@@ -27,38 +27,21 @@ public class ItemManager : MonoBehaviour
 
     public void GenerateItemStock(string itemCategory)
     {
-        print(itemCategory + " passed through");
         inventory.RemoveRange(0, inventory.Count);
+        int placement = UnityEngine.Random.Range(0, 4);
         for (int i = 0; i < 4; ++i)
         {
             int index = UnityEngine.Random.Range(0, shopStock.Count);
             inventory.Add(shopStock[index]);
-            TagMatch(itemCategory);
         }
-        if (!itemTagMatch)
-        {
-            int randomNo = UnityEngine.Random.Range(0, inventory.Count);
-            {
-                while( itemTagMatch == false)
-                {
-                    int index = UnityEngine.Random.Range(0, shopStock.Count);
-                    inventory[randomNo] = shopStock[index];
-                    TagMatch(itemCategory);
-                }
-            }
-        }
-        itemTagMatch = false;
     }
 
 
-    private void TagMatch(string itemCat)
+    private void TagMatch(string itemCat, int index)
     {
-        for (int i = 0; i < inventory.Count; ++i)
+        if(shopStock[index].primaryType.ToString() == itemCat)
         {
-            if (inventory[i].primaryType.ToString() == itemCat)
-            {
-                itemTagMatch = true;
-            }
+            itemTagMatch = true;
         }
     }
 
