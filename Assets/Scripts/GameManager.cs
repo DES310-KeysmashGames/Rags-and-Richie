@@ -149,8 +149,13 @@ public class GameManager : MonoBehaviour
                 Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
                 StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                 StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
+                //StaticInventory.charPortraits.Add(character.GetCharSprite(i));
+                StaticInventory.charac.Add(character.GetCharacterList(i));
+                StaticInventory.itemSprites.Add(itemManager.GetItemSprite(i));
                 buttonPressEvent.Post(gameObject);
             }
+            itemManager.Reset();
+            character.Reset();
             Loader.Load(Loader.Scene.DayEndScene);
         });
         for (int i = 0; i < itemButtons.Length; ++i)
@@ -793,8 +798,6 @@ public class GameManager : MonoBehaviour
 
     void ResetLevel()
     {
-        itemManager.Reset();
-        character.Reset();
         sellCount = 0;
         ending = true;
         //endGameButton.gameObject.SetActive(true);
@@ -895,6 +898,8 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Loader.Load(Loader.Scene.MainMenuScene);
+            itemManager.Reset();
+            character.Reset();
             ResetLevel();
         }
     }

@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class DayEndUI : MonoBehaviour
 {
     [SerializeField] public List<BaseItem> soldItemsReviewList = new List<BaseItem>();
+    [SerializeField] public List<Sprite> charSpriteList = new List<Sprite>();
     public List<int> soldPrice = new List<int>();
     public List<int> price = new List<int>();
     [SerializeField] private Image[] soldItemSprites;
     [SerializeField] private Image[] thumbSprites;
     [SerializeField] private Sprite[] thumb;
     [SerializeField] private TextMeshProUGUI expenses;
+    [SerializeField] private TextMeshProUGUI[] itemCost;
 
     [SerializeField] Button endButton;
 
@@ -53,9 +55,11 @@ public class DayEndUI : MonoBehaviour
             soldItemsReviewList.Add(StaticInventory.soldItemsList[i]);
             soldPrice.Add(StaticInventory.sellPrice[i]);
             price.Add(StaticInventory.basePrice[i]);
+            charSpriteList.Add(StaticInventory.charac[i].charSprite);
         }
         AssignSprites();
         AssignThumb();
+        AssignPrice();
         expenses.text = StaticTravel.expenses.ToString();
     }
 
@@ -73,18 +77,20 @@ public class DayEndUI : MonoBehaviour
 
     private void AssignThumb()
     {
-        for (int i =0; i < soldItemSprites.Length; ++i)
+        for (int i =0; i < charSpriteList.Count; ++i)
         {
-            if(soldPrice[i] < price[i])
-            {
-                thumbSprites[i].sprite = thumb[0];
-            }
-            else
-            {
-                thumbSprites[i].sprite = thumb[1];
-            }
+            thumbSprites[i].sprite = charSpriteList[i];
         }
     }
+
+    private void AssignPrice()
+    {
+        for ( int i = 0; i < itemCost.Length; ++i)
+        {
+            itemCost[i].text = soldPrice[i].ToString();
+        }
+    }
+
 
     private void ClearItems()
     {

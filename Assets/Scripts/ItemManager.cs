@@ -43,6 +43,11 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    public Sprite GetItemSprite(int index)
+    {
+        return soldItems[index].frontSprite;
+    }
+
     public void FailedToSell(int no, int price, int sell)
     {
         soldItems.Add(inventory[no]);
