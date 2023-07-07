@@ -79,6 +79,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI differenceText;
     [SerializeField] private float priceDifference;
 
+    //ui elements for turn count
+    [SerializeField] private TextMeshProUGUI turnCountText;
+    [SerializeField] private Image[] turnLights;
+
     //UI for ending the game
     [Header("UI elements for ending the game")]
     [SerializeField] private Button endGameButton;
@@ -171,6 +175,12 @@ public class GameManager : MonoBehaviour
         confirmButton.onClick.AddListener(() =>
         {
             PriceConfirmAsync();
+            turnCountText.enabled = true;
+            for (int i = 0; i < turnLights.Length; ++i)
+            {
+                turnLights[i].gameObject.SetActive(true);
+            }
+            Desperation();
             buttonPressEvent.Post(gameObject);
         });
         makeOfferButton.onClick.AddListener(() =>
@@ -256,6 +266,11 @@ public class GameManager : MonoBehaviour
         //    itemText[i].enabled = false;
         //    itemButtons[i].gameObject.SetActive(false);
         //}
+        turnCountText.enabled = false;
+        for (int i = 0; i < turnLights.Length; ++i)
+        {
+            turnLights[i].gameObject.SetActive(false);
+        }
         IconTextSort();
         trade = false;
         bargain = false;
@@ -419,6 +434,12 @@ public class GameManager : MonoBehaviour
         itemManager.GenerateItemStock(character.GetPrimaryDesire());
         print(character.GetPrimaryDesire());
         IconTextSort();
+        turnCountText.enabled = false;
+        for (int i = 0; i < turnLights.Length; ++i)
+        {
+            turnLights[i].gameObject.SetActive(false);
+            turnLights[i].color = Color.yellow;
+        }
     }
 
     //displays the items available for sale.
@@ -513,11 +534,11 @@ public class GameManager : MonoBehaviour
         turnCount++;
         patienceDecrease += 5;
         PriceCheck();
-        patience -= patienceDecrease;
-        if(patience < 0)
-        {
-            patience = 0;
-        }
+        //patience -= patienceDecrease;
+        //if(patience < 0)
+        //{
+        //    patience = 0;
+        //}
         if (!dealOver)
         {
             Desperation();
@@ -528,13 +549,13 @@ public class GameManager : MonoBehaviour
         previousPrice = setPrice;
         speechBubbleImage.enabled = true;
         speechBubble.SpeechBubble();
-        blinkingEmoticon.BlinkingEmoticonActive();
+        blinkingEmoticon.BlinkingEmoticonActive();   
     }
 
     void PriceCheck()
     {
         float discrepancy = (setPrice / basePrice);
-        if (turnCount < 5)
+        if (turnCount < 6)
         {
             if (setPrice <= price)
             {
@@ -542,7 +563,7 @@ public class GameManager : MonoBehaviour
             }
             else if (discrepancy > 2.0f)
             {
-                patienceDecrease += 20;
+                //patienceDecrease += 20;
                 bargainSpeech.text = character.GetAngryText();
                 animateText.GetText();
                 animateText.ActivateText();
@@ -554,7 +575,7 @@ public class GameManager : MonoBehaviour
             }
             else if (discrepancy > 1.5f)
             {
-                patienceDecrease += 15;
+                //patienceDecrease += 15;
                 bargainSpeech.text = character.GetAngryText();
                 animateText.GetText();
                 animateText.ActivateText();
@@ -566,7 +587,7 @@ public class GameManager : MonoBehaviour
             }
             else if (discrepancy > 1.0f)
             {
-                patienceDecrease += 10;
+                //patienceDecrease += 10;
                 bargainSpeech.text = character.GetOkayText();
                 animateText.GetText();
                 animateText.ActivateText();
@@ -579,17 +600,6 @@ public class GameManager : MonoBehaviour
             else if (discrepancy <= 1.0f)
             {
                 AcceptDeal();
-            }
-        }
-        if (turnCount == 5)
-        {
-            if (discrepancy <= 1.0f)
-            {
-                AcceptDeal();
-            }
-            else
-            {
-                DeclineDeal();
             }
         }
     }
@@ -623,19 +633,24 @@ public class GameManager : MonoBehaviour
         switch (turnCount)
         {
             case 1:
-                custDesperation += 1;
+                //custDesperation += 1;
+                turnLights[turnCount - 2].color = Color.black;
                 break;
             case 2:
-                custDesperation += 5;
+                //custDesperation += 5;
+                turnLights[turnCount - 2].color = Color.black;
                 break;
             case 3:
-                custDesperation += 10;
+                //custDesperation += 10;
+                turnLights[turnCount - 2].color = Color.black;
                 break;
             case 4:
-                custDesperation += 15;
+                //custDesperation += 15;
+                turnLights[turnCount - 2].color = Color.black;
                 break;
             case 5:
-                custDesperation += 20;
+                //custDesperation += 20;
+                turnLights[turnCount - 2].color = Color.black;
                 break;
             case 6:
                 DeclineDeal();
@@ -822,18 +837,6 @@ public class GameManager : MonoBehaviour
         itemButtons[selectedItem].interactable = true;
         itemButtons[selectedItem].gameObject.SetActive(false);
         itemText[selectedItem].enabled = false;
-        //switch (sellCount)
-        //{
-        //    case 1:
-        //        itemButtons[3].gameObject.SetActive(false);
-        //        break;
-        //    case 2:
-        //        itemButtons[2].gameObject.SetActive(false);
-        //        break;
-        //    case 3:
-        //        itemButtons[1].gameObject.SetActive(false);
-        //        break;
-        //}
     }
 
     void MakeOfferPhaseSetActive()

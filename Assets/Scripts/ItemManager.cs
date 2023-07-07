@@ -13,7 +13,6 @@ public class ItemManager : MonoBehaviour
     public List<int> itemPrice = new List<int>();
     public List<int> sellPrice = new List<int>();
 
-    private bool itemTagMatch = false;
     private bool itemExists;
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
@@ -40,7 +39,7 @@ public class ItemManager : MonoBehaviour
     {
         if(shopStock[index].primaryType.ToString() == itemCat)
         {
-            itemTagMatch = true;
+            //itemTagMatch = true;
         }
     }
 
