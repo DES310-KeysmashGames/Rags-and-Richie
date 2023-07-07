@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
     private bool bargain;
     private int introLength;
     private int introCount;
+    private int tutorialLength;
     private bool textProgression;
     private bool dealOver;
     [SerializeField] private int customerCount;
@@ -247,7 +248,7 @@ public class GameManager : MonoBehaviour
         endingTimer = 3.0f;
         day = StaticTravel.dayCount;
 
-        //If it's the first day, run tutorial character
+        //Run Tutorial Customer on Day 1, otherwise run New Customer
         if (day == 1)
         {
             TutorialCustomer();
@@ -420,18 +421,63 @@ public class GameManager : MonoBehaviour
         introCount = 1;
         patience = character.GetPatience();
         custDesperation = character.GetDesperation();
-        //introLength = character.GetIntroLength();
         speechBubbleImage.sprite = speechBubbles[2];
         patienceMeter.sprite = patienceMeters[0];
+    }
+
+    private void NextCustomer()
+    {
+        NewCustomer();
+        itemsShown = false;
+        trade = false;
+        bargain = false;
+        textProgression = false;
+        customer.enabled = true;
+        bargainSpeech.enabled = true;
+        custName.enabled = true;
+        patienceDecrease = 0;
+        turnCount = 0;
+        dealOver = false;
+        InitialOfferSetInactive(true);
+        MakeOfferPhaseSetInactive();
+        endGameButton.gameObject.SetActive(false);
+        nextCustomerButton.gameObject.SetActive(false);
+        TextPrompt.gameObject.SetActive(true);
+        patienceMeter.enabled = false;
+        patienceArrow.SetInactive();
+        customerCount += 1;
+        itemButtons[selectedItem].interactable = true;
+        itemButtons[selectedItem].gameObject.SetActive(false);
+        itemText[selectedItem].enabled = false;
+        switch (sellCount)
+        {
+            case 1:
+                itemButtons[3].gameObject.SetActive(false);
+                break;
+            case 2:
+                itemButtons[2].gameObject.SetActive(false);
+                break;
+            case 3:
+                itemButtons[1].gameObject.SetActive(false);
+                break;
+        }
     }
 
     //Tutorial Customer to show Users how to play
     void TutorialCustomer()
     {
-        customerAnimations.CustomerSpeakingArrive();        // Customer arriving animation
-        playerApproachEvent.Post(gameObject);               // Customer approach sound 
-        character.GenerateTutorialCustomer();               // Generates Tutorial Character
-        customer.sprite = character.GetSprite();            // Generates Character Sprite
+        customerAnimations.CustomerSpeakingArrive();            // Customer arriving animation
+        playerApproachEvent.Post(gameObject);                   // Customer approach sound 
+        character.GenerateTutorialCustomer();                   // Generates Tutorial Character
+        customer.sprite = character.GetSprite();                // Generates Character Sprite
+        custName.text = "" + character.GetCustName();           // Displays Customer Name
+        tutorialLength = character.GetTutorialLength();         // Get Tutorial Text Nodes
+        bargainSpeech.text = "" + character.GetTutorialIntro(); // Play Tutorial Text Dialogue
+        animateText.GetText();                                  // Get Text Animation
+        animateText.ActivateText();                             // Run Text Animation
+        custDialogueEvent.Post(gameObject);                     // Customer Speech sound
+        patience = character.GetPatience();                     // Get Character Patience
+        custDesperation = character.GetDesperation();           // Get Character Desparation
     }
 
     void ShadyCharacter()
@@ -793,7 +839,7 @@ public class GameManager : MonoBehaviour
         playerLeaveEvent.Post(gameObject);
     }
 
-    void ResetLevel()
+    public void ResetLevel()
     {
         itemManager.Reset();
         character.Reset();
@@ -813,44 +859,6 @@ public class GameManager : MonoBehaviour
         textProgression = true;
         customerAnimations.CustomerSpeakingActive();
         speechBubble.SpeechBubble();
-    }
-
-    private void NextCustomer()
-    {
-        NewCustomer();
-        itemsShown = false;
-        trade = false;
-        bargain = false;
-        textProgression = false;
-        customer.enabled = true;
-        bargainSpeech.enabled = true;
-        custName.enabled = true;
-        patienceDecrease = 0;
-        turnCount = 0;
-        dealOver = false;
-        InitialOfferSetInactive(true);
-        MakeOfferPhaseSetInactive();
-        endGameButton.gameObject.SetActive(false);
-        nextCustomerButton.gameObject.SetActive(false);
-        TextPrompt.gameObject.SetActive(true);
-        patienceMeter.enabled = false;
-        patienceArrow.SetInactive();
-        customerCount += 1;
-        itemButtons[selectedItem].interactable = true;
-        itemButtons[selectedItem].gameObject.SetActive(false);
-        itemText[selectedItem].enabled = false;
-        switch (sellCount)
-        {
-            case 1:
-                itemButtons[3].gameObject.SetActive(false);
-                break;
-            case 2:
-                itemButtons[2].gameObject.SetActive(false);
-                break;
-            case 3:
-                itemButtons[1].gameObject.SetActive(false);
-                break;
-        }
     }
 
     void MakeOfferPhaseSetActive()

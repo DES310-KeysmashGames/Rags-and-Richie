@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gamePaused = false;
     private bool optionsOn = false;
+    private GameManager reset;
 
     [Header("Menu Panels")]
     public GameObject pauseMenu;
@@ -30,6 +31,8 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
+        reset = FindObjectOfType<GameManager>();
+
         //Resume Game via button click
         resumeButton.onClick.AddListener(() =>
         {
@@ -53,6 +56,7 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 1f;
             gamePaused = false;
+            reset.ResetLevel();
             Loader.Load(Loader.Scene.MainMenuScene);
 
             //Potentially pause background music

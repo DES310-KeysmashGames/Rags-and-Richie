@@ -4935,8 +4935,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c1d2023f76081b849a5488d373807c82, type: 2}
   - {fileID: 11400000, guid: 8686bae5ce28ac54583dd22ceabe9a06, type: 2}
   - {fileID: 11400000, guid: c839a1681b4c25a468db77166e956f49, type: 2}
+  - {fileID: 11400000, guid: a47bf58a23aa7df4bb81be0a53ff56cc, type: 2}
   prevCustomer: []
   currentChar: {fileID: 0}
+  tutorialDialogue:
+  - {fileID: 11400000, guid: d3407de5929dad64f8defe2d717bb3ab, type: 2}
   tradeSpeech:
   - {fileID: 11400000, guid: 2b7ccd313247d4347b0794c55e075fee, type: 2}
   - {fileID: 11400000, guid: 1f31c15c4a027a145aa3b34c78eaf589, type: 2}
