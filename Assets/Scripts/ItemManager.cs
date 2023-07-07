@@ -28,7 +28,6 @@ public class ItemManager : MonoBehaviour
     public void GenerateItemStock(string itemCategory)
     {
         inventory.RemoveRange(0, inventory.Count);
-        int placement = UnityEngine.Random.Range(0, 4);
         for (int i = 0; i < 4; ++i)
         {
             int index = UnityEngine.Random.Range(0, shopStock.Count);

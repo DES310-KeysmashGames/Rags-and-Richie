@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button[] itemButtons;
     [SerializeField] private Button TextPrompt;
     [SerializeField] private Image itemCard;
+    [SerializeField] private Button itemReshuffleButton;
 
     //ui for selecting inital price
     [Header("UI elements for selecting the initial price")]
@@ -158,6 +159,10 @@ public class GameManager : MonoBehaviour
             ReselectItems();
             buttonPressEvent.Post(gameObject);
         });
+        itemReshuffleButton.onClick.AddListener(() =>
+        {
+            ItemReshuffle();
+        });
         nextCustomerButton.onClick.AddListener(() =>
         {
             NextCustomer();
@@ -245,18 +250,20 @@ public class GameManager : MonoBehaviour
         endingTimer = 3.0f;
         NewCustomer();
         //itemManager.GenerateItemList();
-        for (int i = 0; i < itemButtons.Length; ++i)
-        {
-            itemText[i].text = itemManager.GetName(i);
-            itemText[i].enabled = false;
-            itemButtons[i].gameObject.SetActive(false);
-        }
+        //for (int i = 0; i < itemButtons.Length; ++i)
+        //{
+        //    itemText[i].text = itemManager.GetName(i);
+        //    itemText[i].enabled = false;
+        //    itemButtons[i].gameObject.SetActive(false);
+        //}
+        IconTextSort();
         trade = false;
         bargain = false;
         textProgression = false;
         dealOver = false;
         InitialOfferSetInactive(true);
         MakeOfferPhaseSetInactive();
+        itemReshuffleButton.gameObject.SetActive(false);
         endGameButton.gameObject.SetActive(false);
         TextPrompt.gameObject.SetActive(true);
         nextCustomerButton.gameObject.SetActive(false);
@@ -411,6 +418,7 @@ public class GameManager : MonoBehaviour
         patienceMeter.sprite = patienceMeters[0];
         itemManager.GenerateItemStock(character.GetPrimaryDesire());
         print(character.GetPrimaryDesire());
+        IconTextSort();
     }
 
     //displays the items available for sale.
@@ -427,6 +435,7 @@ public class GameManager : MonoBehaviour
             itemsShown = true;
             shelfLock.ShelfOpen();
         }
+        itemReshuffleButton.gameObject.SetActive(true);
     }
 
     void CalculatePrice()
@@ -652,6 +661,7 @@ public class GameManager : MonoBehaviour
         bargainSpeech.enabled = false;
         speechBubbleImage.enabled = false;
         custName.enabled = false;
+        itemReshuffleButton.gameObject.SetActive(false);
         CalculatePrice();
     }
 
@@ -663,6 +673,7 @@ public class GameManager : MonoBehaviour
             itemButtons[i].gameObject.SetActive(true);
             itemButtons[i].interactable = true;
         }
+        itemReshuffleButton.gameObject.SetActive(true);
         InitialOfferSetInactive(false);
         //shelfLock.ShelfOpen();
     }
@@ -912,5 +923,21 @@ public class GameManager : MonoBehaviour
     public void HoverExit()
     {
         itemCard.enabled = false;
+    }
+
+    private void IconTextSort()
+    {
+        for (int i = 0; i < itemManager.RemainingItems(); ++i)
+        {
+            itemButtons[i].image.sprite = itemManager.GetSprite(i);
+            itemText[i].text = itemManager.GetName(i);
+            itemText[i].enabled = true;
+        }
+    }
+
+    private void ItemReshuffle()
+    {
+        itemManager.GenerateItemStock(character.GetPrimaryDesire());
+        IconTextSort();
     }
 }
