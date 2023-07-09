@@ -55,10 +55,9 @@ public class DayEndUI : MonoBehaviour
             soldItemsReviewList.Add(StaticInventory.soldItemsList[i]);
             soldPrice.Add(StaticInventory.sellPrice[i]);
             price.Add(StaticInventory.basePrice[i]);
-            charSpriteList.Add(StaticInventory.charac[i].charSprite);
         }
         AssignSprites();
-        AssignThumb();
+        //AssignThumb();
         AssignPrice();
         expenses.text = StaticTravel.expenses.ToString();
     }

@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float previousPrice;
     [SerializeField] private TextMeshProUGUI differenceText;
     [SerializeField] private float priceDifference;
+    [SerializeField] private int dupecount;
 
     //ui elements for turn count
     [SerializeField] private TextMeshProUGUI turnCountText;
@@ -149,9 +150,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
                 StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                 StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
-                //StaticInventory.charPortraits.Add(character.GetCharSprite(i));
-                StaticInventory.charac.Add(character.GetCharacterList(i));
-                StaticInventory.itemSprites.Add(itemManager.GetItemSprite(i));
+                StaticInventory.charPortraits.Add(character.GetCharSprite(i));
+                //StaticInventory.charac.Add(character.GetCharacterList(i));
                 buttonPressEvent.Post(gameObject);
             }
             itemManager.Reset();
@@ -466,6 +466,7 @@ public class GameManager : MonoBehaviour
 
     void CalculatePrice()
     {
+        dupecount = itemManager.DupeCheck(selectedItem);
         tolerance = Mathf.RoundToInt(custDesperation * (patience / character.GetPatience()));
         basePrice = ((character.GetDrink() * itemManager.GetDrinkValue(selectedItem)) * drinkMultiplier) + ((character.GetFood() * itemManager.GetFoodValue(selectedItem)) * foodMultiplier) + ((character.GetLuxury() + itemManager.GetLuxuryValue(selectedItem)) * luxuryMultiplier)
             + ((character.GetWeapon() * itemManager.GetWeaponValue(selectedItem)) * weaponMultiplier) + ((character.GetWarmth() * itemManager.GetWarmthValue(selectedItem)) * warmthMultiplier) + ((character.GetMachinery() * itemManager.GetMachineryValue(selectedItem)) * machineryMultiplier);

@@ -833,6 +833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soldItemsReviewList: []
+  charSpriteList: []
   soldPrice: 
   price: 
   soldItemSprites:

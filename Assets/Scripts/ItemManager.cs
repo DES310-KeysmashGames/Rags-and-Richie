@@ -14,6 +14,7 @@ public class ItemManager : MonoBehaviour
     public List<int> sellPrice = new List<int>();
 
     private bool itemExists;
+    private int dupeCount;
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
     public void GenerateItemList()
@@ -41,6 +42,26 @@ public class ItemManager : MonoBehaviour
         {
             //itemTagMatch = true;
         }
+    }
+
+    public int DupeCheck(int index)
+    {
+        dupeCount = 0;
+        for(int i = 0; i < 4; ++i)
+        {
+            if (i == index)
+            {
+                i++;
+            }
+            else
+            {
+                if (inventory[index].name == inventory[i].name)
+                {
+                    dupeCount++;
+                }
+            }
+        }
+        return dupeCount;
     }
 
     public Sprite GetItemSprite(int index)
