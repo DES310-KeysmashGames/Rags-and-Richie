@@ -79,6 +79,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI differenceText;
     [SerializeField] private float priceDifference;
     [SerializeField] private int dupecount;
+    [SerializeField] private float initialOffer;
+    [SerializeField] private float followUpOffer;
 
     //ui elements for turn count
     [SerializeField] private TextMeshProUGUI turnCountText;
@@ -527,6 +529,7 @@ public class GameManager : MonoBehaviour
         customer.enabled = true;
         textProgression = true;
         previousPrice = setPrice;
+        initialOffer = setPrice;
         speechBubbleImage.enabled = true;
     }
 
@@ -541,11 +544,6 @@ public class GameManager : MonoBehaviour
         turnCount++;
         patienceDecrease += 5;
         PriceCheck();
-        //patience -= patienceDecrease;
-        //if(patience < 0)
-        //{
-        //    patience = 0;
-        //}
         if (!dealOver)
         {
             Desperation();
@@ -557,6 +555,54 @@ public class GameManager : MonoBehaviour
         speechBubbleImage.enabled = true;
         speechBubble.SpeechBubble();
         blinkingEmoticon.BlinkingEmoticonActive();   
+    }
+
+    void PriceAnalysis(float based, float offer)
+    {
+        if(offer >= (based + 26))
+        {
+            patience -= 4;
+        }
+        else if(offer >= (based + 14) && offer <= (based + 25))
+        {
+            patience -= 2;
+        }
+        else if (offer >= (based + 4) && offer <= (based +13))
+        {
+            patience -= 1;
+        }
+        else if (offer >= (based - 3) && offer <= (based + 3))
+        {
+            //animation
+        }
+        else if (offer >= (based - 13) && offer <= (based - 4))
+        {
+            patience += 1;
+        }
+        else if (offer >= (based -25) && offer <= (based - 14))
+        {
+            patience += 2;
+        }
+        else if(offer  <= (based - 26))
+        {
+            patience += 4;
+        }
+    }
+
+    void ToleranceCall()
+    {
+        switch(turnCount)
+        {
+            case 1:
+                PriceAnalysis(basePrice, setPrice);
+                break;
+            case 2:
+                PriceAnalysis(basePrice, setPrice);
+                PriceAnalysis(initialOffer, setPrice);
+                break;
+            case 3:
+                break;
+        }
     }
 
     void PriceCheck()
