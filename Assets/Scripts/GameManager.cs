@@ -334,6 +334,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
                     StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                     StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
+                    StaticInventory.charac.Add(character.prevCustomer[i]);
                     buttonPressEvent.Post(gameObject);
                 }
                 Loader.Load(Loader.Scene.DayEndScene);

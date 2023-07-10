@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] BaseCharacter[] character;
-    [SerializeField] private List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
+    [SerializeField] public List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
     public BaseCharacter currentChar;
     private bool custExists;
     [SerializeField] TextDialogue[] tradeSpeech;
