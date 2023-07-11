@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Food 1
   m_EditorClassIdentifier: 
-  lineOfDialogue: "Reckon you could help me out? A bunch of mutant rats broke into
-    my farm and stole all my crops.\r"
+  lineOfDialogue: Reckon you could help me out? A bunch of mutant rats broke into
+    my farm and <color=red>stole all my crops.</color>
   category: 0

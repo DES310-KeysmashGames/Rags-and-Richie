@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Weapon 1.1
   m_EditorClassIdentifier: 
-  lineOfDialogue: "I plan to raid the home base of a nearby gang, y\u2019see they\u2019ve
-    got all these fancy-schmancy things that the rest of us wastelands scrubs could
-    never get our hands on. I hear they\u2019ve even got a working hot tub!\r"
+  lineOfDialogue: "I plan to <color=red>raid</color> the home base of a nearby gang,
+    y\u2019see they\u2019ve got all these fancy-schmancy things that the rest of
+    us wastelands scrubs could never get our hands on. I hear they\u2019ve even got
+    a working hot tub!\r"
   category: 5

@@ -408,9 +408,9 @@ public class GameManager : MonoBehaviour
             }
             else if (introCount == 3 || introCount >= introLength)
             {
-                bargainSpeech.text = "" + character.GetTradeSpeech();
-                animateText.GetText();
-                animateText.ActivateText();
+                //bargainSpeech.text = "" + character.GetTradeSpeech();
+                //animateText.GetText();
+                //animateText.ActivateText();
                 custDialogueEvent.Post(gameObject);
                 trade = true;
                 introCount = 0;
@@ -817,6 +817,8 @@ public class GameManager : MonoBehaviour
         }
         itemReshuffleButton.gameObject.SetActive(true);
         InitialOfferSetInactive(false);
+        bargainSpeech.enabled = true;
+        speechBubbleImage.enabled = true;
         //shelfLock.ShelfOpen();
     }
 
