@@ -152,8 +152,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
                 StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                 StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
-                StaticInventory.charPortraits.Add(character.GetCharSprite(i));
-                //StaticInventory.charac.Add(character.GetCharacterList(i));
                 buttonPressEvent.Post(gameObject);
             }
             itemManager.Reset();

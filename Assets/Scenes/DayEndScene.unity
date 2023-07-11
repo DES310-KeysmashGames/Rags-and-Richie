@@ -2115,10 +2115,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EXPENSES
+  m_text: EXPE<color=red>NS</color><color=green>ES</color>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
-  m_sharedMaterial: {fileID: 9222765973610908125, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
+  m_sharedMaterial: {fileID: 3320235333218628706, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2142,8 +2142,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 81.17
+  m_fontSizeBase: 81.17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

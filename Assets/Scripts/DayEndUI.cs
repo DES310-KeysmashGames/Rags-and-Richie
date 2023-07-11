@@ -98,6 +98,6 @@ public class DayEndUI : MonoBehaviour
         StaticInventory.soldItemsList.Clear();
         StaticInventory.sellPrice.Clear();
         StaticInventory.basePrice.Clear();
-        StaticInventory.charPortraits.Clear();
+        StaticInventory.charac.Clear();
     }
 }
