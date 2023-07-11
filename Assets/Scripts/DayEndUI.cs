@@ -16,7 +16,13 @@ public class DayEndUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI expenses;
     [SerializeField] private TextMeshProUGUI[] itemCost;
 
+    [SerializeField] private Image dailyGoalBar;
+
     [SerializeField] Button endButton;
+    [SerializeField] private float goal;
+    [SerializeField] private int sellAmount;
+    [SerializeField] private bool test;
+    [SerializeField] private int wallet;
 
     //Audio
     public AK.Wwise.Event buttonEvent;
@@ -48,6 +54,11 @@ public class DayEndUI : MonoBehaviour
         {
             Loader.Load(Loader.Scene.EndingScene);
         }
+
+        goal = StaticTravel.goal;
+        goal = 1000;
+        test = false;
+        wallet = PlayerPrefs.GetInt("wallet");
     }
 
     private void Start(){
@@ -62,6 +73,28 @@ public class DayEndUI : MonoBehaviour
         AssignThumb(); 
         AssignPrice();
         expenses.text = StaticTravel.expenses.ToString();
+        for (int i = 0; i < soldPrice.Count; ++i)
+        {
+            sellAmount += soldPrice[i];
+        }
+        dailyGoalBar.fillAmount = ((float)wallet / goal);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            test = true;   
+        }
+        if(test == true)
+        {
+            if (sellAmount > 0)
+            {
+                wallet += 1;
+                dailyGoalBar.fillAmount = (wallet / goal);
+                sellAmount -= 1;
+            }
+        }
     }
 
     private Sprite GetSprite(int i)
