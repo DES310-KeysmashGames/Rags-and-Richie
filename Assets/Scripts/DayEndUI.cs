@@ -23,6 +23,7 @@ public class DayEndUI : MonoBehaviour
     [SerializeField] private int sellAmount;
     [SerializeField] private bool test;
     [SerializeField] private int wallet;
+    [SerializeField] private TextMeshProUGUI sellPriceText;
 
     //Audio
     public AK.Wwise.Event buttonEvent;
@@ -77,6 +78,7 @@ public class DayEndUI : MonoBehaviour
         {
             sellAmount += soldPrice[i];
         }
+        sellPriceText.text = sellAmount.ToString();
         dailyGoalBar.fillAmount = ((float)wallet / goal);
     }
 
