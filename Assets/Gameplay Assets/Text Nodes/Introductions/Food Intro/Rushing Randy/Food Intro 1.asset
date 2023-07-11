@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Food Intro 1
   m_EditorClassIdentifier: 
-  lineOfDialogue: Hey, Hey, Hey, uhhh.. I'm starving! Give me something quick!
+  lineOfDialogue: Hey, Hey, Hey, uhhh.. I'm <color=red>starving</color>! Give me
+    something quick!
   category: 0

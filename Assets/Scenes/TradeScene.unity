@@ -1019,8 +1019,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
-  m_sharedMaterial: {fileID: 9222765973610908125, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
+  m_sharedMaterial: {fileID: 3320235333218628706, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4834,6 +4834,9 @@ MonoBehaviour:
   previousPrice: 0
   differenceText: {fileID: 876399024}
   priceDifference: 0
+  dupecount: 0
+  initialOffer: 0
+  followUpOffer: 0
   turnCountText: {fileID: 12266588}
   turnLights:
   - {fileID: 697528960}

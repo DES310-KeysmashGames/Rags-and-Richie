@@ -11,6 +11,5 @@ public static class StaticInventory
     public static List<int> sellPrice = new List<int>();
 
     public static List<Sprite> itemSprites = new List<Sprite>();
-    public static List<Sprite> charPortraits = new List<Sprite>();
     public static List<BaseCharacter> charac = new List<BaseCharacter>();
 }

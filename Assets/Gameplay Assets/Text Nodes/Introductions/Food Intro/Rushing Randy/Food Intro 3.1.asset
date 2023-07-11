@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Food Intro 3.1
   m_EditorClassIdentifier: 
-  lineOfDialogue: No? Well I'm starving.
+  lineOfDialogue: No? Well I'm <color=red>starving</color>.
   category: 0
