@@ -25,6 +25,9 @@ public class InventorySelection : MonoBehaviour
     private bool reactivate;
     private int chosenIndexStart = 0;
 
+    private int day;
+    private bool lunchboxPicked;
+
     [SerializeField] private Image itemCard;
     [SerializeField] private Image itemCard2;
     [SerializeField] private Image itemOfTheDayImage;
@@ -53,26 +56,88 @@ public class InventorySelection : MonoBehaviour
                 confirmEvent.Post(gameObject);
             }
         });
+
         itemCard.enabled = false;
         itemCard2.enabled = false;
         itemOfDay = StaticTravel.itemOfTheDay;
+
         for(int i = 0; i < chosenItemsprites.Length; ++i)
         {
             chosenItemsprites[i].enabled = false;
         }
-    }
-    private void Start(){
-        ShuffleItems();
-        AssignSprites();
-        for (int i = 0; i < selectionButtons.Count; i++){
-        int closureIndex = i ; // Prevents the closure problem
-        selectionButtons[closureIndex].onClick.AddListener( () => {
-            TaskOnClick(closureIndex);
+
+        //Allow players to de-select/remove chosen items 
+        for (int i = 0; i < removeButtons.Length; i++)
+        {
+            // Store the current index in a local variable for use in the listener
+            int index = i; 
+
+            removeButtons[i].onClick.AddListener(() =>
+            {
+                // Don't allow deselection of first item on day 1
+                if (day == 1 && index == 0)
+                {
+
+                }
+                else
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            RemoveItemOne();
+                            break;
+                        case 1:
+                            RemoveItemTwo();
+                            break;
+                        case 2:
+                            RemoveItemThree();
+                            break;
+                        case 3:
+                            RemoveItemFour();
+                            break;
+                    }
+                }
             });
         }
+    }
+
+    private void Start(){
+
+        //Get the day
+        day = StaticTravel.dayCount;
+        lunchboxPicked = false;
+
+        //Run Tutorial item set on day one, else shuffle as regular
+        if (day == 1)
+        {
+            TutorialShuffle();
+        }
+        else
+        {
+            ShuffleItems();
+        }
+
+        AssignSprites();
+
+        //Set all removeButtons to Non-Active at start
         for (int j = 0; j < removeButtons.Length; ++j)
         {
             removeButtons[j].gameObject.SetActive(false);
+        }
+
+        //Set all Items except Lunchbox to Non-Interactable at start
+        for (int i = 1; i < selectionButtons.Count; i++)
+        {
+            selectionButtons[i].interactable = false;
+        }
+
+        for (int i = 0; i < selectionButtons.Count; i++)
+        {
+            int closureIndex = i; // Prevents the closure problem
+
+            selectionButtons[closureIndex].onClick.AddListener(() => {
+                TaskOnClick(closureIndex);
+            });
         }
 
         //Pick a category to be the Item of the Day
@@ -108,6 +173,21 @@ public class InventorySelection : MonoBehaviour
         }else{
             confirmButton.GetComponent<Image>().sprite = continueSprite[1];
         }
+
+        // If it's day 1 and lunchBox hasn't yet been selected
+        if (day == 1 && !lunchboxPicked)
+        {
+            //If Lunchbox has been selected then re-enable all other items
+            if (removeButtons[0].gameObject.activeSelf)
+            {
+                for (int i = 1; i < selectionButtons.Count; i++)
+                {
+                    selectionButtons[i].interactable = true;
+                }
+
+                lunchboxPicked = true;
+            }
+        }
     }
 
     private void TaskOnClick(int buttonIndex)
@@ -128,20 +208,45 @@ public class InventorySelection : MonoBehaviour
             Debug.Log("Inventory is full");
         }
         UpdateChosenSprites(buttonIndex);
+
+        //Set removeButtons to activate based on how many items are chosen
         for (int i = 0; i < chosenInventory.Count; ++i)
         {
             removeButtons[i].gameObject.SetActive(true);
         }
+
         UpdateItemTypeCount(buttonIndex);
         buttonPressEvent.Post(gameObject);
     }
 
     void ShuffleItems()
     {
-        for (int i = 0; i < 7; ++i)
+        for (int i = 0; i < 6; ++i)
         {
             int index = UnityEngine.Random.Range(0, fullItemList.Count);
             scavengedItems.Add(fullItemList[index]);
+        }
+    }
+
+    void TutorialShuffle()
+    {
+        //Set the very first item to be Mom's Lunchbox
+        scavengedItems.Add(fullItemList[7]);
+
+        //Shuffle rest of items at random
+        for (int i = 0; i < 5; i++)
+        {
+            int index = UnityEngine.Random.Range(0, fullItemList.Count);
+            scavengedItems.Add(fullItemList[index]);
+
+            ////Block any other food-type items generating
+            //if (scavengedItems[index].primaryType.ToString() == "Food" || scavengedItems[index].secondaryType.ToString() == "Food")
+            //{
+
+            //} else 
+            //{
+            //    scavengedItems.Add(fullItemList[index]);
+            //} 
         }
     }
 

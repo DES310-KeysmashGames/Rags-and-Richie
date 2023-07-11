@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 1f;
             gamePaused = false;
-            reset.ResetLevel();
+            reset.ResetLevel();                             //Going back to main menu only works from trade scene atm
             Loader.Load(Loader.Scene.MainMenuScene);
 
             //Potentially pause background music
