@@ -104,6 +104,16 @@ public class CharacterManager : MonoBehaviour
         return currentChar.introText[0].lineOfDialogue;
     }
 
+    public int GetBagmanLength()
+    {
+        return currentChar.introText.Count;
+    }
+
+    public string GetBagmanText()
+    {
+        return currentChar.introText[0].lineOfDialogue;
+    }
+
     public Sprite GetSprite()
     {
         return currentChar.charSprite;

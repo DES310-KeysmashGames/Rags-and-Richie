@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
     private int introLength;
     private int introCount;
     private int tutorialLength;
+    private int bagmanLength;
     private bool textProgression;
     private bool dealOver;
     [SerializeField] private int customerCount;
@@ -480,9 +481,16 @@ public class GameManager : MonoBehaviour
         custDesperation = character.GetDesperation();           // Get Character Desparation
     }
 
-    void ShadyCharacter()
+    void Bagman()
     {
-
+        customerAnimations.CustomerSpeakingArrive();
+        playerApproachEvent.Post(gameObject);
+        customer.sprite = character.GetSprite();
+        //custName.text = "" + character.GetCustName();  
+        bagmanLength = character.GetBagmanLength();
+        bargainSpeech.text = "" + character.GetBagmanText();
+        animateText.GetText();
+        animateText.ActivateText(); 
     }
 
     //Item Functions
