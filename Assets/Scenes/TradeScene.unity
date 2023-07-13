@@ -4938,8 +4938,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a47bf58a23aa7df4bb81be0a53ff56cc, type: 2}
   prevCustomer: []
   currentChar: {fileID: 0}
-  tutorialDialogue:
-  - {fileID: 11400000, guid: d3407de5929dad64f8defe2d717bb3ab, type: 2}
   tradeSpeech:
   - {fileID: 11400000, guid: 2b7ccd313247d4347b0794c55e075fee, type: 2}
   - {fileID: 11400000, guid: 1f31c15c4a027a145aa3b34c78eaf589, type: 2}
@@ -6057,8 +6055,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -505.17, y: 68.454}
-  m_SizeDelta: {x: 598.92, y: 451.634}
+  m_AnchoredPosition: {x: -500, y: 70}
+  m_SizeDelta: {x: 600, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199778304
 MonoBehaviour:

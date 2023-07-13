@@ -6,7 +6,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "MysteryCharacter/Bagman", fileName = "New Character")]
 
-public class BagmanCreation : ScriptableObject
+public class BagmanChar : ScriptableObject
 {
     public Sprite charSprite;
     public string charName;
