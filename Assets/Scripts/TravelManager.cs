@@ -13,6 +13,7 @@ public class TravelManager : MonoBehaviour
 {
     RichieScript richie;
     AnimateText animateText;
+    TypeWriterTextScript typewriter;
 
     //Richie Info interaction
     [Header("Richie Dialogue")]
@@ -59,6 +60,7 @@ public class TravelManager : MonoBehaviour
     {
         animateText = GetComponent<AnimateText>();
         richie = GetComponent<RichieScript>();
+        typewriter = GetComponent<TypeWriterTextScript>();
         continueTextButton.onClick.AddListener(() =>
         {
             TextRead();
@@ -97,8 +99,9 @@ public class TravelManager : MonoBehaviour
             travelTutorialText.TutorialText();
             dimmer.enabled = true;
             richieText.text = richie.GetTutorial(tutorialCount);
-            animateText.GetText();
-            animateText.ActivateText();
+            //animateText.GetText();
+            //animateText.ActivateText();
+            typewriter.SetText(richieText.text);
             richieDialogueEvent.Post(gameObject);
             cityButton[1].interactable = false;
             continueTextButton.gameObject.SetActive(true);
@@ -138,8 +141,9 @@ public class TravelManager : MonoBehaviour
                 {
                     case 1:
                         richieText.text = richie.GetTutorial(tutorialCount);
-                        animateText.GetText();
-                        animateText.ActivateText();
+                        //animateText.GetText();
+                        //animateText.ActivateText();
+                        typewriter.SetText(richieText.text);
                         continueTextButton.gameObject.SetActive(true);
                         ++tutorialCount;
                         readText = false;
@@ -147,8 +151,9 @@ public class TravelManager : MonoBehaviour
                         break;
                     case 2:
                         richieText.text = richie.GetTutorial(tutorialCount);
-                        animateText.GetText();
-                        animateText.ActivateText();
+                        //animateText.GetText();
+                        //animateText.ActivateText();
+                        typewriter.SetText(richieText.text);
                         cityButton[1].interactable = true;
                         tutorialCount = 0;
                         readText = false;
