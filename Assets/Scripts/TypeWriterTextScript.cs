@@ -33,12 +33,23 @@ public class TypeWriterTextScript : MonoBehaviour
         charDelay = new WaitForSeconds(1 / textSpeed);
         puncDelay = new WaitForSeconds(textDelay);
 
-        skipDelay = new WaitForSeconds(1 / textSpeed * skipSpeedup);
+        skipDelay = new WaitForSeconds(1 / (textSpeed * skipSpeedup));
     }
 
     private void Start()
     {
-        //SetText(testText);
+        
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if(textBox.maxVisibleCharacters != textBox.textInfo.characterCount-1)
+            {
+                Skip();
+            }
+        }
     }
 
     public void SetText(string text)
@@ -63,16 +74,41 @@ public class TypeWriterTextScript : MonoBehaviour
             char character = textInfo.characterInfo[characterIndex].character;
             ++textBox.maxVisibleCharacters;
 
-            if(character == '?' || character == '.' || character == ',' || character == ':' || character == ';' || character == '!' || character == '-')
+            if(!skipping && (character == '?' || character == '.' || character == ',' || character == ':' || character == ';' || character == '!' || character == '-'))
             {
                 yield return puncDelay;
             }
             else
             {
-                yield return charDelay;
+                yield return skipping ? skipDelay : charDelay;
             }
 
             ++characterIndex;
         }
+    }
+
+    public void Skip()
+    {
+        if(skipping)
+        {
+            return;
+        }
+
+        skipping = true;
+
+        if(!quickSkip)
+        {
+            StartCoroutine(SkipSpeedupReset());
+            return;
+        }
+
+        StopCoroutine(textCoroutine);
+        textBox.maxVisibleCharacters = textBox.textInfo.characterCount;
+    }
+
+    private IEnumerator SkipSpeedupReset()
+    {
+        yield return new WaitUntil(() => textBox.maxVisibleCharacters == textBox.textInfo.characterCount - 1);
+        skipping = false;
     }
 }

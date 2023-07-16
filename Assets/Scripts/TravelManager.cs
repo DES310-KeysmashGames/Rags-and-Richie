@@ -129,6 +129,10 @@ public class TravelManager : MonoBehaviour
                 cityButton[i].gameObject.SetActive(true);
             }
         }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    typewriter.Skip();
+        //}
     }
 
     void Update()
