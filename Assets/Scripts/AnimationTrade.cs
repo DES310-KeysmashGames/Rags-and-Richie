@@ -6,7 +6,7 @@ public class AnimationTrade : MonoBehaviour
 {
     [SerializeField] Animator bargainPhaseAnimation;
     [SerializeField] Animator priceConfirmAnimation;
-    [SerializeField] Animator patienceMeterAnimation;
+    [SerializeField] Animator PlayerUserInterface;
     [SerializeField] Animator customerAnimations;
     [SerializeField] Animator speechBubble;
     [SerializeField] Animator blinkingMoney;
@@ -66,16 +66,16 @@ public class AnimationTrade : MonoBehaviour
     }
 
 
-    // Patience Meter Animation
-    public void PatienceMeterActive()
+    // UserInterface Animations
+    public void DropUI()
     {
-        patienceMeterAnimation.SetTrigger("Drop");
+        PlayerUserInterface.SetTrigger("DropUI");
     }
 
-     public void PatienceMeterInActive()
+     public void RaiseUI()
 
     {
-        patienceMeterAnimation.SetTrigger("Raise");
+        PlayerUserInterface.SetTrigger("Raise");
     }
 
     // Customer Bobbing / Speaking Animation / Arrive / Leave

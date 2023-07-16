@@ -19,8 +19,7 @@ public class GameManager : MonoBehaviour
 
     // Animations
     [SerializeField] AnimationTrade initialPrice;
-    [SerializeField] AnimationTrade priceAdjuster;
-    [SerializeField] AnimationTrade patienceMeterdrop;
+    [SerializeField] AnimationTrade PlayerUserInterface;
     [SerializeField] AnimationTrade customerAnimations;
     [SerializeField] AnimationTrade speechBubble;
     [SerializeField] AnimationTrade blinkingMoney;
@@ -890,6 +889,7 @@ public class GameManager : MonoBehaviour
         setPrice = 0;
         ++sellCount;
         playerLeaveEvent.Post(gameObject);
+        PlayerUserInterface.RaiseUI();
     }
 
     void DeclineDeal()
@@ -918,6 +918,7 @@ public class GameManager : MonoBehaviour
         }
         setPrice = 0;
         playerLeaveEvent.Post(gameObject);
+        PlayerUserInterface.RaiseUI();
     }
 
     void ResetLevel()
@@ -973,9 +974,9 @@ public class GameManager : MonoBehaviour
             wooshingUIevent.Post(gameObject);
             wooshBool = false;
         }
-        priceAdjuster.PriceConfirmSetActive();
+
         previousPriceText.SetText(previousPrice.ToString());
-        patienceMeterdrop.PatienceMeterActive();
+        PlayerUserInterface.DropUI();
     }
 
     void MakeOfferPhaseSetInactive()
@@ -985,7 +986,7 @@ public class GameManager : MonoBehaviour
             wooshingUIevent.Post(gameObject);
             wooshBool = true;
         }
-        priceAdjuster.PriceConfirmSetInactive();
+        PlayerUserInterface.RaiseUI();
         bargainSpeech.enabled = true;
     }
 
