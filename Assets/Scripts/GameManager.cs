@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private CharacterManager character;
     private PatienceMeter patienceArrow;
     private AnimateText animateText;
+    private TypeWriterTextScript typewriter;
 
     // Animations
     [SerializeField] AnimationTrade initialPrice;
@@ -144,6 +145,7 @@ public class GameManager : MonoBehaviour
         itemManager = GetComponent<ItemManager>();
         patienceArrow = GetComponent<PatienceMeter>();
         animateText = GetComponent<AnimateText>();
+        typewriter = GetComponent<TypeWriterTextScript>();
 
         endGameButton.onClick.AddListener(() => {
             //click action
@@ -285,7 +287,7 @@ public class GameManager : MonoBehaviour
         MakeOfferPhaseSetInactive();
         itemReshuffleButton.gameObject.SetActive(false);
         endGameButton.gameObject.SetActive(false);
-        TextPrompt.gameObject.SetActive(true);
+        //TextPrompt.gameObject.SetActive(true);
         nextCustomerButton.gameObject.SetActive(false);
         patienceMeter.enabled = false;
         itemCard.enabled = false;
@@ -350,11 +352,11 @@ public class GameManager : MonoBehaviour
         if (bargain)
         {
             textTimer -= Time.deltaTime;
-            if(textTimer < 0)
-            {
-                textProgression = true;
-                textTimer = 2.0f;
-            }
+            //if(textTimer < 0)
+            //{
+            //    textProgression = true;
+            //    textTimer = 2.0f;
+            //}
             //PatienceCheck();
             if (textProgression)
             {
@@ -384,15 +386,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void ButtonActivate()
+    {
+        textProgression = true;
+        //customerAnimations.CustomerSpeakingActive();
+        //speechBubble.SpeechBubble();
+    }
+
     void TradeSpeech()
     {
+        TypeWriterTextScript.CompleteTextRevealed += ButtonActivate;
         if (textProgression)
         {
             if (introCount == 2 && introCount < introLength)
             {
                 bargainSpeech.text = "" + character.GetIntro(introCount);
-                animateText.GetText();
-                animateText.ActivateText();
+                //animateText.GetText();
+                //animateText.ActivateText();
+                typewriter.SetText(bargainSpeech.text);
                 custDialogueEvent.Post(gameObject);
                 introCount = 3;
                 textProgression = false;
@@ -400,8 +411,9 @@ public class GameManager : MonoBehaviour
             else if (introCount == 1 && introCount < introLength)
             {
                 bargainSpeech.text = "" + character.GetIntro(introCount);
-                animateText.GetText();
-                animateText.ActivateText();
+                //animateText.GetText();
+                //animateText.ActivateText();
+                typewriter.SetText(bargainSpeech.text);
                 custDialogueEvent.Post(gameObject);
                 introCount = 2;
                 textProgression = false;
@@ -427,8 +439,9 @@ public class GameManager : MonoBehaviour
         customer.sprite = character.GetSprite();
         introLength = character.GetIntroLength();
         bargainSpeech.text = "" + character.GetIntro(introCount);
-        animateText.GetText();
-        animateText.ActivateText();
+        //animateText.GetText();
+        //animateText.ActivateText();
+        typewriter.SetText(bargainSpeech.text);
         custDialogueEvent.Post(gameObject);
         custName.text = "" + character.GetCustName();
         introCount = 1;
@@ -578,8 +591,9 @@ public class GameManager : MonoBehaviour
 
             //replace later
             bargainSpeech.text = character.GetAngryText();
-            animateText.GetText();
-            animateText.ActivateText();
+            //animateText.GetText();
+            //animateText.ActivateText();
+            typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[0];
             custAngryEvent.Post(gameObject);
@@ -592,8 +606,9 @@ public class GameManager : MonoBehaviour
 
             //replace later
             bargainSpeech.text = character.GetAngryText();
-            animateText.GetText();
-            animateText.ActivateText();
+            //animateText.GetText();
+            //animateText.ActivateText();
+            typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[0];
             custAngryEvent.Post(gameObject);
@@ -606,8 +621,9 @@ public class GameManager : MonoBehaviour
 
             //replace later
             bargainSpeech.text = character.GetOkayText();
-            animateText.GetText();
-            animateText.ActivateText();
+            //animateText.GetText();
+            //animateText.ActivateText();
+            typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[2];
             charEmote.sprite = emoticons[2];
             custNeutralEvent.Post(gameObject);
@@ -620,8 +636,9 @@ public class GameManager : MonoBehaviour
 
             //replace later
             bargainSpeech.text = character.GetHappyText();
-            animateText.GetText();
-            animateText.ActivateText();
+            //animateText.GetText();
+            //animateText.ActivateText();
+            typewriter.SetText(bargainSpeech.text);
             custHappyEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
             charEmote.sprite = emoticons[1];
@@ -633,8 +650,9 @@ public class GameManager : MonoBehaviour
 
             //replace later
             bargainSpeech.text = character.GetHappyText();
-            animateText.GetText();
-            animateText.ActivateText();
+            //animateText.GetText();
+            //animateText.ActivateText();
+            typewriter.SetText(bargainSpeech.text);
             custHappyEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
             charEmote.sprite = emoticons[1];
@@ -645,8 +663,9 @@ public class GameManager : MonoBehaviour
             patience += 2;
             //replace later
             bargainSpeech.text = character.GetHappyText();
-            animateText.GetText();
-            animateText.ActivateText();
+            //animateText.GetText();
+            //animateText.ActivateText();
+            typewriter.SetText(bargainSpeech.text);
             custHappyEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
             charEmote.sprite = emoticons[1];
@@ -657,8 +676,9 @@ public class GameManager : MonoBehaviour
             patience += 4;
             //replace later
             bargainSpeech.text = character.GetHappyText();
-            animateText.GetText();
-            animateText.ActivateText();
+            //animateText.GetText();
+            //animateText.ActivateText();
+            typewriter.SetText(bargainSpeech.text);
             custHappyEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
             charEmote.sprite = emoticons[1];
@@ -785,8 +805,9 @@ public class GameManager : MonoBehaviour
         dealOver = true;
         speechBubbleImage.sprite = speechBubbles[1];
         bargainSpeech.text = character.GetAcceptTrade();
-        animateText.GetText();
-        animateText.ActivateText();
+        //animateText.GetText();
+        //animateText.ActivateText();
+        typewriter.SetText(bargainSpeech.text);
         TextPrompt.gameObject.SetActive(false);
         itemManager.SoldItem(selectedItem, basePrice, (int)setPrice);
         character.SaleOver();
@@ -816,8 +837,9 @@ public class GameManager : MonoBehaviour
         saleFailure.Post(gameObject);
         custAngryEvent.Post(gameObject);
         bargainSpeech.text = character.GetDeclineTrade();
-        animateText.GetText();
-        animateText.ActivateText();
+        //animateText.GetText();
+        //animateText.ActivateText();
+        typewriter.SetText(bargainSpeech.text);
         TextPrompt.gameObject.SetActive(false);
         itemManager.FailedToSell(selectedItem, basePrice, 0);
         customer.enabled = true;
