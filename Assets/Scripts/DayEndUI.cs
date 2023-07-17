@@ -94,7 +94,7 @@ public class DayEndUI : MonoBehaviour
             {
                 wallet += 1;
                 dailyGoalBar.fillAmount = (wallet / goal);
-                sellAmount -= 1;
+               sellAmount -= 1;
             }
         }
     }

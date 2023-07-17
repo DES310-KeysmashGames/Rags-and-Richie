@@ -19,6 +19,11 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator truckVroom;
     [SerializeField] Animator tutorialTravelText;
 
+    // End of Day Animation
+    [SerializeField] Animator FanFarePortraits;
+
+
+
 
     private void Awake()
     {
@@ -138,6 +143,13 @@ public class AnimationTrade : MonoBehaviour
     {
         shelfLock.SetTrigger("Open");
     }
+
+
+    public void PortraitAnimation()
+    {
+        FanFarePortraits.SetTrigger("Play");
+    }
+
 
 
 }
