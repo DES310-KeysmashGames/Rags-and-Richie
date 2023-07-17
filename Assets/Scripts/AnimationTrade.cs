@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnimationTrade : MonoBehaviour
 {
+    //Trade Scene Animations
     [SerializeField] Animator bargainPhaseAnimation;
     [SerializeField] Animator priceConfirmAnimation;
     [SerializeField] Animator PlayerUserInterface;
@@ -12,20 +13,33 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
     [SerializeField] Animator shelfLock;
-    [SerializeField] Animator tutorialTravelText;
+
+    //Travel Scene Animations
+    [SerializeField] Animator CityPulse;
     [SerializeField] Animator truckVroom;
+    [SerializeField] Animator tutorialTravelText;
 
 
     private void Awake()
     {
 
     }
-
+    // Truck Animation Travel Scene
     public void TruckDrive()
     {
         truckVroom.SetTrigger("Vroom");
     }
 
+    // City Breathing
+    public void CityButtons()
+    {
+        CityPulse.SetTrigger("Pulse"); // Makes Icon Pulsate
+    }
+
+    public void CityButtonsReset()
+    {
+        CityPulse.SetTrigger("Stop"); // Makes Icon Stop Pulsing
+    }
 
     // Tutorial Text Animations
 
@@ -96,7 +110,6 @@ public class AnimationTrade : MonoBehaviour
 
 
     // Speech Bubble
-
     public void SpeechBubble()
     {
         speechBubble.SetTrigger("Speaking");
@@ -109,8 +122,8 @@ public class AnimationTrade : MonoBehaviour
         blinkingMoney.SetTrigger("Blink");
     }
 
-    // Blinking Emoticon Animation
 
+    // Blinking Emoticon Animation
     public void BlinkingEmoticonActive()
     {
         blinkingEmoticon.SetTrigger("Blink");

@@ -34,7 +34,6 @@ public class TravelManager : MonoBehaviour
     [SerializeField] private Image truck;
     [SerializeField] private Sprite[] citySprites;
     [SerializeField] private Sprite[] citySelectedSprites;
-    [SerializeField] AnimationTrade truckSwipe;
 
     //RichieText
     [SerializeField] private Button continueTextButton;
@@ -49,7 +48,10 @@ public class TravelManager : MonoBehaviour
     private int day;
     private bool isPlaying;
 
+    //Animations
     [SerializeField] AnimationTrade travelTutorialText;
+    [SerializeField] AnimationTrade CityPulse;
+    [SerializeField] AnimationTrade truckSwipe;
 
     public AK.Wwise.Event richieDialogueEvent;
     public AK.Wwise.Event buttonPressEvent;

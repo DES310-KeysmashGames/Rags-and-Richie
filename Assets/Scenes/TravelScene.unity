@@ -499,9 +499,7 @@ RectTransform:
   m_Children:
   - {fileID: 2091113500}
   - {fileID: 1871758457}
-  - {fileID: 2037348124}
-  - {fileID: 851372074}
-  - {fileID: 1961407047}
+  - {fileID: 1377739626}
   m_Father: {fileID: 1750699283}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -568,7 +566,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c6afbad0f11d9f1428e10edaf02d8acb, type: 3}
   - {fileID: 21300000, guid: 1b4c5a62696f51a41839c353be4787b3, type: 3}
   - {fileID: 21300000, guid: 12a92e393da2c654e861b39eb1d1d272, type: 3}
-  truckSwipe: {fileID: 2136903302}
   continueTextButton: {fileID: 1161368183}
   tutorialCount: 0
   readText: 0
@@ -576,6 +573,8 @@ MonoBehaviour:
   cityClicked: 0
   nextClicked: 0
   travelTutorialText: {fileID: 1638254821}
+  CityPulse: {fileID: 0}
+  truckSwipe: {fileID: 2136903302}
   richieDialogueEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -700,17 +699,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851372073}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 774880466}
+  m_Father: {fileID: 1377739626}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 96}
+  m_AnchoredPosition: {x: 32.477905, y: 95.99994}
   m_SizeDelta: {x: 381.937, y: 355.836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &851372075
@@ -738,7 +737,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.9622642, g: 0.94864726, b: 0.94864726, a: 0.41960785}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1131,6 +1130,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317834725}
   m_CullTransparentMesh: 1
+--- !u!1 &1377739625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377739626}
+  - component: {fileID: 1377739628}
+  - component: {fileID: 1377739627}
+  m_Layer: 3
+  m_Name: CityButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1377739626
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377739625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2037348124}
+  - {fileID: 851372074}
+  - {fileID: 1961407047}
+  m_Father: {fileID: 774880466}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.47790527, y: 0.000061035156}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1377739627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377739625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 0}
+  priceConfirmAnimation: {fileID: 0}
+  PlayerUserInterface: {fileID: 0}
+  customerAnimations: {fileID: 0}
+  speechBubble: {fileID: 0}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 0}
+  shelfLock: {fileID: 0}
+  CityPulse: {fileID: 1377739628}
+  truckVroom: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
+--- !u!95 &1377739628
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377739625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 507d5b8964fac6545843555f1f033a22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1409826839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,14 +1540,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 0}
-  patienceMeterAnimation: {fileID: 0}
+  PlayerUserInterface: {fileID: 0}
   customerAnimations: {fileID: 0}
   speechBubble: {fileID: 0}
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
-  tutorialTravelText: {fileID: 1638254820}
+  CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
+  tutorialTravelText: {fileID: 1638254820}
 --- !u!1 &1679083356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,17 +2093,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961407046}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 774880466}
+  m_Father: {fileID: 1377739626}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455, y: 96}
+  m_AnchoredPosition: {x: 455.4779, y: 95.99994}
   m_SizeDelta: {x: 381.937, y: 355.836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1961407048
@@ -2047,7 +2131,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.9622642, g: 0.94864726, b: 0.94864726, a: 0.41960785}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2250,17 +2334,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037348123}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 774880466}
+  m_Father: {fileID: 1377739626}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -423, y: 96}
+  m_AnchoredPosition: {x: -422.5221, y: 95.99994}
   m_SizeDelta: {x: 381.937, y: 355.836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037348125
@@ -2288,7 +2372,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.9622642, g: 0.94864726, b: 0.94864726, a: 0.41960785}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2680,14 +2764,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bargainPhaseAnimation: {fileID: 0}
   priceConfirmAnimation: {fileID: 0}
-  patienceMeterAnimation: {fileID: 0}
+  PlayerUserInterface: {fileID: 0}
   customerAnimations: {fileID: 0}
   speechBubble: {fileID: 0}
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
-  tutorialTravelText: {fileID: 0}
+  CityPulse: {fileID: 0}
   truckVroom: {fileID: 2136903301}
+  tutorialTravelText: {fileID: 0}
 --- !u!1 &2137794067
 GameObject:
   m_ObjectHideFlags: 0
