@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum CharacterDesire
 {
-    Food, Drink, Warmth, Luxury, Machinery, Weaponary
+    Food, Drink, Warmth, Luxury, Machinery, Weaponary, Special
 }
 
 [CreateAssetMenu(menuName = "CharacterCreator/Character", fileName = "New Character")]

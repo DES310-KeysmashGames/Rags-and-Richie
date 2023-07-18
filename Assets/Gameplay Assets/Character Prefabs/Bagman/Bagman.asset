@@ -9,10 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b77d99d1c3c80d24fba13a5cf87590c4, type: 3}
-  m_Name: Bag Man
+  m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
+  m_Name: Bagman
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: cfa8e8d1a0259a8449a3d3b84a30dc90, type: 3}
-  charName: Bag Man
+  CustName: Bagman
+  desire: 6
+  foodDesire: 0
+  drinkDesire: 0
+  warmthDesire: 0
+  weaponDesire: 0
+  machineryDesire: 0
+  luxuryDesire: 0
   introText:
   - {fileID: 11400000, guid: 13b68c78987ceda4db38103e4cbcfa02, type: 2}
+  introText2: []
+  introText3: []
+  patiece: 100
+  desperation: 0

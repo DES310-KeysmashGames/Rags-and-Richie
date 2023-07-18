@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     private int introCount;
     private int tutorialLength;
     private int bagmanLength;
+    private bool specialCustomer;
     private bool textProgression;
     private bool dealOver;
     [SerializeField] private int customerCount;
@@ -150,6 +151,7 @@ public class GameManager : MonoBehaviour
                 StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
                 buttonPressEvent.Post(gameObject);
             }
+
             Loader.Load(Loader.Scene.DayEndScene);
         });
         for (int i = 0; i < itemButtons.Length; ++i)
@@ -269,6 +271,7 @@ public class GameManager : MonoBehaviour
         bargain = false;
         textProgression = false;
         dealOver = false;
+        specialCustomer = false;
         InitialOfferSetInactive(true);
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
@@ -310,6 +313,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Allow special Customer to appear if all 4 regular customers have appeared
+        if (customerCount == 4)
+        {
+            specialCustomer = true;
+        }
+
         if (ending)
         {
             endingTimer -= Time.deltaTime;
@@ -326,12 +335,16 @@ public class GameManager : MonoBehaviour
                 Loader.Load(Loader.Scene.DayEndScene);
             }
         }
+
         walletText.text = PlayerPrefs.GetInt("wallet").ToString();
+
         if (!itemsShown)
         {
             InitialTrade();
         }
+
         priceBox.text = setPrice.ToString("00");
+
         if (bargain)
         {
             textTimer -= Time.deltaTime;
@@ -483,14 +496,13 @@ public class GameManager : MonoBehaviour
 
     void Bagman()
     {
-        customerAnimations.CustomerSpeakingArrive();
-        playerApproachEvent.Post(gameObject);
-        customer.sprite = character.GetSprite();
-        //custName.text = "" + character.GetCustName();  
-        bagmanLength = character.GetBagmanLength();
-        bargainSpeech.text = "" + character.GetBagmanText();
-        animateText.GetText();
-        animateText.ActivateText(); 
+        character.GenerateBagman();                             //Generate Bagman
+        customer.sprite = character.GetSprite();                //Assign Sprite
+        custName.text = "" + character.GetCustName();           //Get Name
+        bagmanLength = character.GetBagmanLength();             //Get Text Nodes
+        bargainSpeech.text = "" + character.GetBagmanText();    //Get Dialogue
+        animateText.GetText();                                  //Animate Text
+        animateText.ActivateText();                             //Animate Text
     }
 
     //Item Functions
@@ -810,6 +822,10 @@ public class GameManager : MonoBehaviour
         {
             nextCustomerButton.gameObject.SetActive(true);
         }
+        else if (specialCustomer)
+        {
+            Bagman();
+        }
         else
         {
             ResetLevel();
@@ -839,7 +855,11 @@ public class GameManager : MonoBehaviour
         {
             nextCustomerButton.gameObject.SetActive(true);
         }
-        else
+        else if (specialCustomer)
+        {
+            Bagman();
+        } 
+        else 
         {
             ResetLevel();
         }

@@ -11,7 +11,6 @@ public static class Loader
         TravelScene,
         ItemSelectScene,
         TradeScene,
-        BagmanScene,
         DayEndScene,
         EndingScene,
         CreditScene

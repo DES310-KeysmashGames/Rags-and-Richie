@@ -71,6 +71,13 @@ public class CharacterManager : MonoBehaviour
         currentChar = character[6];
     }
 
+    //Generate Bagman
+    public void GenerateBagman()
+    {
+        //Select Bagman as the current character
+        currentChar = character[7];
+    }
+
     public void SaleOver()
     {
         prevCustomer.Add(currentChar);
