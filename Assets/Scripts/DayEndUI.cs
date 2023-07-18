@@ -7,14 +7,23 @@ using UnityEngine.UI;
 public class DayEndUI : MonoBehaviour
 {
     [SerializeField] public List<BaseItem> soldItemsReviewList = new List<BaseItem>();
+    [SerializeField] public List<Sprite> charSpriteList = new List<Sprite>();
     public List<int> soldPrice = new List<int>();
     public List<int> price = new List<int>();
     [SerializeField] private Image[] soldItemSprites;
     [SerializeField] private Image[] thumbSprites;
     [SerializeField] private Sprite[] thumb;
     [SerializeField] private TextMeshProUGUI expenses;
+    [SerializeField] private TextMeshProUGUI[] itemCost;
+
+    [SerializeField] private Image dailyGoalBar;
 
     [SerializeField] Button endButton;
+    [SerializeField] private float goal;
+    [SerializeField] private int sellAmount;
+    [SerializeField] private bool test;
+    [SerializeField] private int wallet;
+    [SerializeField] private TextMeshProUGUI sellPriceText;
 
     //Audio
     public AK.Wwise.Event buttonEvent;
@@ -46,6 +55,11 @@ public class DayEndUI : MonoBehaviour
         {
             Loader.Load(Loader.Scene.EndingScene);
         }
+
+        goal = StaticTravel.goal;
+        goal = 1000;
+        test = false;
+        wallet = PlayerPrefs.GetInt("wallet");
     }
 
     private void Start(){
@@ -53,10 +67,36 @@ public class DayEndUI : MonoBehaviour
             soldItemsReviewList.Add(StaticInventory.soldItemsList[i]);
             soldPrice.Add(StaticInventory.sellPrice[i]);
             price.Add(StaticInventory.basePrice[i]);
+
+           charSpriteList.Add(StaticInventory.charac[i].charSprite);
         }
         AssignSprites();
-        AssignThumb();
+        AssignThumb(); 
+        AssignPrice();
         expenses.text = StaticTravel.expenses.ToString();
+        for (int i = 0; i < soldPrice.Count; ++i)
+        {
+            sellAmount += soldPrice[i];
+        }
+        sellPriceText.text = sellAmount.ToString();
+        dailyGoalBar.fillAmount = ((float)wallet / goal);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            test = true;   
+        }
+        if(test == true)
+        {
+            if (sellAmount > 0)
+            {
+                wallet += 1;
+                dailyGoalBar.fillAmount = (wallet / goal);
+                sellAmount -= 1;
+            }
+        }
     }
 
     private Sprite GetSprite(int i)
@@ -73,23 +113,26 @@ public class DayEndUI : MonoBehaviour
 
     private void AssignThumb()
     {
-        for (int i =0; i < soldItemSprites.Length; ++i)
+        for (int i =0; i < charSpriteList.Count; ++i)
         {
-            if(soldPrice[i] < price[i])
-            {
-                thumbSprites[i].sprite = thumb[0];
-            }
-            else
-            {
-                thumbSprites[i].sprite = thumb[1];
-            }
+            thumbSprites[i].sprite = charSpriteList[i];
         }
     }
+
+    private void AssignPrice()
+    {
+        for ( int i = 0; i < itemCost.Length; ++i)
+        {
+            itemCost[i].text = soldPrice[i].ToString();
+        }
+    }
+
 
     private void ClearItems()
     {
         StaticInventory.soldItemsList.Clear();
         StaticInventory.sellPrice.Clear();
         StaticInventory.basePrice.Clear();
+        StaticInventory.charac.Clear();
     }
 }

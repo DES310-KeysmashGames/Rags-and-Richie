@@ -8,11 +8,13 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     [SerializeField] private List<BaseItem> inventory = new List<BaseItem>();
+    [SerializeField] private List<BaseItem> shopStock = new List<BaseItem>();
     public List<BaseItem> soldItems = new List<BaseItem>();
     public List<int> itemPrice = new List<int>();
     public List<int> sellPrice = new List<int>();
 
     private bool itemExists;
+    private int dupeCount;
 
     //generate 4 items from the list of items and adds them to the array of current items available in the store
     public void GenerateItemList()
@@ -21,6 +23,50 @@ public class ItemManager : MonoBehaviour
         {
             inventory.Add( StaticInventory.intermediateList[i] );
         }
+    }
+
+    public void GenerateItemStock(string itemCategory)
+    {
+        inventory.RemoveRange(0, inventory.Count);
+        for (int i = 0; i < 4; ++i)
+        {
+            int index = UnityEngine.Random.Range(0, shopStock.Count);
+            inventory.Add(shopStock[index]);
+        }
+    }
+
+
+    private void TagMatch(string itemCat, int index)
+    {
+        if(shopStock[index].primaryType.ToString() == itemCat)
+        {
+            //itemTagMatch = true;
+        }
+    }
+
+    public int DupeCheck(int index)
+    {
+        dupeCount = 0;
+        for(int i = 0; i < 4; ++i)
+        {
+            if (i == index)
+            {
+                i++;
+            }
+            else
+            {
+                if (inventory[index].name == inventory[i].name)
+                {
+                    dupeCount++;
+                }
+            }
+        }
+        return dupeCount;
+    }
+
+    public Sprite GetItemSprite(int index)
+    {
+        return soldItems[index].frontSprite;
     }
 
     public void FailedToSell(int no, int price, int sell)
@@ -44,8 +90,7 @@ public class ItemManager : MonoBehaviour
     }
 
     public Sprite GetSprite(int itemNo)
-    {
-        //return CurrentItems[itemNo].frontSprite;
+    { 
         return inventory[itemNo].frontSprite;
     }
     public string GetName(int itemNo)
@@ -60,33 +105,29 @@ public class ItemManager : MonoBehaviour
 
     public int GetWeaponValue(int itemNo)
     {
-        //return CurrentItems[itemNo].weaponValue;
         return inventory[itemNo].weaponValue;
     }
     public int GetLuxuryValue(int itemNo)
     {
-        //return CurrentItems[itemNo].luxuryValue;
         return inventory[itemNo].luxuryValue;
     }
     public int GetDrinkValue(int itemNo)
     {
-        //return CurrentItems[itemNo].drinkValue;
         return inventory[itemNo].drinkValue;
     }
     public int GetFoodValue(int itemNo)
     {
-        // return CurrentItems[itemNo].foodValue;
         return inventory[itemNo].foodValue;
     }
     public int GetMachineryValue(int itemNo)
     {
-        // return CurrentItems[itemNo].machineryValue;
         return inventory[itemNo].machineryValue;
     }
     public int GetWarmthValue(int itemNo)
     {
         return inventory[itemNo].warmthValue;
     }
+
     public void Reset()
     {
         inventory.RemoveRange(0, inventory.Count);

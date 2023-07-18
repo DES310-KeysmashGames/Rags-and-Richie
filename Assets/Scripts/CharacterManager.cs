@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] BaseCharacter[] character;
-    [SerializeField] private List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
+    [SerializeField] public List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
     public BaseCharacter currentChar;
     private bool custExists;
     [SerializeField] TextDialogue[] tradeSpeech;
@@ -66,6 +67,16 @@ public class CharacterManager : MonoBehaviour
             default:
                 return currentChar.introText[introNo].lineOfDialogue;
         }    
+    }
+
+    public BaseCharacter GetCharacterList(int index)
+    {
+        return prevCustomer[index];
+    }
+
+    public Sprite GetCharSprite(int index)
+    {
+        return prevCustomer[index].charSprite;
     }
 
     public Sprite GetSprite()
@@ -134,6 +145,11 @@ public class CharacterManager : MonoBehaviour
     {
         int i = UnityEngine.Random.Range(0, zeroPatience.Length);
         return zeroPatience[i].lineOfDialogue;
+    }
+
+    public string GetPrimaryDesire()
+    {
+        return currentChar.desire.ToString();
     }
 
     public int GetFood()

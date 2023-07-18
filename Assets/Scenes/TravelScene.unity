@@ -777,9 +777,9 @@ GameObject:
   m_Component:
   - component: {fileID: 789197628}
   - component: {fileID: 789197627}
+  - component: {fileID: 789197633}
   - component: {fileID: 789197629}
   - component: {fileID: 789197630}
-  - component: {fileID: 789197632}
   m_Layer: 0
   m_Name: TravelManager
   m_TagString: Untagged
@@ -915,7 +915,7 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
---- !u!114 &789197632
+--- !u!114 &789197633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -924,14 +924,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 789197626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da67c02072ee2b8488ff368ec27d62b2, type: 3}
+  m_Script: {fileID: 11500000, guid: a29b1d35e43c53946bd06f30c1217853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToScroll:
-  - 
-  textSpeed: 0.02
   textBox: {fileID: 1918187891}
---- !u!1 &829053590
+  characterIndex: 0
+  textSpeed: 80
+  textDelay: 0.5
+  sendDoneDelay: 0.25
+--- !u!1 &851372073
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3249,8 +3250,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
-  m_sharedMaterial: {fileID: 9222765973610908125, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
+  m_sharedMaterial: {fileID: 3320235333218628706, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

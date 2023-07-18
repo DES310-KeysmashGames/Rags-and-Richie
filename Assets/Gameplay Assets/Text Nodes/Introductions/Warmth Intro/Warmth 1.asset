@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Warmth 1
   m_EditorClassIdentifier: 
   lineOfDialogue: "Ah, I appear to be at the wrong shop. I heard there was a mechanic
-    here. \r\nMy tank\u2019s oven broke. It\u2019s real cold inside there now...\r"
+    here. \r\nMy tank\u2019s oven broke. It\u2019s real <color=red>cold</color> inside
+    there now...\r"
   category: 4
