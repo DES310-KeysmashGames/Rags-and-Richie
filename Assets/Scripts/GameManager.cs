@@ -324,7 +324,6 @@ public class GameManager : MonoBehaviour
                 Loader.Load(Loader.Scene.DayEndScene);
             }
         }
-        ResetToMenu();
         walletText.text = PlayerPrefs.GetInt("wallet").ToString();
         if (!itemsShown)
         {
