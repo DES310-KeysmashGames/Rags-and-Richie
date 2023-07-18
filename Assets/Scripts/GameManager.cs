@@ -335,12 +335,6 @@ public class GameManager : MonoBehaviour
         if (bargain)
         {
             textTimer -= Time.deltaTime;
-            //if(textTimer < 0)
-            //{
-            //    textProgression = true;
-            //    textTimer = 2.0f;
-            //}
-            //PatienceCheck();
             if (textProgression)
             {
                 MakeOfferPhaseSetActive();
@@ -456,12 +450,7 @@ public class GameManager : MonoBehaviour
     {
         TextPrompt.gameObject.SetActive(true);
         InitialOfferSetInactive(true);
-        
-        //StartCoroutine(AnimDelay());
         await Task.Delay(1000);
-        //speechBubble.SpeechBubble();
-
-        //TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
         bargain = true;
         charEmote.enabled = true;
@@ -676,7 +665,6 @@ public class GameManager : MonoBehaviour
         InitialOfferSetInactive(false);
         bargainSpeech.enabled = true;
         speechBubbleImage.enabled = true;
-        //shelfLock.ShelfOpen();
     }
 
     public void IncreasePrice()
@@ -789,7 +777,6 @@ public class GameManager : MonoBehaviour
 
     public void ProgressText()
     {
-        //textProgression = true;
         customerAnimations.CustomerSpeakingActive();
         speechBubble.SpeechBubble();
     }
