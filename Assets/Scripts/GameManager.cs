@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     //managers for item and character
     private ItemManager itemManager;
     private CharacterManager character;
-    private AnimateText animateText;
     private TypeWriterTextScript typewriter;
 
     // Animations
@@ -84,8 +83,7 @@ public class GameManager : MonoBehaviour
     private bool offerAccept;
 
     //ui elements for turn count
-    [SerializeField] private TextMeshProUGUI turnCountText;
-    [SerializeField] private Image[] turnLights;
+    [SerializeField] private TextMeshProUGUI turnsRemainingText;
 
     //UI for ending the game
     [Header("UI elements for ending the game")]
@@ -141,7 +139,6 @@ public class GameManager : MonoBehaviour
     {
         character = GetComponent<CharacterManager>();
         itemManager = GetComponent<ItemManager>();
-        animateText = GetComponent<AnimateText>();
         typewriter = GetComponent<TypeWriterTextScript>();
 
         endGameButton.onClick.AddListener(() => {
@@ -179,11 +176,6 @@ public class GameManager : MonoBehaviour
         confirmButton.onClick.AddListener(() =>
         {
             PriceConfirmAsync();
-            turnCountText.enabled = true;
-            for (int i = 0; i < turnLights.Length; ++i)
-            {
-                turnLights[i].gameObject.SetActive(true);
-            }
             Desperation();
             buttonPressEvent.Post(gameObject);
         });
@@ -270,11 +262,6 @@ public class GameManager : MonoBehaviour
         //    itemText[i].enabled = false;
         //    itemButtons[i].gameObject.SetActive(false);
         //}
-        turnCountText.enabled = false;
-        for (int i = 0; i < turnLights.Length; ++i)
-        {
-            turnLights[i].gameObject.SetActive(false);
-        }
         IconTextSort();
         trade = false;
         bargain = false;
@@ -319,6 +306,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TypeWriterTextScript.CompleteTextRevealed += ButtonActivate;
         if (ending)
         {
             endingTimer -= Time.deltaTime;
@@ -387,7 +375,6 @@ public class GameManager : MonoBehaviour
 
     void TradeSpeech()
     {
-        TypeWriterTextScript.CompleteTextRevealed += ButtonActivate;
         if (textProgression)
         {
             if (introCount == 2 && introCount < introLength)
@@ -433,12 +420,7 @@ public class GameManager : MonoBehaviour
         itemManager.GenerateItemStock(character.GetPrimaryDesire());
         print(character.GetPrimaryDesire());
         IconTextSort();
-        turnCountText.enabled = false;
-        for (int i = 0; i < turnLights.Length; ++i)
-        {
-            turnLights[i].gameObject.SetActive(false);
-            turnLights[i].color = Color.yellow;
-        }
+        turnsRemainingText.text = "3";
     }
 
     //displays the items available for sale.
@@ -477,7 +459,7 @@ public class GameManager : MonoBehaviour
         await Task.Delay(1000);
         //speechBubble.SpeechBubble();
 
-        TextPrompt.gameObject.SetActive(true);
+        //TextPrompt.gameObject.SetActive(true);
         bargainSpeech.enabled = true;
         bargain = true;
         charEmote.enabled = true;
@@ -647,13 +629,13 @@ public class GameManager : MonoBehaviour
         switch (turnCount)
         {
             case 1:
-                turnLights[turnCount - 1].color = Color.black;
+                turnsRemainingText.text = "2";
                 break;
             case 2:
-                turnLights[turnCount - 1].color = Color.black;
+                turnsRemainingText.text = "1";
                 break;
             case 3:
-                turnLights[turnCount - 1].color = Color.black;
+                turnsRemainingText.text = "0";
                 break;
         };
     }
@@ -805,7 +787,7 @@ public class GameManager : MonoBehaviour
 
     public void ProgressText()
     {
-        textProgression = true;
+        //textProgression = true;
         customerAnimations.CustomerSpeakingActive();
         speechBubble.SpeechBubble();
     }
