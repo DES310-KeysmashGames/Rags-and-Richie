@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button TextPrompt;
     [SerializeField] private Image itemCard;
     [SerializeField] private Button itemReshuffleButton;
+    private int shuffleCount;
 
     //ui for selecting inital price
     [Header("UI elements for selecting the initial price")]
@@ -421,6 +422,7 @@ public class GameManager : MonoBehaviour
         print(character.GetPrimaryDesire());
         IconTextSort();
         turnsRemainingText.text = "3";
+        shuffleCount = 0;
     }
 
     //displays the items available for sale.
@@ -917,7 +919,13 @@ public class GameManager : MonoBehaviour
 
     private void ItemReshuffle()
     {
-        itemManager.GenerateItemStock(character.GetPrimaryDesire());
-        IconTextSort();
+        ++shuffleCount;
+        int cost = 10 * shuffleCount;
+        if (PlayerPrefs.GetInt("wallet") >= (cost))
+        {
+            itemManager.GenerateItemStock(character.GetPrimaryDesire());
+            IconTextSort();
+            PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - cost));
+        }
     }
 }
