@@ -17,18 +17,21 @@ MonoBehaviour:
   desire: 4
   foodDesire: 1
   drinkDesire: 1
-  warmthDesire: 2
-  weaponDesire: 3
-  machineryDesire: 4
-  luxuryDesire: 2
+  warmthDesire: 1
+  weaponDesire: 1
+  machineryDesire: 8
+  luxuryDesire: 1
   introText:
   - {fileID: 11400000, guid: c25705021725ba645a4082f6b20b61fc, type: 2}
   - {fileID: 11400000, guid: f33aea4e53f33ff48a2a5189d7d28d40, type: 2}
+  - {fileID: 11400000, guid: 1fca020e30dd16340b2c626fc6161c0e, type: 2}
   introText2:
   - {fileID: 11400000, guid: e9d5d90e133560341a86d731fe3706f0, type: 2}
   - {fileID: 11400000, guid: f3c3492f6253d21439d117004e2fa3ce, type: 2}
+  - {fileID: 11400000, guid: d1bd9c28c157883448587b1d1296d911, type: 2}
   introText3:
   - {fileID: 11400000, guid: f8cb7ecca10d32a4486ece03e7926776, type: 2}
   - {fileID: 11400000, guid: 38145f4d844047a4e8d12b253254ba12, type: 2}
+  - {fileID: 11400000, guid: df7210f283d10bf40ab9118cc94511d0, type: 2}
   patiece: 64
   desperation: 2
