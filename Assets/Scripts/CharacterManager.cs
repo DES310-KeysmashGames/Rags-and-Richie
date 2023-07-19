@@ -48,6 +48,12 @@ public class CharacterManager : MonoBehaviour
             custExists = true;
         }
 
+        //Permanently disable Bagman from appearing
+        if (character[index].name == character[7].name)
+        {
+            custExists = true;
+        }
+
         if (!custExists)
         {
             currentChar = character[index];
