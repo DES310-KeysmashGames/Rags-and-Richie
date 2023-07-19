@@ -21,7 +21,7 @@ MonoBehaviour:
   Description: 
   foodValue: 7
   drinkValue: 5
-  warmthValue: 5
-  weaponValue: 1
-  machineryValue: 1
-  luxuryValue: 1
+  warmthValue: 4
+  weaponValue: 0
+  machineryValue: 0
+  luxuryValue: 0

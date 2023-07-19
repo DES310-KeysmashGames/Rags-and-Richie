@@ -20,9 +20,9 @@ MonoBehaviour:
   itemDescription: {fileID: 21300000, guid: 08e16e90f1b18b04fac081847bd9e0c7, type: 3}
   Description: A bottle of wine that's been broken, containing only half of it's
     volume.
-  foodValue: 2
-  drinkValue: 7
-  warmthValue: 1
-  weaponValue: 5
-  machineryValue: 1
-  luxuryValue: 8
+  foodValue: 0
+  drinkValue: 5
+  warmthValue: 0
+  weaponValue: 0
+  machineryValue: 4
+  luxuryValue: 7

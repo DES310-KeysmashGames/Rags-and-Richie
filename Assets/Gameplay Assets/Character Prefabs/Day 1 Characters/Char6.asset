@@ -15,15 +15,16 @@ MonoBehaviour:
   charSprite: {fileID: 21300000, guid: 1af40cba47b918c478a5b335b65b36ce, type: 3}
   CustName: Kranky Kevin
   desire: 1
-  foodDesire: 3
-  drinkDesire: 5
-  warmthDesire: 2
+  foodDesire: 1
+  drinkDesire: 7
+  warmthDesire: 1
   weaponDesire: 1
   machineryDesire: 1
-  luxuryDesire: 2
+  luxuryDesire: 7
   introText:
   - {fileID: 11400000, guid: 6402907e3852bf44195d12f7471c794b, type: 2}
   - {fileID: 11400000, guid: d8985ac80975f8c4e8d6a624973b90a4, type: 2}
+  - {fileID: 11400000, guid: 3cff344e934af354b9a866122f53c0c6, type: 2}
   introText2:
   - {fileID: 11400000, guid: 4b138c270a3a6d44a87771dbc96464e4, type: 2}
   - {fileID: 11400000, guid: ceb5cf0af2f6421499f32ca6dbf7f7c4, type: 2}

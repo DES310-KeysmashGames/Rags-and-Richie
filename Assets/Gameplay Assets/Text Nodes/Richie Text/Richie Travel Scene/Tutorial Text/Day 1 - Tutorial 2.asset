@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 1 - Tutorial 2
   m_EditorClassIdentifier: 
-  lineOfDialogue: No? You haven't got a clue on the price? Okay... well <color=green>how
+  lineOfDialogue: No? You haven't got a clue on the price? Okay... well <color=#FFCC00>how
     about we give it a</color> shot anyway to <color=red>test</color> the waters?
   category: 6
