@@ -4817,7 +4817,7 @@ MonoBehaviour:
   textBox: {fileID: 150303958}
   characterIndex: 0
   textSpeed: 80
-  textDelay: 0.5
+  textDelay: 0.2
   sendDoneDelay: 0.25
 --- !u!1 &961897973
 GameObject:
