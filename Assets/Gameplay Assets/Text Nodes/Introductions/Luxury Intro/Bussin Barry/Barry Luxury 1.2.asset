@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Barry Luxury 1.2
   m_EditorClassIdentifier: 
-  lineOfDialogue: No? Hahaha, fair enough, but I'm sure you've got a li'l someting
-    behind the counter for me...
+  lineOfDialogue: No? Well is there any other kind of <color=#FFCC00>luxury machine</color>
+    you can give me?
   category: 3

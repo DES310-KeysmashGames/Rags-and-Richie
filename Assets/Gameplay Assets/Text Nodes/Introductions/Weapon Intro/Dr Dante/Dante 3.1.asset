@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Dante 3.1
   m_EditorClassIdentifier: 
-  lineOfDialogue: You wouldn't happen to have anything I could use, would you?
+  lineOfDialogue: My patients have started resembling myself.
   category: 5
