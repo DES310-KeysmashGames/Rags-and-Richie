@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GameMusic
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,28 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1492393387
+    locked: 0
+  - name: VFX
+    uniqueID: 3989246297
+    locked: 0
+  - name: Customers
+    uniqueID: 3185313153
+    locked: 0
+  - name: Interior
+    uniqueID: 2954841039
+    locked: 0
+  - name: PlayerUI
+    uniqueID: 2023168363
+    locked: 0
+  - name: Shutter
+    uniqueID: 3516540049
+    locked: 0
+  - name: Transition
+    uniqueID: 3723664687
+    locked: 0
+  - name: (FRONT)
+    uniqueID: 2957668121
     locked: 0
