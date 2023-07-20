@@ -23,6 +23,8 @@ MonoBehaviour:
   luxuryDesire: 0
   introText:
   - {fileID: 11400000, guid: 13b68c78987ceda4db38103e4cbcfa02, type: 2}
+  - {fileID: 11400000, guid: 9686366f776fd974a99404484e6099f4, type: 2}
+  - {fileID: 11400000, guid: 835ebc9fd6b187442be76ae8de0139e5, type: 2}
   introText2: []
   introText3: []
   patiece: 100

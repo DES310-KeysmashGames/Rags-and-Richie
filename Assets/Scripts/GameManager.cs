@@ -100,10 +100,10 @@ public class GameManager : MonoBehaviour
     private int introLength;
     private int introCount;
     private int tutorialLength;
+    private bool tutItem;
     private int bagmanLength;
     private bool bagmanSpoken;
     private float bagTimer;
-    private float bagTrueTimer;
     private bool textProgression;
     private bool dealOver;
     [SerializeField] private int customerCount;
@@ -157,8 +157,11 @@ public class GameManager : MonoBehaviour
                 buttonPressEvent.Post(gameObject);
             }
 
-            //Load next scene #1
-            Loader.Load(Loader.Scene.DayEndScene);
+            if (bagmanSpoken)
+            {
+                //Load next scene #1
+                Loader.Load(Loader.Scene.DayEndScene);
+            }
         });
         for (int i = 0; i < itemButtons.Length; ++i)
         {
@@ -256,7 +259,6 @@ public class GameManager : MonoBehaviour
         ending = false;
         endingTimer = 3.0f;
         bagTimer = 5.0f;
-        bagTrueTimer = 3.0f;
         day = StaticTravel.dayCount;
 
         //Run Tutorial Customer on Day 1, otherwise run New Customer
@@ -280,6 +282,7 @@ public class GameManager : MonoBehaviour
         textProgression = false;
         dealOver = false;
         bagmanSpoken = false;
+        tutItem = true;
         InitialOfferSetInactive(true);
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
@@ -328,11 +331,18 @@ public class GameManager : MonoBehaviour
             {
                 if (customerCount == 4)
                 {
+                    //turn off HUD variables
+                    speechBubbleImage.gameObject.SetActive(false);
+                    bargainSpeech.gameObject.SetActive(false);
+                    patienceMeter.gameObject.SetActive(false);
+
+
                     //Add a delay for transition
                     bagTimer -= Time.deltaTime;
                     if (bagTimer <= 0.0f)
                     {
                         Bagman();
+                        bagmanSpoken = true;
                     }
                 }
             } else
@@ -515,22 +525,26 @@ public class GameManager : MonoBehaviour
 
     void Bagman()
     {
+        //Re-enable necessary gameobjects
+        speechBubbleImage.gameObject.SetActive(true);
+        bargainSpeech.gameObject.SetActive(true);
+        //TextPrompt.gameObject.SetActive(true);
         bagImage.enabled = true;
-        character.GenerateBagman();                             //Generate Bagman
-        customer.sprite = character.GetSprite();                //Assign Sprite
-        custName.text = "" + character.GetCustName();           //Get Name
-        bagmanLength = character.GetBagmanLength();             //Get Text Nodes
-        bargainSpeech.text = "" + character.GetBagmanText();    //Get Dialogue
-        animateText.GetText();                                  //Animate Text
-        animateText.ActivateText();                             //Animate Text
-        patience = character.GetPatience();
 
-        //Delay moving onto next scene
-        bagTrueTimer -= Time.deltaTime;
-        if (bagTrueTimer <= 0)
-        {
-            bagmanSpoken = true;
-        }
+        //Generate Character
+        character.GenerateBagman();
+        customer.sprite = character.GetSprite(); 
+  
+        //Text retrieval + animation
+        bagmanLength = character.GetBagmanLength();
+        bargainSpeech.text = "" + character.GetBagmanText(introCount);
+        animateText.GetText();
+        animateText.ActivateText();
+
+        //Other vars
+        custName.text = "" + character.GetCustName();
+        introCount = 1;
+        patience = character.GetPatience();
     }
 
     //Item Functions
@@ -548,6 +562,27 @@ public class GameManager : MonoBehaviour
             trade = false;
             itemsShown = true;
             shelfLock.ShelfOpen();
+        }
+
+        //Disable other items when tutorial character, then reenable when it's sold
+        if (tutItem)
+        {
+            for (int i = 1; i < itemManager.RemainingItems(); ++i)
+            {
+                itemButtons[i].interactable = false;
+            }
+        } else
+        {
+            for (int i = 0; i < itemManager.RemainingItems(); ++i)
+            {
+                itemButtons[i].interactable = true;
+            }
+        }
+
+        //Check if the tutorial Item has been sold
+        if (day == 1 && itemManager.RemainingItems() == 3) {
+            
+            tutItem = false;
         }
     }
 
