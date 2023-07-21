@@ -487,7 +487,7 @@ public class GameManager : MonoBehaviour
             {
                 AcceptDeal();
             }
-            else
+            else if (patience == 0)
             {
                 if (offerAccept)
                 {
@@ -497,6 +497,10 @@ public class GameManager : MonoBehaviour
                 {
                     DeclineDeal();
                 }
+            }
+            else
+            {
+                DeclineDeal();
             }
         }
     }

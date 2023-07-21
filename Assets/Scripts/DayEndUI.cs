@@ -50,7 +50,7 @@ public class DayEndUI : MonoBehaviour
             });
         }
 
-        PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - StaticTravel.expenses));
+        //PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - StaticTravel.expenses));
         if (PlayerPrefs.GetInt("wallet") < 0)
         {
             Loader.Load(Loader.Scene.EndingScene);
@@ -79,7 +79,14 @@ public class DayEndUI : MonoBehaviour
             sellAmount += soldPrice[i];
         }
         sellPriceText.text = sellAmount.ToString();
-        dailyGoalBar.fillAmount = ((float)wallet / goal);
+        if (wallet == 0)
+        {
+            dailyGoalBar.fillAmount = 0.0f;
+        }
+        else
+        {
+            dailyGoalBar.fillAmount = ((float)wallet / goal);
+        }
     }
 
     private void Update()
