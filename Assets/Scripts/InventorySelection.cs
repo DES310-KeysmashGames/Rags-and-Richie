@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.Progress;
 
 public class InventorySelection : MonoBehaviour
 {
@@ -77,7 +78,7 @@ public class InventorySelection : MonoBehaviour
                 // Don't allow deselection of first item on day 1
                 if (day == 1 && index == 0)
                 {
-
+                    //Potentially add some Richie Flavour text to tell player they can't remove that item
                 }
                 else
                 {
@@ -105,7 +106,15 @@ public class InventorySelection : MonoBehaviour
 
         //Get the day
         day = StaticTravel.dayCount;
-        lunchboxPicked = false;
+
+        //Makes sure all items can be selected if it's not day 1
+        if (day == 1)
+        {
+            lunchboxPicked = false;
+        } else
+        {
+            lunchboxPicked = true;
+        }
 
         //Run Tutorial item set on day one, else shuffle as regular
         if (day == 1)
@@ -123,12 +132,6 @@ public class InventorySelection : MonoBehaviour
         for (int j = 0; j < removeButtons.Length; ++j)
         {
             removeButtons[j].gameObject.SetActive(false);
-        }
-
-        //Set all Items except Lunchbox to Non-Interactable at start
-        for (int i = 1; i < selectionButtons.Count; i++)
-        {
-            selectionButtons[i].interactable = false;
         }
 
         for (int i = 0; i < selectionButtons.Count; i++)
@@ -174,9 +177,15 @@ public class InventorySelection : MonoBehaviour
             confirmButton.GetComponent<Image>().sprite = continueSprite[1];
         }
 
-        // If it's day 1 and lunchBox hasn't yet been selected
+        //Check if lunchbox has been selected
         if (day == 1 && !lunchboxPicked)
         {
+            //Disable all buttons except Lunchbox
+            for (int i = 1; i < selectionButtons.Count; i++)
+            {
+                selectionButtons[i].interactable = false;
+            }
+
             //If Lunchbox has been selected then re-enable all other items
             if (removeButtons[0].gameObject.activeSelf)
             {
@@ -230,24 +239,36 @@ public class InventorySelection : MonoBehaviour
 
     void TutorialShuffle()
     {
-        //Set the very first item to be Mom's Lunchbox
-        scavengedItems.Add(fullItemList[7]);
+        scavengedItems.Add(fullItemList[7]); // Set "Mom's Lunchbox" as the first item
 
-        //Shuffle rest of items at random
-        for (int i = 0; i < 5; i++)
+        // Create a list of available indices to prevent rerolls on the same index
+        List<int> availableIndices = new List<int>();
+
+        //Iterate through full item list to check for food items
+        for (int i = 0; i < fullItemList.Count; i++)
         {
-            int index = UnityEngine.Random.Range(0, fullItemList.Count);
-            scavengedItems.Add(fullItemList[index]);
-
-            ////Block any other food-type items generating
-            //if (scavengedItems[index].primaryType.ToString() == "Food" || scavengedItems[index].secondaryType.ToString() == "Food")
-            //{
-
-            //} else 
-            //{
-            //    scavengedItems.Add(fullItemList[index]);
-            //} 
+            //Add to index of available items if item ISN'T food
+            if (i != 7 && !IsItemFood(fullItemList[i]))
+            {
+                availableIndices.Add(i);
+            }
         }
+
+        //IF WE DON'T WANT DUPLICATE ITEMS, UNCOMMENT THAT LINE BELOW
+        // Randomly select 5 items from the available non-food items
+        for (int i = 0; i < 5 && availableIndices.Count > 0; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, availableIndices.Count);
+            int itemIndex = availableIndices[randomIndex];
+            scavengedItems.Add(fullItemList[itemIndex]);
+            //availableIndices.RemoveAt(randomIndex);
+        }
+    }
+
+    //Check if item is tagged as Food, and return true/false
+    bool IsItemFood(BaseItem item)
+    {
+        return item.primaryType == ItemType.Food || item.secondaryType == ItemType.Food;
     }
 
     public Sprite GetSprite(int i)

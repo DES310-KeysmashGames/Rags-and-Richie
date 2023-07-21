@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool gamePaused = false;
     private bool optionsOn = false;
-    private GameManager reset;
+    private GameManager gameReset;
 
     [Header("Menu Panels")]
     public GameObject pauseMenu;
@@ -31,7 +32,8 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        reset = FindObjectOfType<GameManager>();
+        //Get references to Scripts
+        gameReset = FindObjectOfType<GameManager>();
 
         //Resume Game via button click
         resumeButton.onClick.AddListener(() =>
@@ -56,7 +58,14 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 1f;
             gamePaused = false;
-            reset.ResetLevel();                             //Going back to main menu only works from trade scene atm
+           
+            //Check what scene the pause menu is being used in
+            if (SceneManager.GetActiveScene().name  == "TradeScene")
+            {
+                gameReset.ResetLevel();
+            }
+
+            //Return to main menu
             Loader.Load(Loader.Scene.MainMenuScene);
 
             //Potentially pause background music

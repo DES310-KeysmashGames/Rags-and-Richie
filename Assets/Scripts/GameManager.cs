@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     private int introLength;
     private int introCount;
     private int tutorialLength;
-    private bool tutItem;
+    private bool tutItemSold;
     private int bagmanLength;
     private bool bagmanSpoken;
     private float bagTimer;
@@ -282,7 +282,7 @@ public class GameManager : MonoBehaviour
         textProgression = false;
         dealOver = false;
         bagmanSpoken = false;
-        tutItem = true;
+        tutItemSold = false;
         InitialOfferSetInactive(true);
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
@@ -564,14 +564,14 @@ public class GameManager : MonoBehaviour
             shelfLock.ShelfOpen();
         }
 
-        //Disable other items when tutorial character, then reenable when it's sold
-        if (tutItem)
+        //Check if Tutorial Item has been sold
+        if (day == 1 && customerCount >= 2)
         {
-            for (int i = 1; i < itemManager.RemainingItems(); ++i)
-            {
-                itemButtons[i].interactable = false;
-            }
-        } else
+            tutItemSold = true;
+        }
+
+        //Re-enable when item is sold or it isn't day 1
+        if (tutItemSold || day != 1)
         {
             for (int i = 0; i < itemManager.RemainingItems(); ++i)
             {
@@ -579,11 +579,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //Check if the tutorial Item has been sold
-        if (day == 1 && itemManager.RemainingItems() == 3) {
-            
-            tutItem = false;
-        }
+        //Disable other items when tutorial character
+        if (day == 1 && !tutItemSold)
+        {
+            for (int i = 1; i < itemManager.RemainingItems(); ++i)
+            {
+                itemButtons[i].interactable = false;
+            }
+        } 
     }
 
     void CalculatePrice()
