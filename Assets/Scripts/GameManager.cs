@@ -822,7 +822,6 @@ public class GameManager : MonoBehaviour
             wooshingUIevent.Post(gameObject);
             wooshBool = true;
         }
-        PlayerUserInterface.RaiseUI();
         bargainSpeech.enabled = true;
     }
 

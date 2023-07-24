@@ -94,7 +94,7 @@ public class AnimationTrade : MonoBehaviour
      public void RaiseUI()
 
     {
-        PlayerUserInterface.SetTrigger("Raise");
+        PlayerUserInterface.SetTrigger("RaiseUI");
     }
 
     // Customer Bobbing / Speaking Animation / Arrive / Leave
