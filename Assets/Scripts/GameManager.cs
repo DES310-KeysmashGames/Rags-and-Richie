@@ -256,13 +256,6 @@ public class GameManager : MonoBehaviour
         ending = false;
         endingTimer = 3.0f;
         NewCustomer();
-        //itemManager.GenerateItemList();
-        //for (int i = 0; i < itemButtons.Length; ++i)
-        //{
-        //    itemText[i].text = itemManager.GetName(i);
-        //    itemText[i].enabled = false;
-        //    itemButtons[i].gameObject.SetActive(false);
-        //}
         IconTextSort();
         trade = false;
         bargain = false;
@@ -281,27 +274,27 @@ public class GameManager : MonoBehaviour
         customerCount = 1;
         sellCount = 0;
         textTimer = 2.0f;
-        switch (StaticTravel.itemOfTheDay)
-        {
-            case "Food":
-                foodMultiplier = 2;
-                break;
-            case "Drink":
-                drinkMultiplier = 2;
-                break;
-            case "Mechanical":
-                machineryMultiplier = 2;
-                break;
-            case "Warmth":
-                warmthMultiplier = 2;
-                break;
-            case "Weapon":
-                weaponMultiplier = 2;
-                break;
-            case "Luxury":
-                luxuryMultiplier = 2;
-                break;
-        }
+        //switch (StaticTravel.itemOfTheDay)
+        //{
+        //    case "Food":
+        //        foodMultiplier = 2;
+        //        break;
+        //    case "Drink":
+        //        drinkMultiplier = 2;
+        //        break;
+        //    case "Mechanical":
+        //        machineryMultiplier = 2;
+        //        break;
+        //    case "Warmth":
+        //        warmthMultiplier = 2;
+        //        break;
+        //    case "Weapon":
+        //        weaponMultiplier = 2;
+        //        break;
+        //    case "Luxury":
+        //        luxuryMultiplier = 2;
+        //        break;
+        //}
     }
 
     // Update is called once per frame
@@ -448,7 +441,7 @@ public class GameManager : MonoBehaviour
 
     private async Task PriceConfirmAsync()
     {
-        TextPrompt.gameObject.SetActive(true);
+        //TextPrompt.gameObject.SetActive(true);
         InitialOfferSetInactive(true);
         await Task.Delay(1000);
         bargainSpeech.enabled = true;
@@ -725,7 +718,6 @@ public class GameManager : MonoBehaviour
         bargain = false;
         int walletValue = PlayerPrefs.GetInt("wallet") + (int)setPrice;
         PlayerPrefs.SetInt("wallet", walletValue);
-        TextPrompt.gameObject.SetActive(false);
         if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
@@ -753,7 +745,6 @@ public class GameManager : MonoBehaviour
         charEmote.enabled = false;
         character.SaleOver();
         bargain = false;
-        TextPrompt.gameObject.SetActive(false);
         if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
@@ -801,7 +792,7 @@ public class GameManager : MonoBehaviour
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
         nextCustomerButton.gameObject.SetActive(false);
-        TextPrompt.gameObject.SetActive(true);
+        //TextPrompt.gameObject.SetActive(true);
         customerCount += 1;
         itemButtons[selectedItem].interactable = true;
         itemButtons[selectedItem].gameObject.SetActive(false);
