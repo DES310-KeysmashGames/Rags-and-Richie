@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Sprite[] speechBubbles;
     [SerializeField] private Image speechBubbleImage;
-    [SerializeField] private Sprite[] emoticons;
+    [SerializeField] private Sprite[] emoticons;     
     [SerializeField] private Image charEmote;
 
     //images for the background
@@ -901,10 +901,10 @@ public class GameManager : MonoBehaviour
 
     private void ItemReshuffle()
     {
-        ++shuffleCount;
-        int cost = 5 * shuffleCount;
+        int cost = 5 * (shuffleCount + 1);
         if (PlayerPrefs.GetInt("wallet") >= (cost))
         {
+            ++shuffleCount;
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
             IconTextSort();
             PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - cost));

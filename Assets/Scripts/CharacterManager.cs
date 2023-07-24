@@ -123,14 +123,14 @@ public class CharacterManager : MonoBehaviour
 
     public string GetHappyText()
     {
-        int i = UnityEngine.Random.Range(0, astonishedDialogue.Length);
-        return astonishedDialogue[i].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, angryDialogue.Length);
+        return angryDialogue[i].lineOfDialogue;
     }
 
     public string GetOkayText()
     {
-        int i = UnityEngine.Random.Range(0, baffledDialogue.Length);
-        return baffledDialogue[i].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, angryDialogue.Length);
+        return angryDialogue[i].lineOfDialogue;
     }
     
     public string GetAcceptTrade()
