@@ -409,7 +409,7 @@ public class GameManager : MonoBehaviour
         print(character.GetPrimaryDesire());
         IconTextSort();
         turnsRemainingText.text = "3";
-        shuffleCount = 0;
+        //shuffleCount = 0;
     }
 
     //displays the items available for sale.
@@ -902,7 +902,7 @@ public class GameManager : MonoBehaviour
     private void ItemReshuffle()
     {
         ++shuffleCount;
-        int cost = 10 * shuffleCount;
+        int cost = 5 * shuffleCount;
         if (PlayerPrefs.GetInt("wallet") >= (cost))
         {
             itemManager.GenerateItemStock(character.GetPrimaryDesire());

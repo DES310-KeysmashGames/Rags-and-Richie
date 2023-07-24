@@ -12,9 +12,13 @@ public class CharacterManager : MonoBehaviour
     public BaseCharacter currentChar;
     private bool custExists;
     [SerializeField] TextDialogue[] tradeSpeech;
-    [SerializeField] TextDialogue[] happyDialogue;
-    [SerializeField] TextDialogue[] okayDialogue;
+    [SerializeField] TextDialogue[] enragedDialogue;
     [SerializeField] TextDialogue[] angryDialogue;
+    [SerializeField] TextDialogue[] sweatDialogue;
+    [SerializeField] TextDialogue[] diamondDialogue;
+    [SerializeField] TextDialogue[] surprisedDialogue;
+    [SerializeField] TextDialogue[] astonishedDialogue;
+    [SerializeField] TextDialogue[] baffledDialogue;
     [SerializeField] TextDialogue[] acceptTrade;
     [SerializeField] TextDialogue[] declineTrade;
     [SerializeField] TextDialogue[] zeroPatience;
@@ -119,14 +123,14 @@ public class CharacterManager : MonoBehaviour
 
     public string GetHappyText()
     {
-        int i = UnityEngine.Random.Range(0, happyDialogue.Length);
-        return happyDialogue[i].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, astonishedDialogue.Length);
+        return astonishedDialogue[i].lineOfDialogue;
     }
 
     public string GetOkayText()
     {
-        int i = UnityEngine.Random.Range(0, okayDialogue.Length);
-        return okayDialogue[i].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, baffledDialogue.Length);
+        return baffledDialogue[i].lineOfDialogue;
     }
     
     public string GetAcceptTrade()
