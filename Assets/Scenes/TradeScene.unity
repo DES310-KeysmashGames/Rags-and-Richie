@@ -154,10 +154,7 @@ RectTransform:
   m_LocalScale: {x: 0.49619, y: 0.49619, z: 0.49619}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1604450568}
-  - {fileID: 1389743769}
   - {fileID: 1730247947}
-  - {fileID: 462982067}
   - {fileID: 697528959}
   m_Father: {fileID: 194112167}
   m_RootOrder: -1
@@ -6044,7 +6041,6 @@ RectTransform:
   - {fileID: 367320397}
   - {fileID: 519890213}
   - {fileID: 970031057}
-  - {fileID: 694275647}
   - {fileID: 816523530}
   - {fileID: 1073224849}
   - {fileID: 1706070749}
@@ -6052,6 +6048,8 @@ RectTransform:
   - {fileID: 65479745}
   - {fileID: 992928423}
   - {fileID: 818137887}
+  - {fileID: 694275647}
+  - {fileID: 804844441}
   m_Father: {fileID: 601715102}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6119,7 +6117,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1337299175
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &219140094
