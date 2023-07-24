@@ -733,6 +733,7 @@ public class GameManager : MonoBehaviour
         ++sellCount;
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
+
     }
 
     void DeclineDeal()
@@ -760,6 +761,7 @@ public class GameManager : MonoBehaviour
         setPrice = 0;
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
+
     }
 
     void ResetLevel()
@@ -813,6 +815,7 @@ public class GameManager : MonoBehaviour
 
         previousPriceText.SetText(previousPrice.ToString());
         PlayerUserInterface.DropUI();
+        Debug.Log("DROP UI DOWN");
     }
 
     void MakeOfferPhaseSetInactive()
