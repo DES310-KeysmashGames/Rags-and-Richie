@@ -72,4 +72,9 @@ public class RichieScript : MonoBehaviour
     {
         return tutorialText[index].lineOfDialogue;
     }
+
+    public int GetTutorialLength()
+    {
+        return tutorialText.Length;
+    }
 }

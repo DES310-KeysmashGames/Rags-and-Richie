@@ -12,9 +12,13 @@ public class CharacterManager : MonoBehaviour
     public BaseCharacter currentChar;
     private bool custExists;
     [SerializeField] TextDialogue[] tradeSpeech;
-    [SerializeField] TextDialogue[] happyDialogue;
-    [SerializeField] TextDialogue[] okayDialogue;
+    [SerializeField] TextDialogue[] enragedDialogue;
     [SerializeField] TextDialogue[] angryDialogue;
+    [SerializeField] TextDialogue[] sweatDialogue;
+    [SerializeField] TextDialogue[] diamondDialogue;
+    [SerializeField] TextDialogue[] surprisedDialogue;
+    [SerializeField] TextDialogue[] astonishedDialogue;
+    [SerializeField] TextDialogue[] baffledDialogue;
     [SerializeField] TextDialogue[] acceptTrade;
     [SerializeField] TextDialogue[] declineTrade;
     [SerializeField] TextDialogue[] zeroPatience;
@@ -110,6 +114,11 @@ public class CharacterManager : MonoBehaviour
                 return currentChar.introText.Count;
         }
     }
+    public string GetEnragedText()
+    {
+        int i = UnityEngine.Random.Range(0, enragedDialogue.Length);
+        return enragedDialogue[i].lineOfDialogue;
+    }
 
     public string GetAngryText()
     {
@@ -117,18 +126,36 @@ public class CharacterManager : MonoBehaviour
         return angryDialogue[i].lineOfDialogue;
     }
 
-    public string GetHappyText()
+    public string GetSweatText()
     {
-        int i = UnityEngine.Random.Range(0, happyDialogue.Length);
-        return happyDialogue[i].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, sweatDialogue.Length);
+        return sweatDialogue[i].lineOfDialogue;
     }
 
-    public string GetOkayText()
+    public string GetDiamondText()
     {
-        int i = UnityEngine.Random.Range(0, okayDialogue.Length);
-        return okayDialogue[i].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, diamondDialogue.Length);
+        return diamondDialogue[i].lineOfDialogue;
     }
-    
+
+    public string GetSurprisedText()
+    {
+        int i = UnityEngine.Random.Range(0, surprisedDialogue.Length);
+        return surprisedDialogue[i].lineOfDialogue;
+    }
+
+    public string GetAstonishedText()
+    {
+        int i = UnityEngine.Random.Range(0, astonishedDialogue.Length);
+        return astonishedDialogue[i].lineOfDialogue;
+    }
+
+    public string GetBaffleeText()
+    {
+        int i = UnityEngine.Random.Range(0, baffledDialogue.Length);
+        return baffledDialogue[i].lineOfDialogue;
+    }
+
     public string GetAcceptTrade()
     {
         int i = UnityEngine.Random.Range(0, acceptTrade.Length);

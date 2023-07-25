@@ -62,6 +62,7 @@ public class MainMenuUI : MonoBehaviour
         {
             Loader.Load(Loader.Scene.TravelScene);
             PlayerPrefs.SetInt("wallet", 0);
+            StaticTravel.goal = 500;
             StaticTravel.dayCount = 1;
         }
 

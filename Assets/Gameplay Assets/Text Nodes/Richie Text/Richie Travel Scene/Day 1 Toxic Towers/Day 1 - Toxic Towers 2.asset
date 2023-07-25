@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Day 1 - Toxic Towers 2
   m_EditorClassIdentifier: 
   lineOfDialogue: Toxic Towers is the next stop, I heard they love a good fight there.
-    So how about we stock up on some weapons for our customers?
+    We should try and sell <color=#FFCC00>weapons</color> here for a <color=#FFCC00>bonus
+    tip</color>.
   category: 6
