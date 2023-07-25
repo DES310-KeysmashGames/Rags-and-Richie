@@ -13,6 +13,7 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
     [SerializeField] Animator shelfLock;
+    [SerializeField] Animator DayEndingClose;
 
     //Travel Scene Animations
     [SerializeField] Animator CityPulse;
@@ -112,6 +113,16 @@ public class AnimationTrade : MonoBehaviour
     {
         customerAnimations.SetTrigger("Leave");
     }
+
+
+
+    public void DayEnding()
+    {
+        DayEndingClose.SetTrigger("Closing");
+    }
+
+
+
 
 
     // Speech Bubble

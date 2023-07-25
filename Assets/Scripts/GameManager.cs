@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationTrade blinkingMoney;
     [SerializeField] AnimationTrade blinkingEmoticon;
     [SerializeField] AnimationTrade shelfLock;
+    [SerializeField] AnimationTrade closingDayEnd;
 
 
     [SerializeField] private Sprite[] speechBubbles;
@@ -113,7 +114,8 @@ public class GameManager : MonoBehaviour
     private float textTimer;
     private bool ending;
     private float endingTimer;
-    private bool wooshBool;     
+    private bool wooshBool;
+    private bool endingBool;
 
     //audio 
     public AK.Wwise.Event playerApproachEvent;
@@ -243,6 +245,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         wallet = PlayerPrefs.GetInt("wallet");
+        endingBool = false;
     }
 
     // Start is called before the first frame update
@@ -297,6 +300,11 @@ public class GameManager : MonoBehaviour
     {
         if (ending)
         {
+           if(!endingBool)
+            {
+                closingDayEnd.DayEnding();
+                endingBool = true;
+            }
             endingTimer -= Time.deltaTime;
             if (endingTimer <= 0.0f)
             {
@@ -309,6 +317,7 @@ public class GameManager : MonoBehaviour
                     StaticInventory.charac.Add(character.prevCustomer[i]);
                     PlayerPrefs.SetInt("wallet", (-shuffleCount * 5));
                     buttonPressEvent.Post(gameObject);
+                    
                 }
                 Loader.Load(Loader.Scene.DayEndScene);
             }
