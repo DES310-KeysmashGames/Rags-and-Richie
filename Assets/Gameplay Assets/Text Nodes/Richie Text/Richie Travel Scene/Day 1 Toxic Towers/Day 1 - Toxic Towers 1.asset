@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 1 - Toxic Towers 1
   m_EditorClassIdentifier: 
-  lineOfDialogue: We've got a big day ahead of us. Toxic Towers is close by and everyone
-    and their mum is packing around there. Maybe weapons would be appreciated there...
+  lineOfDialogue: Toxic Towers is a real violent place, everyone and their mum is
+    packing around there! We might get a <color=#FFCC00>tip</color> if we sell <color=#FFCC00>weapons</color>
+    there...
   category: 6

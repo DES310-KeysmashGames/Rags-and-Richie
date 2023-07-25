@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Decline
   m_EditorClassIdentifier: 
-  lineOfDialogue: I'm not paying that much!
+  lineOfDialogue: No thanks. Bye.
   category: 6
