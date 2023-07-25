@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image speechBubbleImage;
     [SerializeField] private Sprite[] emoticons;     
     [SerializeField] private Image charEmote;
+    private string itemOfTheDay;
 
     //images for the background
     [SerializeField] private Sprite[] backgroundImages;
@@ -76,11 +77,13 @@ public class GameManager : MonoBehaviour
     private float previousPrice;
     [SerializeField] private TextMeshProUGUI differenceText;
     private float priceDifference;
-    private int dupecount;
+    [SerializeField] private int dupecount;
     private float initialOffer;
     private float followUpOffer;
     private bool offerAccept;
     private int wallet;
+    [SerializeField] private int tipBonus;
+    [SerializeField] private int dupeBonus;
 
     //ui elements for turn count
     [SerializeField] private TextMeshProUGUI turnsRemainingText;
@@ -114,14 +117,6 @@ public class GameManager : MonoBehaviour
     private bool wooshBool;
     private bool endingBool;
 
-    //multipliers for specific locations
-    private int foodMultiplier = 1;
-    private int drinkMultiplier = 1;
-    private int warmthMultiplier = 1;
-    private int weaponMultiplier = 1;
-    private int machineryMultiplier = 1;
-    private int luxuryMultiplier = 1;
-
     //audio 
     public AK.Wwise.Event playerApproachEvent;
     public AK.Wwise.Event playerLeaveEvent;
@@ -149,6 +144,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
                 StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                 StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
+                StaticTravel.shuffleCosts = shuffleCount * 5;
                 buttonPressEvent.Post(gameObject);
             }
             itemManager.Reset();
@@ -275,27 +271,27 @@ public class GameManager : MonoBehaviour
         customerCount = 1;
         sellCount = 0;
         textTimer = 2.0f;
-        //switch (StaticTravel.itemOfTheDay)
-        //{
-        //    case "Food":
-        //        foodMultiplier = 2;
-        //        break;
-        //    case "Drink":
-        //        drinkMultiplier = 2;
-        //        break;
-        //    case "Mechanical":
-        //        machineryMultiplier = 2;
-        //        break;
-        //    case "Warmth":
-        //        warmthMultiplier = 2;
-        //        break;
-        //    case "Weapon":
-        //        weaponMultiplier = 2;
-        //        break;
-        //    case "Luxury":
-        //        luxuryMultiplier = 2;
-        //        break;
-        //}
+        switch (StaticTravel.itemOfTheDay)
+        {
+            case "Food":
+                itemOfTheDay = "Food";
+                break;
+            case "Drink":
+                itemOfTheDay = "Drink";
+                break;
+            case "Mechanical":
+                itemOfTheDay = "Machinery";
+                break;
+            case "Warmth":
+                itemOfTheDay = "Warmth";
+                break;
+            case "Weapon":
+                itemOfTheDay = "Weapon";
+                break;
+            case "Luxury":
+                itemOfTheDay = "Luxury";
+                break;
+        }
         TypeWriterTextScript.CompleteTextRevealed += ButtonActivate;
     }
 
@@ -319,8 +315,7 @@ public class GameManager : MonoBehaviour
                     StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                     StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
                     StaticInventory.charac.Add(character.prevCustomer[i]);
-
-
+                    PlayerPrefs.SetInt("wallet", (-shuffleCount * 5));
                     buttonPressEvent.Post(gameObject);
                     
                 }
@@ -328,7 +323,7 @@ public class GameManager : MonoBehaviour
             }
         }
         ResetToMenu();
-        walletText.text = PlayerPrefs.GetInt("wallet").ToString();
+        walletText.text = wallet.ToString();
         if (!itemsShown)
         {
             InitialTrade();
@@ -445,6 +440,21 @@ public class GameManager : MonoBehaviour
         InitialOfferPhaseSetActive();
         priceBox.text = setPrice.ToString("00");
         TextPrompt.gameObject.SetActive(false);
+        switch(dupecount)
+        {
+            case 1:
+                dupeBonus = 0;
+                break;
+            case 2:
+                dupeBonus = UnityEngine.Random.Range(8, 13);
+                break;
+            case 3:
+                dupeBonus = UnityEngine.Random.Range(13,21);
+                break;
+            case 4:
+                dupeBonus = UnityEngine.Random.Range(21,34);
+                break;
+        }
     }
 
     private async Task PriceConfirmAsync()
@@ -464,6 +474,14 @@ public class GameManager : MonoBehaviour
         previousPrice = setPrice;
         initialOffer = setPrice;
         speechBubbleImage.enabled = true;
+        if (itemManager.GetPrimaryTag(selectedItem) == itemOfTheDay || itemManager.GetSecondaryTag(selectedItem) == itemOfTheDay)
+        {
+            tipBonus = UnityEngine.Random.Range(5, 13);
+        }
+        else
+        {
+            tipBonus = 0;
+        }
     }
 
     IEnumerator AnimDelay(){
@@ -610,12 +628,12 @@ public class GameManager : MonoBehaviour
                 PriceAnalysis(basePrice, setPrice);
                 break;
             case 2:
-                PriceAnalysis(basePrice, setPrice);
                 PriceAnalysis(initialOffer, setPrice);
+                PriceAnalysis(basePrice, setPrice);
                 break;
             case 3:
-                PriceAnalysis(basePrice, setPrice);
                 PriceAnalysis(previousPrice, setPrice);
+                PriceAnalysis(basePrice, setPrice);
                 break;
         }
     }
@@ -719,13 +737,16 @@ public class GameManager : MonoBehaviour
         bargainSpeech.text = character.GetAcceptTrade();
         typewriter.SetText(bargainSpeech.text);
         TextPrompt.gameObject.SetActive(false);
-        itemManager.SoldItem(selectedItem, basePrice, (int)setPrice);
+        itemManager.SoldItem(selectedItem, basePrice, ((int)setPrice + tipBonus + dupeBonus));
         character.SaleOver();
         charEmote.enabled = false;
         customer.enabled = true;
         bargain = false;
-        int walletValue = PlayerPrefs.GetInt("wallet") + (int)setPrice;
-        PlayerPrefs.SetInt("wallet", walletValue);
+        //int walletValue = PlayerPrefs.GetInt("wallet") + (int)setPrice;
+        //PlayerPrefs.SetInt("wallet", walletValue);
+        wallet += (int)setPrice;
+        wallet += tipBonus;
+        wallet += dupeBonus;
         if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
@@ -735,6 +756,8 @@ public class GameManager : MonoBehaviour
             ResetLevel();
         }
         setPrice = 0;
+        tipBonus = 0;
+        dupeBonus = 0;
         ++sellCount;
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
@@ -772,12 +795,6 @@ public class GameManager : MonoBehaviour
     {
         sellCount = 0;
         ending = true;
-        foodMultiplier = 1;
-        drinkMultiplier = 1;
-        warmthMultiplier = 1;
-        weaponMultiplier = 1;
-        machineryMultiplier = 1;
-        luxuryMultiplier = 1;
     }
 
     public void ProgressText()
@@ -802,7 +819,6 @@ public class GameManager : MonoBehaviour
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
         nextCustomerButton.gameObject.SetActive(false);
-        //TextPrompt.gameObject.SetActive(true);
         customerCount += 1;
         itemButtons[selectedItem].interactable = true;
         itemButtons[selectedItem].gameObject.SetActive(false);
@@ -913,13 +929,17 @@ public class GameManager : MonoBehaviour
 
     private void ItemReshuffle()
     {
-        int cost = 5 * (shuffleCount + 1);
-        if (PlayerPrefs.GetInt("wallet") >= (cost) || shuffleCount == 0)
+        int cost = 5 * (shuffleCount);
+        if(wallet >= cost || shuffleCount == 0)
         {
+            if(shuffleCount > 0)
+            {
+                wallet -= cost;
+            }
             ++shuffleCount;
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
             IconTextSort();
-            PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - cost));
         }
+        
     }
 }

@@ -44,21 +44,24 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    public string GetPrimaryTag(int index)
+    {
+        return inventory[index].primaryType.ToString();
+    }
+
+    public string GetSecondaryTag(int index)
+    {
+        return inventory[index].secondaryType.ToString();
+    }
+
     public int DupeCheck(int index)
     {
         dupeCount = 0;
         for(int i = 0; i < 4; ++i)
         {
-            if (i == index)
+            if (inventory[index].name == inventory[i].name)
             {
-                i++;
-            }
-            else
-            {
-                if (inventory[index].name == inventory[i].name)
-                {
-                    dupeCount++;
-                }
+                dupeCount++;
             }
         }
         return dupeCount;
