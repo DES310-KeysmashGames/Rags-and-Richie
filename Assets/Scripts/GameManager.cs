@@ -619,12 +619,12 @@ public class GameManager : MonoBehaviour
                 PriceAnalysis(basePrice, setPrice);
                 break;
             case 2:
-                PriceAnalysis(basePrice, setPrice);
                 PriceAnalysis(initialOffer, setPrice);
+                PriceAnalysis(basePrice, setPrice);
                 break;
             case 3:
-                PriceAnalysis(basePrice, setPrice);
                 PriceAnalysis(previousPrice, setPrice);
+                PriceAnalysis(basePrice, setPrice);
                 break;
         }
     }
