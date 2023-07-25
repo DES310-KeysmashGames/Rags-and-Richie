@@ -843,6 +843,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+    - Assets/Art Assets/Items
     - Assets/Gameplay Assets/Text Nodes/Richie Text/Richie Travel Scene/Tutorial
       Text
     m_Globs: []
@@ -850,9 +851,10 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+  - Assets/Art Assets/Items
   - Assets/Gameplay Assets/Text Nodes/Richie Text/Richie Travel Scene/Tutorial Text
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\UNI\DES310\Builds\Rags-and-Richie
+  m_LastProjectPath: D:\Rags-and- Richie_(working)\Rags-and-Richie
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
