@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 3 - Vacancy
   m_EditorClassIdentifier: 
-  lineOfDialogue: I've never seen a lot of people around here, so I'm not too sure
-    what they want. At least it's nearby, and accommodation is cheap!
+  lineOfDialogue: "The motel here is as cheap as it gets. Means we <color=#FFCC00>don\u2019t
+    need to pay much to get there</color>, but <color=#000099>don\u2019t expect many
+    customers to tip</color>."
   category: 6

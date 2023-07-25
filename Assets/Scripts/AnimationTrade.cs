@@ -3,29 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationTrade : MonoBehaviour
-{
+{   
+    //Trade Scene Animations
     [SerializeField] Animator bargainPhaseAnimation;
     [SerializeField] Animator priceConfirmAnimation;
-    [SerializeField] Animator patienceMeterAnimation;
+    [SerializeField] Animator PlayerUserInterface;
     [SerializeField] Animator customerAnimations;
     [SerializeField] Animator speechBubble;
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
     [SerializeField] Animator shelfLock;
-    [SerializeField] Animator tutorialTravelText;
+    [SerializeField] Animator DayEndingClose;
+
+    //Travel Scene Animations
+    [SerializeField] Animator CityPulse;
     [SerializeField] Animator truckVroom;
+    [SerializeField] Animator tutorialTravelText;
+
+    // End of Day Animation
+    [SerializeField] Animator FanFarePortraits;
+
+
 
 
     private void Awake()
     {
 
     }
-
+    // Truck Animation Travel Scene
     public void TruckDrive()
     {
         truckVroom.SetTrigger("Vroom");
     }
 
+    // City Breathing
+    public void CityButtons()
+    {
+        CityPulse.SetTrigger("Pulse"); // Makes Icon Pulsate
+    }
+
+    public void CityButtonsReset()
+    {
+        CityPulse.SetTrigger("Stop"); // Makes Icon Stop Pulsing
+    }
 
     // Tutorial Text Animations
 
@@ -66,16 +86,16 @@ public class AnimationTrade : MonoBehaviour
     }
 
 
-    // Patience Meter Animation
-    public void PatienceMeterActive()
+    // UserInterface Animations
+    public void DropUI()
     {
-        patienceMeterAnimation.SetTrigger("Drop");
+        PlayerUserInterface.SetTrigger("DropUI");
     }
 
-     public void PatienceMeterInActive()
+     public void RaiseUI()
 
     {
-        patienceMeterAnimation.SetTrigger("Raise");
+        PlayerUserInterface.SetTrigger("RaiseUI");
     }
 
     // Customer Bobbing / Speaking Animation / Arrive / Leave
@@ -95,8 +115,17 @@ public class AnimationTrade : MonoBehaviour
     }
 
 
-    // Speech Bubble
 
+    public void DayEnding()
+    {
+        DayEndingClose.SetTrigger("Closing");
+    }
+
+
+
+
+
+    // Speech Bubble
     public void SpeechBubble()
     {
         speechBubble.SetTrigger("Speaking");
@@ -109,8 +138,8 @@ public class AnimationTrade : MonoBehaviour
         blinkingMoney.SetTrigger("Blink");
     }
 
-    // Blinking Emoticon Animation
 
+    // Blinking Emoticon Animation
     public void BlinkingEmoticonActive()
     {
         blinkingEmoticon.SetTrigger("Blink");
@@ -125,6 +154,13 @@ public class AnimationTrade : MonoBehaviour
     {
         shelfLock.SetTrigger("Open");
     }
+
+
+    public void PortraitAnimation()
+    {
+        FanFarePortraits.SetTrigger("Play");
+    }
+
 
 
 }

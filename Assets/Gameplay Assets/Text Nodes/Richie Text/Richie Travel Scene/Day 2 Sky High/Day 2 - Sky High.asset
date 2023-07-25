@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 2 - Sky High
   m_EditorClassIdentifier: 
-  lineOfDialogue: Some guy thought building a settlement on a skyscraper was a good
-    idea. Although most of the residents are super cold at night. They could use
-    something warm.
+  lineOfDialogue: "Someone thought building a settlement on a skyscraper was a good
+    idea. Although most of the residents are super cold at night. They\u2019d <color=#FFCC00>pay
+    extra</color> for something <color=#FFCC00>warm</color>."
   category: 6

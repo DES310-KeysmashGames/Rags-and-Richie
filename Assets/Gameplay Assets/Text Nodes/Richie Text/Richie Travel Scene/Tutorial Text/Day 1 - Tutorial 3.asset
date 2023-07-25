@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 1 - Tutorial 3
   m_EditorClassIdentifier: 
-  lineOfDialogue: See that city over there that says 'Toxic Towers'? How about we
-    start our business there? Click on the Icon so we can start travelling and I'll
-    give you a run down on that location.
+  lineOfDialogue: Do you even have the slightest clue how much to sell any of this
+    for? No? Not at all?
   category: 6

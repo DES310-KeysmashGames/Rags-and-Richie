@@ -35,7 +35,6 @@ public class TravelManager : MonoBehaviour
     [SerializeField] private Image truck;
     [SerializeField] private Sprite[] citySprites;
     [SerializeField] private Sprite[] citySelectedSprites;
-    [SerializeField] AnimationTrade truckSwipe;
 
     //RichieText
     [SerializeField] private Button continueTextButton;
@@ -50,7 +49,10 @@ public class TravelManager : MonoBehaviour
     private int day;
     private bool isPlaying;
 
+    //Animations
     [SerializeField] AnimationTrade travelTutorialText;
+    [SerializeField] AnimationTrade CityPulse;
+    [SerializeField] AnimationTrade truckSwipe;
 
     public AK.Wwise.Event richieDialogueEvent;
     public AK.Wwise.Event buttonPressEvent;
@@ -99,8 +101,6 @@ public class TravelManager : MonoBehaviour
             travelTutorialText.TutorialText();
             dimmer.enabled = true;
             richieText.text = richie.GetTutorial(tutorialCount);
-            //animateText.GetText();
-            //animateText.ActivateText();
             typewriter.SetText(richieText.text);
             richieDialogueEvent.Post(gameObject);
             cityButton[1].interactable = false;
@@ -129,10 +129,6 @@ public class TravelManager : MonoBehaviour
                 cityButton[i].gameObject.SetActive(true);
             }
         }
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    typewriter.Skip();
-        //}
     }
 
     void Update()
@@ -141,32 +137,25 @@ public class TravelManager : MonoBehaviour
         {
             if (readText)
             {
-                switch (tutorialCount)
+                if( tutorialCount < (richie.GetTutorialLength()-1))
                 {
-                    case 1:
-                        richieText.text = richie.GetTutorial(tutorialCount);
-                        //animateText.GetText();
-                        //animateText.ActivateText();
-                        typewriter.SetText(richieText.text);
-                        continueTextButton.gameObject.SetActive(true);
-                        ++tutorialCount;
-                        readText = false;
-                        richieDialogueEvent.Post(gameObject);
-                        break;
-                    case 2:
-                        richieText.text = richie.GetTutorial(tutorialCount);
-                        //animateText.GetText();
-                        //animateText.ActivateText();
-                        typewriter.SetText(richieText.text);
-                        cityButton[1].interactable = true;
-                        tutorialCount = 0;
-                        readText = false;
-                        richieDialogueEvent.Post(gameObject);
-                        dimmer.enabled = false;
-                        travelTutorialText.NoneTutorialText();
-                        break;
-                    default:
-                        break;
+                    richieText.text = richie.GetTutorial(tutorialCount);
+                    typewriter.SetText(richieText.text);
+                    continueTextButton.gameObject.SetActive(true);
+                    ++tutorialCount;
+                    readText = false;
+                    richieDialogueEvent.Post(gameObject);
+                }
+                else
+                {
+                    richieText.text = richie.GetTutorial(tutorialCount);
+                    typewriter.SetText(richieText.text);
+                    cityButton[1].interactable = true;
+                    tutorialCount = 0;
+                    readText = false;
+                    richieDialogueEvent.Post(gameObject);
+                    dimmer.enabled = false;
+                    travelTutorialText.NoneTutorialText();
                 }
             }
         }
@@ -194,7 +183,6 @@ public class TravelManager : MonoBehaviour
         //Load next scene when truck has finished moving
         if (truckMoved)
         {
-            //Loader.Load(Loader.Scene.ItemSelectScene); 
             Loader.Load(Loader.Scene.TradeScene);
         }
     }
@@ -228,8 +216,6 @@ public class TravelManager : MonoBehaviour
         {
             case 2:
                 richieText.text = richie.GetBurnington();
-                //animateText.GetText();
-                //animateText.ActivateText();
                 typewriter.SetText(richieText.text);
                 richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 30;
@@ -240,8 +226,6 @@ public class TravelManager : MonoBehaviour
                 break;
             case 3:
                 richieText.text = richie.GetBrokenMetro();
-                //animateText.GetText();
-                //animateText.ActivateText();
                 typewriter.SetText(richieText.text);
                 richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 40;
@@ -252,9 +236,6 @@ public class TravelManager : MonoBehaviour
                 cityButton[2].image.sprite = citySprites[5];
                 break;
         }
-
-        //City Click Button Audio
-
     }
 
     public void CityClicked2()
@@ -265,8 +246,6 @@ public class TravelManager : MonoBehaviour
         {
             case 1:
                 richieText.text = richie.GetToxicTowers();
-                //animateText.GetText();
-                //animateText.ActivateText();
                 typewriter.SetText(richieText.text);
                 richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 20;
@@ -276,8 +255,6 @@ public class TravelManager : MonoBehaviour
                 break;
             case 3:
                 richieText.text = richie.GetVacancy();
-                //animateText.GetText();
-                // animateText.ActivateText();
                 typewriter.SetText(richieText.text);
                 richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 20;
@@ -288,9 +265,6 @@ public class TravelManager : MonoBehaviour
                 cityButton[2].image.sprite = citySprites[5];
                 break;
         }
-
-        //City Click Button Audio
-
     }
 
     public void CityClicked3()
@@ -301,8 +275,6 @@ public class TravelManager : MonoBehaviour
         {
             case 2:
                 richieText.text = richie.GetSkyHigh();
-                //animateText.GetText();
-                // animateText.ActivateText();
                 typewriter.SetText(richieText.text);
                 richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 30;
@@ -313,8 +285,6 @@ public class TravelManager : MonoBehaviour
                 break;
             case 3:
                 richieText.text = richie.GetLostAngeles();
-                //animateText.GetText();
-                //animateText.ActivateText();
                 typewriter.SetText(richieText.text);
                 richieDialogueEvent.Post(gameObject);
                 StaticTravel.expenses = 40;
@@ -325,9 +295,6 @@ public class TravelManager : MonoBehaviour
                 cityButton[1].image.sprite = citySprites[4];
                 break;
         }
-
-        //City Click Button Audio
-
     }
     
     private void TextRead()

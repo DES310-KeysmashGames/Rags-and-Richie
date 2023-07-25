@@ -12,4 +12,5 @@ public static class StaticTravel
     public static int expenses;
     public static string location;
     public static float goal;
+    public static int shuffleCosts;
 }
