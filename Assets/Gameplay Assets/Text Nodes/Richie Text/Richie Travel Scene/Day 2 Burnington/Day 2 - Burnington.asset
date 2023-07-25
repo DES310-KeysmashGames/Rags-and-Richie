@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Day 2 - Burnington
   m_EditorClassIdentifier: 
   lineOfDialogue: The constant ash from this burning village gives everyone a dry
-    throat. Maybe something to drink would be good here.
+    throat. Something to <color=#FFCC00>drink</color> would be <color=#FFCC00>particularly
+    good</color> here.
   category: 6

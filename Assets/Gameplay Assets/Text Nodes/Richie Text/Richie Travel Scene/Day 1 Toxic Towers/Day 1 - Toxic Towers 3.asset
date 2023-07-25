@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 1 - Toxic Towers 3
   m_EditorClassIdentifier: 
-  lineOfDialogue: Toxic Towers is a nasty town, but we can make some profit selling
-    weaponry there. What do you say?
+  lineOfDialogue: Toxic Towers is a nasty town, but we can make some <color=#FFCC00>bonus
+    profit</color> selling <color=#FFCC00>weaponry</color> there. What do you say?
   category: 6
