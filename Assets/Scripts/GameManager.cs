@@ -295,12 +295,14 @@ public class GameManager : MonoBehaviour
         //        luxuryMultiplier = 2;
         //        break;
         //}
+
+        TypeWriterTextScript.CompleteTextRevealed += ButtonActivate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        TypeWriterTextScript.CompleteTextRevealed += ButtonActivate;
+        
         if (ending)
         {
             endingTimer -= Time.deltaTime;
