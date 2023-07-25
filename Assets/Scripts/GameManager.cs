@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
     private float initialOffer;
     private float followUpOffer;
     private bool offerAccept;
+    private int wallet;
 
     //ui elements for turn count
     [SerializeField] private TextMeshProUGUI turnsRemainingText;
@@ -248,6 +249,7 @@ public class GameManager : MonoBehaviour
                 background.sprite = backgroundImages[2];
                 break;
         }
+        wallet = PlayerPrefs.GetInt("wallet");
     }
 
     // Start is called before the first frame update

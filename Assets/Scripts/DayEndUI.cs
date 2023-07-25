@@ -57,7 +57,6 @@ public class DayEndUI : MonoBehaviour
         }
 
         goal = StaticTravel.goal;
-        goal = 1000;
         test = false;
         wallet = PlayerPrefs.GetInt("wallet");
     }
