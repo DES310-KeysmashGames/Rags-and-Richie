@@ -826,6 +826,7 @@ public class GameManager : MonoBehaviour
             wooshBool = true;
         }
         bargainSpeech.enabled = true;
+
     }
 
     void InitialOfferPhaseSetActive()
