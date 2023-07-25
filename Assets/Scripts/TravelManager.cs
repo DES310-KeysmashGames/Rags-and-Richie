@@ -137,14 +137,14 @@ public class TravelManager : MonoBehaviour
         {
             if (readText)
             {
-                if( tutorialCount < richie.GetTutorialLength())
+                if( tutorialCount < (richie.GetTutorialLength()-1))
                 {
                     richieText.text = richie.GetTutorial(tutorialCount);
-                            typewriter.SetText(richieText.text);
-                            continueTextButton.gameObject.SetActive(true);
-                            ++tutorialCount;
-                            readText = false;
-                            richieDialogueEvent.Post(gameObject);
+                    typewriter.SetText(richieText.text);
+                    continueTextButton.gameObject.SetActive(true);
+                    ++tutorialCount;
+                    readText = false;
+                    richieDialogueEvent.Post(gameObject);
                 }
                 else
                 {

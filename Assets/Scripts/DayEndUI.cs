@@ -45,6 +45,7 @@ public class DayEndUI : MonoBehaviour
             //Show end screen
             endButton.onClick.AddListener(() =>
             {
+                PlayerPrefs.SetInt("wallet", wallet);
                 Loader.Load(Loader.Scene.EndingScene);
                 ClearItems();
             });

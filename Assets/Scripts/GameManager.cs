@@ -311,13 +311,14 @@ public class GameManager : MonoBehaviour
                     StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                     StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
                     StaticInventory.charac.Add(character.prevCustomer[i]);
+                    StaticTravel.newWallet = wallet;
                     buttonPressEvent.Post(gameObject);
                 }
                 Loader.Load(Loader.Scene.DayEndScene);
             }
         }
         ResetToMenu();
-        walletText.text = PlayerPrefs.GetInt("wallet").ToString();
+        walletText.text = wallet.ToString();
         if (!itemsShown)
         {
             InitialTrade();
@@ -713,8 +714,9 @@ public class GameManager : MonoBehaviour
         charEmote.enabled = false;
         customer.enabled = true;
         bargain = false;
-        int walletValue = PlayerPrefs.GetInt("wallet") + (int)setPrice;
-        PlayerPrefs.SetInt("wallet", walletValue);
+        //int walletValue = PlayerPrefs.GetInt("wallet") + (int)setPrice;
+        //PlayerPrefs.SetInt("wallet", walletValue);
+        wallet += (int)setPrice;
         if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
@@ -791,7 +793,6 @@ public class GameManager : MonoBehaviour
         MakeOfferPhaseSetInactive();
         endGameButton.gameObject.SetActive(false);
         nextCustomerButton.gameObject.SetActive(false);
-        //TextPrompt.gameObject.SetActive(true);
         customerCount += 1;
         itemButtons[selectedItem].interactable = true;
         itemButtons[selectedItem].gameObject.SetActive(false);
@@ -903,12 +904,18 @@ public class GameManager : MonoBehaviour
     private void ItemReshuffle()
     {
         int cost = 5 * (shuffleCount + 1);
-        if (PlayerPrefs.GetInt("wallet") >= (cost) || shuffleCount == 0)
+        //if (PlayerPrefs.GetInt("wallet") >= (cost) || shuffleCount == 0)
+        //{
+        //    ++shuffleCount;
+        //    itemManager.GenerateItemStock(character.GetPrimaryDesire());
+        //    IconTextSort();
+        //    PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - cost));
+        //}
+        if(wallet >= cost || shuffleCount == 0)
         {
             ++shuffleCount;
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
             IconTextSort();
-            PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - cost));
         }
     }
 }
