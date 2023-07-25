@@ -902,7 +902,7 @@ public class GameManager : MonoBehaviour
     private void ItemReshuffle()
     {
         int cost = 5 * (shuffleCount + 1);
-        if (PlayerPrefs.GetInt("wallet") >= (cost))
+        if (PlayerPrefs.GetInt("wallet") >= (cost) || shuffleCount == 0)
         {
             ++shuffleCount;
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
