@@ -157,29 +157,6 @@ public class TravelManager : MonoBehaviour
                     dimmer.enabled = false;
                     travelTutorialText.NoneTutorialText();
                 }
-                //switch (tutorialCount)
-                //{
-                //    case 1:
-                //        richieText.text = richie.GetTutorial(tutorialCount);
-                //        typewriter.SetText(richieText.text);
-                //        continueTextButton.gameObject.SetActive(true);
-                //        ++tutorialCount;
-                //        readText = false;
-                //        richieDialogueEvent.Post(gameObject);
-                //        break;
-                //    case 2:
-                //        richieText.text = richie.GetTutorial(tutorialCount);
-                //        typewriter.SetText(richieText.text);
-                //        cityButton[1].interactable = true;
-                //        tutorialCount = 0;
-                //        readText = false;
-                //        richieDialogueEvent.Post(gameObject);
-                //        dimmer.enabled = false;
-                //        travelTutorialText.NoneTutorialText();
-                //        break;
-                //    default:
-                //        break;
-                //}
             }
         }
         //Update Wallet 

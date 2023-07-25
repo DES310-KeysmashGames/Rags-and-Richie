@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class DayEndUI : MonoBehaviour
 {
+    AnimationHelper helper;
+
     [SerializeField] public List<BaseItem> soldItemsReviewList = new List<BaseItem>();
     [SerializeField] public List<Sprite> charSpriteList = new List<Sprite>();
     public List<int> soldPrice = new List<int>();
@@ -29,6 +31,7 @@ public class DayEndUI : MonoBehaviour
     public AK.Wwise.Event buttonEvent;
 
     private void Awake(){
+        helper = GetComponentInChildren<AnimationHelper>();
         if (StaticTravel.dayCount < 3)
         {
             //Continue to next day
@@ -91,17 +94,17 @@ public class DayEndUI : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            test = true;   
-        }
-        if(test == true)
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    test = true;   
+        //}
+        if(helper.GetBool())
         {
             if (sellAmount > 0)
             {
                 wallet += 1;
                 dailyGoalBar.fillAmount = (wallet / goal);
-               sellAmount -= 1;
+                sellAmount -= 1;
             }
         }
     }
@@ -141,5 +144,10 @@ public class DayEndUI : MonoBehaviour
         StaticInventory.sellPrice.Clear();
         StaticInventory.basePrice.Clear();
         StaticInventory.charac.Clear();
+    }
+
+    public void Barfill()
+    {
+        test = true;
     }
 }

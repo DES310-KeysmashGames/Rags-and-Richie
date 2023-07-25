@@ -7596,6 +7596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804472797}
   - component: {fileID: 1804472798}
+  - component: {fileID: 1804472799}
   m_Layer: 0
   m_Name: Portraits
   m_TagString: Untagged
@@ -7647,6 +7648,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1804472799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804472796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6341d84ee4d704c4cb8c1a8fec4901e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820735664
 GameObject:
   m_ObjectHideFlags: 0
