@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     // Animations
     [SerializeField] AnimationTrade initialPrice;
     [SerializeField] AnimationTrade priceAdjuster;
-    //[SerializeField] AnimationTrade patienceMeterdrop;
     [SerializeField] AnimationTrade customerAnimations;
     [SerializeField] AnimationTrade speechBubble;
     [SerializeField] AnimationTrade blinkingMoney;
@@ -64,13 +63,11 @@ public class GameManager : MonoBehaviour
 
     //ui for Bargaining phase
     [Header("UI elements for the the bargaining phase")]
-    [SerializeField] private Sprite[] patienceMeters;
     [SerializeField] private Button increaseButton2;
     [SerializeField] private Button increaseByTen2;
     [SerializeField] private Button decreaseButton2;
     [SerializeField] private Button decreaseByTen2;
     [SerializeField] private Image priceAdjustment;
-    [SerializeField] private Image patienceMeter;
     [SerializeField] private Button makeOfferButton;
     [SerializeField] private TextMeshProUGUI bargainSpeech;
     private int tolerance;
@@ -268,7 +265,6 @@ public class GameManager : MonoBehaviour
         itemReshuffleButton.gameObject.SetActive(false);
         endGameButton.gameObject.SetActive(false);
         nextCustomerButton.gameObject.SetActive(false);
-        patienceMeter.enabled = false;
         itemCard.enabled = false;
         bargainSpeech.enabled = true;
         charEmote.enabled = false;
@@ -297,12 +293,12 @@ public class GameManager : MonoBehaviour
         //        luxuryMultiplier = 2;
         //        break;
         //}
+        TypeWriterTextScript.CompleteTextRevealed += ButtonActivate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        TypeWriterTextScript.CompleteTextRevealed += ButtonActivate;
         if (ending)
         {
             endingTimer -= Time.deltaTime;
@@ -406,7 +402,6 @@ public class GameManager : MonoBehaviour
         custName.text = "" + character.GetCustName();
         introCount = 1;
         speechBubbleImage.sprite = speechBubbles[2];
-        patienceMeter.sprite = patienceMeters[0];
         itemManager.GenerateItemStock(character.GetPrimaryDesire());
         print(character.GetPrimaryDesire());
         IconTextSort();
@@ -507,7 +502,7 @@ public class GameManager : MonoBehaviour
             patience -= 4;
 
             //replace later
-            bargainSpeech.text = character.GetAngryText();
+            bargainSpeech.text = character.GetEnragedText();
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[0];
@@ -524,7 +519,7 @@ public class GameManager : MonoBehaviour
             bargainSpeech.text = character.GetAngryText();
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
-            charEmote.sprite = emoticons[0];
+            charEmote.sprite = emoticons[1];
             custAngryEvent.Post(gameObject);
             blinkingEmoticon.BlinkingEmoticonActive();
             speechBubble.SpeechBubble();
@@ -535,9 +530,9 @@ public class GameManager : MonoBehaviour
             patience -= 1;
 
             //replace later
-            bargainSpeech.text = character.GetOkayText();;
+            bargainSpeech.text = character.GetSweatText();;
             typewriter.SetText(bargainSpeech.text);
-            speechBubbleImage.sprite = speechBubbles[2];
+            speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[2];
             custNeutralEvent.Post(gameObject);
             blinkingEmoticon.BlinkingEmoticonActive();
@@ -549,11 +544,11 @@ public class GameManager : MonoBehaviour
             //animation
 
             //replace later
-            bargainSpeech.text = character.GetHappyText();
+            bargainSpeech.text = character.GetDiamondText();
             typewriter.SetText(bargainSpeech.text);
             custHappyEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
-            charEmote.sprite = emoticons[1];
+            charEmote.sprite = emoticons[3];
             customerAnimations.CustomerSpeakingActive();
             offerAccept = true;
         }
@@ -562,11 +557,11 @@ public class GameManager : MonoBehaviour
             patience += 1;
 
             //replace later
-            bargainSpeech.text = character.GetHappyText();
+            bargainSpeech.text = character.GetSurprisedText();
             typewriter.SetText(bargainSpeech.text);
             custHappyEvent.Post(gameObject);
-            speechBubbleImage.sprite = speechBubbles[1];
-            charEmote.sprite = emoticons[1];
+            speechBubbleImage.sprite = speechBubbles[2];
+            charEmote.sprite = emoticons[4];
             customerAnimations.CustomerSpeakingActive();
             offerAccept = true;
         }
@@ -574,11 +569,11 @@ public class GameManager : MonoBehaviour
         {
             patience += 2;
             //replace later
-            bargainSpeech.text = character.GetHappyText();
+            bargainSpeech.text = character.GetAstonishedText();
             typewriter.SetText(bargainSpeech.text);
             custHappyEvent.Post(gameObject);
-            speechBubbleImage.sprite = speechBubbles[1];
-            charEmote.sprite = emoticons[1];
+            speechBubbleImage.sprite = speechBubbles[2];
+            charEmote.sprite = emoticons[5];
             customerAnimations.CustomerSpeakingActive();
             offerAccept = true;
         }
@@ -586,11 +581,11 @@ public class GameManager : MonoBehaviour
         {
             patience += 4;
             //replace later
-            bargainSpeech.text = character.GetHappyText();
+            bargainSpeech.text = character.GetBaffleeText();
             typewriter.SetText(bargainSpeech.text);
             custHappyEvent.Post(gameObject);
-            speechBubbleImage.sprite = speechBubbles[1];
-            charEmote.sprite = emoticons[1];
+            speechBubbleImage.sprite = speechBubbles[2];
+            charEmote.sprite = emoticons[6];
             customerAnimations.CustomerSpeakingActive();
             offerAccept = true;
         }
