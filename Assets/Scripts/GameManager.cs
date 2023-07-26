@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationTrade blinkingMoney;
     [SerializeField] AnimationTrade blinkingEmoticon;
     [SerializeField] AnimationTrade shelfLock;
+    [SerializeField] AnimationTrade openingDayStart;
     [SerializeField] AnimationTrade closingDayEnd;
+
 
 
     [SerializeField] private Sprite[] speechBubbles;
@@ -251,8 +253,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        openingDayStart.DayStarting();
         ending = false;
-        endingTimer = 3.0f;
+        endingTimer = 5.0f;
         NewCustomer();
         IconTextSort();
         trade = false;
@@ -474,6 +477,7 @@ public class GameManager : MonoBehaviour
         previousPrice = setPrice;
         initialOffer = setPrice;
         speechBubbleImage.enabled = true;
+        PlayerUserInterface.DropUI();
         if (itemManager.GetPrimaryTag(selectedItem) == itemOfTheDay || itemManager.GetSecondaryTag(selectedItem) == itemOfTheDay)
         {
             tipBonus = UnityEngine.Random.Range(5, 13);
@@ -511,6 +515,7 @@ public class GameManager : MonoBehaviour
                 if (offerAccept)
                 {
                     AcceptDeal();
+
                 }
                 else
                 {
@@ -834,8 +839,6 @@ public class GameManager : MonoBehaviour
         }
 
         previousPriceText.SetText(previousPrice.ToString());
-        PlayerUserInterface.DropUI();
-        Debug.Log("DROP UI DOWN");
     }
 
     void MakeOfferPhaseSetInactive()

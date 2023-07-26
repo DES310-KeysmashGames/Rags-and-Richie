@@ -13,6 +13,7 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
     [SerializeField] Animator shelfLock;
+    [SerializeField] Animator OpeningDay;
     [SerializeField] Animator DayEndingClose;
 
     //Travel Scene Animations
@@ -114,6 +115,11 @@ public class AnimationTrade : MonoBehaviour
         customerAnimations.SetTrigger("Leave");
     }
 
+
+    public void DayStarting()
+    {
+        OpeningDay.SetTrigger("Opening");
+    }
 
 
     public void DayEnding()
