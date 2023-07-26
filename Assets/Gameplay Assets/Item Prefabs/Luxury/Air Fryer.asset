@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
+  m_Name: Air Fryer
+  m_EditorClassIdentifier: 
+  frontSprite: {fileID: 21300000, guid: c72b8318599b3304aad662d03080801b, type: 3}
+  itemName: Air Fryer Treasure Chest
+  primaryType: 5
+  secondaryType: 0
+  tertiaryType: 6
+  itemDescription: {fileID: 21300000, guid: 401de63383ef54143a484fa9fdcbdb22, type: 3}
+  Description: "\t\t"
+  foodValue: 5
+  drinkValue: 0
+  warmthValue: 0
+  weaponValue: 0
+  machineryValue: 4
+  luxuryValue: 7
