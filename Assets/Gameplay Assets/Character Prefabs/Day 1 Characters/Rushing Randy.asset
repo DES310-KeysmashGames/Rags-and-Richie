@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
+  m_Name: Rushing Randy
+  m_EditorClassIdentifier: 
+  charSprite: {fileID: 21300000, guid: 1c6f5e9a9e71b82488ea56287f43f428, type: 3}
+  CustName: Rushing Randy
+  desire: 0
+  foodDesire: 8
+  drinkDesire: 1
+  warmthDesire: 1
+  weaponDesire: 1
+  machineryDesire: 1
+  luxuryDesire: 1
+  introText:
+  - {fileID: 11400000, guid: 755e7ee8994521c4ab66418706380445, type: 2}
+  - {fileID: 11400000, guid: f9e2873975bf31b4cb972d747842e14c, type: 2}
+  - {fileID: 11400000, guid: 3c24d0d8761a3bc4285c6a03cf50739d, type: 2}
+  introText2:
+  - {fileID: 11400000, guid: 27b27e9a6786f5e44ad6627971558fb8, type: 2}
+  - {fileID: 11400000, guid: 5bc1f62bcea54e7409865c70281eb936, type: 2}
+  - {fileID: 11400000, guid: 94080797f9115164885db03c9cbf5329, type: 2}
+  introText3:
+  - {fileID: 11400000, guid: 00e1efc0255a7ab42af8f8ecba27f124, type: 2}
+  - {fileID: 11400000, guid: 327e50efc17ac1e4d927f30696604d19, type: 2}
+  - {fileID: 11400000, guid: 09421669332eda249995b646c0757e65, type: 2}
+  patiece: 94
+  desperation: 5

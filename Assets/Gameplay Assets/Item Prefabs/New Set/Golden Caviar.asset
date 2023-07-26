@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
+  m_Name: Golden Caviar
+  m_EditorClassIdentifier: 
+  frontSprite: {fileID: 21300000, guid: d4c9f93001df3ed4d80d01d659cb7736, type: 3}
+  itemName: Golden Caviar
+  primaryType: 5
+  secondaryType: 5
+  tertiaryType: 6
+  itemDescription: {fileID: 21300000, guid: fb06df7b3b8261e4a9b39e33ff1f7d04, type: 3}
+  Description: 
+  foodValue: 0
+  drinkValue: 0
+  warmthValue: 0
+  weaponValue: 0
+  machineryValue: 0
+  luxuryValue: 0
