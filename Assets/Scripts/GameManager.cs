@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
         }
         wallet = PlayerPrefs.GetInt("wallet");
         endingBool = false;
-        reshuffleText.text = "Richie Reshuffle \nFree";
+        reshuffleText.text = "Free";
     }
 
     // Start is called before the first frame update
@@ -942,7 +942,7 @@ public class GameManager : MonoBehaviour
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
             IconTextSort();
             StaticTravel.shuffleCosts += cost;
-            reshuffleText.text = "Richie Reshuffle \n" + (5 * shuffleCount).ToString();
+            reshuffleText.text = "-" + (5 * shuffleCount).ToString();
         }
         
     }
