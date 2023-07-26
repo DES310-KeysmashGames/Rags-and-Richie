@@ -1033,7 +1033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 223.79779, y: -0.000030517578}
+  m_AnchoredPosition: {x: 241, y: -0.000030517578}
   m_SizeDelta: {x: 210, y: 170}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317834727
@@ -1058,15 +1058,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3454
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
-  m_sharedMaterial: {fileID: 9222765973610908125, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
+  m_sharedMaterial: {fileID: 3320235333218628706, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -75.27092, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1194,9 +1194,12 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  OpeningDay: {fileID: 0}
+  DayEndingClose: {fileID: 0}
   CityPulse: {fileID: 1377739628}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
+  FanFarePortraits: {fileID: 0}
 --- !u!95 &1377739628
 Animator:
   serializedVersion: 4
@@ -1277,8 +1280,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CONTINUE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
-  m_sharedMaterial: {fileID: 9222765973610908125, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
+  m_sharedMaterial: {fileID: 3320235333218628706, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1302,8 +1305,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 85
+  m_fontSizeBase: 85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1549,9 +1552,12 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  OpeningDay: {fileID: 0}
+  DayEndingClose: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 1638254820}
+  FanFarePortraits: {fileID: 0}
 --- !u!1 &1679083356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,7 +2561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -534.388, y: 463}
+  m_AnchoredPosition: {x: -492, y: 463}
   m_SizeDelta: {x: 828.485, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126548538
@@ -2580,15 +2586,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: CHOOSE LOCATION
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
-  m_sharedMaterial: {fileID: 9222765973610908125, guid: 84ebf258e16e2834a8135a84a8de7e87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
+  m_sharedMaterial: {fileID: 3320235333218628706, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282046358
-  m_fontColor: {r: 0.5882353, g: 0.8431373, b: 0.227451, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2605,8 +2611,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 95
-  m_fontSizeBase: 95
+  m_fontSize: 74.6
+  m_fontSizeBase: 74.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2641,7 +2647,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 81.24188, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2773,9 +2779,12 @@ MonoBehaviour:
   blinkingMoney: {fileID: 0}
   blinkingEmoticon: {fileID: 0}
   shelfLock: {fileID: 0}
+  OpeningDay: {fileID: 0}
+  DayEndingClose: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 2136903301}
   tutorialTravelText: {fileID: 0}
+  FanFarePortraits: {fileID: 0}
 --- !u!1 &2137794067
 GameObject:
   m_ObjectHideFlags: 0
