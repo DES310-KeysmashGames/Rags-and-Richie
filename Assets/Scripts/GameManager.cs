@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button TextPrompt;
     [SerializeField] private Image itemCard;
     [SerializeField] private Button itemReshuffleButton;
-    private int shuffleCount;
+    [SerializeField] private int shuffleCount;
 
     //ui for selecting inital price
     [Header("UI elements for selecting the initial price")]
@@ -80,8 +80,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int dupecount;
     private float initialOffer;
     private float followUpOffer;
-    private bool offerAccept;
-    private int wallet;
+    [SerializeField] private bool offerAccept;
+    [SerializeField] private int wallet;
     [SerializeField] private int tipBonus;
     [SerializeField] private int dupeBonus;
 
@@ -98,9 +98,9 @@ public class GameManager : MonoBehaviour
     [Header("Private game attributes")]
     private bool trade;
     private int price;
-    private int basePrice;
+    [SerializeField] private int basePrice;
     private float setPrice;
-    private float patience;
+    [SerializeField] private float patience;
     private int turnCount;
     private int selectedItem;
     private bool itemsShown;
@@ -143,8 +143,7 @@ public class GameManager : MonoBehaviour
                 StaticInventory.soldItemsList.Add(itemManager.soldItems[i]);
                 Debug.Log("solditems: " + StaticInventory.soldItemsList[i]);
                 StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
-                StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
-                StaticTravel.shuffleCosts = shuffleCount * 5;
+                StaticInventory.sellPrice.Add(itemManager.sellPrice[i]); 
                 buttonPressEvent.Post(gameObject);
             }
             itemManager.Reset();
@@ -315,10 +314,9 @@ public class GameManager : MonoBehaviour
                     StaticInventory.basePrice.Add(itemManager.itemPrice[i]);
                     StaticInventory.sellPrice.Add(itemManager.sellPrice[i]);
                     StaticInventory.charac.Add(character.prevCustomer[i]);
-                    PlayerPrefs.SetInt("wallet", (-shuffleCount * 5));
                     buttonPressEvent.Post(gameObject);
-                    
                 }
+                //PlayerPrefs.SetInt("wallet", (-shuffleCount * 5));
                 Loader.Load(Loader.Scene.DayEndScene);
             }
         }
@@ -412,7 +410,6 @@ public class GameManager : MonoBehaviour
         print(character.GetPrimaryDesire());
         IconTextSort();
         turnsRemainingText.text = "3";
-        //shuffleCount = 0;
     }
 
     //displays the items available for sale.
@@ -939,6 +936,7 @@ public class GameManager : MonoBehaviour
             ++shuffleCount;
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
             IconTextSort();
+            StaticTravel.shuffleCosts += cost;
         }
         
     }

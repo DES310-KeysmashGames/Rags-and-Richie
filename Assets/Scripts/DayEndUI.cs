@@ -17,13 +17,14 @@ public class DayEndUI : MonoBehaviour
     [SerializeField] private Sprite[] thumb;
     [SerializeField] private TextMeshProUGUI expenses;
     [SerializeField] private TextMeshProUGUI[] itemCost;
+    [SerializeField] private TextMeshProUGUI shuffleCostText;
+    [SerializeField] private TextMeshProUGUI travelExpensesText;
 
     [SerializeField] private Image dailyGoalBar;
 
     [SerializeField] Button endButton;
     [SerializeField] private float goal;
     [SerializeField] private int sellAmount;
-    [SerializeField] private bool test;
     [SerializeField] private int wallet;
     [SerializeField] private TextMeshProUGUI sellPriceText;
 
@@ -37,10 +38,16 @@ public class DayEndUI : MonoBehaviour
             //Continue to next day
             endButton.onClick.AddListener(() =>
             {
+                PlayerPrefs.SetInt("wallet", wallet);
                 buttonEvent.Post(gameObject);
                 Loader.Load(Loader.Scene.TravelScene);
+                if (PlayerPrefs.GetInt("wallet") < 0)
+                {
+                    Loader.Load(Loader.Scene.EndingScene);
+                }
                 StaticTravel.dayCount++;
                 ClearItems();
+                StaticTravel.shuffleCosts = 0;
             });
         }
         else
@@ -48,23 +55,25 @@ public class DayEndUI : MonoBehaviour
             //Show end screen
             endButton.onClick.AddListener(() =>
             {
-                PlayerPrefs.SetInt("wallet", wallet);
+                PlayerPrefs.SetInt("wallet", wallet);         
                 Loader.Load(Loader.Scene.EndingScene);
                 ClearItems();
+                
             });
         }
 
-        PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - StaticTravel.expenses));
-        //if (PlayerPrefs.GetInt("wallet") < 0)
+        //PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - StaticTravel.expenses));
     
 
         goal = StaticTravel.goal;
-        test = false;
         wallet = PlayerPrefs.GetInt("wallet");
+        shuffleCostText.text = StaticTravel.shuffleCosts.ToString();
+        travelExpensesText.text = StaticTravel.expenses.ToString();
     }
 
     private void Start(){
-        for (int i=0; i < StaticInventory.soldItemsList.Count; i++){
+        for (int i=0; i < StaticInventory.soldItemsList.Count; i++)
+        {
             soldItemsReviewList.Add(StaticInventory.soldItemsList[i]);
             soldPrice.Add(StaticInventory.sellPrice[i]);
             price.Add(StaticInventory.basePrice[i]);
@@ -74,7 +83,7 @@ public class DayEndUI : MonoBehaviour
         AssignSprites();
         AssignThumb(); 
         AssignPrice();
-        expenses.text = StaticTravel.expenses.ToString();
+        
         for (int i = 0; i < soldPrice.Count; ++i)
         {
             sellAmount += soldPrice[i];
@@ -88,14 +97,12 @@ public class DayEndUI : MonoBehaviour
         {
             dailyGoalBar.fillAmount = ((float)wallet / goal);
         }
+        sellAmount -= StaticTravel.expenses;
+        sellAmount -= StaticTravel.shuffleCosts;
     }
 
     private void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    test = true;   
-        //}
         if(helper.GetBool())
         {
             if (sellAmount > 0)
@@ -142,10 +149,5 @@ public class DayEndUI : MonoBehaviour
         StaticInventory.sellPrice.Clear();
         StaticInventory.basePrice.Clear();
         StaticInventory.charac.Clear();
-    }
-
-    public void Barfill()
-    {
-        test = true;
     }
 }
