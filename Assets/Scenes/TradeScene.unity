@@ -14866,6 +14866,8 @@ MonoBehaviour:
   TextPrompt: {fileID: 818137888}
   itemCard: {fileID: 97022891}
   itemReshuffleButton: {fileID: 2001044952}
+  shuffleCount: 0
+  reshuffleText: {fileID: 801658661}
   bargainometer: {fileID: 138217584}
   dimmer: {fileID: 914038824}
   priceBox: {fileID: 1313629533}
@@ -14885,12 +14887,16 @@ MonoBehaviour:
   previousPriceText: {fileID: 1592474660}
   differenceText: {fileID: 876399024}
   dupecount: 0
+  offerAccept: 0
+  wallet: 0
   tipBonus: 0
   dupeBonus: 0
   turnsRemainingText: {fileID: 804844442}
   endGameButton: {fileID: 737008765}
   nextCustomerButton: {fileID: 992928424}
   walletText: {fileID: 1128184469}
+  basePrice: 0
+  patience: 0
   customerCount: 0
   playerApproachEvent:
     idInternal: 0

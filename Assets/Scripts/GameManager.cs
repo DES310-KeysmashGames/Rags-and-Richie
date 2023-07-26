@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image itemCard;
     [SerializeField] private Button itemReshuffleButton;
     [SerializeField] private int shuffleCount;
+    [SerializeField] private TextMeshProUGUI reshuffleText;
 
     //ui for selecting inital price
     [Header("UI elements for selecting the initial price")]
@@ -247,6 +248,7 @@ public class GameManager : MonoBehaviour
         }
         wallet = PlayerPrefs.GetInt("wallet");
         endingBool = false;
+        reshuffleText.text = "Richie Reshuffle \nFree";
     }
 
     // Start is called before the first frame update
@@ -940,6 +942,7 @@ public class GameManager : MonoBehaviour
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
             IconTextSort();
             StaticTravel.shuffleCosts += cost;
+            reshuffleText.text = "Richie Reshuffle " + (5 * shuffleCount).ToString();
         }
         
     }
