@@ -33,6 +33,9 @@ public class DayEndUI : MonoBehaviour
     public AK.Wwise.Event buttonEvent;
     public AK.Wwise.Event barFillEvent;
     public AK.Wwise.Event goalCompleteEvent;
+    public AK.Wwise.Event priceSmooshEvent;
+    public AK.Wwise.Event priceWobbleEvent;
+    public AK.Wwise.Event itemPopEvent;
 
     private void Awake(){
         helper = GetComponentInChildren<AnimationHelper>();
