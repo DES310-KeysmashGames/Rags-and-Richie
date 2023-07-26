@@ -544,7 +544,7 @@ public class GameManager : MonoBehaviour
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[0];
-            //custEnragedEvent.Post(gameObject);
+            custEnragedEvent.Post(gameObject);
             blinkingEmoticon.BlinkingEmoticonActive();
             speechBubble.SpeechBubble();
             offerAccept = false;
@@ -558,7 +558,7 @@ public class GameManager : MonoBehaviour
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[1];
-            //custAngryEvent.Post(gameObject);
+            custAngryEvent.Post(gameObject);
             blinkingEmoticon.BlinkingEmoticonActive();
             speechBubble.SpeechBubble();
             offerAccept = false;
@@ -572,7 +572,7 @@ public class GameManager : MonoBehaviour
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
             charEmote.sprite = emoticons[2];
-            //custSweatEvent.Post(gameObject);
+            custSweatEvent.Post(gameObject);
             blinkingEmoticon.BlinkingEmoticonActive();
             speechBubble.SpeechBubble();
             offerAccept = false;
@@ -584,7 +584,7 @@ public class GameManager : MonoBehaviour
             //replace later
             bargainSpeech.text = character.GetDiamondText();
             typewriter.SetText(bargainSpeech.text);
-            //custDiamondEvent.Post(gameObject);
+            custDiamondEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
             charEmote.sprite = emoticons[3];
             customerAnimations.CustomerSpeakingActive();
@@ -597,7 +597,7 @@ public class GameManager : MonoBehaviour
             //replace later
             bargainSpeech.text = character.GetSurprisedText();
             typewriter.SetText(bargainSpeech.text);
-            //custSurprisedEvent.Post(gameObject);
+           custSurprisedEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
             charEmote.sprite = emoticons[4];
             customerAnimations.CustomerSpeakingActive();
@@ -609,7 +609,7 @@ public class GameManager : MonoBehaviour
             //replace later
             bargainSpeech.text = character.GetAstonishedText();
             typewriter.SetText(bargainSpeech.text);
-            //custAstonishedEvent.Post(gameObject);
+            custAstonishedEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
             charEmote.sprite = emoticons[5];
             customerAnimations.CustomerSpeakingActive();
@@ -621,7 +621,7 @@ public class GameManager : MonoBehaviour
             //replace later
             bargainSpeech.text = character.GetBaffleeText();
             typewriter.SetText(bargainSpeech.text);
-            //custBaffledEvent.Post(gameObject);
+            custBaffledEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
             charEmote.sprite = emoticons[6];
             customerAnimations.CustomerSpeakingActive();
@@ -939,7 +939,7 @@ public class GameManager : MonoBehaviour
         int cost = 5 * (shuffleCount);
         if(wallet >= cost || shuffleCount == 0)
         {
-            //reshuffleEvent.Post(gameObject);
+            reshuffleEvent.Post(gameObject);
             if(shuffleCount > 0)
             {
                 wallet -= cost;

@@ -67,10 +67,7 @@ public class DayEndUI : MonoBehaviour
                 
             });
         }
-
-        //PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - StaticTravel.expenses));
-    
-
+   
         goal = StaticTravel.goal;
         wallet = PlayerPrefs.GetInt("wallet");
         shuffleCostText.text = StaticTravel.shuffleCosts.ToString();
@@ -114,7 +111,7 @@ public class DayEndUI : MonoBehaviour
         {
             if (sellAmount > 0)
             {
-                //barFillEvent.Post(gameObject);
+                barFillEvent.Post(gameObject);
                 wallet += 1;
                 dailyGoalBar.fillAmount = (wallet / goal);
                 sellAmount -= 1;
@@ -122,7 +119,7 @@ public class DayEndUI : MonoBehaviour
         }
         if((wallet/goal) == 1)
         {
-            //goalCompleteEvent.Post(gameObject);
+            goalCompleteEvent.Post(gameObject);
         }
     }
 
