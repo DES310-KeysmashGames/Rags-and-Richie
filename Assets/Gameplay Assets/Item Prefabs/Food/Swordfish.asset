@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
+  m_Name: Swordfish
+  m_EditorClassIdentifier: 
+  frontSprite: {fileID: 21300000, guid: 5565630f94f75ee4faee8bb83390122b, type: 3}
+  itemName: Swordfish
+  primaryType: 0
+  secondaryType: 1
+  tertiaryType: 6
+  itemDescription: {fileID: 21300000, guid: 9d00fce8f3faf2247a09d887315169ce, type: 3}
+  Description: 
+  foodValue: 7
+  drinkValue: 4
+  warmthValue: 0
+  weaponValue: 5
+  machineryValue: 0
+  luxuryValue: 0
