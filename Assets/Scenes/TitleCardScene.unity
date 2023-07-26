@@ -639,7 +639,7 @@ MonoBehaviour:
   bgmEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 2fe78894e1c19fa4ca63a94493034746, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 3fe282ad614166f46a640dd3a466bd26, type: 2}
 --- !u!114 &1537807859
 MonoBehaviour:
   m_ObjectHideFlags: 0

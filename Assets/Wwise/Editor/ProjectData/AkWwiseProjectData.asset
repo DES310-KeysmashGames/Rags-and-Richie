@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 12d38670da13f246b4b9ce5e865dfe70
     GuidInternal: 
-    m_lastTime: -8585191112500629581
+    m_lastTime: -8585198691030148821
     List: []
   - PhysicalPath: Virtual Acoustics\Factory Acoustic Textures.wwu
     PathAndIcons:
@@ -37,7 +37,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Factory Acoustic Textures
     guid: 6b663d46a83ca54f8b4a5fef12b883f6
     GuidInternal: 
-    m_lastTime: -8585191112500613622
+    m_lastTime: -8585293596224929886
     List:
     - name: Acoustic_Banner
       guid: f2532d2fccda8e408b8898b1b52a26d6
@@ -303,7 +303,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: c869a871382823449be97759a3894e95
     GuidInternal: 
-    m_lastTime: -8585120264939818746
+    m_lastTime: -8585178829101582694
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -365,7 +365,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a42bf338e693f7459acc11dc88983313
     GuidInternal: 
-    m_lastTime: -8585185740119515452
+    m_lastTime: -8585197085642663754
     List:
     - name: Main_Soundbank
       guid: e8170c92c708d14581b4b480412a9101
@@ -393,7 +393,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 6136e2c9251d0442a8e75cfbe027296a
     GuidInternal: 
-    m_lastTime: -8585120264943925615
+    m_lastTime: -8585112205401329660
     List:
     - name: Play_amb_background_music_01
       guid: a0a3a3140e095a4b8dbba2b624cbefa6
@@ -409,6 +409,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: a0a3a3140e095a4b8dbba2b624cbefa6
       Path: Events\Default Work Unit\Play_amb_background_music_01
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_amb_tradingmusic_loop_01
+      guid: f1bb44856dbeac4c9dfa9a6fd0365bb5
+      id: 3614589308
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_amb_tradingmusic_loop_01
+        ObjectType: 3
+        guid: f1bb44856dbeac4c9dfa9a6fd0365bb5
+      Path: Events\Default Work Unit\Play_amb_tradingmusic_loop_01
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -460,6 +477,40 @@ MonoBehaviour:
         ObjectType: 3
         guid: 3816f82bdb82ec4f9d79e8cbabfc8a1c
       Path: Events\Default Work Unit\Play_Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Goal_Complete
+      guid: c5b6ede7bfc9054587367043277290eb
+      id: 2547208403
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Goal_Complete
+        ObjectType: 3
+        guid: c5b6ede7bfc9054587367043277290eb
+      Path: Events\Default Work Unit\Play_Goal_Complete
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Goal_Fill
+      guid: 32e7814655cc8d4dbb8f7506b82331a0
+      id: 1330198245
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Goal_Fill
+        ObjectType: 3
+        guid: 32e7814655cc8d4dbb8f7506b82331a0
+      Path: Events\Default Work Unit\Play_Goal_Fill
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -531,6 +582,74 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Reaction_Astonished
+      guid: fe43e8d6dc5e2e4389057a8e434f4499
+      id: 1061231824
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Reaction_Astonished
+        ObjectType: 3
+        guid: fe43e8d6dc5e2e4389057a8e434f4499
+      Path: Events\Default Work Unit\Play_Reaction_Astonished
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Reaction_Baffled
+      guid: 59b8ba5c5eb5fe448a4a1c3b9b8e03d2
+      id: 313177316
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Reaction_Baffled
+        ObjectType: 3
+        guid: 59b8ba5c5eb5fe448a4a1c3b9b8e03d2
+      Path: Events\Default Work Unit\Play_Reaction_Baffled
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Reaction_Diamond
+      guid: db0bf9d785e91c409f8c336aded7c38c
+      id: 4107060150
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Reaction_Diamond
+        ObjectType: 3
+        guid: db0bf9d785e91c409f8c336aded7c38c
+      Path: Events\Default Work Unit\Play_Reaction_Diamond
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Reaction_Enraged
+      guid: 3d8c782211ba554d8019f72aa344f7ad
+      id: 490390828
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Reaction_Enraged
+        ObjectType: 3
+        guid: 3d8c782211ba554d8019f72aa344f7ad
+      Path: Events\Default Work Unit\Play_Reaction_Enraged
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Reaction_Happy
       guid: c59863956245b34ab82915e0bc97e062
       id: 1791468588
@@ -562,6 +681,108 @@ MonoBehaviour:
         ObjectType: 3
         guid: bbf1221be915e94e8b831ac0d980211d
       Path: Events\Default Work Unit\Play_Reaction_Neutral
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Reaction_Surprised
+      guid: 7ad90323bd36d24fa667773978271e33
+      id: 2498370409
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Reaction_Surprised
+        ObjectType: 3
+        guid: 7ad90323bd36d24fa667773978271e33
+      Path: Events\Default Work Unit\Play_Reaction_Surprised
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Reaction_Sweat
+      guid: 54f91f5e5b08e74d9ff4336a5f945db0
+      id: 360439834
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Reaction_Sweat
+        ObjectType: 3
+        guid: 54f91f5e5b08e74d9ff4336a5f945db0
+      Path: Events\Default Work Unit\Play_Reaction_Sweat
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Recap_Shake
+      guid: 591f32438c18f449bdf8a5899da348cc
+      id: 3401181452
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Recap_Shake
+        ObjectType: 3
+        guid: 591f32438c18f449bdf8a5899da348cc
+      Path: Events\Default Work Unit\Play_Recap_Shake
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Recap_Smash
+      guid: 2c3e718861915e4bbc4d336bb2512906
+      id: 179339766
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Recap_Smash
+        ObjectType: 3
+        guid: 2c3e718861915e4bbc4d336bb2512906
+      Path: Events\Default Work Unit\Play_Recap_Smash
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Recap_Woosh
+      guid: 273290f31501d24b86fdeb976dbfd892
+      id: 2973050106
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Recap_Woosh
+        ObjectType: 3
+        guid: 273290f31501d24b86fdeb976dbfd892
+      Path: Events\Default Work Unit\Play_Recap_Woosh
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Reroll
+      guid: 0a61c0f9f2e48548af2e514da10db6db
+      id: 129866204
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 6136e2c9251d0442a8e75cfbe027296a
+      - ElementName: Play_Reroll
+        ObjectType: 3
+        guid: 0a61c0f9f2e48548af2e514da10db6db
+      Path: Events\Default Work Unit\Play_Reroll
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -662,7 +883,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 1c3cfaaf56afd64c8539bf01a28288b8
     GuidInternal: 
-    m_lastTime: -8585120264943777753
+    m_lastTime: -8585178829103522845
     List:
     - name: MusicVolume
       guid: d03105900994764da6191e23e8984f5d
@@ -704,7 +925,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 17f1e5c129b67147b57d45b26b5755ff
     GuidInternal: 
-    m_lastTime: -8585191112500659556
+    m_lastTime: -8585198691032327777
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -718,7 +939,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: dcb474ca9926d1429bc7a58a32a3b583
     GuidInternal: 
-    m_lastTime: -8585191112500649598
+    m_lastTime: -8585198691030457502
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -732,10 +953,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: fbe76a273d47e145ac9b812be020c681
     GuidInternal: 
-    m_lastTime: -8585191112500639613
+    m_lastTime: -8585198691029086056
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 050000000600000007000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
