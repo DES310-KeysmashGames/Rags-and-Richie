@@ -20,9 +20,14 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator CityPulse;
     [SerializeField] Animator truckVroom;
     [SerializeField] Animator tutorialTravelText;
+    [SerializeField] Animator travelopenShutter;
+    [SerializeField] Animator travelcloseShutter;
 
     // End of Day Animation
     [SerializeField] Animator FanFarePortraits;
+
+    // Main Menu
+    [SerializeField] Animator mainmenutransition;
 
     GameManager gameManager;
 
@@ -34,6 +39,29 @@ public class AnimationTrade : MonoBehaviour
         gameManager = GetComponent<GameManager>();
     }
     // Truck Animation Travel Scene
+
+
+
+
+    public void MainMenuTransition()
+    {
+        mainmenutransition.SetTrigger("Close");
+    }
+
+
+    public void TravelOpenShutter()
+    {
+        travelopenShutter.SetTrigger("Open");
+    }
+
+    public void TravelCloseShutter()
+    {
+        travelcloseShutter.SetTrigger("Close");
+    }
+
+
+
+
     public void TruckDrive()
     {
         truckVroom.SetTrigger("Vroom");
