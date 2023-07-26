@@ -3752,6 +3752,11 @@
 				<Sound Name="amb_tradingmusic_loop_01" ID="{C84ABCA4-7224-4678-B2AF-8E838F0573CA}" ShortID="571522977">
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-9</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
