@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
+  m_Name: Phancy Pheobe
+  m_EditorClassIdentifier: 
+  charSprite: {fileID: 21300000, guid: 24ea5828661312041bbc7de4457efeb1, type: 3}
+  CustName: Phancy Pheobe
+  desire: 0
+  foodDesire: 0
+  drinkDesire: 0
+  warmthDesire: 0
+  weaponDesire: 0
+  machineryDesire: 0
+  luxuryDesire: 0
+  introText: []
+  introText2: []
+  introText3: []
+  patiece: 0
+  desperation: 0
