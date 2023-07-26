@@ -24,12 +24,14 @@ public class AnimationTrade : MonoBehaviour
     // End of Day Animation
     [SerializeField] Animator FanFarePortraits;
 
+    GameManager gameManager;
+
 
 
 
     private void Awake()
     {
-
+        gameManager = GetComponent<GameManager>();
     }
     // Truck Animation Travel Scene
     public void TruckDrive()
@@ -167,7 +169,10 @@ public class AnimationTrade : MonoBehaviour
         FanFarePortraits.SetTrigger("Play");
     }
 
-
+    public void ReshuffleItems()
+    {
+        shelfLock.SetTrigger("Shuffle");
+    }
 
 }
 
