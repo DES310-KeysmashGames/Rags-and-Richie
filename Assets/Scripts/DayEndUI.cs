@@ -27,6 +27,7 @@ public class DayEndUI : MonoBehaviour
     [SerializeField] private int sellAmount;
     [SerializeField] private int wallet;
     [SerializeField] private TextMeshProUGUI sellPriceText;
+    [SerializeField] private TextMeshProUGUI totalprofitText;
 
     //Audio
     public AK.Wwise.Event buttonEvent;
@@ -99,6 +100,7 @@ public class DayEndUI : MonoBehaviour
         }
         sellAmount -= StaticTravel.expenses;
         sellAmount -= StaticTravel.shuffleCosts;
+        totalprofitText.text = sellAmount.ToString();
     }
 
     private void Update()
