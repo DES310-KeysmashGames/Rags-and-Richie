@@ -942,7 +942,7 @@ public class GameManager : MonoBehaviour
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
             IconTextSort();
             StaticTravel.shuffleCosts += cost;
-            reshuffleText.text = "Richie Reshuffle " + (5 * shuffleCount).ToString();
+            reshuffleText.text = "Richie Reshuffle \n" + (5 * shuffleCount).ToString();
         }
         
     }

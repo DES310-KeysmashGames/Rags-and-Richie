@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
-  m_Name: Char10
+  m_Name: Sketchy Stevey
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 2ad8752e42bc67e4da6a5b2361d5c717, type: 3}
   CustName: Sketchy Stevey

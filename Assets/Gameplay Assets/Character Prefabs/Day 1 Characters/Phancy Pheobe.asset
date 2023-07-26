@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
-  m_Name: Char9
+  m_Name: Phancy Pheobe
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 24ea5828661312041bbc7de4457efeb1, type: 3}
   CustName: Phancy Pheobe

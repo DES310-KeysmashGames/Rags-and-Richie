@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
-  m_Name: Char7
+  m_Name: Groggy Greg
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 05e81883fe944474d8fd93e44313867f, type: 3}
   CustName: Groggy Greg
