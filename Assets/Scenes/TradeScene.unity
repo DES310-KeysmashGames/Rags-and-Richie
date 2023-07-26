@@ -14867,6 +14867,7 @@ MonoBehaviour:
   itemCard: {fileID: 97022891}
   itemReshuffleButton: {fileID: 2001044952}
   shuffleCount: 0
+  reshuffleText: {fileID: 801658661}
   bargainometer: {fileID: 138217584}
   dimmer: {fileID: 914038824}
   priceBox: {fileID: 1313629533}
