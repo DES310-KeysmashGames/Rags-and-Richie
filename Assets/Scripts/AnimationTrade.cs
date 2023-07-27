@@ -15,6 +15,7 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator shelfLock;
     [SerializeField] Animator OpeningDay;
     [SerializeField] Animator DayEndingClose;
+    [SerializeField] Animator richieReactions;
 
     //Travel Scene Animations
     [SerializeField] Animator CityPulse;
@@ -58,7 +59,26 @@ public class AnimationTrade : MonoBehaviour
     {
         travelcloseShutter.SetTrigger("Close");
     }
+    //RICHIE ANIMATION REACTIONS
+    public void RichieGood()
+    {
+        richieReactions.SetTrigger("Good");
+    }
 
+    public void RichiePerfect()
+    {
+        richieReactions.SetTrigger("Perfect");
+    }
+
+    public void RichieBad()
+    {
+        richieReactions.SetTrigger("Bad");
+    }
+
+    public void RichieIdle()
+    {
+        richieReactions.SetTrigger("Idle");
+    }
 
 
 
