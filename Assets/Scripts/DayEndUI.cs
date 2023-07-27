@@ -124,13 +124,28 @@ public class DayEndUI : MonoBehaviour
             }
             fillBool = false;
         }
-        if((wallet/goal) == 1)
+        if((wallet/goal) >= 1)
         {
             if (goalBool)
             {
                 goalCompleteEvent.Post(gameObject);
                 goalBool = false;
             }
+        }
+        if(helper.GetWoobleBool())
+        {
+            priceWobbleEvent.Post(gameObject);
+            helper.ResetToFalse();
+        }
+        if(helper.GetSmooshBool())
+        {
+            priceSmooshEvent.Post(gameObject);
+            helper.ResetToFalse();
+        }
+        if(helper.GetWooshBool())
+        {
+            itemPopEvent.Post(gameObject);
+            helper.ResetToFalse();
         }
     }
 

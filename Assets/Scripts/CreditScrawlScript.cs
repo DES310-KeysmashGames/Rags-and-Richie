@@ -20,7 +20,7 @@ public class CreditScrawlScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         //creditEvent.Post(gameObject);
     }
 

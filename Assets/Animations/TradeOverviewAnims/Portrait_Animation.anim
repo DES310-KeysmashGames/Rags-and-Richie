@@ -10541,28 +10541,35 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 5.45
-    functionName: 
+    functionName: SetWobbleBool
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 7.9666667
-    functionName: 
+    functionName: SetWooshBool
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 8.166667
-    functionName: 
+    functionName: SetSmooshBool
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 10.55
-    functionName: 
+    functionName: SetWooshBool
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 12.966666
+    functionName: SetSmooshBool
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
