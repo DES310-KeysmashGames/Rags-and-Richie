@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
   m_Name: Golden Caviar
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: c72b8318599b3304aad662d03080801b, type: 3}
-  itemName: Air Fryer Treasure Chest
+  frontSprite: {fileID: 21300000, guid: fb06df7b3b8261e4a9b39e33ff1f7d04, type: 3}
+  itemName: Golden Caviar
   primaryType: 5
   secondaryType: 5
   tertiaryType: 6
