@@ -955,7 +955,7 @@ public class GameManager : MonoBehaviour
             {
                 wallet -= cost;
             }
-            shelfLock.ReshuffleItems();
+            //shelfLock.ReshuffleItems(); ANIMATION DISABLED FOR NOW
             ++shuffleCount;
             itemManager.GenerateItemStock(character.GetPrimaryDesire());
             IconTextSort();
