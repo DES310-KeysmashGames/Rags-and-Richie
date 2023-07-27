@@ -1382,7 +1382,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 4a60cb23cd42c6543854b4779abea8a0, type: 2}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
@@ -1414,7 +1414,10 @@ MonoBehaviour:
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
+  travelopenShutter: {fileID: 0}
+  travelcloseShutter: {fileID: 0}
   FanFarePortraits: {fileID: 1804472798}
+  mainmenutransition: {fileID: 0}
 --- !u!1 &618569720
 GameObject:
   m_ObjectHideFlags: 0

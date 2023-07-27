@@ -29,6 +29,9 @@ public class DayEndUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sellPriceText;
     [SerializeField] private TextMeshProUGUI totalprofitText;
 
+    private bool goalBool = true;
+    private bool fillBool = true;
+
     //Audio
     public AK.Wwise.Event buttonEvent;
     public AK.Wwise.Event barFillEvent;
@@ -64,7 +67,6 @@ public class DayEndUI : MonoBehaviour
                 PlayerPrefs.SetInt("wallet", wallet);         
                 Loader.Load(Loader.Scene.EndingScene);
                 ClearItems();
-                
             });
         }
    
@@ -109,17 +111,26 @@ public class DayEndUI : MonoBehaviour
     {
         if(helper.GetBool())
         {
-            if (sellAmount > 0)
+            if (fillBool)
             {
                 barFillEvent.Post(gameObject);
+            }
+            if (sellAmount > 0)
+            {
                 wallet += 1;
                 dailyGoalBar.fillAmount = (wallet / goal);
                 sellAmount -= 1;
+                fillBool = false;
             }
+            fillBool = false;
         }
         if((wallet/goal) == 1)
         {
-            goalCompleteEvent.Post(gameObject);
+            if (goalBool)
+            {
+                goalCompleteEvent.Post(gameObject);
+                goalBool = false;
+            }
         }
     }
 
