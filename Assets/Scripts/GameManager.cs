@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationTrade shelfLock;
     [SerializeField] AnimationTrade openingDayStart;
     [SerializeField] AnimationTrade closingDayEnd;
+    [SerializeField] AnimationTrade richieReacting;
 
 
 
@@ -540,8 +541,8 @@ public class GameManager : MonoBehaviour
         if(offer >= (based + 26))
         {
             patience -= 4;
-
             //replace later
+            richieReacting.RichieBad();
             bargainSpeech.text = character.GetEnragedText();
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
@@ -556,6 +557,7 @@ public class GameManager : MonoBehaviour
             patience -= 2;
 
             //replace later
+            richieReacting.RichieBad();
             bargainSpeech.text = character.GetAngryText();
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
@@ -570,6 +572,7 @@ public class GameManager : MonoBehaviour
             patience -= 1;
 
             //replace later
+            richieReacting.RichieBad();
             bargainSpeech.text = character.GetSweatText();;
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
@@ -584,6 +587,7 @@ public class GameManager : MonoBehaviour
             //animation
 
             //replace later
+            richieReacting.RichieGood();
             bargainSpeech.text = character.GetDiamondText();
             typewriter.SetText(bargainSpeech.text);
             custDiamondEvent.Post(gameObject);
@@ -595,8 +599,8 @@ public class GameManager : MonoBehaviour
         else if (offer >= (based - 13) && offer <= (based - 4))
         {
             patience += 1;
-
-            //replace later
+            //replace late
+            richieReacting.RichieGood();
             bargainSpeech.text = character.GetSurprisedText();
             typewriter.SetText(bargainSpeech.text);
            custSurprisedEvent.Post(gameObject);
@@ -609,6 +613,7 @@ public class GameManager : MonoBehaviour
         {
             patience += 2;
             //replace later
+            richieReacting.RichieGood();
             bargainSpeech.text = character.GetAstonishedText();
             typewriter.SetText(bargainSpeech.text);
             custAstonishedEvent.Post(gameObject);
@@ -621,6 +626,7 @@ public class GameManager : MonoBehaviour
         {
             patience += 4;
             //replace later
+            richieReacting.RichieGood();
             bargainSpeech.text = character.GetBaffleeText();
             typewriter.SetText(bargainSpeech.text);
             custBaffledEvent.Post(gameObject);
@@ -740,6 +746,7 @@ public class GameManager : MonoBehaviour
     void AcceptDeal()
     {
         blinkingMoney.BlinkingCurrencyActive();
+        richieReacting.RichiePerfect();
         saleSuccess.Post(gameObject);
         Debug.Log("accept deal");
         //custDiamondEvent.Post(gameObject);
@@ -778,6 +785,7 @@ public class GameManager : MonoBehaviour
     void DeclineDeal()
     {
         dealOver = true;
+        richieReacting.RichieBad();
         saleFailure.Post(gameObject);
         custAngryEvent.Post(gameObject);
         bargainSpeech.text = character.GetDeclineTrade();
@@ -817,6 +825,7 @@ public class GameManager : MonoBehaviour
     private void NextCustomer()
     {
         NewCustomer();
+        richieReacting.RichieIdle();
         itemsShown = false;
         trade = false;
         bargain = false;
