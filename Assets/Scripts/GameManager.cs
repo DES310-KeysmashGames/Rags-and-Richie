@@ -532,6 +532,7 @@ public class GameManager : MonoBehaviour
                 DeclineDeal();
             }
         }
+        previousPriceText.SetText(previousPrice.ToString());
     }
 
     void PriceAnalysis(float based, float offer)
