@@ -266,7 +266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHUFFLE COST
+  m_text: <color=red>SHUFFLE COST</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
   m_sharedMaterial: {fileID: 3320235333218628706, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
@@ -1411,6 +1411,7 @@ MonoBehaviour:
   shelfLock: {fileID: 0}
   OpeningDay: {fileID: 0}
   DayEndingClose: {fileID: 0}
+  richieReactions: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
@@ -8620,7 +8621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRAVEL COST
+  m_text: <color=red>TRAVEL COST</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
   m_sharedMaterial: {fileID: 3320235333218628706, guid: d033de4cb628bd5439ea55047835ebb9, type: 2}
