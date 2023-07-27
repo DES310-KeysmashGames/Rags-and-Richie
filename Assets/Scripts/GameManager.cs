@@ -387,6 +387,7 @@ public class GameManager : MonoBehaviour
                 custDialogueEvent.Post(gameObject);
                 introCount = 3;
                 textProgression = false;
+                customerAnimations.CustomerSpeakingActive();
             }
             else if (introCount == 1 && introCount < introLength)
             {
@@ -395,6 +396,7 @@ public class GameManager : MonoBehaviour
                 custDialogueEvent.Post(gameObject);
                 introCount = 2;
                 textProgression = false;
+                customerAnimations.CustomerSpeakingActive();
             }
             else if (introCount == 3 || introCount >= introLength)
             {
@@ -402,6 +404,7 @@ public class GameManager : MonoBehaviour
                 trade = true;
                 introCount = 0;
                 textProgression = false;
+                customerAnimations.CustomerSpeakingActive();
             }
         }
     }
@@ -825,6 +828,7 @@ public class GameManager : MonoBehaviour
         ++sellCount;
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
+        customerAnimations.CustomerSpeakingLeave();
 
     }
 
@@ -853,6 +857,7 @@ public class GameManager : MonoBehaviour
         setPrice = 0;
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
+        customerAnimations.CustomerSpeakingLeave();
 
     }
 
