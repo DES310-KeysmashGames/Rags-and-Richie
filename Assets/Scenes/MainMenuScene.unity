@@ -2401,6 +2401,10 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: e3b0203c477c6014aa6a354594ae5c9b, type: 2}
   musicSlider: {fileID: 1876168461}
   SFXSlider: {fileID: 1606234724}
+  bgmEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3fe282ad614166f46a640dd3a466bd26, type: 2}
 --- !u!114 &1275069060
 MonoBehaviour:
   m_ObjectHideFlags: 0
