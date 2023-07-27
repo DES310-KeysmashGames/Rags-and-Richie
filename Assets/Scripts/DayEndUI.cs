@@ -29,6 +29,8 @@ public class DayEndUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sellPriceText;
     [SerializeField] private TextMeshProUGUI totalprofitText;
 
+    [SerializeField] AnimationTrade closeShutterEnd;
+
     private bool goalBool = true;
     private bool fillBool = true;
 
@@ -47,6 +49,7 @@ public class DayEndUI : MonoBehaviour
             //Continue to next day
             endButton.onClick.AddListener(() =>
             {
+                closeShutterEnd.CloseEndTradeOverview();
                 PlayerPrefs.SetInt("wallet", wallet);
                 buttonEvent.Post(gameObject);
                 Loader.Load(Loader.Scene.TravelScene);
@@ -64,6 +67,7 @@ public class DayEndUI : MonoBehaviour
             //Show end screen
             endButton.onClick.AddListener(() =>
             {
+                closeShutterEnd.CloseEndTradeOverview();
                 PlayerPrefs.SetInt("wallet", wallet);         
                 Loader.Load(Loader.Scene.EndingScene);
                 ClearItems();

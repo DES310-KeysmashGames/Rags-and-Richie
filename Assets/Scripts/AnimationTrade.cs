@@ -217,6 +217,14 @@ public class AnimationTrade : MonoBehaviour
         FanFarePortraits.SetTrigger("Play");
     }
 
+
+
+    public void CloseEndTradeOverview()
+    {
+        FanFarePortraits.SetTrigger("Close");
+    }
+
+
     public void ReshuffleItems()
     {
         shelfLock.SetTrigger("Shuffle");
