@@ -397,7 +397,7 @@ public class GameManager : MonoBehaviour
             }
             else if (introCount == 3 || introCount >= introLength)
             {
-                custDialogueEvent.Post(gameObject);
+                //custDialogueEvent.Post(gameObject);
                 trade = true;
                 introCount = 0;
                 textProgression = false;
