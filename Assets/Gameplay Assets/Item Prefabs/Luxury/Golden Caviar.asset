@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
   m_Name: Golden Caviar
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: fb06df7b3b8261e4a9b39e33ff1f7d04, type: 3}
+  frontSprite: {fileID: 21300000, guid: d4c9f93001df3ed4d80d01d659cb7736, type: 3}
   itemName: Golden Caviar
   primaryType: 5
   secondaryType: 5
   tertiaryType: 6
-  itemDescription: {fileID: 21300000, guid: 401de63383ef54143a484fa9fdcbdb22, type: 3}
+  itemDescription: {fileID: 21300000, guid: fb06df7b3b8261e4a9b39e33ff1f7d04, type: 3}
   Description: "\t\t"
   foodValue: 4
   drinkValue: 0

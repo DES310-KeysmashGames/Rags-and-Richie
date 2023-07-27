@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
     private float endingTimer;
     private bool wooshBool;
     private bool endingBool;
+    private int emotionTracker;
 
     //audio 
     public AK.Wwise.Event playerApproachEvent;
@@ -542,98 +543,105 @@ public class GameManager : MonoBehaviour
         {
             patience -= 4;
             //replace later
-            richieReacting.RichieBad();
+            //richieReacting.RichieBad();
             bargainSpeech.text = character.GetEnragedText();
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
-            charEmote.sprite = emoticons[0];
-            custEnragedEvent.Post(gameObject);
+           // charEmote.sprite = emoticons[0];
+            //custEnragedEvent.Post(gameObject);
             blinkingEmoticon.BlinkingEmoticonActive();
             speechBubble.SpeechBubble();
             offerAccept = false;
+            emotionTracker = 0;
         }
         else if(offer >= (based + 14) && offer <= (based + 25))
         {
             patience -= 2;
 
             //replace later
-            richieReacting.RichieBad();
+            //richieReacting.RichieBad();
             bargainSpeech.text = character.GetAngryText();
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
-            charEmote.sprite = emoticons[1];
-            custAngryEvent.Post(gameObject);
+           // charEmote.sprite = emoticons[1];
+            //custAngryEvent.Post(gameObject);
             blinkingEmoticon.BlinkingEmoticonActive();
             speechBubble.SpeechBubble();
             offerAccept = false;
+            emotionTracker = 1;
         }
         else if (offer >= (based + 4) && offer <= (based +13))
         {
             patience -= 1;
 
             //replace later
-            richieReacting.RichieBad();
+            //richieReacting.RichieBad();
             bargainSpeech.text = character.GetSweatText();;
             typewriter.SetText(bargainSpeech.text);
             speechBubbleImage.sprite = speechBubbles[0];
-            charEmote.sprite = emoticons[2];
-            custSweatEvent.Post(gameObject);
+           // charEmote.sprite = emoticons[2];
+            //custSweatEvent.Post(gameObject);
             blinkingEmoticon.BlinkingEmoticonActive();
             speechBubble.SpeechBubble();
             offerAccept = false;
+            emotionTracker = 2;
         }
         else if (offer >= (based - 3) && offer <= (based + 3))
         {
             //animation
 
             //replace later
-            richieReacting.RichieGood();
+            //richieReacting.RichieGood();
             bargainSpeech.text = character.GetDiamondText();
             typewriter.SetText(bargainSpeech.text);
-            custDiamondEvent.Post(gameObject);
+            //custDiamondEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[1];
-            charEmote.sprite = emoticons[3];
+            //charEmote.sprite = emoticons[3];
             customerAnimations.CustomerSpeakingActive();
             offerAccept = true;
+            emotionTracker = 3;
         }
         else if (offer >= (based - 13) && offer <= (based - 4))
         {
             patience += 1;
             //replace late
-            richieReacting.RichieGood();
+            //richieReacting.RichieGood();
             bargainSpeech.text = character.GetSurprisedText();
             typewriter.SetText(bargainSpeech.text);
-           custSurprisedEvent.Post(gameObject);
+            //custSurprisedEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
-            charEmote.sprite = emoticons[4];
+            //charEmote.sprite = emoticons[4];
             customerAnimations.CustomerSpeakingActive();
             offerAccept = true;
+            emotionTracker = 4;
         }
         else if (offer >= (based -25) && offer <= (based - 14))
         {
             patience += 2;
             //replace later
-            richieReacting.RichieGood();
+            //richieReacting.RichieGood();
             bargainSpeech.text = character.GetAstonishedText();
             typewriter.SetText(bargainSpeech.text);
-            custAstonishedEvent.Post(gameObject);
+            //custAstonishedEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
-            charEmote.sprite = emoticons[5];
+            //charEmote.sprite = emoticons[5];
             customerAnimations.CustomerSpeakingActive();
             offerAccept = true;
+            emotionTracker = 5;
         }
         else if(offer  <= (based - 26))
         {
             patience += 4;
             //replace later
-            richieReacting.RichieGood();
+            //richieReacting.RichieGood();
             bargainSpeech.text = character.GetBaffleeText();
             typewriter.SetText(bargainSpeech.text);
-            custBaffledEvent.Post(gameObject);
+            //custBaffledEvent.Post(gameObject);
             speechBubbleImage.sprite = speechBubbles[2];
-            charEmote.sprite = emoticons[6];
+            //charEmote.sprite = emoticons[6];
             customerAnimations.CustomerSpeakingActive();
             offerAccept = true;
+            emotionTracker = 6;
         }
     }
 
@@ -651,6 +659,44 @@ public class GameManager : MonoBehaviour
             case 3:
                 PriceAnalysis(previousPrice, setPrice);
                 PriceAnalysis(basePrice, setPrice);
+                break;
+        }
+        switch(emotionTracker)
+        {
+            case 0:
+                richieReacting.RichieBad();
+                custEnragedEvent.Post(gameObject);
+                charEmote.sprite = emoticons[0];
+                break;
+            case 1:
+                richieReacting.RichieBad();
+                custAngryEvent.Post(gameObject);
+                charEmote.sprite = emoticons[1];
+                break;
+            case 2:
+                richieReacting.RichieBad();
+                custSweatEvent.Post(gameObject);
+                charEmote.sprite = emoticons[2];
+                break;
+            case 3:
+                richieReacting.RichieGood();
+                custDiamondEvent.Post(gameObject);
+                charEmote.sprite = emoticons[3];
+                break;
+            case 4:
+                richieReacting.RichieGood();
+                custSurprisedEvent.Post(gameObject);
+                charEmote.sprite = emoticons[4];
+                break;
+            case 5:
+                richieReacting.RichieGood();
+                custAstonishedEvent.Post(gameObject);
+                charEmote.sprite = emoticons[5];
+                break;
+            case 6:
+                richieReacting.RichieGood();
+                custBaffledEvent.Post(gameObject);
+                charEmote.sprite = emoticons[6];
                 break;
         }
     }
