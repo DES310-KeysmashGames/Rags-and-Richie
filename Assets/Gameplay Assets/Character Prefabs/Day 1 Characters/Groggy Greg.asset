@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
+  m_Name: Groggy Greg
+  m_EditorClassIdentifier: 
+  charSprite: {fileID: 21300000, guid: 05e81883fe944474d8fd93e44313867f, type: 3}
+  CustName: Groggy Greg
+  desire: 1
+  foodDesire: 1
+  drinkDesire: 8
+  warmthDesire: 1
+  weaponDesire: 1
+  machineryDesire: 1
+  luxuryDesire: 1
+  introText:
+  - {fileID: 11400000, guid: 3a3b9f5b59f15174a822c862d810b320, type: 2}
+  - {fileID: 11400000, guid: 8b2f587590b9e4b4ba90024a215d59a1, type: 2}
+  - {fileID: 11400000, guid: e57cf729bb1ad0f40b2416e9e4e964b8, type: 2}
+  introText2:
+  - {fileID: 11400000, guid: a3aee72bccdaf4442af2c1ed61713891, type: 2}
+  - {fileID: 11400000, guid: 3020979bce3836b4a8ddcc5b1a879899, type: 2}
+  - {fileID: 11400000, guid: 7785d67a7b444014ebe6c6ad381c6632, type: 2}
+  introText3:
+  - {fileID: 11400000, guid: 544463d24c18ae84db74e8b28a5e402a, type: 2}
+  - {fileID: 11400000, guid: 37c5946a9911f2545a08398f30033220, type: 2}
+  - {fileID: 11400000, guid: 88cbe77fe93e551449a3ed4443375090, type: 2}
+  patiece: 69
+  desperation: 6

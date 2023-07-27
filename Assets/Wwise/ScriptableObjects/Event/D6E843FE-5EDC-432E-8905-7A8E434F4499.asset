@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c108eecf1cf8d742bf245cba8f0a942, type: 3}
+  m_Name: D6E843FE-5EDC-432E-8905-7A8E434F4499
+  m_EditorClassIdentifier: 
+  objectName: Play_Reaction_Astonished
+  id: 1061231824
+  guid: D6E843FE-5EDC-432E-8905-7A8E434F4499

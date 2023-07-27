@@ -31,6 +31,11 @@ public class DayEndUI : MonoBehaviour
 
     //Audio
     public AK.Wwise.Event buttonEvent;
+    public AK.Wwise.Event barFillEvent;
+    public AK.Wwise.Event goalCompleteEvent;
+    public AK.Wwise.Event priceSmooshEvent;
+    public AK.Wwise.Event priceWobbleEvent;
+    public AK.Wwise.Event itemPopEvent;
 
     private void Awake(){
         helper = GetComponentInChildren<AnimationHelper>();
@@ -62,10 +67,7 @@ public class DayEndUI : MonoBehaviour
                 
             });
         }
-
-        //PlayerPrefs.SetInt("wallet", (PlayerPrefs.GetInt("wallet") - StaticTravel.expenses));
-    
-
+   
         goal = StaticTravel.goal;
         wallet = PlayerPrefs.GetInt("wallet");
         shuffleCostText.text = StaticTravel.shuffleCosts.ToString();
@@ -109,10 +111,15 @@ public class DayEndUI : MonoBehaviour
         {
             if (sellAmount > 0)
             {
+                barFillEvent.Post(gameObject);
                 wallet += 1;
                 dailyGoalBar.fillAmount = (wallet / goal);
                 sellAmount -= 1;
             }
+        }
+        if((wallet/goal) == 1)
+        {
+            goalCompleteEvent.Post(gameObject);
         }
     }
 
