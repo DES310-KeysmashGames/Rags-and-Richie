@@ -21,7 +21,7 @@ public class CreditScrawlScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        creditEvent.Post(gameObject);
+        //creditEvent.Post(gameObject);
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class CreditScrawlScript : MonoBehaviour
         credits.transform.position = new Vector3(credits.transform.position.x, (float)((double)credits.transform.position.y + 2.0f), credits.transform.position.z);
         posValue = credits.transform.position.y;
   
-        if(posValue >= 800)
+        if(posValue >= 1600)
         {
             Loader.Load(Loader.Scene.MainMenuScene);
         }
