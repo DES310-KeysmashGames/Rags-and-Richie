@@ -53,6 +53,8 @@ public class TravelManager : MonoBehaviour
     [SerializeField] AnimationTrade travelTutorialText;
     [SerializeField] AnimationTrade CityPulse;
     [SerializeField] AnimationTrade truckSwipe;
+    [SerializeField] AnimationTrade travelOpen;
+    [SerializeField] AnimationTrade travelClose;
 
     public AK.Wwise.Event richieDialogueEvent;
     public AK.Wwise.Event buttonPressEvent;
@@ -83,6 +85,7 @@ public class TravelManager : MonoBehaviour
 
     void Start()
     {
+        travelOpen.TravelOpenShutter();
         day = StaticTravel.dayCount;
         richieImage.enabled = true;
         richieText.enabled = true;
@@ -131,7 +134,7 @@ public class TravelManager : MonoBehaviour
         }
     }
 
-    void Update()
+    async void Update()
     {
         if(day == 1)
         {
@@ -197,6 +200,8 @@ public class TravelManager : MonoBehaviour
     {
         truckSwipe.TruckDrive();
         await Task.Delay(2000);
+        travelClose.TravelCloseShutter();
+        await Task.Delay(1000);
         TruckHasMoved();
         nextButton.gameObject.SetActive(false);
     }

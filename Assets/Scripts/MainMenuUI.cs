@@ -10,6 +10,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] Button optionsButton;
     [SerializeField] Button quitButton;
+    [SerializeField] AnimationTrade shutterClosing;
     public AK.Wwise.Event buttonClickEvent;
     private bool playing;
     private bool playGame;
@@ -25,6 +26,7 @@ public class MainMenuUI : MonoBehaviour
             //click action
             buttonClickEvent.Post(gameObject);
             playGame = true;
+            shutterClosing.MainMenuTransition();
             //Main Menu Button Audio
 
         });
@@ -42,7 +44,7 @@ public class MainMenuUI : MonoBehaviour
 
             Application.Quit();
         });
-        timer = 1.0f;
+        timer = 3.0f;
         playGame = false;
     }
 
