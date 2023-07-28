@@ -426,6 +426,7 @@ public class GameManager : MonoBehaviour
         print(character.GetPrimaryDesire());
         IconTextSort();
         turnsRemainingText.text = "3";
+        patience = 0;
     }
 
     //displays the items available for sale.
