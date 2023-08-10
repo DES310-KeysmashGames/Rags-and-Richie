@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationTrade openingDayStart;
     [SerializeField] AnimationTrade closingDayEnd;
     [SerializeField] AnimationTrade richieReacting;
+    [SerializeField] AnimationTrade itemHovers;
 
 
 
@@ -962,29 +963,34 @@ public class GameManager : MonoBehaviour
     {
         itemCard.enabled = true;
         itemCard.sprite = itemManager.GetItemDescription(0);
+        itemHovers.ItemHoverEnter();
     }
 
     public void HoverItem2()
     {
         itemCard.enabled = true;
         itemCard.sprite = itemManager.GetItemDescription(1);
+        itemHovers.ItemHoverEnter();
     }
 
     public void HoverItem3()
     {
         itemCard.enabled = true;
         itemCard.sprite = itemManager.GetItemDescription(2);
+        itemHovers.ItemHoverEnter();
     }
 
     public void HoverItem4()
     {
         itemCard.enabled = true;
         itemCard.sprite = itemManager.GetItemDescription(3);
+        itemHovers.ItemHoverEnter();
     }
 
     public void HoverExit()
     {
         itemCard.enabled = false;
+
     }
 
     private void IconTextSort()

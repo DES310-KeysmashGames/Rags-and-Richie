@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationTrade : MonoBehaviour
-{   
+{
     //Trade Scene Animations
+    [Header("Trade Scene Animations")]
     [SerializeField] Animator bargainPhaseAnimation;
     [SerializeField] Animator priceConfirmAnimation;
     [SerializeField] Animator PlayerUserInterface;
@@ -16,8 +17,10 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator OpeningDay;
     [SerializeField] Animator DayEndingClose;
     [SerializeField] Animator richieReactions;
+    [SerializeField] Animator itemcardAppear;
 
     //Travel Scene Animations
+    [Header("Travel Scene Animations")]
     [SerializeField] Animator CityPulse;
     [SerializeField] Animator truckVroom;
     [SerializeField] Animator tutorialTravelText;
@@ -25,9 +28,11 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator travelcloseShutter;
 
     // End of Day Animation
+    [Header("EOD Animations")]
     [SerializeField] Animator FanFarePortraits;
 
     // Main Menu
+    [Header("Main Menu Animations")]
     [SerializeField] Animator mainmenutransition;
 
     GameManager gameManager;
@@ -124,6 +129,20 @@ public class AnimationTrade : MonoBehaviour
     }
 
 
+    //ItemCard Hover Animations
+
+    public void ItemHoverEnter()
+    {
+        itemcardAppear.SetTrigger("Hover");
+    }
+
+    public void ItemHoverClose()
+    {
+        itemcardAppear.SetTrigger("NoHover");
+    }
+
+
+
     // Price Adjuster Animation drop down
 
     public void PriceConfirmSetActive()
@@ -216,6 +235,14 @@ public class AnimationTrade : MonoBehaviour
     {
         FanFarePortraits.SetTrigger("Play");
     }
+
+
+
+    public void CloseEndTradeOverview()
+    {
+        FanFarePortraits.SetTrigger("Close");
+    }
+
 
     public void ReshuffleItems()
     {

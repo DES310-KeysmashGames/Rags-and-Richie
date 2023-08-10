@@ -10,6 +10,14 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] Button optionsButton;
     [SerializeField] Button quitButton;
+    //[SerializeField] Button closeButton;
+    //[SerializeField] Button guideButton;
+    //[SerializeField] Button traveltutButton;
+    //[SerializeField] Button itemtutButton;
+    //[SerializeField] Button customertutButton;
+    //[SerializeField] Button reactionstutButton;
+    //[SerializeField] Button daystutButton;
+    //[SerializeField] Button close2Button;
     [SerializeField] AnimationTrade shutterClosing;
     public AK.Wwise.Event buttonClickEvent;
     private bool playing;
@@ -35,7 +43,9 @@ public class MainMenuUI : MonoBehaviour
 
             //Options Button Audio
             buttonClickEvent.Post(gameObject);
+
         });
+
 
         quitButton.onClick.AddListener(()=> {
             //Main Menu Button Audio
