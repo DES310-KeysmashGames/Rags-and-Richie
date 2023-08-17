@@ -947,17 +947,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-   void ResetToMenu()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Loader.Load(Loader.Scene.MainMenuScene);
-            itemManager.Reset();
-            character.Reset();
-            ResetLevel();
-        }
-    }
-
    public void HoverItem1()
     {
         itemCard.enabled = true;
