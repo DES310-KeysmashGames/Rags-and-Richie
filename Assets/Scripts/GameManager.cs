@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour
     private bool itemsShown;
     private bool bargain;
     private int introLength;
+    private int tutorialLength;
     private int introCount;
     private bool textProgression;
     private bool dealOver;
@@ -123,6 +124,7 @@ public class GameManager : MonoBehaviour
     private bool wooshBool;
     private bool endingBool;
     private int emotionTracker;
+    private int day;
 
     //audio 
     public AK.Wwise.Event playerApproachEvent;
@@ -266,7 +268,18 @@ public class GameManager : MonoBehaviour
         openingDayStart.DayStarting();
         ending = false;
         endingTimer = 5.0f;
-        NewCustomer();
+        day = StaticTravel.dayCount;
+
+        //Run Tutorial Customer on Day 1, otherwise run New Customer
+        if (day == 1)
+        {
+            TutorialCustomer();
+        }
+        else
+        {
+            NewCustomer();
+        }
+
         IconTextSort();
         trade = false;
         bargain = false;
@@ -426,6 +439,22 @@ public class GameManager : MonoBehaviour
         itemManager.GenerateItemStock(character.GetPrimaryDesire());
         print(character.GetPrimaryDesire());
         IconTextSort();
+        turnsRemainingText.text = "3";
+    }
+
+    //Tutorial Customer to show Users how to play
+    void TutorialCustomer()
+    {
+        customerAnimations.CustomerSpeakingArrive();            // Customer arriving animation
+        playerApproachEvent.Post(gameObject);                   // Customer approach sound
+                                                                // 
+        character.GenerateTutorialCustomer();                   // Generates Tutorial Character
+        customer.sprite = character.GetSprite();                // Generates Character Sprite
+      
+        tutorialLength = character.GetTutorialLength();         // Get Tutorial Text Nodes
+        bargainSpeech.text = "" + character.GetTutorialIntro(); // Play Tutorial Text Dialogue
+        typewriter.SetText(bargainSpeech.text);                 // Run Text Animation
+        custDialogueEvent.Post(gameObject);                     // Customer Speech sound
         turnsRemainingText.text = "3";
     }
 
