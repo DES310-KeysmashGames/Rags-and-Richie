@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AnimationTrade closingDayEnd;
     [SerializeField] AnimationTrade richieReacting;
     [SerializeField] AnimationTrade itemHovers;
-
+    [SerializeField] AnimationTrade customerSaleReactions;
 
 
 
@@ -797,6 +797,7 @@ public class GameManager : MonoBehaviour
     void AcceptDeal()
     {
         blinkingMoney.BlinkingCurrencyActive();
+        customerSaleReactions.HappyCustomerSale();
         richieReacting.RichiePerfect();
         saleSuccess.Post(gameObject);
         Debug.Log("accept deal");
@@ -837,6 +838,7 @@ public class GameManager : MonoBehaviour
     void DeclineDeal()
     {
         dealOver = true;
+        customerSaleReactions.AngryCustomerSale();
         richieReacting.RichieBad();
         saleFailure.Post(gameObject);
         custAngryEvent.Post(gameObject);
