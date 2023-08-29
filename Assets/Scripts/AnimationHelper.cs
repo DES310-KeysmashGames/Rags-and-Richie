@@ -8,6 +8,7 @@ public class AnimationHelper : MonoBehaviour
     private bool wobbleBool;
     private bool smooshBool;
     private bool wooshBool;
+    [SerializeField] Animator Portrait;
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +17,26 @@ public class AnimationHelper : MonoBehaviour
         wobbleBool = false;
         smooshBool = false;
         wooshBool = false;
+        Portrait = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Jump"))
+        {
+            SkipAnimation();
+        }
     }
+
+    public void SkipAnimation()
+    {
+        Portrait.speed = 15;
+        Debug.Log("Animation Skipping");
+    }
+
+
+
 
     public void SetBool()
     {

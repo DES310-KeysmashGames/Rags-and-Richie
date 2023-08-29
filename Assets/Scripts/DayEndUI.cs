@@ -8,6 +8,7 @@ public class DayEndUI : MonoBehaviour
 {
     AnimationHelper helper;
 
+
     [SerializeField] public List<BaseItem> soldItemsReviewList = new List<BaseItem>();
     [SerializeField] public List<Sprite> charSpriteList = new List<Sprite>();
     public List<int> soldPrice = new List<int>();
