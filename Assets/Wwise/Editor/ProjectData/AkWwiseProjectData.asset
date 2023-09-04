@@ -393,7 +393,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 6136e2c9251d0442a8e75cfbe027296a
     GuidInternal: 
-    m_lastTime: -8585096026140426022
+    m_lastTime: -8585088957497970408
     List:
     - name: Play_amb_background_music_01
       guid: a0a3a3140e095a4b8dbba2b624cbefa6
@@ -956,7 +956,7 @@ MonoBehaviour:
     m_lastTime: -8585184488249658095
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000
+  ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

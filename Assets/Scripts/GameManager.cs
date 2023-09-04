@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
     private int introLength;
     private int tutorialLength;
     private int introCount;
+    private int tutorialCount;
     private bool textProgression;
     private bool dealOver;
     [SerializeField] private int customerCount;
@@ -347,7 +348,6 @@ public class GameManager : MonoBehaviour
                 Loader.Load(Loader.Scene.DayEndScene);
             }
         }
-        ResetToMenu();
         walletText.text = wallet.ToString();
         if (!itemsShown)
         {
@@ -427,18 +427,25 @@ public class GameManager : MonoBehaviour
     {
         customerAnimations.CustomerSpeakingArrive();
         playerApproachEvent.Post(gameObject);
+
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
+
         introLength = character.GetIntroLength();
         bargainSpeech.text = "" + character.GetIntro(introCount);
+
         typewriter.SetText(bargainSpeech.text);
         custDialogueEvent.Post(gameObject);
+
         custName.text = "" + character.GetCustName();
         introCount = 1;
+
         speechBubbleImage.sprite = speechBubbles[2];
         itemManager.GenerateItemStock(character.GetPrimaryDesire());
+
         print(character.GetPrimaryDesire());
         IconTextSort();
+
         turnsRemainingText.text = "3";
     }
 
@@ -452,9 +459,20 @@ public class GameManager : MonoBehaviour
         customer.sprite = character.GetSprite();                // Generates Character Sprite
       
         tutorialLength = character.GetTutorialLength();         // Get Tutorial Text Nodes
-        bargainSpeech.text = "" + character.GetTutorialIntro(); // Play Tutorial Text Dialogue
+        bargainSpeech.text = "" + character.GetTutorialIntro(tutorialCount); // Play Tutorial Text Dialogue
+
         typewriter.SetText(bargainSpeech.text);                 // Run Text Animation
         custDialogueEvent.Post(gameObject);                     // Customer Speech sound
+
+        custName.text = "" + character.GetCustName();
+        tutorialCount = 1;
+
+        speechBubbleImage.sprite = speechBubbles[2];
+        itemManager.GenerateItemStock(character.GetPrimaryDesire());
+
+        print(character.GetPrimaryDesire());
+        IconTextSort();
+
         turnsRemainingText.text = "3";
     }
 
