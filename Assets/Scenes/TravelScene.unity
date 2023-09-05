@@ -396,6 +396,9 @@ MonoBehaviour:
   shelfLock: {fileID: 0}
   OpeningDay: {fileID: 0}
   DayEndingClose: {fileID: 0}
+  richieReactions: {fileID: 0}
+  itemcardAppear: {fileID: 0}
+  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
@@ -648,6 +651,7 @@ GameObject:
   - component: {fileID: 789197633}
   - component: {fileID: 789197629}
   - component: {fileID: 789197630}
+  - component: {fileID: 789197634}
   m_Layer: 0
   m_Name: TravelManager
   m_TagString: Untagged
@@ -805,6 +809,21 @@ MonoBehaviour:
   textSpeed: 80
   textDelay: 0.5
   sendDoneDelay: 0.25
+--- !u!114 &789197634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789197626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff272def0e0e24429b3620797c8bc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 7a75a32ab4a15234db44f5deb810b1d0, type: 3}
+  cursorTextureHeld: {fileID: 2800000, guid: 3ad6981aef189654db3503cf65f1128e, type: 3}
+  cursorClick: {x: 15, y: 0}
 --- !u!1 &851372073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1344,9 @@ MonoBehaviour:
   shelfLock: {fileID: 0}
   OpeningDay: {fileID: 0}
   DayEndingClose: {fileID: 0}
+  richieReactions: {fileID: 0}
+  itemcardAppear: {fileID: 0}
+  customerSales: {fileID: 0}
   CityPulse: {fileID: 1377739628}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
@@ -1686,6 +1708,9 @@ MonoBehaviour:
   shelfLock: {fileID: 0}
   OpeningDay: {fileID: 0}
   DayEndingClose: {fileID: 0}
+  richieReactions: {fileID: 0}
+  itemcardAppear: {fileID: 0}
+  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 1638254820}
@@ -2917,6 +2942,9 @@ MonoBehaviour:
   shelfLock: {fileID: 0}
   OpeningDay: {fileID: 0}
   DayEndingClose: {fileID: 0}
+  richieReactions: {fileID: 0}
+  itemcardAppear: {fileID: 0}
+  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 2136903301}
   tutorialTravelText: {fileID: 0}

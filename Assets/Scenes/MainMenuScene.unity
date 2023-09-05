@@ -5852,6 +5852,7 @@ MonoBehaviour:
   DayEndingClose: {fileID: 0}
   richieReactions: {fileID: 0}
   itemcardAppear: {fileID: 0}
+  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
@@ -6551,6 +6552,7 @@ GameObject:
   - component: {fileID: 1275069057}
   - component: {fileID: 1275069060}
   - component: {fileID: 1275069061}
+  - component: {fileID: 1275069062}
   m_Layer: 5
   m_Name: MainMenuUI
   m_TagString: Untagged
@@ -6664,15 +6666,7 @@ MonoBehaviour:
   optionsCanvas: {fileID: 148538774}
   playButton: {fileID: 1761060983}
   optionsButton: {fileID: 780852145}
-  closeButton: {fileID: 1515517356}
   quitButton: {fileID: 341038235}
-  guideButton: {fileID: 471162444}
-  traveltutButton: {fileID: 116664073}
-  itemtutButton: {fileID: 341385032}
-  customertutButton: {fileID: 1119857168}
-  reactionstutButton: {fileID: 1585545494}
-  daystutButton: {fileID: 970288483}
-  close2Button: {fileID: 118825555}
   shutterClosing: {fileID: 1139326497}
   buttonClickEvent:
     idInternal: 0
@@ -6726,6 +6720,21 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
+--- !u!114 &1275069062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275069052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff272def0e0e24429b3620797c8bc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 7a75a32ab4a15234db44f5deb810b1d0, type: 3}
+  cursorTextureHeld: {fileID: 2800000, guid: 3ad6981aef189654db3503cf65f1128e, type: 3}
+  cursorClick: {x: 15, y: 0}
 --- !u!1 &1309851205
 GameObject:
   m_ObjectHideFlags: 0
