@@ -269,15 +269,9 @@ public class CharacterManager : MonoBehaviour
         currentChar = character[12];
     }
 
-    //Get number of text nodes in tutorial intro
-    public int GetTutorialLength()
+    //Bagman
+    internal void GenerateBagman()
     {
-        return currentChar.introText.Count;
-    }
-
-    //Get tutorial intro dialogue
-    public string GetTutorialIntro(int introNo)
-    {
-        return currentChar.introText[introNo].lineOfDialogue;
+        currentChar = character[13];
     }
 }

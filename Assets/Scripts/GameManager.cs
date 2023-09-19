@@ -112,9 +112,7 @@ public class GameManager : MonoBehaviour
     private bool itemsShown;
     private bool bargain;
     private int introLength;
-    private int tutorialLength;
     private int introCount;
-    private int tutorialCount;
     private bool textProgression;
     private bool dealOver;
     [SerializeField] private int customerCount;
@@ -126,6 +124,7 @@ public class GameManager : MonoBehaviour
     private bool endingBool;
     private int emotionTracker;
     private int day;
+    private static bool bagmanIntroPlayed;
 
     //audio 
     public AK.Wwise.Event playerApproachEvent;
@@ -271,13 +270,24 @@ public class GameManager : MonoBehaviour
         endingTimer = 5.0f;
         day = StaticTravel.dayCount;
 
-        //Run Tutorial Customer on Day 1, otherwise run New Customer
+        // Check what stage the gameplay loop is at
         if (day == 1)
         {
-            TutorialCustomer();
+            //If all customers have been played, run Bagman Intro
+            if (!bagmanIntroPlayed && customerCount == 4)
+            {
+                BagmanIntro();
+                bagmanIntroPlayed = true; // Set the flag to true after BagmanIntro has been played
+            }
+            else
+            {
+                //Play tutorial 
+                TutorialCustomer();
+            }
         }
         else
         {
+            //Generate regular customers
             NewCustomer();
         }
 
@@ -452,20 +462,20 @@ public class GameManager : MonoBehaviour
     //Tutorial Customer to show Users how to play
     void TutorialCustomer()
     {
-        customerAnimations.CustomerSpeakingArrive();            // Customer arriving animation
-        playerApproachEvent.Post(gameObject);                   // Customer approach sound
-                                                                // 
-        character.GenerateTutorialCustomer();                   // Generates Tutorial Character
-        customer.sprite = character.GetSprite();                // Generates Character Sprite
-      
-        tutorialLength = character.GetTutorialLength();         // Get Tutorial Text Nodes
-        bargainSpeech.text = "" + character.GetTutorialIntro(tutorialCount); // Play Tutorial Text Dialogue
+        customerAnimations.CustomerSpeakingArrive();
+        playerApproachEvent.Post(gameObject);
 
-        typewriter.SetText(bargainSpeech.text);                 // Run Text Animation
-        custDialogueEvent.Post(gameObject);                     // Customer Speech sound
+        character.GenerateTutorialCustomer();
+        customer.sprite = character.GetSprite();
+
+        introLength = character.GetIntroLength();
+        bargainSpeech.text = "" + character.GetIntro(introCount);
+
+        typewriter.SetText(bargainSpeech.text);
+        custDialogueEvent.Post(gameObject);
 
         custName.text = "" + character.GetCustName();
-        tutorialCount = 1;
+        introCount = 1;
 
         speechBubbleImage.sprite = speechBubbles[2];
         itemManager.GenerateItemStock(character.GetPrimaryDesire());
@@ -475,6 +485,27 @@ public class GameManager : MonoBehaviour
 
         turnsRemainingText.text = "3";
     }
+
+    void BagmanIntro()
+    {
+        customerAnimations.CustomerSpeakingArrive();
+        playerApproachEvent.Post(gameObject);
+
+        character.GenerateBagman();  // Replace with a function to generate your specialized character
+        customer.sprite = character.GetSprite();
+
+        introLength = character.GetIntroLength();
+        bargainSpeech.text = "" + character.GetIntro(introCount);
+
+        typewriter.SetText(bargainSpeech.text);
+        custDialogueEvent.Post(gameObject);
+
+        custName.text = "" + character.GetCustName();
+        introCount = 1;
+
+        speechBubbleImage.sprite = speechBubbles[2];
+    }
+
 
     //displays the items available for sale.
     void ItemsForSale()

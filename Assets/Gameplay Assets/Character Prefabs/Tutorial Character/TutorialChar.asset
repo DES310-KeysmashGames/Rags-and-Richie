@@ -21,10 +21,15 @@ MonoBehaviour:
   weaponDesire: 1
   machineryDesire: 1
   luxuryDesire: 1
+  specialDesire: 0
   introText:
   - {fileID: 11400000, guid: 91b27ab7bb847f14e879efa0e34e79ef, type: 2}
   - {fileID: 11400000, guid: 36c07fb3470a5da4f8fbd29a4184df19, type: 2}
-  introText2: []
-  introText3: []
+  introText2:
+  - {fileID: 11400000, guid: 91b27ab7bb847f14e879efa0e34e79ef, type: 2}
+  - {fileID: 11400000, guid: 36c07fb3470a5da4f8fbd29a4184df19, type: 2}
+  introText3:
+  - {fileID: 11400000, guid: 91b27ab7bb847f14e879efa0e34e79ef, type: 2}
+  - {fileID: 11400000, guid: 36c07fb3470a5da4f8fbd29a4184df19, type: 2}
   patiece: 0
   desperation: 0

@@ -15184,6 +15184,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14570fedfa8f927418a4589bd220a437, type: 2}
   - {fileID: 11400000, guid: 4608f75e6ab096646b15366557111e3a, type: 2}
   - {fileID: 11400000, guid: 16300d5db7ded5441b4b8a88430747a3, type: 2}
+  - {fileID: 11400000, guid: 16300d5db7ded5441b4b8a88430747a3, type: 2}
   prevCustomer: []
   currentChar: {fileID: 0}
   tradeSpeech:
