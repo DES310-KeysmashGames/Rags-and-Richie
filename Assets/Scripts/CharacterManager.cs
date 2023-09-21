@@ -44,15 +44,21 @@ public class CharacterManager : MonoBehaviour
             }
         }
 
-        //If it's day 1, Disable Rushing Randy
-        //If it's not day 1, Disable Tutorial Randy
-        if (day == 1 && character[index].name == character[0].name)
+        //Disable Regular Randy on day 1 (because Tutorial Randy appears)
+        if (day == 1)
         {
-            custExists = true;
-        }
-        else if (day != 1 && character[index].name == character[12].name)
+            //If day 1 and regular Randy is generated, skip
+            if (character[index].name == character[0].name)
+            {
+                custExists = true;
+            }
+        } else if (day != 1)
         {
-            custExists = true;
+            //If NOT day 1 and tutorial Randy is generated, skip
+            if (character[index].name == character[12].name)
+            {
+                custExists = true;
+            }
         }
 
         if (!custExists)

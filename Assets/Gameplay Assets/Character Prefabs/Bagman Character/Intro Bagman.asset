@@ -23,9 +23,37 @@ MonoBehaviour:
   luxuryDesire: 0
   specialDesire: 0
   introText:
-  - {fileID: 0}
-  - {fileID: 0}
-  introText2: []
-  introText3: []
-  patiece: 0
+  - {fileID: 11400000, guid: da9321095ec560441b5b7fd1fbe45816, type: 2}
+  - {fileID: 11400000, guid: c41e5c064b47bb643bddfd2f235de8b1, type: 2}
+  - {fileID: 11400000, guid: c9b768455459aea4783a3f2f498c7519, type: 2}
+  - {fileID: 11400000, guid: 8355e8801a11e2f4ea5f228816721b39, type: 2}
+  - {fileID: 11400000, guid: 0af89ef085c6cb04bb5f1ded0700a588, type: 2}
+  - {fileID: 11400000, guid: 477e976d953f38443903c15ecb4545f8, type: 2}
+  - {fileID: 11400000, guid: 88dd95a07448c7547be4329f3a315652, type: 2}
+  - {fileID: 11400000, guid: 67403c0ee7ec1e541ade73a4cc272434, type: 2}
+  - {fileID: 11400000, guid: 35fb7c7c0fe2c7942a0ae377a3e788e3, type: 2}
+  - {fileID: 11400000, guid: 430a4d1bfe8638f4189d2ff4b2ff27f4, type: 2}
+  introText2:
+  - {fileID: 11400000, guid: da9321095ec560441b5b7fd1fbe45816, type: 2}
+  - {fileID: 11400000, guid: c41e5c064b47bb643bddfd2f235de8b1, type: 2}
+  - {fileID: 11400000, guid: c9b768455459aea4783a3f2f498c7519, type: 2}
+  - {fileID: 11400000, guid: 8355e8801a11e2f4ea5f228816721b39, type: 2}
+  - {fileID: 11400000, guid: 0af89ef085c6cb04bb5f1ded0700a588, type: 2}
+  - {fileID: 11400000, guid: 477e976d953f38443903c15ecb4545f8, type: 2}
+  - {fileID: 11400000, guid: 88dd95a07448c7547be4329f3a315652, type: 2}
+  - {fileID: 11400000, guid: 67403c0ee7ec1e541ade73a4cc272434, type: 2}
+  - {fileID: 11400000, guid: 35fb7c7c0fe2c7942a0ae377a3e788e3, type: 2}
+  - {fileID: 11400000, guid: 430a4d1bfe8638f4189d2ff4b2ff27f4, type: 2}
+  introText3:
+  - {fileID: 11400000, guid: da9321095ec560441b5b7fd1fbe45816, type: 2}
+  - {fileID: 11400000, guid: c41e5c064b47bb643bddfd2f235de8b1, type: 2}
+  - {fileID: 11400000, guid: c9b768455459aea4783a3f2f498c7519, type: 2}
+  - {fileID: 11400000, guid: 8355e8801a11e2f4ea5f228816721b39, type: 2}
+  - {fileID: 11400000, guid: 0af89ef085c6cb04bb5f1ded0700a588, type: 2}
+  - {fileID: 11400000, guid: 477e976d953f38443903c15ecb4545f8, type: 2}
+  - {fileID: 11400000, guid: 88dd95a07448c7547be4329f3a315652, type: 2}
+  - {fileID: 11400000, guid: 67403c0ee7ec1e541ade73a4cc272434, type: 2}
+  - {fileID: 11400000, guid: 35fb7c7c0fe2c7942a0ae377a3e788e3, type: 2}
+  - {fileID: 11400000, guid: 430a4d1bfe8638f4189d2ff4b2ff27f4, type: 2}
+  patiece: 100
   desperation: 0

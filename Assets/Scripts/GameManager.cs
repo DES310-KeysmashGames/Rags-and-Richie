@@ -160,10 +160,12 @@ public class GameManager : MonoBehaviour
                 StaticInventory.sellPrice.Add(itemManager.sellPrice[i]); 
                 buttonPressEvent.Post(gameObject);
             }
+
             itemManager.Reset();
             character.Reset();
             Loader.Load(Loader.Scene.DayEndScene);
         });
+
         for (int i = 0; i < itemButtons.Length; ++i)
         {
             int index = i;
@@ -277,7 +279,7 @@ public class GameManager : MonoBehaviour
             if (!bagmanIntroPlayed && customerCount == 4)
             {
                 BagmanIntro();
-                bagmanIntroPlayed = true; // Set the flag to true after BagmanIntro has been played
+                bagmanIntroPlayed = true;
             }
             else
             {
@@ -491,7 +493,7 @@ public class GameManager : MonoBehaviour
         customerAnimations.CustomerSpeakingArrive();
         playerApproachEvent.Post(gameObject);
 
-        character.GenerateBagman();  // Replace with a function to generate your specialized character
+        character.GenerateBagman(); 
         customer.sprite = character.GetSprite();
 
         introLength = character.GetIntroLength();
@@ -893,14 +895,12 @@ public class GameManager : MonoBehaviour
         wallet += (int)setPrice;
         wallet += tipBonus;
         wallet += dupeBonus;
+
         if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
         }
-        else
-        {
-            ResetLevel();
-        }
+
         setPrice = 0;
         tipBonus = 0;
         dupeBonus = 0;
@@ -909,6 +909,15 @@ public class GameManager : MonoBehaviour
         PlayerUserInterface.RaiseUI();
         customerAnimations.CustomerSpeakingLeave();
 
+        if (customerCount == 4 && !bagmanIntroPlayed)
+        {
+            BagmanIntro();
+            bagmanIntroPlayed = true;
+        }
+        else
+        {
+            ResetLevel();
+        }
     }
 
     void DeclineDeal()
@@ -929,15 +938,21 @@ public class GameManager : MonoBehaviour
         {
             nextCustomerButton.gameObject.SetActive(true);
         }
-        else
-        {
-            ResetLevel();
-        }
+
         setPrice = 0;
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
         customerAnimations.CustomerSpeakingLeave();
 
+        if (customerCount == 4 && !bagmanIntroPlayed)
+        {
+            BagmanIntro();
+            bagmanIntroPlayed = true;
+        }
+        else
+        {
+            ResetLevel();
+        }
     }
 
     void ResetLevel()
