@@ -493,6 +493,7 @@ public class GameManager : MonoBehaviour
         if (itemManager.GetPrimaryTag(selectedItem) == itemOfTheDay || itemManager.GetSecondaryTag(selectedItem) == itemOfTheDay)
         {
             tipBonus = UnityEngine.Random.Range(5, 13);
+            //customerSaleReactions.TippedCustomerSale();
         }
         else
         {

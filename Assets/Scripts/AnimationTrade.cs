@@ -224,6 +224,11 @@ public class AnimationTrade : MonoBehaviour
         customerSales.SetTrigger("Angry");
     }
 
+    public void TippedCustomerSale()
+    {
+        customerSales.SetTrigger("Tipped");
+    }
+
 
     // Blinking Emoticon Animation
     public void BlinkingEmoticonActive()
