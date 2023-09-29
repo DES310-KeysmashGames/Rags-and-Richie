@@ -275,17 +275,8 @@ public class GameManager : MonoBehaviour
         // Check what stage the gameplay loop is at
         if (day == 1)
         {
-            //If all customers have been played, run Bagman Intro
-            if (!bagmanIntroPlayed && customerCount == 4)
-            {
-                BagmanIntro();
-                bagmanIntroPlayed = true;
-            }
-            else
-            {
-                //Play tutorial 
-                TutorialCustomer();
-            }
+            //Play tutorial 
+            TutorialCustomer();
         }
         else
         {
@@ -506,6 +497,7 @@ public class GameManager : MonoBehaviour
         introCount = 1;
 
         speechBubbleImage.sprite = speechBubbles[2];
+
     }
 
 
@@ -896,9 +888,19 @@ public class GameManager : MonoBehaviour
         wallet += tipBonus;
         wallet += dupeBonus;
 
-        if (customerCount < 4)
+        if (customerCount == 4 && !bagmanIntroPlayed)
+        {
+            BagmanIntro();
+            bagmanIntroPlayed = true;
+            ResetLevel();
+        }
+        else if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            ResetLevel();
         }
 
         setPrice = 0;
@@ -908,16 +910,6 @@ public class GameManager : MonoBehaviour
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
         customerAnimations.CustomerSpeakingLeave();
-
-        if (customerCount == 4 && !bagmanIntroPlayed)
-        {
-            BagmanIntro();
-            bagmanIntroPlayed = true;
-        }
-        else
-        {
-            ResetLevel();
-        }
     }
 
     void DeclineDeal()
@@ -934,25 +926,26 @@ public class GameManager : MonoBehaviour
         charEmote.enabled = false;
         character.SaleOver();
         bargain = false;
-        if (customerCount < 4)
+
+        if (customerCount == 4 && !bagmanIntroPlayed)
+        {
+            BagmanIntro();
+            bagmanIntroPlayed = true;
+            ResetLevel();
+        }
+        else if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            ResetLevel();
         }
 
         setPrice = 0;
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
         customerAnimations.CustomerSpeakingLeave();
-
-        if (customerCount == 4 && !bagmanIntroPlayed)
-        {
-            BagmanIntro();
-            bagmanIntroPlayed = true;
-        }
-        else
-        {
-            ResetLevel();
-        }
     }
 
     void ResetLevel()

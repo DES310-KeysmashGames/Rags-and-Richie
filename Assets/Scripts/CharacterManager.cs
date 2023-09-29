@@ -61,6 +61,12 @@ public class CharacterManager : MonoBehaviour
             }
         }
 
+        //Disable Bagman from being generated randomly
+        if (character[index].name == character[13].name)
+        {
+            custExists = true;
+        }
+
         if (!custExists)
         {
             currentChar = character[index];

@@ -100,9 +100,4 @@ public class TypeWriterTextScript : MonoBehaviour
 
         CompleteTextRevealed?.Invoke();
     }
-
-    internal bool IsTyping()
-    {
-        throw new NotImplementedException();
-    }
 }
