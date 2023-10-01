@@ -252,6 +252,10 @@ public class AnimationTrade : MonoBehaviour
         FanFarePortraits.SetTrigger("Play");
     }
 
+    public void PortraitsClose()
+    {
+        FanFarePortraits.SetTrigger("Close");
+    }
 
 
     public void CloseEndTradeOverview()
