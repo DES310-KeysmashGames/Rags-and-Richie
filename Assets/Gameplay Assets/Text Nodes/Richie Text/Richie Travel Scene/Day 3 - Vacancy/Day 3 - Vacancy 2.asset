@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
+  m_Name: Day 3 - Vacancy 2
+  m_EditorClassIdentifier: 
+  lineOfDialogue: "People go here if they wanna save money, but it goes both ways.
+    <color=#FFCC00>Lower travel costs</color> for us, and <color=#000099>customers
+    that won\u2019t give out tips</color>."
+  category: 6

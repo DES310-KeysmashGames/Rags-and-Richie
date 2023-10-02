@@ -398,7 +398,6 @@ MonoBehaviour:
   DayEndingClose: {fileID: 0}
   richieReactions: {fileID: 0}
   itemcardAppear: {fileID: 0}
-  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
@@ -406,7 +405,6 @@ MonoBehaviour:
   travelcloseShutter: {fileID: 673617820}
   FanFarePortraits: {fileID: 0}
   mainmenutransition: {fileID: 0}
---- !u!1 &734507931
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1346,7 +1344,6 @@ MonoBehaviour:
   DayEndingClose: {fileID: 0}
   richieReactions: {fileID: 0}
   itemcardAppear: {fileID: 0}
-  customerSales: {fileID: 0}
   CityPulse: {fileID: 1377739628}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
@@ -1354,7 +1351,6 @@ MonoBehaviour:
   travelcloseShutter: {fileID: 0}
   FanFarePortraits: {fileID: 0}
   mainmenutransition: {fileID: 0}
---- !u!95 &1377739628
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -1710,7 +1706,6 @@ MonoBehaviour:
   DayEndingClose: {fileID: 0}
   richieReactions: {fileID: 0}
   itemcardAppear: {fileID: 0}
-  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 1638254820}
@@ -2944,7 +2939,6 @@ MonoBehaviour:
   DayEndingClose: {fileID: 0}
   richieReactions: {fileID: 0}
   itemcardAppear: {fileID: 0}
-  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 2136903301}
   tutorialTravelText: {fileID: 0}
@@ -2952,7 +2946,6 @@ MonoBehaviour:
   travelcloseShutter: {fileID: 0}
   FanFarePortraits: {fileID: 0}
   mainmenutransition: {fileID: 0}
---- !u!1 &2137794067
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Donna 1.2
   m_EditorClassIdentifier: 
-  lineOfDialogue: "I need something to make <color=#FFCC00>dangerous traps</color>
+  lineOfDialogue: "I need something to make <color=#FFCC00>dangerous</color> traps
     with. I\u2019ll catch them in the act!"
   category: 1

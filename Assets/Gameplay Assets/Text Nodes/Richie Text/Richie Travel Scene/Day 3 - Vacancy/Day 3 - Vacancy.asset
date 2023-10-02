@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Day 3 - Vacancy
   m_EditorClassIdentifier: 
   lineOfDialogue: "The motel here is as cheap as it gets. Means we <color=#FFCC00>don\u2019t
-    need to pay much to get there</color>, but <color=#000099>don\u2019t expect many
-    customers to tip</color>."
+    need to pay much to stay there</color>, but <color=#000099>don\u2019t expect
+    many customers to tip</color>."
   category: 6

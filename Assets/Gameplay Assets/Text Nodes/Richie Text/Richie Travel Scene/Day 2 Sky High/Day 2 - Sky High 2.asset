@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
+  m_Name: Day 2 - Sky High 2
+  m_EditorClassIdentifier: 
+  lineOfDialogue: "Some folk still wanna live in skyscrapers despite how cold it
+    can be that high up. They\u2019d likely <color=#FFCC00>tip</color> us if we can
+    provide them some <color=#FFCC00>warm</color> stuff."
+  category: 6
