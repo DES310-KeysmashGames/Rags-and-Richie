@@ -8,6 +8,7 @@ public class DayEndUI : MonoBehaviour
 {
     AnimationHelper helper;
 
+
     [SerializeField] public List<BaseItem> soldItemsReviewList = new List<BaseItem>();
     [SerializeField] public List<Sprite> charSpriteList = new List<Sprite>();
     public List<int> soldPrice = new List<int>();
@@ -28,6 +29,7 @@ public class DayEndUI : MonoBehaviour
     [SerializeField] private int wallet;
     [SerializeField] private TextMeshProUGUI sellPriceText;
     [SerializeField] private TextMeshProUGUI totalprofitText;
+    [SerializeField] private TextMeshProUGUI acquiredMoneyText;
 
     [SerializeField] AnimationTrade closeShutterEnd;
 
@@ -78,6 +80,7 @@ public class DayEndUI : MonoBehaviour
         wallet = PlayerPrefs.GetInt("wallet");
         shuffleCostText.text = StaticTravel.shuffleCosts.ToString();
         travelExpensesText.text = StaticTravel.expenses.ToString();
+        acquiredMoneyText.text = wallet.ToString();
     }
 
     private void Start(){
@@ -125,6 +128,15 @@ public class DayEndUI : MonoBehaviour
                 dailyGoalBar.fillAmount = (wallet / goal);
                 sellAmount -= 1;
                 fillBool = false;
+                acquiredMoneyText.text = wallet.ToString();
+            }
+            else if (sellAmount < 0)
+            {
+                wallet -= 1;
+                dailyGoalBar.fillAmount = (wallet / goal);
+                sellAmount += 1;
+                fillBool = false;
+                acquiredMoneyText.text = wallet.ToString();
             }
             fillBool = false;
         }

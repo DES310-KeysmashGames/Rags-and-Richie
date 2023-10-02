@@ -1154,6 +1154,8 @@ MonoBehaviour:
   DayEndingClose: {fileID: 0}
   richieReactions: {fileID: 0}
   itemcardAppear: {fileID: 0}
+
+  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 0}
@@ -2108,11 +2110,15 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1317834726}
-  - component: {fileID: 1317834728}
-  - component: {fileID: 1317834727}
-  m_Layer: 5
-  m_Name: Wallet Amount
+
+  - component: {fileID: 789197628}
+  - component: {fileID: 789197627}
+  - component: {fileID: 789197633}
+  - component: {fileID: 789197629}
+  - component: {fileID: 789197630}
+  - component: {fileID: 789197634}
+  m_Layer: 0
+  m_Name: TravelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2233,9 +2239,33 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317834725}
-  m_CullTransparentMesh: 1
---- !u!1 &1377739625
+  m_GameObject: {fileID: 789197626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29b1d35e43c53946bd06f30c1217853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 1918187891}
+  characterIndex: 0
+  textSpeed: 80
+  textDelay: 0.5
+  sendDoneDelay: 0.25
+--- !u!114 &789197634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789197626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff272def0e0e24429b3620797c8bc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 7a75a32ab4a15234db44f5deb810b1d0, type: 3}
+  cursorTextureHeld: {fileID: 2800000, guid: 3ad6981aef189654db3503cf65f1128e, type: 3}
+  cursorClick: {x: 15, y: 0}
+--- !u!1 &851372073
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2675,7 +2705,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621690965}
   m_CullTransparentMesh: 1
---- !u!1 &1630792191
+--- !u!1 &1377739625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377739626}
+  - component: {fileID: 1377739628}
+  - component: {fileID: 1377739627}
+  m_Layer: 3
+  m_Name: CityButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1377739626
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377739625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2037348124}
+  - {fileID: 851372074}
+  - {fileID: 1961407047}
+  m_Father: {fileID: 774880466}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.47790527, y: 0.000061035156}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1377739627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377739625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e60d57f4b27ccc458268f5ba1995e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bargainPhaseAnimation: {fileID: 0}
+  priceConfirmAnimation: {fileID: 0}
+  PlayerUserInterface: {fileID: 0}
+  customerAnimations: {fileID: 0}
+  speechBubble: {fileID: 0}
+  blinkingMoney: {fileID: 0}
+  blinkingEmoticon: {fileID: 0}
+  shelfLock: {fileID: 0}
+  OpeningDay: {fileID: 0}
+  DayEndingClose: {fileID: 0}
+  richieReactions: {fileID: 0}
+  itemcardAppear: {fileID: 0}
+  customerSales: {fileID: 0}
+  CityPulse: {fileID: 1377739628}
+  truckVroom: {fileID: 0}
+  tutorialTravelText: {fileID: 0}
+  travelopenShutter: {fileID: 0}
+  travelcloseShutter: {fileID: 0}
+  FanFarePortraits: {fileID: 0}
+  mainmenutransition: {fileID: 0}
+--- !u!95 &1377739628
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377739625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 507d5b8964fac6545843555f1f033a22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1409826839
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3011,6 +3134,7 @@ MonoBehaviour:
   DayEndingClose: {fileID: 0}
   richieReactions: {fileID: 0}
   itemcardAppear: {fileID: 0}
+  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 0}
   tutorialTravelText: {fileID: 1638254820}
@@ -4380,6 +4504,7 @@ MonoBehaviour:
   DayEndingClose: {fileID: 0}
   richieReactions: {fileID: 0}
   itemcardAppear: {fileID: 0}
+  customerSales: {fileID: 0}
   CityPulse: {fileID: 0}
   truckVroom: {fileID: 2136903301}
   tutorialTravelText: {fileID: 0}

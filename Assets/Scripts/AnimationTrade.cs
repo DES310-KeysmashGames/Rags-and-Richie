@@ -18,6 +18,7 @@ public class AnimationTrade : MonoBehaviour
     [SerializeField] Animator DayEndingClose;
     [SerializeField] Animator richieReactions;
     [SerializeField] Animator itemcardAppear;
+    [SerializeField] Animator customerSales;
 
     //Travel Scene Animations
     [Header("Travel Scene Animations")]
@@ -213,6 +214,21 @@ public class AnimationTrade : MonoBehaviour
         blinkingMoney.SetTrigger("Blink");
     }
 
+    public void HappyCustomerSale()
+    {
+        customerSales.SetTrigger("Happy");
+    }
+
+    public void AngryCustomerSale()
+    {
+        customerSales.SetTrigger("Angry");
+    }
+
+    public void TippedCustomerSale()
+    {
+        customerSales.SetTrigger("Tipped");
+    }
+
 
     // Blinking Emoticon Animation
     public void BlinkingEmoticonActive()
@@ -236,6 +252,10 @@ public class AnimationTrade : MonoBehaviour
         FanFarePortraits.SetTrigger("Play");
     }
 
+    public void PortraitsClose()
+    {
+        FanFarePortraits.SetTrigger("Close");
+    }
 
 
     public void CloseEndTradeOverview()
