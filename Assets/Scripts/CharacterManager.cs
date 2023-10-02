@@ -23,11 +23,18 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] TextDialogue[] declineTrade;
     [SerializeField] TextDialogue[] zeroPatience;
     private int introTextNo;
-    
+    private int day;
+
+    private void Start()
+    {
+        day = StaticTravel.dayCount;
+    }
+
     //generates a random customer from the available list of possible customers, with an intro text.
     public void GenerateCustomer()
     {
         int index = UnityEngine.Random.Range(0, character.Length);
+
         //checks to see if the customer has already visited today.
         for (int i = 0; i < prevCustomer.Count; i++)
         {
@@ -36,6 +43,30 @@ public class CharacterManager : MonoBehaviour
                 custExists = true;
             }
         }
+
+        //Disable Regular Randy on day 1 (because Tutorial Randy appears)
+        if (day == 1)
+        {
+            //If day 1 and regular Randy is generated, skip
+            if (character[index].name == character[0].name)
+            {
+                custExists = true;
+            }
+        } else if (day != 1)
+        {
+            //If NOT day 1 and tutorial Randy is generated, skip
+            if (character[index].name == character[12].name)
+            {
+                custExists = true;
+            }
+        }
+
+        //Disable Bagman from being generated randomly
+        if (character[index].name == character[13].name)
+        {
+            custExists = true;
+        }
+
         if (!custExists)
         {
             currentChar = character[index];
@@ -240,5 +271,19 @@ public class CharacterManager : MonoBehaviour
         {
             prevCustomer.RemoveAt(i);
         }
+    }
+
+    //Tutorial Randy
+
+    //Set character to tutorial character
+    public void GenerateTutorialCustomer()
+    {
+        currentChar = character[12];
+    }
+
+    //Bagman
+    internal void GenerateBagman()
+    {
+        currentChar = character[13];
     }
 }

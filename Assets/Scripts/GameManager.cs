@@ -123,6 +123,8 @@ public class GameManager : MonoBehaviour
     private bool wooshBool;
     private bool endingBool;
     private int emotionTracker;
+    private int day;
+    private static bool bagmanIntroPlayed;
 
     //audio 
     public AK.Wwise.Event playerApproachEvent;
@@ -158,10 +160,12 @@ public class GameManager : MonoBehaviour
                 StaticInventory.sellPrice.Add(itemManager.sellPrice[i]); 
                 buttonPressEvent.Post(gameObject);
             }
+
             itemManager.Reset();
             character.Reset();
             Loader.Load(Loader.Scene.DayEndScene);
         });
+
         for (int i = 0; i < itemButtons.Length; ++i)
         {
             int index = i;
@@ -266,7 +270,20 @@ public class GameManager : MonoBehaviour
         openingDayStart.DayStarting();
         ending = false;
         endingTimer = 5.0f;
-        NewCustomer();
+        day = StaticTravel.dayCount;
+
+        // Check what stage the gameplay loop is at
+        if (day == 1)
+        {
+            //Play tutorial 
+            TutorialCustomer();
+        }
+        else
+        {
+            //Generate regular customers
+            NewCustomer();
+        }
+
         IconTextSort();
         trade = false;
         bargain = false;
@@ -334,7 +351,6 @@ public class GameManager : MonoBehaviour
                 Loader.Load(Loader.Scene.DayEndScene);
             }
         }
-        ResetToMenu();
         walletText.text = wallet.ToString();
         if (!itemsShown)
         {
@@ -414,21 +430,77 @@ public class GameManager : MonoBehaviour
     {
         customerAnimations.CustomerSpeakingArrive();
         playerApproachEvent.Post(gameObject);
+
         character.GenerateCustomer();
         customer.sprite = character.GetSprite();
+
         introLength = character.GetIntroLength();
         bargainSpeech.text = "" + character.GetIntro(introCount);
+
         typewriter.SetText(bargainSpeech.text);
         custDialogueEvent.Post(gameObject);
+
         custName.text = "" + character.GetCustName();
         introCount = 1;
+
         speechBubbleImage.sprite = speechBubbles[2];
         itemManager.GenerateItemStock(character.GetPrimaryDesire());
+
         print(character.GetPrimaryDesire());
         IconTextSort();
+
         turnsRemainingText.text = "3";
         patience = 0;
     }
+
+    //Tutorial Customer to show Users how to play
+    void TutorialCustomer()
+    {
+        customerAnimations.CustomerSpeakingArrive();
+        playerApproachEvent.Post(gameObject);
+
+        character.GenerateTutorialCustomer();
+        customer.sprite = character.GetSprite();
+
+        introLength = character.GetIntroLength();
+        bargainSpeech.text = "" + character.GetIntro(introCount);
+
+        typewriter.SetText(bargainSpeech.text);
+        custDialogueEvent.Post(gameObject);
+
+        custName.text = "" + character.GetCustName();
+        introCount = 1;
+
+        speechBubbleImage.sprite = speechBubbles[2];
+        itemManager.GenerateItemStock(character.GetPrimaryDesire());
+
+        print(character.GetPrimaryDesire());
+        IconTextSort();
+
+        turnsRemainingText.text = "3";
+    }
+
+    void BagmanIntro()
+    {
+        customerAnimations.CustomerSpeakingArrive();
+        playerApproachEvent.Post(gameObject);
+
+        character.GenerateBagman(); 
+        customer.sprite = character.GetSprite();
+
+        introLength = character.GetIntroLength();
+        bargainSpeech.text = "" + character.GetIntro(introCount);
+
+        typewriter.SetText(bargainSpeech.text);
+        custDialogueEvent.Post(gameObject);
+
+        custName.text = "" + character.GetCustName();
+        introCount = 1;
+
+        speechBubbleImage.sprite = speechBubbles[2];
+
+    }
+
 
     //displays the items available for sale.
     void ItemsForSale()
@@ -818,7 +890,14 @@ public class GameManager : MonoBehaviour
         wallet += (int)setPrice;
         wallet += tipBonus;
         wallet += dupeBonus;
-        if (customerCount < 4)
+
+        if (customerCount == 4 && !bagmanIntroPlayed)
+        {
+            BagmanIntro();
+            bagmanIntroPlayed = true;
+            ResetLevel();
+        }
+        else if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
         }
@@ -826,6 +905,7 @@ public class GameManager : MonoBehaviour
         {
             ResetLevel();
         }
+
         setPrice = 0;
         tipBonus = 0;
         dupeBonus = 0;
@@ -833,7 +913,6 @@ public class GameManager : MonoBehaviour
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
         customerAnimations.CustomerSpeakingLeave();
-
     }
 
     void DeclineDeal()
@@ -851,7 +930,14 @@ public class GameManager : MonoBehaviour
         charEmote.enabled = false;
         character.SaleOver();
         bargain = false;
-        if (customerCount < 4)
+
+        if (customerCount == 4 && !bagmanIntroPlayed)
+        {
+            BagmanIntro();
+            bagmanIntroPlayed = true;
+            ResetLevel();
+        }
+        else if (customerCount < 4)
         {
             nextCustomerButton.gameObject.SetActive(true);
         }
@@ -859,11 +945,11 @@ public class GameManager : MonoBehaviour
         {
             ResetLevel();
         }
+
         setPrice = 0;
         playerLeaveEvent.Post(gameObject);
         PlayerUserInterface.RaiseUI();
         customerAnimations.CustomerSpeakingLeave();
-
     }
 
     void ResetLevel()
@@ -949,17 +1035,6 @@ public class GameManager : MonoBehaviour
             shelfLock.ShelfClose();    
         }
         
-    }
-
-   void ResetToMenu()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Loader.Load(Loader.Scene.MainMenuScene);
-            itemManager.Reset();
-            character.Reset();
-            ResetLevel();
-        }
     }
 
    public void HoverItem1()
