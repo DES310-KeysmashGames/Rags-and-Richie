@@ -10,6 +10,15 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] Button optionsButton;
     [SerializeField] Button quitButton;
+    //[SerializeField] Button closeButton;
+    //[SerializeField] Button guideButton;
+    //[SerializeField] Button traveltutButton;
+    //[SerializeField] Button itemtutButton;
+    //[SerializeField] Button customertutButton;
+    //[SerializeField] Button reactionstutButton;
+    //[SerializeField] Button daystutButton;
+    //[SerializeField] Button close2Button;
+    [SerializeField] AnimationTrade shutterClosing;
     public AK.Wwise.Event buttonClickEvent;
     private bool playing;
     private bool playGame;
@@ -25,6 +34,7 @@ public class MainMenuUI : MonoBehaviour
             //click action
             buttonClickEvent.Post(gameObject);
             playGame = true;
+            shutterClosing.MainMenuTransition();
             //Main Menu Button Audio
 
         });
@@ -33,7 +43,9 @@ public class MainMenuUI : MonoBehaviour
 
             //Options Button Audio
             buttonClickEvent.Post(gameObject);
+
         });
+
 
         quitButton.onClick.AddListener(()=> {
             //Main Menu Button Audio
@@ -42,7 +54,7 @@ public class MainMenuUI : MonoBehaviour
 
             Application.Quit();
         });
-        timer = 1.0f;
+        timer = 3.0f;
         playGame = false;
     }
 
@@ -62,6 +74,7 @@ public class MainMenuUI : MonoBehaviour
         {
             Loader.Load(Loader.Scene.TravelScene);
             PlayerPrefs.SetInt("wallet", 0);
+            StaticTravel.goal = 500;
             StaticTravel.dayCount = 1;
         }
 

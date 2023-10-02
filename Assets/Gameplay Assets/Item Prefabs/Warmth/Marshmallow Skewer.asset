@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdffa84c60f47c64a86eba7398ebb0b0, type: 3}
+  m_Name: Marshmallow Skewer
+  m_EditorClassIdentifier: 
+  frontSprite: {fileID: 21300000, guid: 39fb1b5a77af0b94ea370fdcd023dea5, type: 3}
+  itemName: Marshmallow Skewer
+  primaryType: 2
+  secondaryType: 0
+  tertiaryType: 6
+  itemDescription: {fileID: 21300000, guid: fd0bb1a09e024a34f87f2d0462876796, type: 3}
+  Description: 
+  foodValue: 5
+  drinkValue: 0
+  warmthValue: 7
+  weaponValue: 4
+  machineryValue: 0
+  luxuryValue: 0

@@ -4,28 +4,105 @@ using UnityEngine;
 
 public class AnimationTrade : MonoBehaviour
 {
+    //Trade Scene Animations
+    [Header("Trade Scene Animations")]
     [SerializeField] Animator bargainPhaseAnimation;
     [SerializeField] Animator priceConfirmAnimation;
-    [SerializeField] Animator patienceMeterAnimation;
+    [SerializeField] Animator PlayerUserInterface;
     [SerializeField] Animator customerAnimations;
     [SerializeField] Animator speechBubble;
     [SerializeField] Animator blinkingMoney;
     [SerializeField] Animator blinkingEmoticon;
     [SerializeField] Animator shelfLock;
-    [SerializeField] Animator tutorialTravelText;
+    [SerializeField] Animator OpeningDay;
+    [SerializeField] Animator DayEndingClose;
+    [SerializeField] Animator richieReactions;
+    [SerializeField] Animator itemcardAppear;
+    [SerializeField] Animator customerSales;
+
+    //Travel Scene Animations
+    [Header("Travel Scene Animations")]
+    [SerializeField] Animator CityPulse;
     [SerializeField] Animator truckVroom;
+    [SerializeField] Animator tutorialTravelText;
+    [SerializeField] Animator travelopenShutter;
+    [SerializeField] Animator travelcloseShutter;
+
+    // End of Day Animation
+    [Header("EOD Animations")]
+    [SerializeField] Animator FanFarePortraits;
+
+    // Main Menu
+    [Header("Main Menu Animations")]
+    [SerializeField] Animator mainmenutransition;
+
+    GameManager gameManager;
+
+
 
 
     private void Awake()
     {
-
+        gameManager = GetComponent<GameManager>();
     }
+    // Truck Animation Travel Scene
+
+
+
+
+    public void MainMenuTransition()
+    {
+        mainmenutransition.SetTrigger("Close");
+    }
+
+
+    public void TravelOpenShutter()
+    {
+        travelopenShutter.SetTrigger("Open");
+    }
+
+    public void TravelCloseShutter()
+    {
+        travelcloseShutter.SetTrigger("Close");
+    }
+    //RICHIE ANIMATION REACTIONS
+    public void RichieGood()
+    {
+        richieReactions.SetTrigger("Good");
+    }
+
+    public void RichiePerfect()
+    {
+        richieReactions.SetTrigger("Perfect");
+    }
+
+    public void RichieBad()
+    {
+        richieReactions.SetTrigger("Bad");
+    }
+
+    public void RichieIdle()
+    {
+        richieReactions.SetTrigger("Idle");
+    }
+
+
 
     public void TruckDrive()
     {
         truckVroom.SetTrigger("Vroom");
     }
 
+    // City Breathing
+    public void CityButtons()
+    {
+        CityPulse.SetTrigger("Pulse"); // Makes Icon Pulsate
+    }
+
+    public void CityButtonsReset()
+    {
+        CityPulse.SetTrigger("Stop"); // Makes Icon Stop Pulsing
+    }
 
     // Tutorial Text Animations
 
@@ -53,6 +130,20 @@ public class AnimationTrade : MonoBehaviour
     }
 
 
+    //ItemCard Hover Animations
+
+    public void ItemHoverEnter()
+    {
+        itemcardAppear.SetTrigger("Hover");
+    }
+
+    public void ItemHoverClose()
+    {
+        itemcardAppear.SetTrigger("NoHover");
+    }
+
+
+
     // Price Adjuster Animation drop down
 
     public void PriceConfirmSetActive()
@@ -66,16 +157,16 @@ public class AnimationTrade : MonoBehaviour
     }
 
 
-    // Patience Meter Animation
-    public void PatienceMeterActive()
+    // UserInterface Animations
+    public void DropUI()
     {
-        patienceMeterAnimation.SetTrigger("Drop");
+        PlayerUserInterface.SetTrigger("DropUI");
     }
 
-     public void PatienceMeterInActive()
+     public void RaiseUI()
 
     {
-        patienceMeterAnimation.SetTrigger("Raise");
+        PlayerUserInterface.SetTrigger("RaiseUI");
     }
 
     // Customer Bobbing / Speaking Animation / Arrive / Leave
@@ -95,8 +186,22 @@ public class AnimationTrade : MonoBehaviour
     }
 
 
-    // Speech Bubble
+    public void DayStarting()
+    {
+        OpeningDay.SetTrigger("Opening");
+    }
 
+
+    public void DayEnding()
+    {
+        DayEndingClose.SetTrigger("Closing");
+    }
+
+
+
+
+
+    // Speech Bubble
     public void SpeechBubble()
     {
         speechBubble.SetTrigger("Speaking");
@@ -109,8 +214,23 @@ public class AnimationTrade : MonoBehaviour
         blinkingMoney.SetTrigger("Blink");
     }
 
-    // Blinking Emoticon Animation
+    public void HappyCustomerSale()
+    {
+        customerSales.SetTrigger("Happy");
+    }
 
+    public void AngryCustomerSale()
+    {
+        customerSales.SetTrigger("Angry");
+    }
+
+    public void TippedCustomerSale()
+    {
+        customerSales.SetTrigger("Tipped");
+    }
+
+
+    // Blinking Emoticon Animation
     public void BlinkingEmoticonActive()
     {
         blinkingEmoticon.SetTrigger("Blink");
@@ -126,6 +246,28 @@ public class AnimationTrade : MonoBehaviour
         shelfLock.SetTrigger("Open");
     }
 
+
+    public void PortraitAnimation()
+    {
+        FanFarePortraits.SetTrigger("Play");
+    }
+
+    public void PortraitsClose()
+    {
+        FanFarePortraits.SetTrigger("Close");
+    }
+
+
+    public void CloseEndTradeOverview()
+    {
+        FanFarePortraits.SetTrigger("Close");
+    }
+
+
+    public void ReshuffleItems()
+    {
+        shelfLock.SetTrigger("Shuffle");
+    }
 
 }
 

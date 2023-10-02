@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82191f3a53ac934448fa825569134fb2, type: 3}
+  m_Name: Daring Donna
+  m_EditorClassIdentifier: 
+  charSprite: {fileID: 21300000, guid: be6838def26cbcb4da19dede5411c471, type: 3}
+  CustName: Daring Donna
+  desire: 5
+  foodDesire: 1
+  drinkDesire: 1
+  warmthDesire: 1
+  weaponDesire: 8
+  machineryDesire: 1
+  luxuryDesire: 1
+  introText:
+  - {fileID: 11400000, guid: 8fa27233ab4398043b0e31979a0f047a, type: 2}
+  - {fileID: 11400000, guid: fc887b841f29c234cbaba48e4cd92423, type: 2}
+  - {fileID: 11400000, guid: 37c44f36cc829a94db31833d042d403b, type: 2}
+  introText2:
+  - {fileID: 11400000, guid: 5f5b6288594849042b0912a04d0cdbe9, type: 2}
+  - {fileID: 11400000, guid: 3c04fc90217907045b33b84add609569, type: 2}
+  - {fileID: 11400000, guid: ea07b5f59d5f7fe4e8c6d0404681c13d, type: 2}
+  introText3:
+  - {fileID: 11400000, guid: d712a9675a15fc442b6a5a8ec51b857f, type: 2}
+  - {fileID: 11400000, guid: e38c51cbfbf46584e99e5f6671c82c38, type: 2}
+  - {fileID: 11400000, guid: ae6c527647728614cafb7bd0b7f66d0b, type: 2}
+  patiece: 69
+  desperation: 6

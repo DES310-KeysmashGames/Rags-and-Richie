@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Dante 2.2
   m_EditorClassIdentifier: 
-  lineOfDialogue: My precious tools are gone! What ever am I to do without them?
+  lineOfDialogue: "I need <color=#FFCC00>weapons and machinery</color> to fix this
+    mess. But absolutely <color=#000099>nothing edible</color>! He can\u2019t get
+    any bigger!"
   category: 5

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 1 - Tutorial 1
   m_EditorClassIdentifier: 
-  lineOfDialogue: Morning Rags. I still can't believe you decided to become a merchant
-    in a world like this. Do you even know what these customers are willing to pay
-    for this junk?
+  lineOfDialogue: "Morning Rags! It\u2019s me, Richie! I still can\u2019t believe
+    you\u2019ve decided to become a merchant in a world like this."
   category: 6

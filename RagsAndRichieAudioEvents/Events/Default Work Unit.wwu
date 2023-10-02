@@ -8,7 +8,7 @@
 						<Action Name="" ID="{FA87EDDA-2287-4694-BEBD-AF5BE8E98777}" ShortID="558912475">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Dialogue Random Container" ID="{6CAB1174-0FEF-457A-8ECE-36BA417207D1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+									<ObjectRef Name="Dialogue Sequence Container" ID="{6CAB1174-0FEF-457A-8ECE-36BA417207D1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -31,7 +31,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Dialogue Random Container" ID="{6CAB1174-0FEF-457A-8ECE-36BA417207D1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+									<ObjectRef Name="Dialogue Sequence Container" ID="{6CAB1174-0FEF-457A-8ECE-36BA417207D1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -64,7 +64,7 @@
 						<Action Name="" ID="{6C66D821-6F17-4340-8A05-7C0138B94337}" ShortID="1010931068">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Angry Reaction Random Container" ID="{73680111-3219-4227-B737-62D02B23CBD0}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+									<ObjectRef Name="Reaction Angry Random Container" ID="{73680111-3219-4227-B737-62D02B23CBD0}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -208,6 +208,149 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="amb_background_music_01" ID="{F86E4AD8-4226-4715-A3BD-E40DCC1F61F2}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Astonished" ID="{D6E843FE-5EDC-432E-8905-7A8E434F4499}">
+					<ChildrenList>
+						<Action Name="" ID="{0E6AE07C-BF22-48D4-B438-89B99CDA122F}" ShortID="1038266566">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Reaction Astonished Random Container" ID="{A5118819-B9E5-4A0C-9590-7BDF6C953470}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Baffled" ID="{5CBAB859-B55E-44FE-8A4A-1C3B9B8E03D2}">
+					<ChildrenList>
+						<Action Name="" ID="{4E745A23-8D21-49C1-B95A-F98F36D5C0B7}" ShortID="463850499">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Reaction Baffled Random Container" ID="{88023E9C-5C8C-4562-B66A-7B4893A81032}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Diamond" ID="{D7F90BDB-E985-401C-9F8C-336ADED7C38C}">
+					<ChildrenList>
+						<Action Name="" ID="{FF22C41A-DAC5-4BD6-BD0E-103E588905EC}" ShortID="969304554">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Reaction Diamond Random Container" ID="{8EC814C1-FF3F-462C-B132-89BA1E2616D1}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Enraged" ID="{22788C3D-BA11-4D55-8019-F72AA344F7AD}">
+					<ChildrenList>
+						<Action Name="" ID="{FD56CF34-8159-465A-A774-7B58378FC0FF}" ShortID="887665907">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Reaction Enraged Random Container" ID="{16E7EAB6-21B9-44DE-AEB3-9180088B9FEB}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Surprised" ID="{2303D97A-36BD-4FD2-A667-773978271E33}">
+					<ChildrenList>
+						<Action Name="" ID="{7AF17850-F7D1-40A4-A5CE-492546790FB9}" ShortID="929712161">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Reaction Surprised Random Container" ID="{1DA01B42-7F54-4699-9107-60E903E9DA4B}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reaction_Sweat" ID="{5E1FF954-085B-4DE7-9FF4-336A5F945DB0}">
+					<ChildrenList>
+						<Action Name="" ID="{E37F5105-D8FC-4D99-B55F-84F1BCC851B7}" ShortID="4829321">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Reaction Sweat Random Container" ID="{45020381-7965-4223-9BF0-2D9F8A3C3DBE}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Goal_Complete" ID="{E7EDB6C5-C9BF-4505-8736-7043277290EB}">
+					<ChildrenList>
+						<Action Name="" ID="{1FE69F6F-A8E2-4EFD-83C6-3C6AEC7C06BB}" ShortID="3944539">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_goal_complete_01" ID="{1A8CBC99-09B9-4D76-A422-456F99F23356}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Goal_Fill" ID="{4681E732-CC55-4D8D-BB8F-7506B82331A0}">
+					<ChildrenList>
+						<Action Name="" ID="{A1FA3E83-3125-4FEC-9F63-8437BF429440}" ShortID="352305883">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_goal_fill_01" ID="{02A5676A-87DD-486F-978E-F14A603B60A0}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Recap_Shake" ID="{43321F59-188C-49F4-BDF8-A5899DA348CC}">
+					<ChildrenList>
+						<Action Name="" ID="{2675A19B-C92E-4C05-87B9-E5AD9785B8F9}" ShortID="426741784">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_recap_priceshake_01" ID="{D4EC636A-FDB6-4DE3-8FB0-6912F04A84EF}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Recap_Smash" ID="{88713E2C-9161-4B5E-BC4D-336BB2512906}">
+					<ChildrenList>
+						<Action Name="" ID="{E7AB3E77-A72D-4B2B-BF52-1A0D8A296512}" ShortID="58960886">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_recap_pricesmash_01" ID="{83DABBBF-6283-4A75-89FA-745EE9868FC4}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Recap_Woosh" ID="{F3903227-0115-4BD2-86FD-EB976DBFD892}">
+					<ChildrenList>
+						<Action Name="" ID="{07864849-C3A1-450D-B1A8-A7BF87FC28FC}" ShortID="550022945">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_recap_pricewoosh_01" ID="{E7FD1C99-8DA1-4FBD-82E7-35B1D4024B93}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reroll" ID="{F9C0610A-E4F2-4885-AF2E-514DA10DB6DB}">
+					<ChildrenList>
+						<Action Name="" ID="{F25110C0-9F70-457C-AF21-C5917C074F00}" ShortID="322131212">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_reroll_click_01" ID="{D72B4544-B8FE-4C13-91E9-3F0017F1489D}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_amb_tradingmusic_loop_01" ID="{8544BBF1-BE6D-4CAC-9DFA-9A6FD0365BB5}">
+					<ChildrenList>
+						<Action Name="" ID="{B3622C76-C9CC-4B59-988C-6B4FA73E282B}" ShortID="389120821">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="amb_tradingmusic_loop_01" ID="{C84ABCA4-7224-4678-B2AF-8E838F0573CA}" WorkUnitID="{DEC7D0D8-180A-440F-8EDF-188B3779E830}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

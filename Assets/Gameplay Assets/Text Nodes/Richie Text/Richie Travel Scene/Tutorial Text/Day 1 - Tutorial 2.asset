@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day 1 - Tutorial 2
   m_EditorClassIdentifier: 
-  lineOfDialogue: No? You haven't got a clue on the price? Okay... well how about
-    we give it a shot anyway to test the waters?
+  lineOfDialogue: "I\u2019ve scavenged together a great big pile of junk for you
+    to try and sell, and I\u2019ll keep finding more as customers approach, but..."
   category: 6

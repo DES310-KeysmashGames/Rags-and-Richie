@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Day Start 1
   m_EditorClassIdentifier: 
-  lineOfDialogue: "Ugh\u2026 I really dislike this place.. but we gotta trade, so
-    let's get this over with."
+  lineOfDialogue: "Ugh\u2026 I really <color=red> dislike </color> this place.. but
+    we gotta trade, so let's get this over with."
   category: 6

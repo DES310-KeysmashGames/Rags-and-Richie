@@ -3,17 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] BaseCharacter[] character;
-    [SerializeField] private List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
+    [SerializeField] public List<BaseCharacter> prevCustomer = new List<BaseCharacter>();
     public BaseCharacter currentChar;
     private bool custExists;
     [SerializeField] TextDialogue[] tradeSpeech;
-    [SerializeField] TextDialogue[] happyDialogue;
-    [SerializeField] TextDialogue[] okayDialogue;
+    [SerializeField] TextDialogue[] enragedDialogue;
     [SerializeField] TextDialogue[] angryDialogue;
+    [SerializeField] TextDialogue[] sweatDialogue;
+    [SerializeField] TextDialogue[] diamondDialogue;
+    [SerializeField] TextDialogue[] surprisedDialogue;
+    [SerializeField] TextDialogue[] astonishedDialogue;
+    [SerializeField] TextDialogue[] baffledDialogue;
     [SerializeField] TextDialogue[] acceptTrade;
     [SerializeField] TextDialogue[] declineTrade;
     [SerializeField] TextDialogue[] zeroPatience;
@@ -68,6 +73,16 @@ public class CharacterManager : MonoBehaviour
         }    
     }
 
+    public BaseCharacter GetCharacterList(int index)
+    {
+        return prevCustomer[index];
+    }
+
+    public Sprite GetCharSprite(int index)
+    {
+        return prevCustomer[index].charSprite;
+    }
+
     public Sprite GetSprite()
     {
         return currentChar.charSprite;
@@ -99,6 +114,11 @@ public class CharacterManager : MonoBehaviour
                 return currentChar.introText.Count;
         }
     }
+    public string GetEnragedText()
+    {
+        int i = UnityEngine.Random.Range(0, enragedDialogue.Length);
+        return enragedDialogue[i].lineOfDialogue;
+    }
 
     public string GetAngryText()
     {
@@ -106,18 +126,36 @@ public class CharacterManager : MonoBehaviour
         return angryDialogue[i].lineOfDialogue;
     }
 
-    public string GetHappyText()
+    public string GetSweatText()
     {
-        int i = UnityEngine.Random.Range(0, happyDialogue.Length);
-        return happyDialogue[i].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, sweatDialogue.Length);
+        return sweatDialogue[i].lineOfDialogue;
     }
 
-    public string GetOkayText()
+    public string GetDiamondText()
     {
-        int i = UnityEngine.Random.Range(0, okayDialogue.Length);
-        return okayDialogue[i].lineOfDialogue;
+        int i = UnityEngine.Random.Range(0, diamondDialogue.Length);
+        return diamondDialogue[i].lineOfDialogue;
     }
-    
+
+    public string GetSurprisedText()
+    {
+        int i = UnityEngine.Random.Range(0, surprisedDialogue.Length);
+        return surprisedDialogue[i].lineOfDialogue;
+    }
+
+    public string GetAstonishedText()
+    {
+        int i = UnityEngine.Random.Range(0, astonishedDialogue.Length);
+        return astonishedDialogue[i].lineOfDialogue;
+    }
+
+    public string GetBaffleeText()
+    {
+        int i = UnityEngine.Random.Range(0, baffledDialogue.Length);
+        return baffledDialogue[i].lineOfDialogue;
+    }
+
     public string GetAcceptTrade()
     {
         int i = UnityEngine.Random.Range(0, acceptTrade.Length);
@@ -134,6 +172,11 @@ public class CharacterManager : MonoBehaviour
     {
         int i = UnityEngine.Random.Range(0, zeroPatience.Length);
         return zeroPatience[i].lineOfDialogue;
+    }
+
+    public string GetPrimaryDesire()
+    {
+        return currentChar.desire.ToString();
     }
 
     public int GetFood()

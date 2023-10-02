@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Kevin 3.2
   m_EditorClassIdentifier: 
-  lineOfDialogue: Now I'm thirsty.
+  lineOfDialogue: Now I need a new <color=#FFCC00>drink</color>, and something to
+    help <color=#FFCC00>beat the broke</color> allegations.
   category: 1

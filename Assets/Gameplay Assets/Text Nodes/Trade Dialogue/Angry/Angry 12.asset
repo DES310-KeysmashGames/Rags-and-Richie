@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5416f1f6fd7f74390ee81795522729, type: 3}
   m_Name: Angry 12
   m_EditorClassIdentifier: 
-  lineOfDialogue: "Floppy disks don't grow on trees\u2026"
+  lineOfDialogue: "Please reconsider... I don\u2019t have that much!"
   category: 6
