@@ -54,7 +54,7 @@ public class MainMenuUI : MonoBehaviour
 
             Application.Quit();
         });
-        timer = 3.0f;
+        timer = 33.0f;
         playGame = false;
     }
 
