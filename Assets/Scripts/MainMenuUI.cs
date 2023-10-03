@@ -25,6 +25,8 @@ public class MainMenuUI : MonoBehaviour
     private float timer;
     private float sfx;
     private float music;
+    public AudioSource ComicSounds;
+    public AudioClip Clip;
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider SFXSlider;
 
@@ -35,6 +37,7 @@ public class MainMenuUI : MonoBehaviour
             buttonClickEvent.Post(gameObject);
             playGame = true;
             shutterClosing.MainMenuTransition();
+            ComicSounds.PlayOneShot(Clip);
             //Main Menu Button Audio
 
         });
