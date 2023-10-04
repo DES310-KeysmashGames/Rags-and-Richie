@@ -30,8 +30,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c04fc90217907045b33b84add609569, type: 2}
   - {fileID: 11400000, guid: ea07b5f59d5f7fe4e8c6d0404681c13d, type: 2}
   introText3:
-  - {fileID: 11400000, guid: 8fa27233ab4398043b0e31979a0f047a, type: 2}
-  - {fileID: 11400000, guid: fc887b841f29c234cbaba48e4cd92423, type: 2}
-  - {fileID: 11400000, guid: 37c44f36cc829a94db31833d042d403b, type: 2}
+  - {fileID: 11400000, guid: 10556d0a83ee64949a0a8932d72c9978, type: 2}
+  - {fileID: 11400000, guid: 13fe61c920cf0d3488e70f9bcc1139aa, type: 2}
+  - {fileID: 11400000, guid: 038490b677ec5ec40b2992725ba203b6, type: 2}
   patiece: 69
   desperation: 6
