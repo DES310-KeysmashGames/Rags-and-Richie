@@ -119,8 +119,6 @@ public class NewPauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
-
-
     }
 
     //Pause time, trigger Singleton, activate Menu UI
@@ -179,6 +177,8 @@ public class NewPauseMenu : MonoBehaviour
             tutorialScreens[3].gameObject.SetActive(false);
             tutorialScreens[4].gameObject.SetActive(false);
 
+            //Play button sound
+            button.Post(gameObject);
         });
 
         //Items Button
@@ -190,6 +190,8 @@ public class NewPauseMenu : MonoBehaviour
             tutorialScreens[3].gameObject.SetActive(false);
             tutorialScreens[4].gameObject.SetActive(false);
 
+            //Play button sound
+            button.Post(gameObject);
         });
 
         //Customer Button
@@ -201,6 +203,8 @@ public class NewPauseMenu : MonoBehaviour
             tutorialScreens[3].gameObject.SetActive(false);
             tutorialScreens[4].gameObject.SetActive(false);
 
+            //Play button sound
+            button.Post(gameObject);
         });
 
         //Customer Button
@@ -212,6 +216,8 @@ public class NewPauseMenu : MonoBehaviour
             tutorialScreens[3].gameObject.SetActive(true);
             tutorialScreens[4].gameObject.SetActive(false);
 
+            //Play button sound
+            button.Post(gameObject);
         });
 
         //Customer Button
@@ -223,6 +229,8 @@ public class NewPauseMenu : MonoBehaviour
             tutorialScreens[3].gameObject.SetActive(false);
             tutorialScreens[4].gameObject.SetActive(true);
 
+            //Play button sound
+            button.Post(gameObject);
         });
 
         //Close Button
@@ -233,6 +241,9 @@ public class NewPauseMenu : MonoBehaviour
             tutorialScreens[2].gameObject.SetActive(false);
             tutorialScreens[3].gameObject.SetActive(false);
             tutorialScreens[4].gameObject.SetActive(false);
+
+            //Play button sound
+            button.Post(gameObject);
 
             Settings();
         });
