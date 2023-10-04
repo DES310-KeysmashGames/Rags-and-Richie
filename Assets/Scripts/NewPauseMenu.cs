@@ -10,6 +10,8 @@ public class NewPauseMenu : MonoBehaviour
 {
     public static bool gamePaused = false;
     private bool optionsOn = false;
+    private bool isTutorial = false;
+    public float musicVol, sfxVol;
     private GameManager gameReset;
 
     [Header("Menu Panels")]
@@ -22,7 +24,16 @@ public class NewPauseMenu : MonoBehaviour
     [SerializeField] private Button menuButton;
 
     [Header("Options Menu Buttons")]
+    [SerializeField] private Image optionsUI;
     [SerializeField] private Button backButton;
+    [SerializeField] private Button guideButton;
+    [SerializeField] private Slider music;
+    [SerializeField] private Slider sfx;
+
+    [Header("Tutorial Buttons")]
+    [SerializeField] private GameObject tutorialMenu;
+    [SerializeField] private Button[] tutorialButtons;
+    [SerializeField] private GameObject[] tutorialScreens;
 
     //Wwise audio variables
     [Header("Audio Events")]
@@ -59,16 +70,20 @@ public class NewPauseMenu : MonoBehaviour
             Time.timeScale = 1f;
             gamePaused = false;
 
-            //Check what scene the pause menu is being used in
-            //if (SceneManager.GetActiveScene().name == "TradeScene")
-            //{
-            //    gameReset.ResetLevel();
-            //}
+            //Play button sound
+            button.Post(gameObject);
 
             //Return to main menu
             Loader.Load(Loader.Scene.MainMenuScene);
+        });
 
-            //Potentially pause background music
+        //Open Tutorial Menus
+        guideButton.onClick.AddListener(() =>
+        {
+            Guide();
+
+            //Play button sound
+            button.Post(gameObject);
         });
 
         //Return to Pause Menu
@@ -87,7 +102,11 @@ public class NewPauseMenu : MonoBehaviour
         //Pause or Resume if Escape is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gamePaused && optionsOn)
+            if (optionsOn && isTutorial)
+            {
+                Settings();
+            }
+            else if (gamePaused && optionsOn)
             {
                 Back();
             }
@@ -100,6 +119,8 @@ public class NewPauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
+
+
     }
 
     //Pause time, trigger Singleton, activate Menu UI
@@ -126,9 +147,95 @@ public class NewPauseMenu : MonoBehaviour
         optionsButton.gameObject.SetActive(false);
         menuButton.gameObject.SetActive(false);
 
+        //Disable tutorial buttons
+        isTutorial = false;
+        tutorialMenu.gameObject.SetActive(false);   
+
         //Enable Settings menu
         optionsOn = true;
         optionsMenu.gameObject.SetActive(true);
+        music.gameObject.SetActive(true);
+        sfx.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(true);
+    }
+    void Guide()
+    {
+        //Disable Options Menu
+        music.gameObject.SetActive(false);
+        sfx.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
+
+        //Enable Tutorial Screens
+        isTutorial = true;
+        tutorialMenu.gameObject.SetActive(true);
+        tutorialScreens[0].gameObject.SetActive(true);
+
+        //Travel Button
+        tutorialButtons[0].onClick.AddListener(() =>
+        {
+            tutorialScreens[0].gameObject.SetActive(true);
+            tutorialScreens[1].gameObject.SetActive(false);
+            tutorialScreens[2].gameObject.SetActive(false);
+            tutorialScreens[3].gameObject.SetActive(false);
+            tutorialScreens[4].gameObject.SetActive(false);
+
+        });
+
+        //Items Button
+        tutorialButtons[1].onClick.AddListener(() =>
+        {
+            tutorialScreens[0].gameObject.SetActive(false);
+            tutorialScreens[1].gameObject.SetActive(true);
+            tutorialScreens[2].gameObject.SetActive(false);
+            tutorialScreens[3].gameObject.SetActive(false);
+            tutorialScreens[4].gameObject.SetActive(false);
+
+        });
+
+        //Customer Button
+        tutorialButtons[2].onClick.AddListener(() =>
+        {
+            tutorialScreens[0].gameObject.SetActive(false);
+            tutorialScreens[1].gameObject.SetActive(false);
+            tutorialScreens[2].gameObject.SetActive(true);
+            tutorialScreens[3].gameObject.SetActive(false);
+            tutorialScreens[4].gameObject.SetActive(false);
+
+        });
+
+        //Customer Button
+        tutorialButtons[3].onClick.AddListener(() =>
+        {
+            tutorialScreens[0].gameObject.SetActive(false);
+            tutorialScreens[1].gameObject.SetActive(false);
+            tutorialScreens[2].gameObject.SetActive(false);
+            tutorialScreens[3].gameObject.SetActive(true);
+            tutorialScreens[4].gameObject.SetActive(false);
+
+        });
+
+        //Customer Button
+        tutorialButtons[4].onClick.AddListener(() =>
+        {
+            tutorialScreens[0].gameObject.SetActive(false);
+            tutorialScreens[1].gameObject.SetActive(false);
+            tutorialScreens[2].gameObject.SetActive(false);
+            tutorialScreens[3].gameObject.SetActive(false);
+            tutorialScreens[4].gameObject.SetActive(true);
+
+        });
+
+        //Close Button
+        tutorialButtons[5].onClick.AddListener(() =>
+        {
+            tutorialScreens[0].gameObject.SetActive(false);
+            tutorialScreens[1].gameObject.SetActive(false);
+            tutorialScreens[2].gameObject.SetActive(false);
+            tutorialScreens[3].gameObject.SetActive(false);
+            tutorialScreens[4].gameObject.SetActive(false);
+
+            Settings();
+        });
     }
 
     void Back()
@@ -141,5 +248,17 @@ public class NewPauseMenu : MonoBehaviour
         resumeButton.gameObject.SetActive(true);
         optionsButton.gameObject.SetActive(true);
         menuButton.gameObject.SetActive(true);
+    }
+
+    public void SetSFXVolume()
+    {
+        sfxVol = sfx.value;
+        AkSoundEngine.SetRTPCValue("SFXVolume", sfxVol);
+    }
+
+    public void SetMusicVolume()
+    {
+        musicVol = music.value;
+        AkSoundEngine.SetRTPCValue("MusicVolume", musicVol);
     }
 }
