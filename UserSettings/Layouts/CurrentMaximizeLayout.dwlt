@@ -24,7 +24,6 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 21269
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +147,6 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 21270
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +171,6 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 21271
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,10 +188,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 485
-    height: 801
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -233,7 +226,6 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6eb0ffff34b3ffff3cb6ffffc0b8ffff3abaffff30bbffffdabcfffff0bfffff42c5ffffd4c7ffffd0cfffffc4d2ffff5ad8ffff60dbffffe8dbffff4edcfffff6dfffff9ee1ffffb8e4ffff20e7ffff60e9fffff4ecffff54f3ffff04f5ffffe0f7ffff2cf8ffff12faffffb86b0000bc6b0000c66b0000f26c00004e6d00005c6e00008c6e000018a000001ca0000026a0000052a10000aea100004aa20000bca20000eca2000040a9000086bc00008abc000094bc0000c0bd00001cbe000064be0000b8be00002abf00005abf000014ce000040cf0000aad0000012e7000016e7000020e700004ce80000a8e8000044e90000b6e90000e6e9000082f1000086f1000090f10000bcf2000018f30000b4f3000026f4000056f4000008030100120301003e0401009a04010036050100a8050100d8050100e4100100e8100100f21001001e1201007a1201001613010088130100b813010006180100321901009c1a0100cc1a01001c1f010048200100b22101003a2d01003e2d0100482d0100742e0100d02e01006c2f0100de2f01000e300100903401009a340100c63501002236010030370100603701007e380100aa390100143b0100443b01004846010074470100d0470100de4801000e4901005e4d01008a4e0100e64e0100f44f010024500100b0540100dc550100385601004657010076570100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -274,10 +266,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 485
     y: 0
-    width: 1610
-    height: 801
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -670,11 +658,6 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 801
-    width: 2095
-    height: 498
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
@@ -723,22 +706,16 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Programming\KeysmashGames\Rags-and-Richie
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 43}
-    m_SelectedIDs: 7c660000
-    m_LastClickedID: 26236
-    m_ExpandedIDs: 000000001066000012660000146600001666000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -766,7 +743,6 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001066000012660000146600001666000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -793,7 +769,6 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000706600005c8300007a6300007e6300009e630000546d00005a630000627100006a630000da780000ae630000ce6300004e63000098650000d2620000ca620000e6620000d0670000ea6200003263000056630000da620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

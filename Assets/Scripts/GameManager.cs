@@ -450,7 +450,7 @@ public class GameManager : MonoBehaviour
     void CalculatePrice()
     {
         dupecount = itemManager.DupeCheck(selectedItem);
-        basePrice = ((character.GetDrink() * itemManager.GetDrinkValue(selectedItem)) /** drinkMultiplier*/) + ((character.GetFood() * itemManager.GetFoodValue(selectedItem)) /** foodMultiplier*/) + ((character.GetLuxury() + itemManager.GetLuxuryValue(selectedItem)) /** luxuryMultiplier*/)
+        basePrice = ((character.GetDrink() * itemManager.GetDrinkValue(selectedItem)) /** drinkMultiplier*/) + ((character.GetFood() * itemManager.GetFoodValue(selectedItem)) /** foodMultiplier*/) + ((character.GetLuxury() * itemManager.GetLuxuryValue(selectedItem)) /** luxuryMultiplier*/)
             + ((character.GetWeapon() * itemManager.GetWeaponValue(selectedItem)) /** weaponMultiplier*/) + ((character.GetWarmth() * itemManager.GetWarmthValue(selectedItem)) /** warmthMultiplier*/) + ((character.GetMachinery() * itemManager.GetMachineryValue(selectedItem)) /** machineryMultiplier*/);
         InitialOfferPhaseSetActive();
         priceBox.text = setPrice.ToString("00");
