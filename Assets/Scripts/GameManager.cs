@@ -334,7 +334,7 @@ public class GameManager : MonoBehaviour
                 Loader.Load(Loader.Scene.DayEndScene);
             }
         }
-        ResetToMenu();
+        //ResetToMenu();
         walletText.text = wallet.ToString();
         if (!itemsShown)
         {
@@ -951,16 +951,16 @@ public class GameManager : MonoBehaviour
         
     }
 
-   void ResetToMenu()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Loader.Load(Loader.Scene.MainMenuScene);
-            itemManager.Reset();
-            character.Reset();
-            ResetLevel();
-        }
-    }
+   //void ResetToMenu()
+    //{
+        //if(Input.GetKeyDown(KeyCode.Escape))
+        //{
+            //Loader.Load(Loader.Scene.MainMenuScene);
+            //itemManager.Reset();
+          //  character.Reset();
+        //    ResetLevel();
+      //  }
+    //}
 
    public void HoverItem1()
     {
